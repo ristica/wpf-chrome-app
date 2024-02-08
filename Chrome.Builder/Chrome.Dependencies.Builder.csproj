@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Chrome.Dependencies.Contracts\Chrome.Dependencies.Contracts.csproj" />
+    <ProjectReference Include="..\Chrome.Dependencies\Chrome.Dependencies.csproj" />
+  </ItemGroup>
+
+</Project>

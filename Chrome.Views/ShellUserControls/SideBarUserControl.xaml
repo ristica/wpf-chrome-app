@@ -16,9 +16,7 @@
                        Text="M"
                        Foreground="Yellow"
                        FontSize="20"
-                       FontWeight="Bold">
-
-            </TextBlock>
+                       FontWeight="Bold" />
         </Border>
         <Border Grid.Row="1"
                 Background="#212121"
@@ -35,54 +33,42 @@
                             CornerRadius="4"
                             Margin="4,0,4,0"
                             HorizontalAlignment="Stretch"
-                            Height="28">
-
-                    </Border>
+                            Height="28" />
                     <Border Background="#444444"
                             BorderBrush="#444444"
                             BorderThickness="1"
                             CornerRadius="4"
                             Margin="4,6,4,0"
                             HorizontalAlignment="Stretch"
-                            Height="28">
-
-                    </Border>
+                            Height="28" />
                     <Border Background="#444444"
                             BorderBrush="#444444"
                             BorderThickness="1"
                             CornerRadius="4"
                             Margin="4,6,4,0"
                             HorizontalAlignment="Stretch"
-                            Height="28">
-
-                    </Border>
+                            Height="28" />
                     <Border Background="#444444"
                             BorderBrush="#444444"
                             BorderThickness="1"
                             CornerRadius="4"
                             Margin="4,6,4,0"
                             HorizontalAlignment="Stretch"
-                            Height="28">
-
-                    </Border>
+                            Height="28" />
                     <Border Background="#444444"
                             BorderBrush="#444444"
                             BorderThickness="1"
                             CornerRadius="4"
                             Margin="4,6,4,0"
                             HorizontalAlignment="Stretch"
-                            Height="28">
-
-                    </Border>
+                            Height="28" />
                     <Border Background="#444444"
                             BorderBrush="#444444"
                             BorderThickness="1"
                             CornerRadius="4"
                             Margin="4,6,4,0"
                             HorizontalAlignment="Stretch"
-                            Height="28">
-
-                    </Border>
+                            Height="28" />
 
                 </StackPanel>
             </Grid>

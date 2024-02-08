@@ -7,4 +7,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Chrome.Dependencies.Contracts\Chrome.Dependencies.Contracts.csproj" />
+    <ProjectReference Include="..\Chrome.ViewModels\Chrome.ViewModels.csproj" />
+    <ProjectReference Include="..\Chrome.Views.Contracts\Chrome.Views.Contracts.csproj" />
+    <ProjectReference Include="..\Chrome.Views\Chrome.Views.csproj" />
+  </ItemGroup>
+
 </Project>

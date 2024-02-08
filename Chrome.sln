@@ -13,7 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Views", "Chrome.View
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Views.Contracts", "Chrome.Views.Contracts\Chrome.Views.Contracts.csproj", "{A58D0FF3-8393-43A1-A8AF-96CF80A73584}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chrome.Starter", "Chrome.Starter\Chrome.Starter.csproj", "{CDD3FDA8-6CD6-44DF-86CA-AAF46089B7D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Dependencies.Builder", "Chrome.Builder\Chrome.Dependencies.Builder.csproj", "{2726A183-0DB1-4896-B336-C89EB0AD0046}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Dependencies", "Chrome.Dependencies\Chrome.Dependencies.csproj", "{6EF8874B-A6F9-4E48-8E9E-5D4E3302DF6C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Dependencies.Contracts", "Chrome.Dependencies.Contracts\Chrome.Dependencies.Contracts.csproj", "{0774B3AD-3DB0-46BA-AD7D-F3EB253BB646}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chrome.Common", "Chrome.Common\Chrome.Common.csproj", "{2474BDA9-1E4F-4510-A922-B767ACF10F37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chrome.Starter", "Chrome.Starter\Chrome.Starter.csproj", "{19452FC1-33DA-4FD7-A5F7-877F17F3B218}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +49,26 @@ Global
 		{A58D0FF3-8393-43A1-A8AF-96CF80A73584}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A58D0FF3-8393-43A1-A8AF-96CF80A73584}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A58D0FF3-8393-43A1-A8AF-96CF80A73584}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CDD3FDA8-6CD6-44DF-86CA-AAF46089B7D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CDD3FDA8-6CD6-44DF-86CA-AAF46089B7D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CDD3FDA8-6CD6-44DF-86CA-AAF46089B7D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CDD3FDA8-6CD6-44DF-86CA-AAF46089B7D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2726A183-0DB1-4896-B336-C89EB0AD0046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2726A183-0DB1-4896-B336-C89EB0AD0046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2726A183-0DB1-4896-B336-C89EB0AD0046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2726A183-0DB1-4896-B336-C89EB0AD0046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EF8874B-A6F9-4E48-8E9E-5D4E3302DF6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EF8874B-A6F9-4E48-8E9E-5D4E3302DF6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EF8874B-A6F9-4E48-8E9E-5D4E3302DF6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EF8874B-A6F9-4E48-8E9E-5D4E3302DF6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0774B3AD-3DB0-46BA-AD7D-F3EB253BB646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0774B3AD-3DB0-46BA-AD7D-F3EB253BB646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0774B3AD-3DB0-46BA-AD7D-F3EB253BB646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0774B3AD-3DB0-46BA-AD7D-F3EB253BB646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2474BDA9-1E4F-4510-A922-B767ACF10F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2474BDA9-1E4F-4510-A922-B767ACF10F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2474BDA9-1E4F-4510-A922-B767ACF10F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2474BDA9-1E4F-4510-A922-B767ACF10F37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19452FC1-33DA-4FD7-A5F7-877F17F3B218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19452FC1-33DA-4FD7-A5F7-877F17F3B218}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19452FC1-33DA-4FD7-A5F7-877F17F3B218}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19452FC1-33DA-4FD7-A5F7-877F17F3B218}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

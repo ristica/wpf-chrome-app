@@ -12,8 +12,8 @@
         <Setter Property="Margin"
                 Value="1" />
         <Setter Property="BorderThickness"
-                Value="1"></Setter>
-        <Setter Property="Padding" Value="20,8"></Setter>
+                Value="1" />
+        <Setter Property="Padding" Value="20,8" />
     </Style>
 
 </ResourceDictionary>

@@ -22,11 +22,15 @@
                 <TextBlock VerticalAlignment="Center"
                            HorizontalAlignment="Right"
                            Margin="0,0,0,0"
-                           Foreground="#fff">18:44:23</TextBlock>
+                           Foreground="#fff">
+                    18:44:23
+                </TextBlock>
                 <TextBlock VerticalAlignment="Center"
                            HorizontalAlignment="Right"
                            Margin="10,0,15,0"
-                           Foreground="#fff">08.02.2024</TextBlock>
+                           Foreground="#fff">
+                    08.02.2024
+                </TextBlock>
             </StackPanel>
 
         </Grid>

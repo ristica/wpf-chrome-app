@@ -7,4 +7,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Chrome.Dependencies.Contracts\Chrome.Dependencies.Contracts.csproj" />
+    <ProjectReference Include="..\Chrome.ViewModels.Contracts\Chrome.ViewModels.Contracts.csproj" />
+    <ProjectReference Include="..\Chrome.Views.Contracts\Chrome.Views.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\" />
+  </ItemGroup>
+
 </Project>
