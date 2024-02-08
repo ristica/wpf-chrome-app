@@ -2,6 +2,38 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Resources>
-         
+
+        <!-- COLORS -->
+        <Color x:Key="PrimaryColor">DarkBlue</Color>
+        <Color x:Key="SecondaryColor">Yellow</Color>
+        <Color x:Key="DarkColor">#212121</Color>
+        <Color x:Key="LightColor">#EEEEEE</Color>
+        <Color x:Key="NoColor">#00000000</Color>
+
+        <!-- BRUSHES -->
+        <SolidColorBrush x:Key="PrimaryBrush"
+                         Color="{StaticResource PrimaryColor}" />
+        <SolidColorBrush x:Key="TransparentBrush"
+                         Color="{StaticResource NoColor}" />
+        <SolidColorBrush x:Key="DefaultBackground" Color="{StaticResource DarkColor}" />
+
+
+        <!-- CONTROL TEMPLATES -->
+        <Style BasedOn="{StaticResource {x:Type Button}}"
+               TargetType="{x:Type Button}">
+            <Setter Property="Focusable"
+                    Value="False" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Stretch" />
+            <Setter Property="VerticalAlignment"
+                    Value="Stretch" />
+            <Setter Property="Margin"
+                    Value="1" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="Padding"
+                    Value="20,8" />
+        </Style>
+
     </Application.Resources>
 </Application>

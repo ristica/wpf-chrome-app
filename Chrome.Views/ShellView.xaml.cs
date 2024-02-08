@@ -1,9 +1,10 @@
-﻿using Chrome.Common;
+﻿using System.Windows;
+using Chrome.Common;
 using Chrome.Views.Contracts;
 
 namespace Chrome.Views;
 
-public partial class ShellView : IShellView
+public partial class ShellView : Window, IShellView
 {
     private IViewModel? _viewModel;
 

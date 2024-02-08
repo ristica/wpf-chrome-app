@@ -11,12 +11,11 @@
                 Grid.Column="0"
                 HorizontalAlignment="Stretch"
                 MouseLeftButtonDown="DragWindow"
-                Background="#212121"
+                Background="{StaticResource DefaultBackground}"
                 BorderBrush="Transparent"
                 BorderThickness="1"
                 CornerRadius="4"
                 Margin="1">
-
             <TextBlock VerticalAlignment="Center"
                        HorizontalAlignment="Left"
                        Margin="15,0,0,0"
@@ -30,26 +29,24 @@
                     Orientation="Horizontal"
                     Margin="1">
             <Border BorderBrush="Transparent"
-                    Background="#212121"
+                    Background="{StaticResource DefaultBackground}"
                     BorderThickness="1"
                     CornerRadius="4"
                     Margin="0,0,1,0"
                     Padding="1">
-                <Border x:Name="BtnMinimize"
-                        Width="38"
+                <Border Width="38"
                         VerticalAlignment="Stretch"
                         BorderBrush="Transparent"
                         Background="Transparent"
                         MouseLeftButtonUp="BtnMinimize_Click" />
             </Border>
             <Border BorderBrush="Transparent"
-                    Background="#212121"
+                    Background="{StaticResource DefaultBackground}"
                     BorderThickness="1"
                     CornerRadius="4"
                     Margin="0,0,2,0"
                     Padding="1">
-                <Border x:Name="BtnMaximize"
-                        Width="38"
+                <Border Width="38"
                         BorderBrush="Transparent"
                         Background="Transparent"
                         MouseLeftButtonUp="BtnMaximize_Click">
@@ -57,13 +54,12 @@
                 </Border>
             </Border>
             <Border BorderBrush="Transparent"
-                    Background="Firebrick"
+                    Background="{StaticResource DefaultBackground}"
                     BorderThickness="1"
                     CornerRadius="4"
                     Margin="0"
                     Padding="1">
-                <Border x:Name="BtnClose"
-                        Width="38"
+                <Border Width="38"
                         BorderBrush="Transparent"
                         Background="Transparent"
                         MouseLeftButtonUp="BtnClose_Click" />
