@@ -11,6 +11,7 @@ public static class DependencyManager
     public static void Initialize(IDependencyContainer container)
     {
         container.RegisterType<IShellView, ShellView>();
+
         container.RegisterType<IShellViewModel, ShellViewModel>();
     }
 }

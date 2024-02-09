@@ -1,8 +1,6 @@
-﻿using System.Windows.Controls;
+﻿namespace Chrome.Views.ShellUserControls;
 
-namespace Chrome.Views.ShellUserControls;
-
-public partial class SideBarUserControl : UserControl
+public partial class SideBarUserControl
 {
     public SideBarUserControl()
     {

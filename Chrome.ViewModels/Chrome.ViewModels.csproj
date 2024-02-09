@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Chrome.Constants\Chrome.Constants.csproj" />
     <ProjectReference Include="..\Chrome.Dependencies.Contracts\Chrome.Dependencies.Contracts.csproj" />
     <ProjectReference Include="..\Chrome.ViewModels.Contracts\Chrome.ViewModels.Contracts.csproj" />
     <ProjectReference Include="..\Chrome.Views.Contracts\Chrome.Views.Contracts.csproj" />

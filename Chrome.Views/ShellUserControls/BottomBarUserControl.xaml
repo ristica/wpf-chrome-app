@@ -1,9 +1,9 @@
 ﻿<UserControl x:Class="Chrome.Views.ShellUserControls.BottomBarUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             Height="44">
+             Height="44"
+             DataContext="{Binding}">
     <Border HorizontalAlignment="Stretch"
-            MouseLeftButtonDown="DragWindow"
             Background="{StaticResource DefaultBackground}"
             BorderBrush="Transparent"
             BorderThickness="1"

@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Chrome.Common\Chrome.Common.csproj" />
     <ProjectReference Include="..\Chrome.Views.Contracts\Chrome.Views.Contracts.csproj" />
   </ItemGroup>

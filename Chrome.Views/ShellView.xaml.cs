@@ -6,38 +6,48 @@ namespace Chrome.Views;
 
 public partial class ShellView : IShellView
 {
-    private IViewModel? _viewModel;
-
     public ShellView()
     {
         InitializeComponent();
     }
 
+    public IParentViewModel ViewModel { get; private set; }
+
     public void OpenMe()
     {
-        this.Show();
+        Show();
     }
 
     public void CloseMe()
     {
-        this.Close();
+        Close();
     }
 
-    public void SetDataContext<T>(T viewModel) where T : IViewModel
+    public void MaximizeView()
     {
-        this._viewModel = viewModel;
+        ToggleWindowState();
+    }
+
+    public void MinimizeView()
+    {
+        WindowState = WindowState.Minimized;
+    }
+
+    public void SetDataContext<T>(T viewModel) where T : IParentViewModel
+    {
+        ViewModel = viewModel;
     }
 
     protected override void ShellBaseWindowLoaded(object sender, RoutedEventArgs e)
     {
-        if (this.TopBarUserControl.PART_ChromeTitleBar is { } titleBar)
+        if (TopBarUserControl.PART_ChromeTitleBar is { } titleBar)
         {
             titleBar.MouseLeftButtonDown += (s, e) => DragMove();
             titleBar.MouseLeftButtonDown += (s, e) =>
             {
                 if (e.ClickCount == 2
                     && ResizeMode == ResizeMode.CanResize)
-                    base.ToggleWindowState();
+                    ToggleWindowState();
             };
         }
 

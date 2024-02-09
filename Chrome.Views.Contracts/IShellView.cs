@@ -1,11 +1,13 @@
 ﻿using Chrome.Common;
 
-namespace Chrome.Views.Contracts
+namespace Chrome.Views.Contracts;
+
+public interface IShellView
 {
-    public interface IShellView
-    {
-        void OpenMe();
-        void CloseMe();
-        void SetDataContext<T>(T viewModel) where T : IViewModel;
-    }
+    IParentViewModel ViewModel { get; }
+    void OpenMe();
+    void CloseMe();
+    void MaximizeView();
+    void MinimizeView();
+    void SetDataContext<T>(T viewModel) where T : IParentViewModel;
 }

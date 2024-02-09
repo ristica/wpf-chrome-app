@@ -4,11 +4,13 @@ using Chrome.Views.Contracts;
 
 namespace Chrome.ViewModels.Contracts;
 
-public interface IShellViewModel : IViewModel
+public interface IShellViewModel : IParentViewModel
 {
-    bool CanClose { get; set; }
+    bool CanClose { get; }
     void CloseView();
-    ResizeMode ResizeMode { get; set; }
+    ResizeMode ResizeMode { get; }
     IShellView GetView();
     void OpenView();
+    void MaximizeView();
+    void MinimizeView();
 }

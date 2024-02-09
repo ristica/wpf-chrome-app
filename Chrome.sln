@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Dependencies", "Chro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Dependencies.Contracts", "Chrome.Dependencies.Contracts\Chrome.Dependencies.Contracts.csproj", "{0774B3AD-3DB0-46BA-AD7D-F3EB253BB646}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chrome.Common", "Chrome.Common\Chrome.Common.csproj", "{2474BDA9-1E4F-4510-A922-B767ACF10F37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Common", "Chrome.Common\Chrome.Common.csproj", "{2474BDA9-1E4F-4510-A922-B767ACF10F37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chrome.Starter", "Chrome.Starter\Chrome.Starter.csproj", "{19452FC1-33DA-4FD7-A5F7-877F17F3B218}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Starter", "Chrome.Starter\Chrome.Starter.csproj", "{19452FC1-33DA-4FD7-A5F7-877F17F3B218}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chrome.Constants", "Chrome.Constants\Chrome.Constants.csproj", "{C1668BC3-38DB-4C6F-8798-DFBF73B9F9B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{19452FC1-33DA-4FD7-A5F7-877F17F3B218}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19452FC1-33DA-4FD7-A5F7-877F17F3B218}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19452FC1-33DA-4FD7-A5F7-877F17F3B218}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1668BC3-38DB-4C6F-8798-DFBF73B9F9B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1668BC3-38DB-4C6F-8798-DFBF73B9F9B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1668BC3-38DB-4C6F-8798-DFBF73B9F9B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1668BC3-38DB-4C6F-8798-DFBF73B9F9B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

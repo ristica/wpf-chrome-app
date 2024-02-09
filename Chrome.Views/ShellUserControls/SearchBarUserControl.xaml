@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              d:DesignHeight="500"
-             Visibility="Collapsed">
+             Visibility="Collapsed"
+             DataContext="{Binding}">
     <Border Background="#444444"
             BorderBrush="Transparent"
             CornerRadius="12,0,0,12"
@@ -35,8 +36,7 @@
                     BorderBrush="{StaticResource DefaultBackground}"
                     BorderThickness="1"
                     CornerRadius="4"
-                    Background="Transparent"
-                    MouseLeftButtonUp="ToggleSideBar">
+                    Background="Transparent">
                 <TextBlock Foreground="{StaticResource DefaultBackground}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Top"

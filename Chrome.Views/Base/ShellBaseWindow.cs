@@ -1,22 +1,20 @@
 ﻿using System.Windows;
 
-namespace Chrome.Views.Base
+namespace Chrome.Views.Base;
+
+public abstract class ShellBaseWindow : Window
 {
-    public abstract class ShellBaseWindow : Window
+    protected ShellBaseWindow()
     {
-        protected ShellBaseWindow()
-        {
-            this.Loaded += ShellBaseWindowLoaded;
-        }
+        Loaded += ShellBaseWindowLoaded;
+    }
 
-        protected virtual void ShellBaseWindowLoaded(object sender, RoutedEventArgs e)
-        {
+    protected virtual void ShellBaseWindowLoaded(object sender, RoutedEventArgs e)
+    {
+    }
 
-        }
-
-        protected void ToggleWindowState()
-        {
-            WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
-        }
+    protected void ToggleWindowState()
+    {
+        WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
     }
 }

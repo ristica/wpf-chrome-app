@@ -1,7 +1,8 @@
 ﻿<UserControl x:Class="Chrome.Views.ShellUserControls.ShellContentUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:shellUserControls="clr-namespace:Chrome.Views.ShellUserControls">
+             xmlns:shellUserControls="clr-namespace:Chrome.Views.ShellUserControls"
+             DataContext="{Binding}">
     <Border Background="{StaticResource DefaultBackground}"
             BorderBrush="Transparent"
             BorderThickness="1"

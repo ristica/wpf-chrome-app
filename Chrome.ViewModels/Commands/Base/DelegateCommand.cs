@@ -1,10 +1,13 @@
 ﻿namespace Chrome.ViewModels.Commands.Base;
 
 public abstract class DelegateCommand
-    (Action<object> action, Func<object, bool>? canExecute = null)
 {
     public abstract void Execute(object parameter);
-    public abstract bool CanExecute(object parameter);
+
+    public virtual bool CanExecute(object parameter)
+    {
+        return true;
+    }
 
     public virtual void RaiseCanExecuteChanged()
     {
