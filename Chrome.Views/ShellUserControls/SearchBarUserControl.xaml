@@ -4,15 +4,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             d:DesignHeight="500">
+             d:DesignHeight="500"
+             Visibility="Collapsed">
     <Border Background="#444444"
             BorderBrush="Transparent"
-            BorderThickness="1"
             CornerRadius="12,0,0,12"
             HorizontalAlignment="Right"
             Width="300"
-            Padding="10"
-            Margin="0, 51, 9, 53">
+            Padding="10">
         <Grid HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch">
             <Grid.RowDefinitions>
