@@ -20,13 +20,12 @@
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </Window.Resources>
 
-    <Window.Background>
+    <Window.Background> <!-- 1A == 20 -->
         <LinearGradientBrush StartPoint="0,0"
                              EndPoint="0,1">
-            <GradientStop Color="#1A0000ff"
+            <GradientStop Color="#4D0000ff"
                           Offset="0.0" />
-
-            <GradientStop Color="#1Affd700"
+            <GradientStop Color="#4Dffd700"
                           Offset="1.0" />
         </LinearGradientBrush>
     </Window.Background>
@@ -34,7 +33,6 @@
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
             <GradientStop Color="Blue"
                           Offset="0.0" />
-
             <GradientStop Color="Gold"
                           Offset="1.0" />
         </LinearGradientBrush>
