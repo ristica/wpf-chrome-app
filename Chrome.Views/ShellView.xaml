@@ -18,7 +18,6 @@
 
     <Window.Resources>
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-        <converters:BoolToVisibilityReverseConverter x:Key="BoolToVisibilityReverseConverter" />
     </Window.Resources>
 
     <Window.Background>
