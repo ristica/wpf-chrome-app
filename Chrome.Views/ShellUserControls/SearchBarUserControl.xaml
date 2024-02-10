@@ -3,102 +3,122 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:converters="clr-namespace:Chrome.Views.Converters"
              mc:Ignorable="d"
              d:DesignHeight="500"
-             Visibility="Collapsed"
              DataContext="{Binding}">
-    <Border Background="#444444"
-            BorderBrush="Transparent"
-            CornerRadius="12,0,0,12"
+
+    <UserControl.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
+    </UserControl.Resources>
+
+    <Border CornerRadius="6"
             HorizontalAlignment="Right"
-            Width="300"
-            Padding="10">
+            VerticalAlignment="Top"
+            Margin="0,20,20,0">
         <Grid HorizontalAlignment="Stretch"
-              VerticalAlignment="Stretch">
+              VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="101*" />
-                <RowDefinition Height="133*" />
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Border x:Name="BtnCloseSideBar"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    HorizontalAlignment="Center"
-                    Width="30"
-                    Height="30"
-                    BorderBrush="{StaticResource DefaultBackground}"
-                    BorderThickness="1"
-                    CornerRadius="4"
-                    Background="Transparent">
-                <TextBlock Foreground="{StaticResource DefaultBackground}"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Top"
-                           Margin="0 5,0,0"
-                           Padding="0">
-                    ✖
-                </TextBlock>
-            </Border>
+            <Grid Grid.Row="0"
+                  HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="1"
-                       Grid.Column="0"
-                       Foreground="#fff"
-                       Padding="3,0,0,0"
-                       Margin="0,0,0,50"
-                       Grid.RowSpan="2">
-                Suchbegriff eingeben...
-            </TextBlock>
-            <Border Grid.Column="0"
-                    Grid.Row="2"
-                    Grid.ColumnSpan="2"
-                    Background="{StaticResource DefaultBackground}"
+                <Border Grid.Column="0"
+                        Background="#333333"
+                        BorderBrush="Transparent"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        Padding="10,6"
+                        Margin="0,0,6,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        Width="250"
+                        Visibility="{Binding ViewModel.CanSearch, Converter={StaticResource BoolToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                    <TextBox Background="Transparent"
+                             BorderBrush="Transparent"
+                             Foreground="#fff"
+                             VerticalContentAlignment="Center"
+                             Text="{Binding ViewModel.SearchFilter, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                </Border>
+                <Border Grid.Row="0"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Width="40"
+                        Height="38"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        Background="#333333"
+                        ToolTip="Menüs durchsuchen"
+                        Cursor="Hand">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                    <EasingColorKeyFrame KeyTime="0:0:0.2"
+                                                                         Value="{StaticResource DarkHoverColor}" />
+                                                </ColorAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                    <EasingColorKeyFrame KeyTime="0:0:0.2"
+                                                                         Value="{StaticResource DarkColor}" />
+                                                </ColorAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction
+                                Command="{Binding ViewModel.ToggleSearchCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <materialDesign:PackIcon Kind="Magnify"
+                                             Foreground="White"
+                                             VerticalAlignment="Center"
+                                             HorizontalAlignment="Center"
+                                             Height="20"
+                                             Width="20" />
+                </Border>
+            </Grid>
+
+            <Border Grid.Row="1"
+                    Grid.Column="0"
+                    Background="#333333"
                     BorderBrush="Transparent"
                     BorderThickness="1"
                     CornerRadius="4"
-                    Margin="0,10,0,44"
-                    Padding="10,8"
-                    Height="40"
-                    Grid.RowSpan="2">
-                <TextBox Background="Transparent"
-                         BorderBrush="Transparent"
-                         Foreground="#fff"
-                         VerticalContentAlignment="Center" />
-            </Border>
-            <Button Grid.Row="3"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    HorizontalAlignment="Stretch"
-                    Content="Suche starten"
-                    Margin="0,10"
-                    VerticalAlignment="Top"
-                    Grid.RowSpan="2" />
-            <Border Grid.Row="4"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Background="{StaticResource DefaultBackground}"
-                    BorderBrush="Transparent"
-                    BorderThickness="1"
-                    CornerRadius="4"
-                    Grid.RowSpan="2"
-                    Margin="0,10,0,0">
+                    Margin="0,10,0,0"
+                    MaxHeight="300"
+                    Visibility="{Binding ViewModel.SearchFilter, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
                 <ListView Margin="10"
                           Background="Transparent"
                           BorderBrush="Transparent"
-                          Foreground="#fff">
-                    <ListViewItem>Suchbegriff 1</ListViewItem>
-                    <ListViewItem>Suchbegriff 2</ListViewItem>
-                    <ListViewItem>Suchbegriff 3</ListViewItem>
-                    <ListViewItem>Suchbegriff 4</ListViewItem>
-                    <ListViewItem>Suchbegriff 5</ListViewItem>
-                    <ListViewItem>Suchbegriff 6</ListViewItem>
-                    <ListViewItem>Suchbegriff 7</ListViewItem>
-                </ListView>
+                          Foreground="#fff"
+                          ItemsSource="{Binding ViewModel.FilteredItems, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
             </Border>
         </Grid>
     </Border>

@@ -15,7 +15,6 @@
             </Border>
 
             <shellUserControls:SearchBarUserControl />
-            <shellUserControls:SearchBarHandleUserControl />
         </Grid>
 
     </Border>

@@ -33,6 +33,12 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
         _view.SetDataContext(this);
     }
 
+    private void RegisterCommands()
+    {
+        RegisterTopBarCommands();
+        RegisterSearchBarCommands();
+    }
+
     #endregion
 
     #region METHODS

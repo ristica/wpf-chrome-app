@@ -15,7 +15,7 @@ public partial class ShellViewModel
 
     #region HELPERS
 
-    private void RegisterCommands()
+    private void RegisterTopBarCommands()
     {
         MinimizeShellCommand = new MinimizeShellCommand(this);
         MaximizeShellCommand = new MaximizeShellCommand(this);

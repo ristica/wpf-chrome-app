@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="2"
+            <!--<StackPanel Grid.Column="2"
                         Orientation="Horizontal"
                         HorizontalAlignment="Right">
                 <TextBlock VerticalAlignment="Center"
@@ -32,7 +32,7 @@
                            Foreground="#fff">
                     08.02.2024
                 </TextBlock>
-            </StackPanel>
+            </StackPanel>-->
 
         </Grid>
 

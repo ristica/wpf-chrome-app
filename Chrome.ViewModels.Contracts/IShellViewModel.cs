@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using Chrome.Common;
 using Chrome.Views.Contracts;
 
@@ -13,4 +14,8 @@ public interface IShellViewModel : IParentViewModel
     void OpenView();
     void MaximizeView();
     void MinimizeView();
+
+    bool CanSearch { get; set; }
+    string SearchFilter { get; set; }
+    ObservableCollection<string> FilteredItems { get; set; }
 }

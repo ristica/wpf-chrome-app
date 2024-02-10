@@ -10,7 +10,9 @@
             <Color x:Key="PrimaryColor">DarkBlue</Color>
             <Color x:Key="SecondaryColor">Yellow</Color>
             <Color x:Key="DarkColor">#212121</Color>
+            <Color x:Key="MaroonColor">#800000</Color>
             <Color x:Key="LightColor">#EEEEEE</Color>
+            <Color x:Key="DarkHoverColor">#333333</Color>
             <Color x:Key="NoColor">#00000000</Color>
 
             <!-- BRUSHES -->
@@ -43,7 +45,8 @@
                 <materialDesign:BundledTheme BaseTheme="Light"
                                              PrimaryColor="DeepPurple"
                                              SecondaryColor="Lime" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>
