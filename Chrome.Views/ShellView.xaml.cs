@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using System.Windows;
+﻿using System.Windows;
 using Chrome.Common;
 using Chrome.Views.Contracts;
 

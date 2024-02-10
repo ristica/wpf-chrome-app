@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using Chrome.Dependencies.Contracts;
+﻿using Chrome.Dependencies.Contracts;
 using Chrome.ViewModels.Base;
 using Chrome.ViewModels.Contracts;
 using Chrome.Views.Contracts;
