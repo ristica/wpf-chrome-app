@@ -1,7 +1,9 @@
-﻿using Chrome.Dependencies.Contracts;
+﻿using System.Windows;
+using Chrome.Dependencies.Contracts;
 using Chrome.ViewModels.Base;
 using Chrome.ViewModels.Contracts;
 using Chrome.Views.Contracts;
+// ReSharper disable EventUnsubscriptionViaAnonymousDelegate
 
 namespace Chrome.ViewModels;
 
@@ -29,6 +31,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
         _view = container.Resolve<IShellView>();
 
         RegisterCommands();
+        SubscribeToShellEvents();
 
         _view.SetDataContext(this);
     }
@@ -43,9 +46,24 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     #region METHODS
 
+    public override void Dispose()
+    {
+        this._view.WindowStateChanged -= (s, a) => { };
+
+        base.Dispose();
+    }
+
     #endregion
 
     #region HELPERS
+
+    private void SubscribeToShellEvents()
+    {
+        this._view.WindowStateChanged += (s, a) =>
+        {
+            OnPropertyChanged(nameof(CurrentWindowState));
+        };
+    }
 
     #endregion
 }

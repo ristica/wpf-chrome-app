@@ -10,6 +10,7 @@ public interface IShellViewModel : IParentViewModel
     bool CanClose { get; }
     void CloseView();
     ResizeMode ResizeMode { get; }
+    WindowState CurrentWindowState { get; }
     IShellView GetView();
     void OpenView();
     void MaximizeView();

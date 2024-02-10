@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Chrome.ViewModels.Base;
 
-public abstract class ViewModel : INotifyPropertyChanged
+public abstract class ViewModel : INotifyPropertyChanged, IDisposable
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -18,5 +18,10 @@ public abstract class ViewModel : INotifyPropertyChanged
         field = value;
         OnPropertyChanged(propertyName);
         return true;
+    }
+
+    public virtual void Dispose()
+    {
+        
     }
 }

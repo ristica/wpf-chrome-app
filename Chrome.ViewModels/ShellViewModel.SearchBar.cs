@@ -9,8 +9,8 @@ public partial class ShellViewModel
     #region FIELDS
 
     private bool _canSearch;
-    private string _searchFilter;
-    private ObservableCollection<string> _filteredItems;
+    private string _searchFilter = null!;
+    private ObservableCollection<string> _filteredItems = null!;
 
     #endregion
 

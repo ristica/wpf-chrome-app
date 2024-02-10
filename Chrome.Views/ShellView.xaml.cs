@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Runtime.CompilerServices;
+using System.Windows;
 using Chrome.Common;
 using Chrome.Views.Contracts;
 
@@ -11,7 +12,9 @@ public partial class ShellView : IShellView
         InitializeComponent();
     }
 
-    public IParentViewModel ViewModel { get; private set; }
+    public IParentViewModel ViewModel { get; private set; } = null!;
+
+    public WindowState CurrentWindowState => this.WindowState;
 
     public void OpenMe()
     {
@@ -42,15 +45,17 @@ public partial class ShellView : IShellView
     {
         if (TopBarUserControl.PART_ChromeTitleBar is { } titleBar)
         {
-            titleBar.MouseLeftButtonDown += (s, e) => DragMove();
-            titleBar.MouseLeftButtonDown += (s, e) =>
+            titleBar.MouseLeftButtonDown += (s, a) => DragMove();
+            titleBar.MouseLeftButtonDown += (s, a) =>
             {
-                if (e.ClickCount == 2
-                    && ResizeMode == ResizeMode.CanResize)
-                    ToggleWindowState();
+                if (a.ClickCount != 2 || ResizeMode != ResizeMode.CanResize) return;
+                ToggleWindowState();
+                WindowStateChanged?.Invoke(this, this.WindowState);
             };
         }
 
         base.ShellBaseWindowLoaded(sender, e);
     }
+
+    public event EventHandler<WindowState> WindowStateChanged;
 }

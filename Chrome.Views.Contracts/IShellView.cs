@@ -1,4 +1,5 @@
-﻿using Chrome.Common;
+﻿using System.Windows;
+using Chrome.Common;
 
 namespace Chrome.Views.Contracts;
 
@@ -10,4 +11,6 @@ public interface IShellView
     void MaximizeView();
     void MinimizeView();
     void SetDataContext<T>(T viewModel) where T : IParentViewModel;
+    WindowState CurrentWindowState { get; }
+    event EventHandler<WindowState> WindowStateChanged;
 }
