@@ -5,6 +5,7 @@
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:shellUserControls="clr-namespace:Chrome.Views.ShellUserControls"
                       xmlns:base="clr-namespace:Chrome.Views.Base"
+                      xmlns:converters="clr-namespace:Chrome.Views.Converters"
                       mc:Ignorable="d"
                       Title="METRO CRM - Light"
                       WindowStyle="None"
@@ -14,6 +15,12 @@
                       WindowStartupLocation="CenterScreen"
                       AllowsTransparency="True"
                       ResizeMode="{Binding ResizeMode}">
+
+    <Window.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converters:BoolToVisibilityReverseConverter x:Key="BoolToVisibilityReverseConverter" />
+    </Window.Resources>
+
     <Window.Background>
         <LinearGradientBrush StartPoint="0,0"
                              EndPoint="0,1">
@@ -37,7 +44,8 @@
         <WindowChrome GlassFrameThickness="0"
                       CaptionHeight="0"
                       CornerRadius="0" />
-    </WindowChrome.WindowChrome>
+    </WindowChrome.WindowChrome>   
+
     <Grid Background="{StaticResource TransparentBrush}">
         <Grid Margin="8">
             <Grid.RowDefinitions>
@@ -57,16 +65,15 @@
                                                  Grid.Column="1" />
             <shellUserControls:SideBarUserControl x:Name="SideBarUserControl"
                                                   Grid.Row="1"
-                                                  Grid.Column="0" />
+                                                  Grid.Column="0"
+                                                  Grid.RowSpan="2"/>
             <shellUserControls:ShellContentUserControl x:Name="ContentUserControl"
                                                        Grid.Row="1"
                                                        Grid.Column="1" />
-            <shellUserControls:BottomLeftLanguageUserControl x:Name="BottomLeftLanguageUserControl"
-                                                             Grid.Row="2"
-                                                             Grid.Column="0" />
             <shellUserControls:BottomBarUserControl x:Name="BottomBarUserControl"
                                                     Grid.Row="2"
-                                                    Grid.Column="1" />
+                                                    Grid.Column="1"
+                                                    Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
         </Grid>
     </Grid>
 </base:ShellBaseWindow>

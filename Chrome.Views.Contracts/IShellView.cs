@@ -12,5 +12,7 @@ public interface IShellView
     void MinimizeView();
     void SetDataContext<T>(T viewModel) where T : IParentViewModel;
     WindowState CurrentWindowState { get; }
+
     event EventHandler<WindowState> WindowStateChanged;
+    event EventHandler WindowLoaded;
 }

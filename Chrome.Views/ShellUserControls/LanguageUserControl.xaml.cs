@@ -1,8 +1,8 @@
 ﻿namespace Chrome.Views.ShellUserControls;
 
-public partial class SearchBarUserControl
+public partial class LanguageUserControl
 {
-    public SearchBarUserControl()
+    public LanguageUserControl()
     {
         InitializeComponent();
     }

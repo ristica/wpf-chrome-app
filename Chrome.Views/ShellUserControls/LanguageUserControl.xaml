@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="Chrome.Views.ShellUserControls.LanguageUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:converters="clr-namespace:Chrome.Views.Converters">
+    <UserControl.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0"
+                Background="{StaticResource DefaultBrush}"
+                BorderBrush="{StaticResource DarkHoverBrush}"
+                BorderThickness="1"
+                CornerRadius="4"
+                Margin="1"
+                ToolTip="Sprachenauswahl"
+                Cursor="Hand"
+                VerticalAlignment="Top"
+                Width="40"
+                Height="38"
+                Style="{StaticResource ToLightAnimatedBorder}">
+            <materialDesign:PackIcon Kind="Translate"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     Height="22"
+                                     Width="22"
+                                     Foreground="#ccc" />
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonUp">
+                    <i:InvokeCommandAction Command="{Binding ViewModel.ToggleLanguagePopupCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Border>
+        <Border Grid.Column="1" Background="#333333"
+                CornerRadius="6"
+                Padding="10"
+                Margin="5,0,0,0"
+                Visibility="{Binding ViewModel.IsLanguagePopupOpen, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0"
+                        Padding="10"
+                        Background="{StaticResource DefaultBrush}"
+                        CornerRadius="6"
+                        Cursor="Hand"
+                        Style="{StaticResource ToDarkAnimatedBorder}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding ViewModel.SetLanguageCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
+                                                   CommandParameter="de"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <TextBlock Text="Deutsch"
+                               Foreground="#eee"
+                               HorizontalAlignment="Center"></TextBlock>
+                </Border>
+                <Border Grid.Row="1"
+                        Height="4"></Border>
+                <Border Grid.Row="2"
+                        Padding="10"
+                        Background="#333333"
+                        CornerRadius="6"
+                        Cursor="Hand"
+                        Style="{StaticResource ToDarkAnimatedBorder}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding ViewModel.SetLanguageCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                   CommandParameter="en" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <TextBlock Text="English"
+                               Foreground="#eee"
+                               HorizontalAlignment="Center"></TextBlock>
+                </Border>
+
+            </Grid>
+        </Border>
+    </Grid>
+
+</UserControl>

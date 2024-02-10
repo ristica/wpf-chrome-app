@@ -35,7 +35,9 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
     private void RegisterCommands()
     {
         RegisterTopBarCommands();
+        RegisterBottomLanguageBarCommands();
         RegisterSearchBarCommands();
+        RegisterSideBarCommands();
     }
 
     #endregion
@@ -44,6 +46,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     protected override void DisposeViewModel()
     {
+        this._view.WindowLoaded -= (s, a) => { };
         this._view.WindowStateChanged -= (s, a) => { };
     }
 
@@ -53,6 +56,11 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     private void SubscribeToShellEvents()
     {
+        this._view.WindowLoaded += (s, a) =>
+        {
+           
+        };
+
         this._view.WindowStateChanged += (s, a) =>
         {
             OnPropertyChanged(nameof(CurrentWindowState));

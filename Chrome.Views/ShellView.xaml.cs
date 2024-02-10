@@ -53,8 +53,11 @@ public partial class ShellView : IShellView
             };
         }
 
+        WindowLoaded.Invoke(this, EventArgs.Empty);
+
         base.ShellBaseWindowLoaded(sender, e);
     }
 
     public event EventHandler<WindowState> WindowStateChanged;
+    public event EventHandler WindowLoaded;
 }

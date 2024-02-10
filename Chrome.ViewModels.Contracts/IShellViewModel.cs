@@ -19,4 +19,6 @@ public interface IShellViewModel : IParentViewModel
     bool CanSearch { get; set; }
     string SearchFilter { get; set; }
     ObservableCollection<string> FilteredItems { get; set; }
+    bool IsLanguagePopupOpen { get; set; }
+    bool IsBottomBarVisible { get; set; }
 }
