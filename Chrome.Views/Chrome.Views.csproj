@@ -16,4 +16,10 @@
     <ProjectReference Include="..\Chrome.Views.Contracts\Chrome.Views.Contracts.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="MaterialDesignThemes.Wpf">
+      <HintPath>..\..\..\..\.nuget\packages\materialdesignthemes\4.9.0\lib\net7.0\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

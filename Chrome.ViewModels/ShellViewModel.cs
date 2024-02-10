@@ -15,7 +15,10 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     #region PROPERTIES
 
-    public IShellView GetView() => _view;
+    public IShellView GetView()
+    {
+        return _view;
+    }
 
     #endregion
 

@@ -5,24 +5,41 @@
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:shellUserControls="clr-namespace:Chrome.Views.ShellUserControls"
                       xmlns:base="clr-namespace:Chrome.Views.Base"
+                      xmlns:views="clr-namespace:Chrome.Views"
                       mc:Ignorable="d"
                       Title="METRO CRM - Light"
                       WindowStyle="None"
-                      Background="#BF000000"
                       BorderThickness="1"
-                      BorderBrush="DarkBlue"
-                      Height="800"
-                      Width="1400"
+                      MinHeight="800"
+                      MinWidth="1400"
                       WindowStartupLocation="CenterScreen"
                       AllowsTransparency="True"
                       ResizeMode="{Binding ResizeMode}">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0"
+                             EndPoint="0,1">
+            <GradientStop Color="#1A0000ff"
+                          Offset="0.0" />
+
+            <GradientStop Color="#1Affd700"
+                          Offset="1.0" />
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.BorderBrush>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="Blue"
+                          Offset="0.0" />
+
+            <GradientStop Color="Gold"
+                          Offset="1.0" />
+        </LinearGradientBrush>
+    </Window.BorderBrush>
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0"
                       CaptionHeight="0"
                       CornerRadius="0" />
     </WindowChrome.WindowChrome>
     <Grid Background="{StaticResource TransparentBrush}">
-
         <Grid Margin="8">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -33,29 +50,24 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-
             <shellUserControls:TopLeftBrandUserControl x:Name="TopLeftBrandUserControl"
                                                        Grid.Row="0"
                                                        Grid.Column="0" />
-
             <shellUserControls:TopBarUserControl x:Name="TopBarUserControl"
                                                  Grid.Row="0"
                                                  Grid.Column="1" />
-
             <shellUserControls:SideBarUserControl x:Name="SideBarUserControl"
                                                   Grid.Row="1"
-                                                  Grid.Column="0"
-                                                  Grid.RowSpan="2" />
-
+                                                  Grid.Column="0" />
             <shellUserControls:ShellContentUserControl x:Name="ContentUserControl"
                                                        Grid.Row="1"
                                                        Grid.Column="1" />
-
+            <shellUserControls:BottomLeftLanguageUserControl x:Name="BottomLeftLanguageUserControl"
+                                                       Grid.Row="2"
+                                                       Grid.Column="0" />
             <shellUserControls:BottomBarUserControl x:Name="BottomBarUserControl"
                                                     Grid.Row="2"
                                                     Grid.Column="1" />
-
         </Grid>
-
     </Grid>
 </base:ShellBaseWindow>

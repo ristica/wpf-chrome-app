@@ -1,6 +1,7 @@
 ﻿<UserControl x:Class="Chrome.Views.ShellUserControls.SideBarUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              Width="46"
              DataContext="{Binding}">
     <Border Background="{StaticResource DefaultBackground}"
@@ -11,48 +12,96 @@
         <Grid>
             <StackPanel Margin="0"
                         VerticalAlignment="Center">
-                <Border Background="#444444"
-                        BorderBrush="#444444"
+                <Border Background="{StaticResource DefaultBackground}"
+                        BorderBrush="#a0a0a0"
                         BorderThickness="1"
                         CornerRadius="4"
                         Margin="4,0,4,0"
                         HorizontalAlignment="Stretch"
-                        Height="28" />
-                <Border Background="#444444"
-                        BorderBrush="#444444"
+                        Height="32"
+                        Cursor="Hand">
+                    <materialDesign:PackIcon Kind="HomeOutline"
+                                             Foreground="White"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center"
+                                             Height="20"
+                                             Width="20" />
+                </Border>
+                <Border Background="{StaticResource DefaultBackground}"
+                        BorderBrush="#a0a0a0"
                         BorderThickness="1"
                         CornerRadius="4"
                         Margin="4,6,4,0"
                         HorizontalAlignment="Stretch"
-                        Height="28" />
-                <Border Background="#444444"
-                        BorderBrush="#444444"
+                        Height="32"
+                        Cursor="Hand">
+                    <materialDesign:PackIcon Kind="CalendarMonthOutline"
+                                             Foreground="White"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center"
+                                             Height="20"
+                                             Width="20" />
+                </Border>
+                <Border Background="{StaticResource DefaultBackground}"
+                        BorderBrush="#a0a0a0"
                         BorderThickness="1"
                         CornerRadius="4"
                         Margin="4,6,4,0"
                         HorizontalAlignment="Stretch"
-                        Height="28" />
-                <Border Background="#444444"
-                        BorderBrush="#444444"
+                        Height="32"
+                        Cursor="Hand">
+                    <materialDesign:PackIcon Kind="Cached"
+                                             Foreground="White"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center"
+                                             Height="20"
+                                             Width="20" />
+                </Border>
+                <Border Background="{StaticResource DefaultBackground}"
+                        BorderBrush="#a0a0a0"
                         BorderThickness="1"
                         CornerRadius="4"
                         Margin="4,6,4,0"
                         HorizontalAlignment="Stretch"
-                        Height="28" />
-                <Border Background="#444444"
-                        BorderBrush="#444444"
+                        Height="32"
+                        Cursor="Hand">
+                    <materialDesign:PackIcon Kind="BellOutline"
+                                             Foreground="White"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center"
+                                             Height="20"
+                                             Width="20" />
+                </Border>
+                <Border Background="{StaticResource DefaultBackground}"
+                        BorderBrush="#a0a0a0"
                         BorderThickness="1"
                         CornerRadius="4"
                         Margin="4,6,4,0"
                         HorizontalAlignment="Stretch"
-                        Height="28" />
-                <Border Background="#444444"
-                        BorderBrush="#444444"
+                        Height="32"
+                        Cursor="Hand">
+                    <materialDesign:PackIcon Kind="BankOutline"
+                                             Foreground="White"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center"
+                                             Height="20"
+                                             Width="20" />
+                </Border>
+                <Border Background="{StaticResource DefaultBackground}"
+                        BorderBrush="#a0a0a0"
                         BorderThickness="1"
                         CornerRadius="4"
                         Margin="4,6,4,0"
                         HorizontalAlignment="Stretch"
-                        Height="28" />
+                        Height="32"
+                        Cursor="Hand">
+                    <materialDesign:PackIcon Kind="Apps"
+                                             Foreground="White"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center"
+                                             Height="20"
+                                             Width="20" />
+                </Border>
 
             </StackPanel>
         </Grid>

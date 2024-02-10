@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Chrome.Bootstrapper\Chrome.Bootstrapper.csproj" />
     <ProjectReference Include="..\Chrome.Builder\Chrome.Dependencies.Builder.csproj" />
   </ItemGroup>
