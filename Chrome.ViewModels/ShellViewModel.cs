@@ -16,10 +16,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     #region PROPERTIES
 
-    public IShellView GetView()
-    {
-        return _view;
-    }
+    public IShellView GetView() => this._view;
 
     #endregion
 
@@ -27,12 +24,12 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     public ShellViewModel(IDependencyContainer container)
     {
-        _view = container.Resolve<IShellView>();
+        this._view = container.Resolve<IShellView>();
 
         RegisterCommands();
         SubscribeToShellEvents();
 
-        _view.SetDataContext(this);
+        this._view.SetDataContext(this);
     }
 
     private void RegisterCommands()
@@ -45,11 +42,9 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     #region METHODS
 
-    public override void Dispose()
+    protected override void DisposeViewModel()
     {
         this._view.WindowStateChanged -= (s, a) => { };
-
-        base.Dispose();
     }
 
     #endregion

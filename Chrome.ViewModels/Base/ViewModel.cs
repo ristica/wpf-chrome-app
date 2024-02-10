@@ -5,6 +5,19 @@ namespace Chrome.ViewModels.Base;
 
 public abstract class ViewModel : INotifyPropertyChanged, IDisposable
 {
+    #region IDisposable
+
+    public void Dispose()
+    {
+        this.DisposeViewModel();
+    }
+
+    protected abstract void DisposeViewModel();
+
+    #endregion
+
+    #region INotifyPropertyChanged 
+
     public event PropertyChangedEventHandler? PropertyChanged;
 
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
@@ -20,8 +33,5 @@ public abstract class ViewModel : INotifyPropertyChanged, IDisposable
         return true;
     }
 
-    public virtual void Dispose()
-    {
-        
-    }
+    #endregion
 }

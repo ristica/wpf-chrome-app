@@ -6,14 +6,12 @@ public partial class ShellViewModel
 {
     #region FIELDS
 
-    private WindowState _currentWindowState;
-
     #endregion
 
     #region PROPERTIES
 
-    public bool CanClose { get; private set; } = true;
-    public ResizeMode ResizeMode { get; private set; } = ResizeMode.CanResize;
+    public bool CanClose => true;
+    public ResizeMode ResizeMode => ResizeMode.CanResize;
     public WindowState CurrentWindowState => this._view.CurrentWindowState;
 
     #endregion
@@ -22,23 +20,26 @@ public partial class ShellViewModel
 
     public void OpenView()
     {
-        _view.OpenMe();
+        this._view.OpenMe();
     }
 
     public void MaximizeView()
     {
-        _view.MaximizeView();
+        this._view.MaximizeView();
         OnPropertyChanged(nameof(CurrentWindowState));
     }
 
     public void MinimizeView()
     {
-        _view.MinimizeView();
+        this._view.MinimizeView();
     }
 
     public void CloseView()
     {
-        if (CanClose) _view.CloseMe();
+        if (!this.CanClose) return;
+
+        base.Dispose();
+        this._view.CloseMe();
     }
 
     #endregion
