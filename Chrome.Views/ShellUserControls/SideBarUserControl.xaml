@@ -17,6 +17,7 @@
             CornerRadius="4"
             Margin="1">
         <Grid>
+            <!-- MAX 5 ITEMS -->
             <StackPanel Margin="0"
                         VerticalAlignment="Center">
                 <Border Background="{StaticResource DefaultBrush}"
@@ -99,23 +100,6 @@
                                              Height="20"
                                              Width="20" />
                 </Border>
-                <Border Background="{StaticResource DefaultBrush}"
-                        BorderBrush="{StaticResource DarkHoverBrush}"
-                        BorderThickness="1"
-                        CornerRadius="4"
-                        Margin="4,6,4,0"
-                        HorizontalAlignment="Stretch"
-                        Height="32"
-                        Cursor="Hand"
-                        Style="{StaticResource ToLightAnimatedBorder}">
-                    <materialDesign:PackIcon Kind="Apps"
-                                             Foreground="White"
-                                             HorizontalAlignment="Center"
-                                             VerticalAlignment="Center"
-                                             Height="20"
-                                             Width="20" />
-                </Border>
-
             </StackPanel>
 
             <materialDesign:PackIcon Kind="ToggleSwitchOutline"
@@ -128,7 +112,7 @@
                                      Margin="4,0,4,10"
                                      Padding="0"
                                      Cursor="Hand"
-                                     ToolTip="Status Bar ausblenden"
+                                     ToolTip="{Loc HideStatusBar}"
                                      Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
@@ -146,7 +130,7 @@
                                      Margin="4,0,4,10"
                                      Padding="0"
                                      Cursor="Hand"
-                                     ToolTip="Status Bar einblenden"
+                                     ToolTip="{Loc ShowStatusBar}"
                                      Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">

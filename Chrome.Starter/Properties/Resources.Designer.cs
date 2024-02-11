@@ -61,11 +61,83 @@ namespace Chrome.Starter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sprachenauswahl.
+        /// </summary>
+        internal static string ChooseLanguage {
+            get {
+                return ResourceManager.GetString("ChooseLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Schließen.
+        /// </summary>
+        internal static string CloseWindow {
+            get {
+                return ResourceManager.GetString("CloseWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hallo Welt!.
         /// </summary>
         internal static string HelloWorld {
             get {
                 return ResourceManager.GetString("HelloWorld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status Bar ausblenden.
+        /// </summary>
+        internal static string HideStatusBar {
+            get {
+                return ResourceManager.GetString("HideStatusBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximieren.
+        /// </summary>
+        internal static string MaximizeWindow {
+            get {
+                return ResourceManager.GetString("MaximizeWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimieren.
+        /// </summary>
+        internal static string MinimizeWindow {
+            get {
+                return ResourceManager.GetString("MinimizeWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wiederherstellen.
+        /// </summary>
+        internal static string RestoreWindow {
+            get {
+                return ResourceManager.GetString("RestoreWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Menü suchen.
+        /// </summary>
+        internal static string ShowSearchArea {
+            get {
+                return ResourceManager.GetString("ShowSearchArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status Bar einblenden.
+        /// </summary>
+        internal static string ShowStatusBar {
+            get {
+                return ResourceManager.GetString("ShowStatusBar", resourceCulture);
             }
         }
     }

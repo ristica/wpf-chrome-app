@@ -47,7 +47,7 @@
                         Width="40"
                         Margin="0,0,4,0"
                         Padding="0,0,0,5"
-                        ToolTip="Minimieren"
+                        ToolTip="{Loc MinimizeWindow}"
                         Cursor="Hand"
                         Style="{StaticResource ToLightAnimatedBorder}">
                     <materialDesign:PackIcon Kind="WindowMinimize"
@@ -66,8 +66,8 @@
                         CornerRadius="4"
                         Width="40"
                         Margin="0,0,4,0"
-                        ToolTip="Maximieren"
                         Cursor="Hand"
+                        ToolTip="{Loc MaximizeWindow}"
                         Style="{StaticResource ToLightAnimatedBorder}">
                     <Grid>
                         <materialDesign:PackIcon Kind="WindowMaximize"
@@ -96,7 +96,7 @@
                 <Border Background="{StaticResource DefaultBrush}"
                         CornerRadius="4"
                         Width="40"
-                        ToolTip="Schließen"
+                        ToolTip="{Loc CloseWindow}"
                         Cursor="Hand">
                     <Border.Style>
                         <Style TargetType="Border">

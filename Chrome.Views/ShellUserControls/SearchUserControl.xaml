@@ -56,7 +56,7 @@
                         BorderBrush="{StaticResource DarkHoverBrush}"
                         CornerRadius="4"
                         Background="{StaticResource DefaultBrush}"
-                        ToolTip="Menüs durchsuchen"
+                        ToolTip="{Loc ShowSearchArea}"
                         Cursor="Hand"
                         Style="{StaticResource ToLightAnimatedBorder}">
                     <i:Interaction.Triggers>

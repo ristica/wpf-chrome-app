@@ -117,7 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChooseLanguage" xml:space="preserve">
+    <value>Sprachenauswahl</value>
+  </data>
+  <data name="CloseWindow" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
   <data name="HelloWorld" xml:space="preserve">
     <value>Hallo Welt!</value>
+  </data>
+  <data name="HideStatusBar" xml:space="preserve">
+    <value>Status Bar ausblenden</value>
+  </data>
+  <data name="MaximizeWindow" xml:space="preserve">
+    <value>Maximieren</value>
+  </data>
+  <data name="MinimizeWindow" xml:space="preserve">
+    <value>Minimieren</value>
+  </data>
+  <data name="RestoreWindow" xml:space="preserve">
+    <value>Wiederherstellen</value>
+  </data>
+  <data name="ShowSearchArea" xml:space="preserve">
+    <value>Menü suchen</value>
+  </data>
+  <data name="ShowStatusBar" xml:space="preserve">
+    <value>Status Bar einblenden</value>
   </data>
 </root>
