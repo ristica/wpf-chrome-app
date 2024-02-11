@@ -1,5 +1,6 @@
 ﻿using Chrome.ViewModels.Commands;
 using System.Windows.Input;
+using Chrome.Models;
 
 namespace Chrome.ViewModels;
 
@@ -23,6 +24,8 @@ public partial class ShellViewModel
         }
     }
 
+    public List<LanguageInfo> Cultures { get; set; }
+
     #endregion
 
     #region COMMANDS
@@ -38,6 +41,24 @@ public partial class ShellViewModel
     {
         ToggleLanguagePopupCommand = new ToggleLanguagePopupCommand(this);
         SetLanguageCommand = new SetLanguageCommand(this);
+    }
+
+    private void SetCommonCultures()
+    {
+        this.Cultures =
+        [
+            new()
+            {
+                CultureId = Constants.CultureTypes.EnglishCultureId,
+                ShortName = Constants.CultureTypes.EnglishShortName
+            },
+
+            new()
+            {
+                CultureId = Constants.CultureTypes.DeutschCultureId,
+                ShortName = Constants.CultureTypes.DeutschShortName
+            }
+        ];
     }
 
     #endregion

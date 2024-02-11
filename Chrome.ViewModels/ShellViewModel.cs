@@ -29,6 +29,8 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
         RegisterCommands();
         SubscribeToShellEvents();
 
+        this.SetCommonCultures();
+
         this._view.SetDataContext(this);
     }
 

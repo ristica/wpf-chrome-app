@@ -11,7 +11,7 @@
         <Grid>
             <Border VerticalAlignment="Center"
                     HorizontalAlignment="Center">
-                <TextBlock Foreground="White">Content Area</TextBlock>
+                <TextBlock Foreground="White" Text="{Loc HelloWorld}"/>
             </Border>
 
             <shellUserControls:SearchUserControl HorizontalAlignment="Right"

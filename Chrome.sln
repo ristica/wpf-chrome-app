@@ -23,7 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Common", "Chrome.Com
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Starter", "Chrome.Starter\Chrome.Starter.csproj", "{19452FC1-33DA-4FD7-A5F7-877F17F3B218}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chrome.Constants", "Chrome.Constants\Chrome.Constants.csproj", "{C1668BC3-38DB-4C6F-8798-DFBF73B9F9B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Constants", "Chrome.Constants\Chrome.Constants.csproj", "{C1668BC3-38DB-4C6F-8798-DFBF73B9F9B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chrome.Models", "Chrome.Models\Chrome.Models.csproj", "{FE104E3F-4056-4824-9FCE-B4543C60777B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chrome.Common.Contracts", "Chrome.Common.Contracts\Chrome.Common.Contracts.csproj", "{BF132AC1-E7F1-4A81-9D32-1A489C390829}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +79,14 @@ Global
 		{C1668BC3-38DB-4C6F-8798-DFBF73B9F9B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1668BC3-38DB-4C6F-8798-DFBF73B9F9B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1668BC3-38DB-4C6F-8798-DFBF73B9F9B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE104E3F-4056-4824-9FCE-B4543C60777B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE104E3F-4056-4824-9FCE-B4543C60777B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE104E3F-4056-4824-9FCE-B4543C60777B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE104E3F-4056-4824-9FCE-B4543C60777B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF132AC1-E7F1-4A81-9D32-1A489C390829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF132AC1-E7F1-4A81-9D32-1A489C390829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF132AC1-E7F1-4A81-9D32-1A489C390829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF132AC1-E7F1-4A81-9D32-1A489C390829}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

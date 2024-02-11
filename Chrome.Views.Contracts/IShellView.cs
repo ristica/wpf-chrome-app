@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Chrome.Common;
+using Chrome.Common.Contracts;
 
 namespace Chrome.Views.Contracts;
 

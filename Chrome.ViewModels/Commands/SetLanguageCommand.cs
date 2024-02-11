@@ -1,17 +1,20 @@
-﻿using Chrome.ViewModels.Contracts;
+﻿using Chrome.Common;
+using Chrome.ViewModels.Contracts;
 using System.Windows.Input;
 
 namespace Chrome.ViewModels.Commands;
 
 public class SetLanguageCommand(IShellViewModel viewModel) : ICommand
 {
-    public bool CanExecute(object? parameter)
-    {
-        return true;
-    }
+    public bool CanExecute(object? parameter) => true;
 
     public void Execute(object? parameter)
     {
+        if (parameter is string { Length: > 0 } language)
+        {
+            CultureHandler.ChangeCultureAction(language);
+        }
+        
         viewModel.IsLanguagePopupOpen = false;
     }
 

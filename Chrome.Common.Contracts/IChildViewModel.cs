@@ -1,4 +1,4 @@
-namespace Chrome.Common;
+namespace Chrome.Common.Contracts;
 
 public interface IChildViewModel
 {
