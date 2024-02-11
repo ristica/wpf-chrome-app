@@ -11,7 +11,7 @@ public partial class ShellViewModel
     #region PROPERTIES
 
     public bool CanClose => true;
-    public ResizeMode ResizeMode => ResizeMode.CanResize;
+    public ResizeMode ResizeMode => ResizeMode.NoResize;
     public WindowState CurrentWindowState => this._view.CurrentWindowState;
 
     #endregion

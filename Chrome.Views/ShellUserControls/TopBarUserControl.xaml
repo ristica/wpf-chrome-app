@@ -9,6 +9,7 @@
     <UserControl.Resources>
         <converters:WindowStateToVisibilityConverter x:Key="WindowStateToVisibilityConverter" />
         <converters:WindowStateToVisibilityReverseConverter x:Key="WindowStateToVisibilityReverseConverter" />
+        <converters:ResizeModeToVisibilityConverter x:Key="ResizeModeToVisibilityConverter" />
     </UserControl.Resources>
 
     <Grid>
@@ -68,7 +69,8 @@
                         Margin="0,0,4,0"
                         Cursor="Hand"
                         ToolTip="{Loc MaximizeWindow}"
-                        Style="{StaticResource ToLightAnimatedBorder}">
+                        Style="{StaticResource ToLightAnimatedBorder}"
+                        Visibility="{Binding ViewModel.ResizeMode, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource ResizeModeToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
                     <Grid>
                         <materialDesign:PackIcon Kind="WindowMaximize"
                                                  Foreground="#ddd"

@@ -30,6 +30,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
         SubscribeToShellEvents();
 
         this.SetCommonCultures();
+        this.SetCarouselItems();
 
         this._view.SetDataContext(this);
     }
@@ -40,6 +41,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
         RegisterBottomLanguageBarCommands();
         RegisterSearchBarCommands();
         RegisterSideBarCommands();
+        RegisterShellContentCommands();
     }
 
     #endregion

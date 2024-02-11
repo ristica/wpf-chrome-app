@@ -9,17 +9,15 @@
             CornerRadius="4"
             Margin="1">
         <Grid>
-            <Border VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
-                <TextBlock Foreground="White" Text="{Loc HelloWorld}"/>
-            </Border>
 
             <shellUserControls:SearchUserControl HorizontalAlignment="Right"
-                                                    VerticalAlignment="Top"
-                                                    Margin="0,20,20,0" />
+                                                 VerticalAlignment="Top"
+                                                 Margin="0,20,20,0" />
             <shellUserControls:LanguageUserControl HorizontalAlignment="Left"
                                                    VerticalAlignment="Top"
                                                    Margin="20,20,0,0" />
+            <shellUserControls:CarouselUserControl HorizontalAlignment="Center"
+                                                   VerticalAlignment="Top"/>
 
         </Grid>
 
