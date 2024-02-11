@@ -12,6 +12,7 @@
                       BorderThickness="1"
                       MinHeight="800"
                       MinWidth="1400"
+                      Icon="Resources/icon.png"
                       WindowStartupLocation="CenterScreen"
                       AllowsTransparency="True"
                       ResizeMode="{Binding ResizeMode}">
