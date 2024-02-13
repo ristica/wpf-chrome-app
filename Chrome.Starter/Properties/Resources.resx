@@ -123,6 +123,12 @@
   <data name="CloseWindow" xml:space="preserve">
     <value>Schließen</value>
   </data>
+  <data name="FavoriteAdd" xml:space="preserve">
+    <value>Zur Schnellstartleiste hinzufügen</value>
+  </data>
+  <data name="FavoriteRemove" xml:space="preserve">
+    <value>Von der Schnellstartleiste enfernen</value>
+  </data>
   <data name="HelloWorld" xml:space="preserve">
     <value>Hallo Welt!</value>
   </data>

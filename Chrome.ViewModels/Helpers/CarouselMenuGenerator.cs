@@ -10,6 +10,7 @@ public class CarouselMenuGenerator
         [
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 1,
                 Header = "Datei",
                 ParentId = "Datei",
@@ -20,6 +21,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 1,
                 Header = "Beenden",
                 HasChildren = false,
@@ -30,6 +32,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 2,
                 Header = "Letzten 15 Kunden welche bearbeitet wurden",
                 HasChildren = false,
@@ -40,6 +43,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 2,
                 Header = "Übersicht",
                 ParentId = "Übersicht",
@@ -50,6 +54,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 1,
                 Header = "Übersicht Aktionen",
                 HasChildren = false,
@@ -60,6 +65,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 2,
                 Header = "Web Eingänge",
                 HasChildren = false,
@@ -70,6 +76,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 3,
                 Header = "Excel Gewinnspiel",
                 HasChildren = false,
@@ -80,6 +87,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 3,
                 Header = "Aktionen",
                 ParentId = "Aktionen",
@@ -90,6 +98,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 1,
                 Header = "Neue Aktion",
                 HasChildren = false,
@@ -100,6 +109,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 2,
                 Header = "Aktionsdetails bearbeiten",
                 HasChildren = false,
@@ -110,6 +120,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 3,
                 Header = "CRM-Light Kundensuche",
                 HasChildren = false,
@@ -120,6 +131,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 4,
                 Header = "OPTIVO Bounces",
                 HasChildren = false,
@@ -130,6 +142,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 4,
                 Header = "CFM",
                 ParentId = "CFM",
@@ -140,6 +153,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 1,
                 Header = "Kundensuche",
                 HasChildren = false,
@@ -150,6 +164,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 2,
                 Header = "Kundenneuanlage",
                 HasChildren = false,
@@ -160,6 +175,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 3,
                 Header = "Neuanlage pro Store",
                 HasChildren = false,
@@ -170,6 +186,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 4,
                 Header = "Neuanlage Einkaufsgesellschaften",
                 HasChildren = false,
@@ -180,6 +197,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 5,
                 Header = "Neuanlage pro Einkaufsgesellschaft (BORG ID)",
                 HasChildren = false,
@@ -190,6 +208,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 6,
                 Header = "CFM Log",
                 HasChildren = false,
@@ -200,6 +219,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 7,
                 Header = "Kundengruppierungen",
                 HasChildren = false,
@@ -210,6 +230,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 8,
                 Header = "Kunden-Beziehungen",
                 HasChildren = false,
@@ -220,6 +241,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 9,
                 Header = "Postretouren",
                 HasChildren = false,
@@ -230,6 +252,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 10,
                 Header = "Historische Postretouren",
                 HasChildren = false,
@@ -240,6 +263,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 11,
                 Header = "Karten u. Tagesausweise",
                 HasChildren = false,
@@ -250,6 +274,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 5,
                 Header = "Kreditmanagement",
                 ParentId = "Kreditmanagement",
@@ -260,6 +285,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 1,
                 Header = "Bankstammdaten",
                 HasChildren = false,
@@ -270,6 +296,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 2,
                 Header = "Kundenbankdaten",
                 HasChildren = false,
@@ -280,6 +307,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 3,
                 Header = "Zahlungsbedingungen",
                 HasChildren = false,
@@ -290,6 +318,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 4,
                 Header = "Log Zahlungsbedingungen",
                 HasChildren = false,
@@ -300,6 +329,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 5,
                 Header = "Auswertung Kreditkunden / Rechnungsarten",
                 HasChildren = false,
@@ -310,6 +340,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 6,
                 Header = "Auswertung Monats- u. Einzelrechnungskunden",
                 HasChildren = false,
@@ -320,6 +351,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 7,
                 Header = "Kassensperren",
                 HasChildren = false,
@@ -330,6 +362,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 6,
                 Header = "Kreditantrag",
                 ParentId = "Kreditantrag",
@@ -340,6 +373,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 7,
                 Header = "DSGVO",
                 ParentId = "DSGVO",
@@ -350,6 +384,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 1,
                 Header = "Anonym. Voraussetzungen",
                 HasChildren = false,
@@ -360,6 +395,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 2,
                 Header = "Anonym. Freigeben",
                 HasChildren = false,
@@ -370,6 +406,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 3,
                 Header = "Anonym. Kunden",
                 HasChildren = false,
@@ -380,6 +417,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 4,
                 Header = "Anonym. Einkaufsberechtigte",
                 HasChildren = false,
@@ -390,6 +428,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 8,
                 Header = "Archiv",
                 ParentId = "Archiv",
@@ -400,6 +439,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 1,
                 Header = "Kundenarchiv",
                 HasChildren = false,
@@ -410,6 +450,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 9,
                 Header = "Tabellen",
                 ParentId = "Tabellen",
@@ -420,6 +461,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 1,
                 Header = "Branchen",
                 HasChildren = false,
@@ -430,6 +472,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 2,
                 Header = "Branchen Stichwortverzeichnis",
                 HasChildren = false,
@@ -440,6 +483,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 3,
                 Header = "Kundenberater",
                 HasChildren = false,
@@ -450,6 +494,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 4,
                 Header = "Einzugseinheiten",
                 HasChildren = false,
@@ -460,6 +505,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 5,
                 Header = "Distrikte-Einzugseinheiten",
                 HasChildren = false,
@@ -470,6 +516,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 6,
                 Header = "National Grid",
                 HasChildren = false,
@@ -480,6 +527,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 10,
                 Header = "Administration",
                 ParentId = "Administration",
@@ -490,6 +538,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 1,
                 Header = "Aktions- Typ Verwaltung",
                 HasChildren = false,
@@ -500,6 +549,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 2,
                 Header = "Benutzerrollen",
                 HasChildren = false,
@@ -510,6 +560,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 3,
                 Header = "Berechtigungen",
                 HasChildren = false,
@@ -520,6 +571,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 4,
                 Header = "Definition Web Aktionen",
                 HasChildren = false,
@@ -530,6 +582,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 5,
                 Header = "Kundennummern reservieren",
                 HasChildren = false,
@@ -540,6 +593,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 6,
                 Header = "Strassenkatalog",
                 HasChildren = false,
@@ -550,6 +604,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 7,
                 Header = "Zielgruppen",
                 HasChildren = false,
@@ -560,6 +615,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 8,
                 Header = "Locks",
                 HasChildren = false,
@@ -570,6 +626,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 9,
                 Header = "Monatsrechnung",
                 HasChildren = false,
@@ -580,6 +637,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 10,
                 Header = "Privileges",
                 HasChildren = false,
@@ -590,6 +648,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 11,
                 Header = "Delegation",
                 HasChildren = false,
@@ -600,6 +659,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 12,
                 Header = "OPTIVIO Reset Counter",
                 HasChildren = false,
@@ -610,6 +670,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 13,
                 Header = "Rollen Test",
                 HasChildren = false,
@@ -620,6 +681,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 14,
                 Header = "Kundenbildschirm",
                 HasChildren = false,
@@ -630,6 +692,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 11,
                 Header = "Fenster",
                 ParentId = "Fenster",
@@ -640,6 +703,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 1,
                 Header = "Screenshot",
                 HasChildren = false,
@@ -650,6 +714,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 12,
                 Header = "Optionen",
                 ParentId = "Optionen",
@@ -660,6 +725,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 1,
                 Header = "Scanner",
                 HasChildren = false,
@@ -670,6 +736,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 13,
                 Header = "?",
                 ParentId = "?",
@@ -680,6 +747,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 1,
                 Header = "About",
                 HasChildren = false,
@@ -690,6 +758,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 2,
                 Header = "Dokumente",
                 HasChildren = false,
@@ -700,6 +769,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 3,
                 Header = "Manuals",
                 HasChildren = false,
@@ -710,6 +780,7 @@ public class CarouselMenuGenerator
 
             new()
             {
+                Id = Guid.NewGuid(),
                 Order = 4,
                 Header = "Releasenotes",
                 HasChildren = false,

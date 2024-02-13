@@ -14,7 +14,13 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
         <Border Grid.Column="0"
+                Grid.Row="0"
+                Grid.RowSpan="2"
                 Background="{StaticResource DefaultBrush}"
                 BorderBrush="{StaticResource DarkHoverBrush}"
                 BorderThickness="1"
@@ -22,7 +28,7 @@
                 Margin="1"
                 ToolTip="{Loc ChooseLanguage}"
                 Cursor="Hand"
-                VerticalAlignment="Top"
+                VerticalAlignment="Bottom"
                 Width="40"
                 Height="38"
                 Style="{StaticResource ToLightAnimatedBorder}">
@@ -38,7 +44,9 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Border>
-        <Border Grid.Column="1" Background="#333333"
+        <Border Grid.Column="1"
+                Grid.Row="0"
+                Background="#333333"
                 CornerRadius="6"
                 Padding="4"
                 Margin="5,0,0,0"

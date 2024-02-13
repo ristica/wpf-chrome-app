@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Chrome.Constants\Chrome.Constants.csproj" />
     <ProjectReference Include="..\Chrome.Dependencies.Contracts\Chrome.Dependencies.Contracts.csproj" />
     <ProjectReference Include="..\Chrome.Models\Chrome.Models.csproj" />

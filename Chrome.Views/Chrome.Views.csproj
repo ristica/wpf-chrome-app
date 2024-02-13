@@ -24,13 +24,14 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Chrome.Common\Chrome.Common.csproj" />
+		<ProjectReference Include="..\Chrome.Constants\Chrome.Constants.csproj" />
 		<ProjectReference Include="..\Chrome.Models\Chrome.Models.csproj" />
 		<ProjectReference Include="..\Chrome.Views.Contracts\Chrome.Views.Contracts.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Reference Include="MaterialDesignThemes.Wpf">
-	    <HintPath>..\..\..\..\Users\aleksandar.ristic\.nuget\packages\materialdesignthemes\4.9.0\lib\net7.0\MaterialDesignThemes.Wpf.dll</HintPath>
+	    <HintPath>..\..\..\..\.nuget\packages\materialdesignthemes\4.9.0\lib\net7.0\MaterialDesignThemes.Wpf.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 

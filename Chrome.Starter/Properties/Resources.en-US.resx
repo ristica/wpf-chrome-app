@@ -123,6 +123,12 @@
   <data name="CloseWindow" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="FavoriteAdd" xml:space="preserve">
+    <value>Add to the Quick-Bar</value>
+  </data>
+  <data name="FavoriteRemove" xml:space="preserve">
+    <value>Remove from the Quick-Bar</value>
+  </data>
   <data name="HelloWorld" xml:space="preserve">
     <value>Hello World!</value>
   </data>

@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Chrome.Views.ShellUserControls.SnackBarUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:converters="clr-namespace:Chrome.Views.Converters">
+    <UserControl.Resources>
+        <converters:SnackBarTypeToBackgroundBrush x:Key="SnackBarTypeToBackgroundBrush" />
+    </UserControl.Resources>
+
+    <materialDesign:Snackbar IsActive="{Binding ViewModel.SnackBarIsActive, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                             Message="{Binding ViewModel.SnackBarText , UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                             MessageQueue="{Binding MessageQueue}"
+                             VerticalAlignment="Bottom"
+                             HorizontalAlignment="Right"
+                             HorizontalContentAlignment="Center"
+                             Margin="0,0,10,10"
+                             Background="{Binding ViewModel.SnackBarType, Converter={StaticResource SnackBarTypeToBackgroundBrush}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+
+</UserControl>

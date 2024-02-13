@@ -79,6 +79,24 @@ namespace Chrome.Starter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zur Schnellstartleiste hinzufügen.
+        /// </summary>
+        internal static string FavoriteAdd {
+            get {
+                return ResourceManager.GetString("FavoriteAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Von der Schnellstartleiste enfernen.
+        /// </summary>
+        internal static string FavoriteRemove {
+            get {
+                return ResourceManager.GetString("FavoriteRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hallo Welt!.
         /// </summary>
         internal static string HelloWorld {

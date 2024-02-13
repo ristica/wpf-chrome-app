@@ -1,6 +1,9 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Threading;
+using Chrome.Constants;
 using Chrome.Models;
 using Chrome.ViewModels.Commands;
+using MaterialDesignThemes.Wpf;
 
 namespace Chrome.ViewModels;
 
@@ -8,23 +11,47 @@ public partial class ShellViewModel
 {
     #region FIELDS
 
-    private MenuUiItem _selectedCarouselItem;
     private ObservableCollection<MenuUiItem>? _carouselItems;
     private ObservableCollection<MenuModel>? _favorites;
+    private bool _snackBarIsActive;
+    private string _snackBarText;
+    private SnackBarType _snackBarType;
 
     #endregion
 
     #region PROPERTIES
 
-    public MenuUiItem SelectedCarouselItem
+    public bool SnackBarIsActive
     {
-        get => this._selectedCarouselItem;
+        get => this._snackBarIsActive;
         set
         {
-            this._selectedCarouselItem = value;
+            this._snackBarIsActive = value;
             OnPropertyChanged();
         }
     }
+
+    public string SnackBarText
+    {
+        get => this._snackBarText;
+        set
+        {
+            this._snackBarText = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public SnackBarType SnackBarType
+    {
+        get => this._snackBarType;
+        set
+        {
+            this._snackBarType = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public SnackbarMessageQueue MessageQueue { get; private set; } 
 
     public ObservableCollection<MenuUiItem>? CarouselItems
     {
@@ -52,6 +79,7 @@ public partial class ShellViewModel
 
     public FavoriteAddCommand? FavoriteAddCommand { get; private set; }
     public FavoriteRemoveCommand? FavoriteRemoveCommand { get; private set; }
+    public MenuSelectionChangedCommand? MenuSelectionChangedCommand { get; private set; }
 
     #endregion
 
@@ -61,12 +89,19 @@ public partial class ShellViewModel
     {
         if (item == null) return;
         this.Favorites ??= new();
-        if (this.Favorites.Count > 4) return;
+        if (this.Favorites.Count > 4)
+        {
+            this.ShowSnackBar(SnackBarType.Error, "Die Favoritenliste ist voll!");
+            return;
+        }
         
         var found = this.Favorites.SingleOrDefault(f => f.Header == item.Header);
         if (found != null) return;
 
         this.Favorites.Add(item);
+        this.UpdateCarouselItemsFavorite(item, true);
+
+        this.ShowSnackBar(SnackBarType.Success, "Zur Favoritenliste erfolgreich hinzugefügt!");
     }
 
     public void RemoveFavorite(MenuModel? item)
@@ -87,6 +122,9 @@ public partial class ShellViewModel
         if (found == null) return;
 
         this.Favorites.Remove(found);
+        this.UpdateCarouselItemsFavorite(item, false);
+
+        this.ShowSnackBar(SnackBarType.Info, "Aus der Favoritenliste erfolgreich entfernt!");
     }
 
     #endregion
@@ -97,6 +135,7 @@ public partial class ShellViewModel
     {
         this.FavoriteAddCommand = new FavoriteAddCommand(this);
         this.FavoriteRemoveCommand = new FavoriteRemoveCommand(this);
+        this.MenuSelectionChangedCommand = new MenuSelectionChangedCommand(this);
     }
 
     private void SetCarouselItems()
@@ -111,6 +150,40 @@ public partial class ShellViewModel
             .ToList();
 
         this.CarouselItems = new ObservableCollection<MenuUiItem>(dtos);
+    }
+
+    private void UpdateCarouselItemsFavorite(MenuModel item, bool add)
+    {
+        foreach (var ui in this.CarouselItems!)
+        {
+            foreach (var child in ui.Children.Where(child => child!.Id == item.Id))
+            {
+                child!.IsFavorite = add;
+                break;
+            }
+        }
+    }
+
+    private void ShowSnackBar(SnackBarType sbt, string message)
+    {
+        if (this.SnackBarIsActive)
+        {
+            if (this.SnackBarType == sbt) return;
+            this.SnackBarIsActive = false;
+        }
+
+        this.SnackBarType = sbt;
+        this.SnackBarIsActive = true;
+        this.SnackBarText = message;
+
+        Task.Run(() => Thread.Sleep(5000))
+            .ContinueWith(t =>
+            {
+                Dispatcher.CurrentDispatcher.Invoke(() =>
+                {
+                    this.SnackBarIsActive = false;
+                });
+            });
     }
 
     #endregion

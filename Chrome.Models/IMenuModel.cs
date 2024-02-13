@@ -1,8 +1,9 @@
-﻿using System.Windows.Controls;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Chrome.Models;
 
-public interface IMenuModel
+public interface IMenuModel : INotifyPropertyChanged
 {
     Guid Id { get; }
     int Order { get; set; }
@@ -15,11 +16,37 @@ public interface IMenuModel
 
 public class MenuModel : IMenuModel
 {
-    public Guid Id { get; private set; }
+    private bool _isFavorite;
+    public Guid Id { get; set; }
     public int Order { get; set; }
     public string Header { get; set; } = string.Empty;
     public bool IsChild { get; set; }
     public string? ParentId { get; set; }
     public bool HasChildren { get; set; }
     public string NeedsOneOfRoles { get; set; } = string.Empty;
+
+    public bool IsFavorite
+    {
+        get => this._isFavorite;
+        set
+        {
+            this._isFavorite = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
+    {
+        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+        field = value;
+        OnPropertyChanged(propertyName);
+        return true;
+    }
 }

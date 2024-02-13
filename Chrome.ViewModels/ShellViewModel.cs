@@ -2,6 +2,8 @@
 using Chrome.ViewModels.Base;
 using Chrome.ViewModels.Contracts;
 using Chrome.Views.Contracts;
+using MaterialDesignThemes.Wpf;
+
 // ReSharper disable EventUnsubscriptionViaAnonymousDelegate
 
 namespace Chrome.ViewModels;
@@ -31,6 +33,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
         this.SetCommonCultures();
         this.SetCarouselItems();
+        this.MessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(5));
 
         this._view.SetDataContext(this);
     }
