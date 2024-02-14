@@ -5,7 +5,9 @@
             BorderBrush="Transparent"
             BorderThickness="1"
             CornerRadius="4"
-            Margin="1">
+            Margin="1"
+            HorizontalAlignment="Left"
+            Width="46">
         <TextBlock HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    Text="M"

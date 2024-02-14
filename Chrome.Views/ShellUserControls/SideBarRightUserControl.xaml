@@ -4,58 +4,56 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:converters="clr-namespace:Chrome.Views.Converters"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             Width="46"
              DataContext="{Binding}">
     <UserControl.Resources>
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <converters:BoolToVisibilityReverseConverter x:Key="BoolToVisibilityReverseConverter" />
-        <converters:ListToVisibilityConverter x:Key="ListToVisibilityConverter" />
+        <converters:BoolToSideBarWidthConverter x:Key="BoolToSideBarWidthConverter" />
     </UserControl.Resources>
 
     <Border Background="{StaticResource DefaultBrush}"
             BorderBrush="Transparent"
             BorderThickness="1"
             CornerRadius="4"
-            Margin="1">
+            Margin="1"
+            Width="{Binding ViewModel.IsRightBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToSideBarWidthConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
         <Grid>
-            <Grid Visibility="{Binding ViewModel.Favorites, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ListToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                <materialDesign:PackIcon Kind="ChevronDoubleLeft"
-                                         Background="{StaticResource DefaultBrush}"
-                                         Foreground="#a9a9"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Top"
-                                         Height="24"
-                                         Width="24"
-                                         Margin="4,10,4,0"
-                                         Padding="0"
-                                         Cursor="Hand"
-                                         ToolTip="Expand"
-                                         Visibility="{Binding ViewModel.IsRightBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseLeftButtonUp">
-                            <i:InvokeCommandAction Command="{Binding ViewModel.ToggleRightBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </materialDesign:PackIcon>
-                <materialDesign:PackIcon Kind="ChevronDoubleRight"
-                                         Background="{StaticResource DefaultBrush}"
-                                         Foreground="#a9a9"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Top"
-                                         Height="24"
-                                         Width="24"
-                                         Margin="4,10,4,0"
-                                         Padding="0"
-                                         Cursor="Hand"
-                                         ToolTip="Expand"
-                                         Visibility="{Binding ViewModel.IsRightBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseLeftButtonUp">
-                            <i:InvokeCommandAction Command="{Binding ViewModel.ToggleRightBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </materialDesign:PackIcon>
-            </Grid>
+            <materialDesign:PackIcon Kind="ChevronDoubleLeft"
+                                     Background="{StaticResource DefaultBrush}"
+                                     Foreground="#a9a9"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     Height="24"
+                                     Width="24"
+                                     Margin="8,10,4,0"
+                                     Padding="0"
+                                     Cursor="Hand"
+                                     ToolTip="Expand"
+                                     Visibility="{Binding ViewModel.IsRightBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction Command="{Binding ViewModel.ToggleRightBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </materialDesign:PackIcon>
+            <materialDesign:PackIcon Kind="ChevronDoubleRight"
+                                     Background="{StaticResource DefaultBrush}"
+                                     Foreground="#a9a9"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     Height="24"
+                                     Width="24"
+                                     Margin="8,10,4,0"
+                                     Padding="0"
+                                     Cursor="Hand"
+                                     ToolTip="Expand"
+                                     Visibility="{Binding ViewModel.IsRightBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction Command="{Binding ViewModel.ToggleRightBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </materialDesign:PackIcon>
 
             <ItemsControl ItemsSource="{Binding ViewModel.Favorites, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                           VerticalAlignment="Center">

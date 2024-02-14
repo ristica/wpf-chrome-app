@@ -4,21 +4,24 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:converters="clr-namespace:Chrome.Views.Converters"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             Width="46"
              DataContext="{Binding}">
     <UserControl.Resources>
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <converters:BoolToVisibilityReverseConverter x:Key="BoolToVisibilityReverseConverter" />
         <converters:ListToVisibilityConverter x:Key="ListToVisibilityConverter" />
+        <converters:BoolToSideBarWidthReverseConverter x:Key="BoolToSideBarWidthReverseConverter" />
     </UserControl.Resources>
 
     <Border Background="{StaticResource DefaultBrush}"
             BorderBrush="Transparent"
             BorderThickness="1"
             CornerRadius="4"
-            Margin="1">
+            Margin="1"
+            Width="{Binding ViewModel.IsLeftBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToSideBarWidthReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
         <Grid>
-            <Grid Visibility="{Binding ViewModel.Customers, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ListToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+            <Grid HorizontalAlignment="Right"
+                  Margin="0,0,6,0"
+                  Visibility="{Binding ViewModel.Customers, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ListToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
                 <materialDesign:PackIcon Kind="ChevronDoubleRight"
                                          Background="{StaticResource DefaultBrush}"
                                          Foreground="#a9a9"
@@ -90,11 +93,11 @@
             <materialDesign:PackIcon Kind="ToggleSwitchOutline"
                                      Background="{StaticResource DefaultBrush}"
                                      Foreground="#a9a9"
-                                     HorizontalAlignment="Center"
+                                     HorizontalAlignment="Right"
                                      VerticalAlignment="Bottom"
                                      Height="24"
                                      Width="24"
-                                     Margin="4,0,4,10"
+                                     Margin="4,0,8,10"
                                      Padding="0"
                                      Cursor="Hand"
                                      ToolTip="{Loc HideStatusBar}"
@@ -108,11 +111,11 @@
             <materialDesign:PackIcon Kind="ToggleSwitchOffOutline"
                                      Background="{StaticResource DefaultBrush}"
                                      Foreground="#a9a9"
-                                     HorizontalAlignment="Center"
+                                     HorizontalAlignment="Right"
                                      VerticalAlignment="Bottom"
                                      Height="24"
                                      Width="24"
-                                     Margin="4,0,4,10"
+                                     Margin="4,0,8,10"
                                      Padding="0"
                                      Cursor="Hand"
                                      ToolTip="{Loc ShowStatusBar}"

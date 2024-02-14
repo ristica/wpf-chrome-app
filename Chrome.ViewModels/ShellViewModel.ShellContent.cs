@@ -154,6 +154,7 @@ public partial class ShellViewModel
         }
 
         if (!this.Favorites!.Any()) this.Favorites = null;
+        this.IsRightBarExpanded = false;
     }
 
     private void ShowSnackBar(SnackBarType sbt, string message)
