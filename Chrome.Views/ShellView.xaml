@@ -12,7 +12,7 @@
                       BorderThickness="1"
                       Background="#4D212121"
                       MinHeight="800"
-                      MinWidth="1400"
+                      MinWidth="1900"
                       Icon="Resources/icon.png"
                       WindowStartupLocation="CenterScreen"
                       AllowsTransparency="True"
@@ -53,19 +53,29 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
+
+            <!-- row 1 -->
             <shellUserControls:TopLeftBrandUserControl Grid.Row="0"
                                                        Grid.Column="0" />
             <shellUserControls:TopBarUserControl x:Name="TopBarUserControl"
                                                  Grid.Row="0"
-                                                 Grid.Column="1" />
-            <shellUserControls:SideBarUserControl Grid.Row="1"
-                                                  Grid.Column="0"
-                                                  Grid.RowSpan="2"/>
+                                                 Grid.Column="1" 
+                                                 Grid.ColumnSpan="2"/>
+
+            <!-- row 1 -->
+            <shellUserControls:SideBarLeftUserControl Grid.Row="1"
+                                                  Grid.Column="0"/>
             <shellUserControls:ShellContentUserControl Grid.Row="1"
                                                        Grid.Column="1" />
+            <shellUserControls:SideBarRightUserControl Grid.Row="1"
+                                                      Grid.Column="2" />
+
+            <!-- row 2 -->
             <shellUserControls:BottomBarUserControl Grid.Row="2"
-                                                    Grid.Column="1"
+                                                    Grid.Column="0"
+                                                    Grid.ColumnSpan="3"
                                                     Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
         </Grid>
     </Grid>

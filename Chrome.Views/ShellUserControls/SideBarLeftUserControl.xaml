@@ -1,4 +1,4 @@
-﻿                                                <UserControl x:Class="Chrome.Views.ShellUserControls.SideBarUserControl"
+﻿                                                <UserControl x:Class="Chrome.Views.ShellUserControls.SideBarLeftUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -9,6 +9,7 @@
     <UserControl.Resources>
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <converters:BoolToVisibilityReverseConverter x:Key="BoolToVisibilityReverseConverter" />
+        <converters:ListToVisibilityConverter x:Key="ListToVisibilityConverter" />
     </UserControl.Resources>
 
     <Border Background="{StaticResource DefaultBrush}"
@@ -17,7 +18,46 @@
             CornerRadius="4"
             Margin="1">
         <Grid>
-            <ItemsControl ItemsSource="{Binding ViewModel.Favorites, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+            <Grid Visibility="{Binding ViewModel.Customers, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ListToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                <materialDesign:PackIcon Kind="ChevronDoubleRight"
+                                         Background="{StaticResource DefaultBrush}"
+                                         Foreground="#a9a9"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Top"
+                                         Height="24"
+                                         Width="24"
+                                         Margin="4,10,4,0"
+                                         Padding="0"
+                                         Cursor="Hand"
+                                         ToolTip="Expand"
+                                         Visibility="{Binding ViewModel.IsLeftBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding ViewModel.ToggleLeftBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </materialDesign:PackIcon>
+                <materialDesign:PackIcon Kind="ChevronDoubleLeft"
+                                         Background="{StaticResource DefaultBrush}"
+                                         Foreground="#a9a9"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Top"
+                                         Height="24"
+                                         Width="24"
+                                         Margin="4,10,4,0"
+                                         Padding="0"
+                                         Cursor="Hand"
+                                         ToolTip="Expand"
+                                         Visibility="{Binding ViewModel.IsLeftBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding ViewModel.ToggleLeftBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </materialDesign:PackIcon>
+            </Grid>
+
+            <ItemsControl ItemsSource="{Binding ViewModel.Customers, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                           VerticalAlignment="Center">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -35,8 +75,8 @@
                                 Height="32"
                                 Cursor="Hand"
                                 Style="{StaticResource ToLightAnimatedBorder}"
-                                ToolTip="{Binding Header}">
-                            <materialDesign:PackIcon Kind="PlaylistFavorite"
+                                ToolTip="{Binding FirstName}">
+                            <materialDesign:PackIcon Kind="AccountClockOutline"
                                                      Foreground="#666"
                                                      HorizontalAlignment="Center"
                                                      VerticalAlignment="Center"
@@ -49,7 +89,7 @@
 
             <materialDesign:PackIcon Kind="ToggleSwitchOutline"
                                      Background="{StaticResource DefaultBrush}"
-                                     Foreground="#ddd"
+                                     Foreground="#a9a9"
                                      HorizontalAlignment="Center"
                                      VerticalAlignment="Bottom"
                                      Height="24"
@@ -67,7 +107,7 @@
             </materialDesign:PackIcon>
             <materialDesign:PackIcon Kind="ToggleSwitchOffOutline"
                                      Background="{StaticResource DefaultBrush}"
-                                     Foreground="#ddd"
+                                     Foreground="#a9a9"
                                      HorizontalAlignment="Center"
                                      VerticalAlignment="Bottom"
                                      Height="24"

@@ -1,8 +1,8 @@
 ﻿namespace Chrome.Views.ShellUserControls;
 
-public partial class SideBarUserControl
+public partial class SideBarLeftUserControl
 {
-    public SideBarUserControl()
+    public SideBarLeftUserControl()
     {
         InitializeComponent();
     }

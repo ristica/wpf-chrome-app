@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Threading;
 using Chrome.Constants;
 using Chrome.Models;
@@ -12,7 +13,6 @@ public partial class ShellViewModel
     #region FIELDS
 
     private ObservableCollection<MenuUiItem>? _carouselItems;
-    private ObservableCollection<MenuModel>? _favorites;
     private bool _snackBarIsActive;
     private string _snackBarText;
     private SnackBarType _snackBarType;
@@ -59,16 +59,6 @@ public partial class ShellViewModel
         set
         {
             this._carouselItems = value;
-            OnPropertyChanged();
-        }
-    }
-
-    public ObservableCollection<MenuModel>? Favorites
-    {
-        get => this._favorites;
-        private set
-        {
-            this._favorites = value;
             OnPropertyChanged();
         }
     }
@@ -162,6 +152,8 @@ public partial class ShellViewModel
                 break;
             }
         }
+
+        if (!this.Favorites!.Any()) this.Favorites = null;
     }
 
     private void ShowSnackBar(SnackBarType sbt, string message)

@@ -33,6 +33,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
         this.SetCommonCultures();
         this.SetCarouselItems();
+        this.SetTestCustomers();
         this.MessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(5));
 
         this._view.SetDataContext(this);
@@ -43,7 +44,8 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
         RegisterTopBarCommands();
         RegisterBottomLanguageBarCommands();
         RegisterSearchBarCommands();
-        RegisterSideBarCommands();
+        RegisterLeftSideBarCommands();
+        RegisterRightSideBarCommands();
         RegisterShellContentCommands();
     }
 

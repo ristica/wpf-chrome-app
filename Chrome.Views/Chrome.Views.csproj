@@ -31,7 +31,7 @@
 
 	<ItemGroup>
 	  <Reference Include="MaterialDesignThemes.Wpf">
-	    <HintPath>..\..\..\..\.nuget\packages\materialdesignthemes\4.9.0\lib\net7.0\MaterialDesignThemes.Wpf.dll</HintPath>
+	    <HintPath>..\..\..\..\Users\aleksandar.ristic\.nuget\packages\materialdesignthemes\4.9.0\lib\net7.0\MaterialDesignThemes.Wpf.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 

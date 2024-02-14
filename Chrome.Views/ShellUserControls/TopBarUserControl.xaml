@@ -45,7 +45,7 @@
             <Grid>
                 <Border Background="{StaticResource DefaultBrush}"
                         CornerRadius="4"
-                        Width="40"
+                        Width="42"
                         Margin="0,0,4,0"
                         Padding="0,0,0,5"
                         ToolTip="{Loc MinimizeWindow}"
@@ -65,7 +65,7 @@
             <Grid>
                 <Border Background="{StaticResource DefaultBrush}"
                         CornerRadius="4"
-                        Width="40"
+                        Width="42"
                         Margin="0,0,4,0"
                         Cursor="Hand"
                         ToolTip="{Loc MaximizeWindow}"
@@ -97,7 +97,7 @@
             <Grid>
                 <Border Background="{StaticResource DefaultBrush}"
                         CornerRadius="4"
-                        Width="40"
+                        Width="42"
                         ToolTip="{Loc CloseWindow}"
                         Cursor="Hand">
                     <Border.Style>

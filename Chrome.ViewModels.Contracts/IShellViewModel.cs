@@ -13,8 +13,11 @@ public interface IShellViewModel : IParentViewModel
     WindowState CurrentWindowState { get; }
     bool CanSearch { get; set; }
     string SearchFilter { get; set; }
+    bool IsLeftBarExpanded { get; set; }
+    bool IsRightBarExpanded { get; set; }
     ObservableCollection<string>? FilteredItems { get; set; }
     ObservableCollection<MenuModel>? Favorites { get; }
+    ObservableCollection<CustomerUiModel>? Customers { get; }
     bool IsLanguagePopupOpen { get; set; }
     bool IsBottomBarVisible { get; set; }
 
