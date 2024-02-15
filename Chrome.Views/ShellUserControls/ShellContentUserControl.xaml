@@ -41,10 +41,8 @@
             <shellUserControls:SnackBarUserControl HorizontalAlignment="Right"
                                                    VerticalAlignment="Bottom" />
 
-            <materialDesign:PackIcon x:Name="ToggleSwitchOutline"
-                                     Kind="ToggleSwitchOutline"
+            <materialDesign:PackIcon Kind="ToggleSwitchOutline"
                                      Background="{StaticResource DefaultBrush}"
-                                     Foreground="#a9a9"
                                      HorizontalAlignment="Left"
                                      VerticalAlignment="Bottom"
                                      Height="24"
@@ -54,38 +52,42 @@
                                      Cursor="Hand"
                                      ToolTip="{Loc HideStatusBar}"
                                      Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                <!--<materialDesign:PackIcon.Triggers>
+                <materialDesign:PackIcon.Foreground>
+                    <SolidColorBrush x:Name="MyBrush1"
+                                     Color="DimGray"></SolidColorBrush>
+                </materialDesign:PackIcon.Foreground>
+                <materialDesign:PackIcon.Triggers>
                     <EventTrigger RoutedEvent="MouseEnter">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation Storyboard.TargetName="ToggleSwitchOutline"
-                                                 Storyboard.TargetProperty="Foreground"
-                                                 To="{StaticResource ForegroundLighterBrush}"
-                                                 Duration="0:0:0.25" />
+                                <ColorAnimation Storyboard.TargetName="MyBrush1"
+                                                Storyboard.TargetProperty="Color"
+                                                From="DimGray"
+                                                To="White"
+                                                Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
                     <EventTrigger RoutedEvent="MouseLeave">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation Storyboard.TargetName="ToggleSwitchOutline"
-                                                 Storyboard.TargetProperty="Foreground"
-                                                 To="#a9a9"
-                                                 Duration="0:0:0.25" />
+                                <ColorAnimation Storyboard.TargetName="MyBrush1"
+                                                Storyboard.TargetProperty="Color"
+                                                From="White"
+                                                To="DimGray"
+                                                Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
-                </materialDesign:PackIcon.Triggers>-->
+                </materialDesign:PackIcon.Triggers>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
                         <i:InvokeCommandAction Command="{Binding ViewModel.ToggleBottomBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </materialDesign:PackIcon>
-            <materialDesign:PackIcon x:Name="ToggleSwitchOffOutline"
-                                     Kind="ToggleSwitchOffOutline"
+            <materialDesign:PackIcon Kind="ToggleSwitchOffOutline"
                                      Background="{StaticResource DefaultBrush}"
-                                     Foreground="#a9a9"
                                      HorizontalAlignment="Left"
                                      VerticalAlignment="Bottom"
                                      Height="24"
@@ -95,28 +97,35 @@
                                      Cursor="Hand"
                                      ToolTip="{Loc ShowStatusBar}"
                                      Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                <!--<materialDesign:PackIcon.Triggers>
+               <materialDesign:PackIcon.Foreground>
+                    <SolidColorBrush x:Name="MyBrush2"
+                                     Color="DimGray"></SolidColorBrush>
+               </materialDesign:PackIcon.Foreground>
+                <materialDesign:PackIcon.Triggers>
                     <EventTrigger RoutedEvent="MouseEnter">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation Storyboard.TargetName="ToggleSwitchOffOutline"
-                                                 Storyboard.TargetProperty="Foreground"
-                                                 To="{StaticResource ForegroundLighterBrush}"
-                                                 Duration="0:0:0.25" />
+                                <ColorAnimation Storyboard.TargetName="MyBrush2"
+                                                Storyboard.TargetProperty="Color"
+                                                From="DimGray"
+                                                To="White"
+                                                Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
                     <EventTrigger RoutedEvent="MouseLeave">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation Storyboard.TargetName="ToggleSwitchOffOutline"
-                                                 Storyboard.TargetProperty="Foreground"
-                                                 To="#a9a9"
-                                                 Duration="0:0:0.25" />
+                                <ColorAnimation Storyboard.TargetName="MyBrush2"
+                                                Storyboard.TargetProperty="Color"
+                                                From="White"
+                                                To="DimGray"
+                                                Duration="0:0:.25"/>
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
-                </materialDesign:PackIcon.Triggers>-->
+                </materialDesign:PackIcon.Triggers>
+
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
                         <i:InvokeCommandAction Command="{Binding ViewModel.ToggleBottomBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
