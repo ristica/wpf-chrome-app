@@ -8,21 +8,9 @@ public partial class ShellViewModel
 {
     #region FIELDS
 
-    private bool _isLanguagePopupOpen;
-
     #endregion
 
     #region PROPERTIES
-
-    public bool IsLanguagePopupOpen
-    {
-        get => this._isLanguagePopupOpen;
-        set
-        {
-            this._isLanguagePopupOpen = value;
-            OnPropertyChanged();
-        }
-    }
 
     public List<LanguageInfo> Cultures { get; set; }
 
@@ -39,7 +27,6 @@ public partial class ShellViewModel
 
     private void RegisterBottomLanguageBarCommands()
     {
-        ToggleLanguagePopupCommand = new ToggleLanguagePopupCommand(this);
         SetLanguageCommand = new SetLanguageCommand(this);
     }
 

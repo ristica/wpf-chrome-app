@@ -1,5 +1,4 @@
-﻿using Chrome.Models;
-using Chrome.ViewModels.Contracts;
+﻿using Chrome.ViewModels.Contracts;
 using System.Windows.Input;
 
 namespace Chrome.ViewModels.Commands;

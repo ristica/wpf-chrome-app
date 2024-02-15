@@ -9,7 +9,30 @@
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
 
-    <Grid>
+    <Grid x:Name="LanguageInfosGrid"
+          Width="42">
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetName="LanguageInfosGrid"
+                                         Storyboard.TargetProperty="Width"
+                                         To="120"
+                                         Duration="0:0:0.25" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetName="LanguageInfosGrid"
+                                         Storyboard.TargetProperty="Width"
+                                         To="42"
+                                         Duration="0:0:0.25" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto" />
@@ -28,7 +51,7 @@
                 Margin="1"
                 ToolTip="{Loc ChooseLanguage}"
                 Cursor="Hand"
-                VerticalAlignment="Bottom"
+                VerticalAlignment="Top"
                 Width="40"
                 Height="38"
                 Style="{StaticResource ToLightAnimatedBorder}">
@@ -38,19 +61,18 @@
                                      Height="22"
                                      Width="22"
                                      Foreground="#ccc" />
-            <i:Interaction.Triggers>
+            <!--<i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonUp">
                     <i:InvokeCommandAction Command="{Binding ViewModel.ToggleLanguagePopupCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                 </i:EventTrigger>
-            </i:Interaction.Triggers>
+            </i:Interaction.Triggers>-->
         </Border>
         <Border Grid.Column="1"
                 Grid.Row="0"
                 Background="#333333"
                 CornerRadius="6"
                 Padding="4"
-                Margin="5,0,0,0"
-                Visibility="{Binding ViewModel.IsLanguagePopupOpen, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                Margin="5,0,0,0">
             <ItemsControl ItemsSource="{Binding}"
                           DataContext="{Binding ViewModel.Cultures, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
                 <ItemsControl.ItemsPanel>

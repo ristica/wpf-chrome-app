@@ -13,14 +13,105 @@ public class CustomerGenerator
                 FirstName = "Aleksandar",
                 LastName = "Ristic",
                 Id = Guid.NewGuid(),
-                Kundennummer = "1"
+                Kundennummer = "123456"
             },
             new CustomerUiModel
             {
                 FirstName = "Pingo",
                 LastName = "Profi",
                 Id = Guid.NewGuid(),
-                Kundennummer = "2"
+                Kundennummer = "222222"
+            },
+            new CustomerUiModel
+            {
+                FirstName = "Aleksandar",
+                LastName = "Ristic",
+                Id = Guid.NewGuid(),
+                Kundennummer = "123456"
+            },
+            new CustomerUiModel
+            {
+                FirstName = "Pingo",
+                LastName = "Profi",
+                Id = Guid.NewGuid(),
+                Kundennummer = "222222"
+            },
+            new CustomerUiModel
+            {
+                FirstName = "Aleksandar",
+                LastName = "Ristic",
+                Id = Guid.NewGuid(),
+                Kundennummer = "123456"
+            },
+            new CustomerUiModel
+            {
+                FirstName = "Pingo",
+                LastName = "Profi",
+                Id = Guid.NewGuid(),
+                Kundennummer = "222222"
+            },
+            new CustomerUiModel
+            {
+                FirstName = "Aleksandar",
+                LastName = "Ristic",
+                Id = Guid.NewGuid(),
+                Kundennummer = "123456"
+            },
+            new CustomerUiModel
+            {
+                FirstName = "Pingo",
+                LastName = "Profi",
+                Id = Guid.NewGuid(),
+                Kundennummer = "222222"
+            },
+            new CustomerUiModel
+            {
+                FirstName = "Aleksandar",
+                LastName = "Ristic",
+                Id = Guid.NewGuid(),
+                Kundennummer = "123456"
+            },
+            new CustomerUiModel
+            {
+                FirstName = "Pingo",
+                LastName = "Profi",
+                Id = Guid.NewGuid(),
+                Kundennummer = "222222"
+            },
+            new CustomerUiModel
+            {
+                FirstName = "Aleksandar",
+                LastName = "Ristic",
+                Id = Guid.NewGuid(),
+                Kundennummer = "123456"
+            },
+            new CustomerUiModel
+            {
+                FirstName = "Pingo",
+                LastName = "Profi",
+                Id = Guid.NewGuid(),
+                Kundennummer = "222222"
+            },
+            new CustomerUiModel
+            {
+                FirstName = "Aleksandar",
+                LastName = "Ristic",
+                Id = Guid.NewGuid(),
+                Kundennummer = "123456"
+            },
+            new CustomerUiModel
+            {
+                FirstName = "Pingo",
+                LastName = "Profi",
+                Id = Guid.NewGuid(),
+                Kundennummer = "222222"
+            },
+            new CustomerUiModel
+            {
+                FirstName = "Aleksandar",
+                LastName = "Ristic",
+                Id = Guid.NewGuid(),
+                Kundennummer = "123456"
             }
         ];
     }

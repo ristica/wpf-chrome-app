@@ -36,7 +36,7 @@ public partial class ShellViewModel
         }
     }
 
-    public ObservableCollection<string> FilteredItems
+    public ObservableCollection<string>? FilteredItems
     {
         get => this._filteredItems;
         set

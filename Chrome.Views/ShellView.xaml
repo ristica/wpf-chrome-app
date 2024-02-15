@@ -19,7 +19,6 @@
                       ResizeMode="{Binding ResizeMode}">
     <Window.Resources>
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-        <converters:ListToVisibilityConverter x:Key="ListToVisibilityConverter" />
     </Window.Resources>
     <!--<Window.Background> --><!-- 1A == 20 --><!--
         <LinearGradientBrush StartPoint="0,0"
@@ -66,13 +65,9 @@
                                                  Grid.ColumnSpan="3"/>
 
             <!-- row 1 -->
-            <shellUserControls:SideBarLeftUserControl Grid.Row="1"
-                                                  Grid.Column="0"/>
             <shellUserControls:ShellContentUserControl Grid.Row="1"
-                                                       Grid.Column="1" />
-            <shellUserControls:SideBarRightUserControl Grid.Row="1"
-                                                      Grid.Column="2"
-                                                      Visibility="{Binding ViewModel.Favorites, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ListToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                                                       Grid.Column="0"
+                                                       Grid.ColumnSpan="3"/>
 
             <!-- row 2 -->
             <shellUserControls:BottomBarUserControl Grid.Row="2"

@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Threading;
 using Chrome.Constants;
 using Chrome.Models;

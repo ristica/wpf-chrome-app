@@ -11,50 +11,12 @@
         <converters:BoolToSideBarWidthConverter x:Key="BoolToSideBarWidthConverter" />
     </UserControl.Resources>
 
-    <Border Background="{StaticResource DefaultBrush}"
+    <Border Background="Transparent"
             BorderBrush="Transparent"
             BorderThickness="1"
             CornerRadius="4"
-            Margin="1"
-            Width="{Binding ViewModel.IsRightBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToSideBarWidthConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+            Margin="1">
         <Grid>
-            <materialDesign:PackIcon Kind="ChevronDoubleLeft"
-                                     Background="{StaticResource DefaultBrush}"
-                                     Foreground="#a9a9"
-                                     HorizontalAlignment="Left"
-                                     VerticalAlignment="Top"
-                                     Height="24"
-                                     Width="24"
-                                     Margin="8,10,4,0"
-                                     Padding="0"
-                                     Cursor="Hand"
-                                     ToolTip="Expand"
-                                     Visibility="{Binding ViewModel.IsRightBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction Command="{Binding ViewModel.ToggleRightBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </materialDesign:PackIcon>
-            <materialDesign:PackIcon Kind="ChevronDoubleRight"
-                                     Background="{StaticResource DefaultBrush}"
-                                     Foreground="#a9a9"
-                                     HorizontalAlignment="Left"
-                                     VerticalAlignment="Top"
-                                     Height="24"
-                                     Width="24"
-                                     Margin="8,10,4,0"
-                                     Padding="0"
-                                     Cursor="Hand"
-                                     ToolTip="Expand"
-                                     Visibility="{Binding ViewModel.IsRightBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction Command="{Binding ViewModel.ToggleRightBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </materialDesign:PackIcon>
-
             <ItemsControl ItemsSource="{Binding ViewModel.Favorites, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                           VerticalAlignment="Center">
                 <ItemsControl.ItemsPanel>
@@ -64,23 +26,81 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Border Background="{StaticResource DefaultBrush}"
+                        <Border x:Name="FavoriteBorder"
+                                Background="{StaticResource DefaultBrush}"
                                 BorderBrush="#666"
                                 BorderThickness="1"
                                 CornerRadius="4"
-                                Margin="4"
-                                HorizontalAlignment="Stretch"
-                                Height="32"
+                                Margin="0, 2,20,2"
+                                HorizontalAlignment="Right"
+                                Width="200"
+                                Height="30"
                                 Cursor="Hand"
                                 Style="{StaticResource ToLightAnimatedBorder}"
                                 ToolTip="{Binding Header}">
-                            <materialDesign:PackIcon Kind="Star"
-                                                     Foreground="#666"
-                                                     HorizontalAlignment="Left"
-                                                     VerticalAlignment="Center"
-                                                     Height="20"
-                                                     Width="20" 
-                                                     Margin="6,0,0,0"/>
+                            <Border.Triggers>
+                                <EventTrigger RoutedEvent="MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="FavoriteBorder"
+                                                             Storyboard.TargetProperty="Width"
+                                                             To="250"
+                                                             Duration="0:0:0.25" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="FavoriteBorder"
+                                                             Storyboard.TargetProperty="Width"
+                                                             To="200"
+                                                             Duration="0:0:0.25" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Border.Triggers>
+                            <Grid>
+                                <Grid.ToolTip>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding ParentId}"></TextBlock>
+                                        <TextBlock Text="/"
+                                                   Margin="3,0"></TextBlock>
+                                        <TextBlock Text="{Binding Header}"></TextBlock>
+                                    </StackPanel>
+                                </Grid.ToolTip>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0"
+                                                         Kind="Star"
+                                                         Foreground="{StaticResource ForegroundLightBrush}"
+                                                         HorizontalAlignment="Left"
+                                                         VerticalAlignment="Center"
+                                                         Height="20"
+                                                         Width="20"
+                                                         Opacity=".3"
+                                                         Margin="5,0,0,0" />
+                                <StackPanel Orientation="Horizontal"
+                                            Grid.Column="1">
+                                    <TextBlock HorizontalAlignment="Left"
+                                               VerticalAlignment="Center"
+                                               Margin="5,0,0,0"
+                                               Text="{Binding ParentId}"
+                                               Foreground="{StaticResource ForegroundLightBrush}" />
+                                    <TextBlock HorizontalAlignment="Left"
+                                               VerticalAlignment="Center"
+                                               Margin="3,0"
+                                               Text="/"
+                                               Foreground="{StaticResource ForegroundLightBrush}" />
+                                    <TextBlock HorizontalAlignment="Left"
+                                               VerticalAlignment="Center"
+                                               Text="{Binding Header}"
+                                               Foreground="{StaticResource ForegroundLightBrush}">
+                                    </TextBlock>
+                                </StackPanel>
+                            </Grid>
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

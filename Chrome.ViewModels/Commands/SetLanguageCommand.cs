@@ -14,8 +14,6 @@ public class SetLanguageCommand(IShellViewModel viewModel) : ICommand
         {
             CultureHandler.ChangeCultureAction(language);
         }
-        
-        viewModel.IsLanguagePopupOpen = false;
     }
 
     public event EventHandler? CanExecuteChanged;

@@ -11,8 +11,9 @@
             <Color x:Key="SecondaryColor">Yellow</Color>
             <Color x:Key="DarkColor">#212121</Color>
             <Color x:Key="MaroonColor">#800000</Color>
-            <Color x:Key="LightColor">#dddddd</Color>
-            <Color x:Key="LighterColor">#bbbbbb</Color>
+            <Color x:Key="LighterColor">#eeeeee</Color>
+            <Color x:Key="LightColor">#aaaaaa</Color>
+            <Color x:Key="DisabledColor">#a9a9</Color>
             <Color x:Key="DarkHoverColor">#333333</Color>
             <Color x:Key="NoColor">#00000000</Color>
 
@@ -28,7 +29,7 @@
             <SolidColorBrush x:Key="ForegroundLightBrush"
                              Color="{StaticResource LightColor}" />
             <SolidColorBrush x:Key="ForegroundLighterBrush"
-                             Color="{StaticResource LightColor}" />
+                             Color="{StaticResource LighterColor}" />
 
 
             <!-- CONTROL TEMPLATES -->
@@ -107,6 +108,9 @@
                     </EventTrigger>
                 </Style.Triggers>
             </Style>
+            <!-- ENDE -->
+
+            
 
             <!-- MATERIAL -->
             <ResourceDictionary.MergedDictionaries>

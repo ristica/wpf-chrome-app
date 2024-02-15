@@ -3,7 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:shellUserControls="clr-namespace:Chrome.Views.ShellUserControls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:converters="clr-namespace:Chrome.Views.Converters"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              DataContext="{Binding}">
+    <UserControl.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converters:BoolToVisibilityReverseConverter x:Key="BoolToVisibilityReverseConverter" />
+        <converters:ListToVisibilityConverter x:Key="ListToVisibilityConverter" />
+    </UserControl.Resources>
+
     <Border Background="{StaticResource DefaultBrush}"
             BorderBrush="Transparent"
             BorderThickness="1"
@@ -11,17 +19,110 @@
             Margin="1">
         <Grid>
 
+            <shellUserControls:SideBarLeftUserControl HorizontalAlignment="Left"
+                                                      VerticalAlignment="Center" />
+
             <shellUserControls:SearchUserControl HorizontalAlignment="Right"
                                                  VerticalAlignment="Top"
                                                  Margin="0,20,20,0" />
+
             <shellUserControls:LanguageUserControl HorizontalAlignment="Left"
-                                                   VerticalAlignment="Bottom"
-                                                   Margin="20,0,0,15" />
+                                                   VerticalAlignment="Top"
+                                                   Margin="20,20,0,15" />
+
             <shellUserControls:CarouselUserControl HorizontalAlignment="Center"
-                                                   VerticalAlignment="Top"/>
+                                                   VerticalAlignment="Top" />
+
+
+            <shellUserControls:SideBarRightUserControl HorizontalAlignment="Right"
+                                                       VerticalAlignment="Center"
+                                                       Visibility="{Binding ViewModel.Favorites, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ListToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
 
             <shellUserControls:SnackBarUserControl HorizontalAlignment="Right"
-                                                   VerticalAlignment="Bottom"/>
+                                                   VerticalAlignment="Bottom" />
+
+            <materialDesign:PackIcon x:Name="ToggleSwitchOutline"
+                                     Kind="ToggleSwitchOutline"
+                                     Background="{StaticResource DefaultBrush}"
+                                     Foreground="#a9a9"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Bottom"
+                                     Height="24"
+                                     Width="24"
+                                     Margin="20,0,0,10"
+                                     Padding="0"
+                                     Cursor="Hand"
+                                     ToolTip="{Loc HideStatusBar}"
+                                     Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                <!--<materialDesign:PackIcon.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="ToggleSwitchOutline"
+                                                 Storyboard.TargetProperty="Foreground"
+                                                 To="{StaticResource ForegroundLighterBrush}"
+                                                 Duration="0:0:0.25" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="ToggleSwitchOutline"
+                                                 Storyboard.TargetProperty="Foreground"
+                                                 To="#a9a9"
+                                                 Duration="0:0:0.25" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </materialDesign:PackIcon.Triggers>-->
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction Command="{Binding ViewModel.ToggleBottomBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </materialDesign:PackIcon>
+            <materialDesign:PackIcon x:Name="ToggleSwitchOffOutline"
+                                     Kind="ToggleSwitchOffOutline"
+                                     Background="{StaticResource DefaultBrush}"
+                                     Foreground="#a9a9"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Bottom"
+                                     Height="24"
+                                     Width="24"
+                                     Margin="20,0,0,10"
+                                     Padding="0"
+                                     Cursor="Hand"
+                                     ToolTip="{Loc ShowStatusBar}"
+                                     Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                <!--<materialDesign:PackIcon.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="ToggleSwitchOffOutline"
+                                                 Storyboard.TargetProperty="Foreground"
+                                                 To="{StaticResource ForegroundLighterBrush}"
+                                                 Duration="0:0:0.25" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="ToggleSwitchOffOutline"
+                                                 Storyboard.TargetProperty="Foreground"
+                                                 To="#a9a9"
+                                                 Duration="0:0:0.25" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </materialDesign:PackIcon.Triggers>-->
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction Command="{Binding ViewModel.ToggleBottomBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </materialDesign:PackIcon>
 
         </Grid>
 

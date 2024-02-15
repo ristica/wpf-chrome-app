@@ -52,7 +52,6 @@ public partial class ShellViewModel
     #region COMMANDS
 
     public ICommand? ToggleBottomBarCommand { get; private set; }
-    public ICommand? ToggleLeftBarCommand { get; private set; }
 
     #endregion
 
@@ -61,7 +60,6 @@ public partial class ShellViewModel
     private void RegisterLeftSideBarCommands()
     {
         ToggleBottomBarCommand = new ToggleBottomBarCommand(this);
-        this.ToggleLeftBarCommand = new ToggleLeftBarCommand(this);
     }
 
     private void SetTestCustomers()

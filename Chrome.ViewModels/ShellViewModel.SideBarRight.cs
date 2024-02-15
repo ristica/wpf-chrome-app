@@ -1,7 +1,5 @@
 ﻿using Chrome.Models;
-using Chrome.ViewModels.Commands;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 
 namespace Chrome.ViewModels;
 
@@ -40,7 +38,6 @@ public partial class ShellViewModel
 
     #region COMMANDS
 
-    public ICommand? ToggleRightBarCommand { get; private set; }
 
     #endregion
 
@@ -48,7 +45,7 @@ public partial class ShellViewModel
 
     private void RegisterRightSideBarCommands()
     {
-        this.ToggleRightBarCommand = new ToggleRightBarCommand(this);
+
     }
 
     #endregion
