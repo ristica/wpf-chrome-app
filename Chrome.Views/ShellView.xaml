@@ -12,7 +12,7 @@
                       BorderThickness="1"
                       Background="#4D212121"
                       MinHeight="800"
-                      MinWidth="1900"
+                      MinWidth="1700"
                       Icon="Resources/icon.png"
                       WindowStartupLocation="CenterScreen"
                       AllowsTransparency="True"

@@ -8,7 +8,7 @@ public class BoolToSideBarWidthConverter : IValueConverter
     public object Convert(object? value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value == null) return 0M;
-        return (bool)value ? 200M : 46M;
+        return (bool)value ? 200M : 44M;
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

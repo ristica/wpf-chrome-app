@@ -1,4 +1,4 @@
-﻿                                                <UserControl x:Class="Chrome.Views.ShellUserControls.SideBarLeftUserControl"
+﻿<UserControl x:Class="Chrome.Views.ShellUserControls.SideBarLeftUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -81,10 +81,11 @@
                                 ToolTip="{Binding FirstName}">
                             <materialDesign:PackIcon Kind="AccountClockOutline"
                                                      Foreground="#666"
-                                                     HorizontalAlignment="Center"
+                                                     HorizontalAlignment="Left"
                                                      VerticalAlignment="Center"
                                                      Height="20"
-                                                     Width="20" />
+                                                     Width="20"
+                                                     Margin="6,0,0,0" />
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

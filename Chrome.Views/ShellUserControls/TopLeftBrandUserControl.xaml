@@ -7,7 +7,7 @@
             CornerRadius="4"
             Margin="1"
             HorizontalAlignment="Left"
-            Width="46">
+            Width="44">
         <TextBlock HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    Text="M"

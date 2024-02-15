@@ -26,7 +26,7 @@
                 BorderBrush="Transparent"
                 BorderThickness="1"
                 CornerRadius="4"
-                Margin="50,1,1,1">
+                Margin="47,1,1,1">
             <Grid HorizontalAlignment="Stretch">
                 <TextBlock VerticalAlignment="Center"
                            HorizontalAlignment="Left"
