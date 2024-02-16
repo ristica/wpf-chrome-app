@@ -6,19 +6,20 @@ using MaterialDesignThemes.Wpf;
 
 // ReSharper disable EventUnsubscriptionViaAnonymousDelegate
 
-namespace Chrome.ViewModels;
+namespace Chrome.ViewModels.Windows.Shell;
 
 public partial class ShellViewModel : ViewModel, IShellViewModel
 {
     #region FIELDS
 
+    private readonly IDependencyContainer _container;
     private readonly IShellView _view;
 
     #endregion
 
     #region PROPERTIES
 
-    public IShellView GetView() => this._view;
+    public IShellView GetView() => _view;
 
     #endregion
 
@@ -26,17 +27,19 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     public ShellViewModel(IDependencyContainer container)
     {
+        this._container = container;
         this._view = container.Resolve<IShellView>();
+        this.IsBottomBarVisible = true;
 
         RegisterCommands();
         SubscribeToShellEvents();
 
-        this.SetCommonCultures();
-        this.SetCarouselItems();
-        this.SetTestCustomers();
-        this.MessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(5));
+        SetCommonCultures();
+        SetCarouselItems();
+        SetTestCustomers();
+        MessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(5));
 
-        this._view.SetDataContext(this);
+        _view.SetDataContext(this);
     }
 
     private void RegisterCommands()
@@ -47,6 +50,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
         RegisterLeftSideBarCommands();
         RegisterRightSideBarCommands();
         RegisterShellContentCommands();
+        RegisterBottomBarCommands();
     }
 
     #endregion
@@ -55,8 +59,8 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     protected override void DisposeViewModel()
     {
-        this._view.WindowLoaded -= (s, a) => { };
-        this._view.WindowStateChanged -= (s, a) => { };
+        _view.WindowLoaded -= (s, a) => { };
+        _view.WindowStateChanged -= (s, a) => { };
     }
 
     #endregion
@@ -65,12 +69,12 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     private void SubscribeToShellEvents()
     {
-        this._view.WindowLoaded += (s, a) =>
+        _view.WindowLoaded += (s, a) =>
         {
-           
+
         };
 
-        this._view.WindowStateChanged += (s, a) =>
+        _view.WindowStateChanged += (s, a) =>
         {
             OnPropertyChanged(nameof(CurrentWindowState));
         };

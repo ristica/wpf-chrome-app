@@ -63,7 +63,7 @@
                                 <ColorAnimation Storyboard.TargetName="MyBrush1"
                                                 Storyboard.TargetProperty="Color"
                                                 From="DimGray"
-                                                To="White"
+                                                To="#aaa"
                                                 Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
@@ -73,7 +73,7 @@
                             <Storyboard>
                                 <ColorAnimation Storyboard.TargetName="MyBrush1"
                                                 Storyboard.TargetProperty="Color"
-                                                From="White"
+                                                From="#aaa"
                                                 To="DimGray"
                                                 Duration="0:0:.25" />
                             </Storyboard>
@@ -108,7 +108,7 @@
                                 <ColorAnimation Storyboard.TargetName="MyBrush2"
                                                 Storyboard.TargetProperty="Color"
                                                 From="DimGray"
-                                                To="White"
+                                                To="#aaa"
                                                 Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
@@ -118,7 +118,7 @@
                             <Storyboard>
                                 <ColorAnimation Storyboard.TargetName="MyBrush2"
                                                 Storyboard.TargetProperty="Color"
-                                                From="White"
+                                                From="#aaa"
                                                 To="DimGray"
                                                 Duration="0:0:.25"/>
                             </Storyboard>

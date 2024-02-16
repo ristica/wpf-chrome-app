@@ -1,9 +1,9 @@
-﻿using Chrome.Models;
-using Chrome.ViewModels.Commands;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Chrome.Models;
+using Chrome.ViewModels.Commands;
 
-namespace Chrome.ViewModels;
+namespace Chrome.ViewModels.Windows.Shell;
 
 public partial class ShellViewModel
 {

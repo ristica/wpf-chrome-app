@@ -1,7 +1,8 @@
 ﻿<Application x:Class="Chrome.Starter.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
     <Application.Resources>
 
         <ResourceDictionary>
@@ -31,26 +32,8 @@
             <SolidColorBrush x:Key="ForegroundLighterBrush"
                              Color="{StaticResource LighterColor}" />
 
-
-            <!-- CONTROL TEMPLATES -->
-            <Style BasedOn="{StaticResource {x:Type Button}}"
-                   TargetType="{x:Type Button}">
-                <Setter Property="Focusable"
-                        Value="False" />
-                <Setter Property="HorizontalAlignment"
-                        Value="Stretch" />
-                <Setter Property="VerticalAlignment"
-                        Value="Stretch" />
-                <Setter Property="Margin"
-                        Value="1" />
-                <Setter Property="BorderThickness"
-                        Value="1" />
-                <Setter Property="Padding"
-                        Value="20,8" />
-            </Style>
-
             <!-- BORDER ANIMATION BACKGROUND -->
-            <Style TargetType="Border" 
+            <Style TargetType="Border"
                    x:Key="ToDarkAnimatedBorder">
                 <Style.Triggers>
                     <EventTrigger RoutedEvent="Mouse.MouseEnter">
@@ -108,17 +91,260 @@
                     </EventTrigger>
                 </Style.Triggers>
             </Style>
-            <!-- ENDE -->
 
-            
+            <!-- WINDOW TEMPLATE -->
+            <ControlTemplate x:Key="WindowTemplate"
+                             TargetType="{x:Type Window}">
+                <Border x:Name="WindowRoot"
+                        CornerRadius="4"
+                        BorderThickness="1"
+                        BorderBrush="{StaticResource DefaultBrush}"
+                        Background="Black">
+                    <Grid Margin="2,1"
+                          VerticalAlignment="Stretch"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0"
+                                    Grid.Row="0"
+                                    Background="{StaticResource DefaultBrush}"
+                                    Padding="1"
+                                    CornerRadius="4,0,0,0">
+                                <Border Background="{StaticResource PrimaryBrush}"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="1"
+                                        CornerRadius="4"
+                                        Margin="1"
+                                        HorizontalAlignment="Stretch"
+                                        Width="44"
+                                        Height="40">
+                                    <TextBlock HorizontalAlignment="Center"
+                                               VerticalAlignment="Top"
+                                               Text="M"
+                                               Foreground="Yellow"
+                                               FontSize="20"
+                                               FontWeight="Bold"
+                                               Margin="0,3,0,0" />
+                                </Border>
+                            </Border>
+                            <Border x:Name="PART_ChromeTitleBar"
+                                    Grid.Column="1"
+                                    Grid.Row="0"
+                                    HorizontalAlignment="Stretch"
+                                    Background="{StaticResource DefaultBrush}">
+                                <TextBlock HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Text="{Binding  ViewModel.WindowTitle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                           Foreground="{StaticResource ForegroundLighterBrush}"
+                                           FontSize="16"
+                                           Margin="15,0,0,0" />
+                            </Border>
+                            <Border Grid.Column="2"
+                                    Grid.Row="0"
+                                    CornerRadius="0,4,0,0"
+                                    MinWidth="100"
+                                    Padding="2"
+                                    Background="{StaticResource DefaultBrush}">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Border Background="{StaticResource DefaultBrush}"
+                                            CornerRadius="4"
+                                            Width="44"
+                                            Margin="0,0,4,0"
+                                            Padding="0,0,0,8"
+                                            ToolTip="{Loc MinimizeWindow}"
+                                            Cursor="Hand"
+                                            Style="{StaticResource ToLightAnimatedBorder}">
+                                        <materialDesign:PackIcon Kind="WindowMinimize"
+                                                                 Foreground="#ddd"
+                                                                 VerticalAlignment="Bottom"
+                                                                 HorizontalAlignment="Center" />
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                                <i:InvokeCommandAction Command="{Binding ViewModel.MinimizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Border>
+                                    <!--<Border Background="{StaticResource DefaultBrush}"
+                                            CornerRadius="4"
+                                            Width="46"
+                                            Margin="0,0,4,0"
+                                            Cursor="Hand"
+                                            ToolTip="{Loc MaximizeWindow}"
+                                            Style="{StaticResource ToLightAnimatedBorder}"
+                                            Visibility="{Binding ViewModel.ResizeMode, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource ResizeModeToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                                        <Grid>
+                                            <materialDesign:PackIcon Kind="WindowMaximize"
+                                                                     Foreground="#ddd"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"
+                                                                     Width="25"
+                                                                     Height="25"
+                                                                     Visibility="{Binding ViewModel.CurrentWindowState, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource WindowStateToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                                            <materialDesign:PackIcon Kind="WindowRestore"
+                                                                     Foreground="#ddd"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"
+                                                                     Width="25"
+                                                                     Height="25"
+                                                                     Visibility="{Binding ViewModel.CurrentWindowState, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource WindowStateToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                                        </Grid>
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                                <i:InvokeCommandAction Command="{Binding ViewModel.MaximizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Border>-->
+                                    <Border Background="{StaticResource DefaultBrush}"
+                                            CornerRadius="4"
+                                            Width="42"
+                                            ToolTip="{Loc CloseWindow}"
+                                            Cursor="Hand">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Style.Triggers>
+                                                    <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                                        <EventTrigger.Actions>
+                                                            <BeginStoryboard>
+                                                                <Storyboard>
+                                                                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                                        <EasingColorKeyFrame KeyTime="0:0:0.2"
+                                                                                             Value="{StaticResource MaroonColor}" />
+                                                                    </ColorAnimationUsingKeyFrames>
+                                                                </Storyboard>
+                                                            </BeginStoryboard>
+                                                        </EventTrigger.Actions>
+                                                    </EventTrigger>
+                                                    <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                                        <EventTrigger.Actions>
+                                                            <BeginStoryboard>
+                                                                <Storyboard>
+                                                                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                                        <EasingColorKeyFrame KeyTime="0:0:0.2"
+                                                                                             Value="{StaticResource DarkColor}" />
+                                                                    </ColorAnimationUsingKeyFrames>
+                                                                </Storyboard>
+                                                            </BeginStoryboard>
+                                                        </EventTrigger.Actions>
+                                                    </EventTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <materialDesign:PackIcon Kind="WindowClose"
+                                                                 Foreground="#ddd"
+                                                                 VerticalAlignment="Center"
+                                                                 HorizontalAlignment="Center"
+                                                                 Width="25"
+                                                                 Height="25"
+                                                                 Margin="0,0,1,0" />
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                                <i:InvokeCommandAction Command="{Binding ViewModel.CloseCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Border>
+                                </StackPanel>
+                            </Border>
+
+                        </Grid>
+
+                        <ContentPresenter Grid.Row="1"
+                                          HorizontalAlignment="Stretch"
+                                          VerticalAlignment="Stretch" />
+
+                        <Border Grid.Row="2"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Padding="20,15"
+                                Background="{StaticResource DefaultBrush}"
+                                CornerRadius="0,0,4,4">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0"
+                                           Text="I'm a status bar"
+                                           Margin="0, 0, 0, 0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Foreground="{StaticResource ForegroundLightBrush}"></TextBlock>
+
+                                <TextBlock Grid.Column="1"
+                                           Text="20:08 16.02.2024"
+                                           Margin="20, 0, 0, 0"
+                                           HorizontalAlignment="Right"
+                                           VerticalAlignment="Center"
+                                           Foreground="{StaticResource ForegroundLightBrush}"></TextBlock>
+
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+
+            <Style x:Key="SkinWindowStyle"
+                   TargetType="Window">
+                <Setter Property="WindowStyle"
+                        Value="None" />
+                <Setter Property="AllowsTransparency"
+                        Value="True" />
+                <Setter Property="Background"
+                        Value="Red" />
+                <!--<Setter Property="Opacity"
+                        Value="100" />-->
+                <Setter Property="ResizeMode"
+                        Value="CanResize" />
+                <Setter Property="MinWidth"
+                        Value="600" />
+                <Setter Property="MinHeight"
+                        Value="300" />
+                <Setter Property="Template"
+                        Value="{StaticResource WindowTemplate}" />
+
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding WindowState}"
+                                 Value="Maximized">
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- CONTROL TEMPLATES -->
+            <Style BasedOn="{StaticResource {x:Type Button}}"
+                   TargetType="{x:Type Button}">
+                <Setter Property="Focusable"
+                        Value="False" />
+                <Setter Property="HorizontalAlignment"
+                        Value="Stretch" />
+                <Setter Property="VerticalAlignment"
+                        Value="Stretch" />
+                <Setter Property="Margin"
+                        Value="1" />
+                <Setter Property="BorderThickness"
+                        Value="1" />
+                <Setter Property="Padding"
+                        Value="20,8" />
+            </Style>
 
             <!-- MATERIAL -->
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Light"
                                              PrimaryColor="DeepPurple"
                                              SecondaryColor="Lime" />
-                <ResourceDictionary
-                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

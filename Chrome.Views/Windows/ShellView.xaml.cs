@@ -2,7 +2,7 @@
 using Chrome.Common.Contracts;
 using Chrome.Views.Contracts;
 
-namespace Chrome.Views;
+namespace Chrome.Views.Windows;
 
 public partial class ShellView : IShellView
 {
@@ -58,6 +58,6 @@ public partial class ShellView : IShellView
         base.ShellBaseWindowLoaded(sender, e);
     }
 
-    public event EventHandler<WindowState> WindowStateChanged;
-    public event EventHandler WindowLoaded;
+    public event EventHandler<WindowState>? WindowStateChanged;
+    public event EventHandler? WindowLoaded;
 }

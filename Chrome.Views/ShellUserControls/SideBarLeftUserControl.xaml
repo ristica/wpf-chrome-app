@@ -17,134 +17,92 @@
             BorderThickness="1"
             CornerRadius="4"
             Margin="1">
-        <Grid>
-            <!--<Grid HorizontalAlignment="Right"
-                  Margin="0,0,6,0"
-                  Visibility="{Binding ViewModel.Customers, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ListToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                <materialDesign:PackIcon Kind="ChevronDoubleRight"
-                                         Background="{StaticResource DefaultBrush}"
-                                         Foreground="#a9a9"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Top"
-                                         Height="24"
-                                         Width="24"
-                                         Margin="4,10,4,0"
-                                         Padding="0"
-                                         Cursor="Hand"
-                                         ToolTip="Expand"
-                                         Visibility="{Binding ViewModel.IsLeftBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseLeftButtonUp">
-                            <i:InvokeCommandAction Command="{Binding ViewModel.ToggleLeftBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </materialDesign:PackIcon>
-                <materialDesign:PackIcon Kind="ChevronDoubleLeft"
-                                         Background="{StaticResource DefaultBrush}"
-                                         Foreground="#a9a9"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Top"
-                                         Height="24"
-                                         Width="24"
-                                         Margin="4,10,4,0"
-                                         Padding="0"
-                                         Cursor="Hand"
-                                         ToolTip="Expand"
-                                         Visibility="{Binding ViewModel.IsLeftBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseLeftButtonUp">
-                            <i:InvokeCommandAction Command="{Binding ViewModel.ToggleLeftBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </materialDesign:PackIcon>
-            </Grid>-->
+        <ItemsControl ItemsSource="{Binding ViewModel.Customers, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                      VerticalAlignment="Center">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border x:Name="LastCustomerBorder"
+                            Background="{StaticResource DefaultBrush}"
+                            BorderBrush="{StaticResource DarkHoverBrush}"
+                            BorderThickness="1"
+                            CornerRadius="4"
+                            Margin="20,2,0,2"
+                            HorizontalAlignment="Left"
+                            Height="30"
+                            Width="200"
+                            Cursor="Hand"
+                            Style="{StaticResource ToLightAnimatedBorder}">
+                        <Border.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Kundennummer}"></TextBlock>
+                                <TextBlock Text="-"
+                                           Margin="3,0"></TextBlock>
+                                <TextBlock Text="{Binding FirstName}"
+                                           Margin="0,0,4,0"></TextBlock>
+                                <TextBlock Text="{Binding LastName}"></TextBlock>
+                            </StackPanel>
+                        </Border.ToolTip>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="LastCustomerBorder"
+                                                         Storyboard.TargetProperty="Width"
+                                                         To="250"
+                                                         Duration="0:0:0.25" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="LastCustomerBorder"
+                                                         Storyboard.TargetProperty="Width"
+                                                         To="200"
+                                                         Duration="0:0:0.25" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
 
-            <ItemsControl ItemsSource="{Binding ViewModel.Customers, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                          VerticalAlignment="Center">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Vertical" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border x:Name="LastCustomerBorder"
-                                Background="{StaticResource DefaultBrush}"
-                                BorderBrush="#666"
-                                BorderThickness="1"
-                                CornerRadius="4"
-                                Margin="20,2,0,2"
-                                HorizontalAlignment="Left"
-                                Height="30"
-                                Width="200"
-                                Cursor="Hand"
-                                Style="{StaticResource ToLightAnimatedBorder}"
-                                ToolTip="{Binding FirstName}">
-                            <Border.Triggers>
-                                <EventTrigger RoutedEvent="MouseEnter">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetName="LastCustomerBorder"
-                                                             Storyboard.TargetProperty="Width"
-                                                             To="250"
-                                                             Duration="0:0:0.25" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                <EventTrigger RoutedEvent="MouseLeave">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetName="LastCustomerBorder"
-                                                             Storyboard.TargetProperty="Width"
-                                                             To="200"
-                                                             Duration="0:0:0.25" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                            </Border.Triggers>
-                            <Grid>
-                                <Grid.ToolTip>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Kundennummer}"></TextBlock>
-                                        <TextBlock Text="-" Margin="3,0"></TextBlock>
-                                        <TextBlock Text="{Binding FirstName}" Margin="0,0,4,0"></TextBlock>
-                                        <TextBlock Text="{Binding LastName}"></TextBlock>
-                                    </StackPanel>
-                                </Grid.ToolTip>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-
-                                <materialDesign:PackIcon Grid.Column="0"
-                                                         Kind="AccountClockOutline"
-                                                         Foreground="{StaticResource ForegroundLightBrush}"
-                                                         HorizontalAlignment="Left"
-                                                         VerticalAlignment="Center"
-                                                         Opacity=".3"
-                                                         Height="20"
-                                                         Width="20"
-                                                         Margin="6,0,0,0" />
-                                <StackPanel Orientation="Horizontal" Grid.Column="1">
-                                    <TextBlock HorizontalAlignment="Left"
-                                               VerticalAlignment="Center"
-                                               Margin="8,0,7,0"
-                                               Text="{Binding Kundennummer}"
-                                               Foreground="{StaticResource ForegroundLightBrush}" />
-                                    <TextBlock HorizontalAlignment="Left"
-                                               VerticalAlignment="Center"
-                                               Margin="0,0,0,0"
-                                               Foreground="{StaticResource ForegroundLightBrush}">
-                                        <Run Text="{Binding FirstName}"></Run>
-                                        <Run Text="{Binding LastName}"></Run>
-                                    </TextBlock>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-
-        </Grid>
+                            <materialDesign:PackIcon Grid.Column="0"
+                                                     Kind="AccountClockOutline"
+                                                     Foreground="{StaticResource ForegroundLightBrush}"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Center"
+                                                     Opacity=".3"
+                                                     Height="20"
+                                                     Width="20"
+                                                     Margin="6,0,0,0" />
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Column="1">
+                                <TextBlock HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Margin="8,0,7,0"
+                                           Text="{Binding Kundennummer}"
+                                           Foreground="{StaticResource ForegroundLightBrush}" />
+                                <TextBlock HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Margin="0,0,0,0"
+                                           Foreground="{StaticResource ForegroundLightBrush}">
+                             <Run Text="{Binding FirstName}"></Run>
+                             <Run Text="{Binding LastName}"></Run>
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Border>
 </UserControl>

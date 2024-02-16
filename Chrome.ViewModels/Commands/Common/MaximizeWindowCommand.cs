@@ -1,10 +1,10 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using Chrome.ViewModels.Contracts;
+using Chrome.Common.Contracts;
 
-namespace Chrome.ViewModels.Commands;
+namespace Chrome.ViewModels.Commands.Common;
 
-public class MaximizeShellCommand(IShellViewModel viewModel) : ICommand
+public class MaximizeWindowCommand(IParentViewModel viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
@@ -13,7 +13,7 @@ public class MaximizeShellCommand(IShellViewModel viewModel) : ICommand
 
     public void Execute(object? parameter)
     {
-        if (viewModel.ResizeMode == ResizeMode.CanResize) viewModel.MaximizeView();
+        viewModel.MaximizeView();
     }
 
     public event EventHandler? CanExecuteChanged;

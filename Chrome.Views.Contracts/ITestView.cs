@@ -2,7 +2,6 @@
 
 namespace Chrome.Views.Contracts;
 
-public interface IShellView : IView
+public interface ITestView : IView
 {
-
 }

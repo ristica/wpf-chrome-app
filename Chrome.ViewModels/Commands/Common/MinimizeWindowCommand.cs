@@ -1,10 +1,10 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using Chrome.ViewModels.Contracts;
+using Chrome.Common.Contracts;
 
-namespace Chrome.ViewModels.Commands;
+namespace Chrome.ViewModels.Commands.Common;
 
-public class MinimizeShellCommand(IShellViewModel viewModel) : ICommand
+public class MinimizeWindowCommand(IParentViewModel viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {

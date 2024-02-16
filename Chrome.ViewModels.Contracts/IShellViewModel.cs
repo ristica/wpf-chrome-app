@@ -8,9 +8,6 @@ namespace Chrome.ViewModels.Contracts;
 
 public interface IShellViewModel : IParentViewModel
 {
-    bool CanClose { get; }
-    ResizeMode ResizeMode { get; }
-    WindowState CurrentWindowState { get; }
     bool CanSearch { get; set; }
     string SearchFilter { get; set; }
     ObservableCollection<string>? FilteredItems { get; set; }
@@ -20,9 +17,7 @@ public interface IShellViewModel : IParentViewModel
 
     IShellView GetView();
     void OpenView();
-    void MaximizeView();
-    void MinimizeView();
+    void OpenTestWindow();
     void AddFavorite(MenuModel? item);
     void RemoveFavorite(MenuModel? item);
-    void CloseView();
 }

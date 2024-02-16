@@ -1,0 +1,11 @@
+﻿<Window x:Class="Chrome.Views.Windows.TestView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Style="{DynamicResource SkinWindowStyle}"
+        Title="Test View" Height="450" Width="800"
+        ResizeMode="{Binding ResizeMode}"
+        Background="{StaticResource PrimaryBrush}">
+    <Border Padding="40" Margin="0,1" Background="{StaticResource DefaultBrush}">
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Hello World" Foreground="White"></TextBlock>
+    </Border>
+</Window>

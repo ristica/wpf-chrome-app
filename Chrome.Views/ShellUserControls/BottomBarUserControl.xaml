@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Height="44"
              DataContext="{Binding}">
-    
+
     <Border HorizontalAlignment="Stretch"
             Background="{StaticResource DefaultBrush}"
             BorderBrush="Transparent"
@@ -18,13 +18,19 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
+            <Button Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Content="Open Window"
+                    Command="{Binding ViewModel.OpenTestWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"></Button>
+
             <StackPanel Grid.Column="2"
                         Orientation="Horizontal"
                         HorizontalAlignment="Right">
                 <TextBlock Foreground="White"
-                           Text="{Loc HelloWorld}" 
+                           Text="{Loc HelloWorld}"
                            VerticalAlignment="Center"
-                           Margin="0,0,20,00"/>
+                           Margin="0,0,20,00" />
             </StackPanel>
 
         </Grid>

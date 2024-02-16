@@ -5,7 +5,7 @@ using Chrome.Models;
 using Chrome.ViewModels.Commands;
 using MaterialDesignThemes.Wpf;
 
-namespace Chrome.ViewModels;
+namespace Chrome.ViewModels.Windows.Shell;
 
 public partial class ShellViewModel
 {
@@ -13,7 +13,7 @@ public partial class ShellViewModel
 
     private ObservableCollection<MenuUiItem>? _carouselItems;
     private bool _snackBarIsActive;
-    private string _snackBarText;
+    private string? _snackBarText;
     private SnackBarType _snackBarType;
 
     #endregion
@@ -30,7 +30,7 @@ public partial class ShellViewModel
         }
     }
 
-    public string SnackBarText
+    public string? SnackBarText
     {
         get => this._snackBarText;
         set
@@ -156,7 +156,7 @@ public partial class ShellViewModel
         this.IsRightBarExpanded = false;
     }
 
-    private void ShowSnackBar(SnackBarType sbt, string message)
+    private void ShowSnackBar(SnackBarType sbt, string? message)
     {
         if (this.SnackBarIsActive)
         {

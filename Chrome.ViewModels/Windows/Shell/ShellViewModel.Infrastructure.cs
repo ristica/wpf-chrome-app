@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Chrome.ViewModels;
+namespace Chrome.ViewModels.Windows.Shell;
 
 public partial class ShellViewModel
 {
@@ -10,8 +10,9 @@ public partial class ShellViewModel
 
     #region PROPERTIES
 
+    public string WindowTitle => "CRM - Light";
     public bool CanClose => true;
-    public ResizeMode ResizeMode => ResizeMode.NoResize;
+    public ResizeMode ResizeMode => ResizeMode.CanMinimize;
     public WindowState CurrentWindowState => this._view.CurrentWindowState;
 
     #endregion

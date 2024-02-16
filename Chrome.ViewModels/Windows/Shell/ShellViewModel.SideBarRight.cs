@@ -1,7 +1,7 @@
-﻿using Chrome.Models;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using Chrome.Models;
 
-namespace Chrome.ViewModels;
+namespace Chrome.ViewModels.Windows.Shell;
 
 public partial class ShellViewModel
 {

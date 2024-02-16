@@ -1,8 +1,8 @@
-﻿using Chrome.ViewModels.Commands;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Chrome.Models;
+using Chrome.ViewModels.Commands;
 
-namespace Chrome.ViewModels;
+namespace Chrome.ViewModels.Windows.Shell;
 
 public partial class ShellViewModel
 {
@@ -12,7 +12,7 @@ public partial class ShellViewModel
 
     #region PROPERTIES
 
-    public List<LanguageInfo> Cultures { get; set; }
+    public List<LanguageInfo>? Cultures { get; set; }
 
     #endregion
 

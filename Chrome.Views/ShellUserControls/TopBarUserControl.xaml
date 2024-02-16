@@ -42,108 +42,102 @@
                     Grid.Column="1"
                     Orientation="Horizontal"
                     Margin="2">
-            <Grid>
-                <Border Background="{StaticResource DefaultBrush}"
-                        CornerRadius="4"
-                        Width="42"
-                        Margin="0,0,4,0"
-                        Padding="0,0,0,5"
-                        ToolTip="{Loc MinimizeWindow}"
-                        Cursor="Hand"
-                        Style="{StaticResource ToLightAnimatedBorder}">
-                    <materialDesign:PackIcon Kind="WindowMinimize"
-                                             Foreground="#ddd"
-                                             VerticalAlignment="Bottom"
-                                             HorizontalAlignment="Center" />
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseLeftButtonUp">
-                            <i:InvokeCommandAction Command="{Binding ViewModel.MinimizeShellCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Border>
-            </Grid>
-            <Grid>
-                <Border Background="{StaticResource DefaultBrush}"
-                        CornerRadius="4"
-                        Width="42"
-                        Margin="0,0,4,0"
-                        Cursor="Hand"
-                        ToolTip="{Loc MaximizeWindow}"
-                        Style="{StaticResource ToLightAnimatedBorder}"
-                        Visibility="{Binding ViewModel.ResizeMode, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource ResizeModeToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                    <Grid>
-                        <materialDesign:PackIcon Kind="WindowMaximize"
-                                                 Foreground="#ddd"
-                                                 VerticalAlignment="Center"
-                                                 HorizontalAlignment="Center"
-                                                 Width="25"
-                                                 Height="25"
-                                                 Visibility="{Binding ViewModel.CurrentWindowState, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource WindowStateToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                        <materialDesign:PackIcon Kind="WindowRestore"
-                                                 Foreground="#ddd"
-                                                 VerticalAlignment="Center"
-                                                 HorizontalAlignment="Center"
-                                                 Width="25"
-                                                 Height="25"
-                                                 Visibility="{Binding ViewModel.CurrentWindowState, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource WindowStateToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                    </Grid>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseLeftButtonUp">
-                            <i:InvokeCommandAction Command="{Binding ViewModel.MaximizeShellCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Border>
-            </Grid>
-            <Grid>
-                <Border Background="{StaticResource DefaultBrush}"
-                        CornerRadius="4"
-                        Width="42"
-                        ToolTip="{Loc CloseWindow}"
-                        Cursor="Hand">
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Style.Triggers>
-                                <EventTrigger RoutedEvent="Mouse.MouseEnter">
-                                    <EventTrigger.Actions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
-                                                    <EasingColorKeyFrame KeyTime="0:0:0.2"
-                                                                         Value="{StaticResource MaroonColor}" />
-                                                </ColorAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger.Actions>
-                                </EventTrigger>
-                                <EventTrigger RoutedEvent="Mouse.MouseLeave">
-                                    <EventTrigger.Actions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
-                                                    <EasingColorKeyFrame KeyTime="0:0:0.2"
-                                                                         Value="{StaticResource DarkColor}" />
-                                                </ColorAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger.Actions>
-                                </EventTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
-                    <materialDesign:PackIcon Kind="WindowClose"
+            <Border Background="{StaticResource DefaultBrush}"
+                    CornerRadius="4"
+                    Width="42"
+                    Margin="0,0,4,0"
+                    Padding="0,0,0,5"
+                    ToolTip="{Loc MinimizeWindow}"
+                    Cursor="Hand"
+                    Style="{StaticResource ToLightAnimatedBorder}">
+                <materialDesign:PackIcon Kind="WindowMinimize"
+                                         Foreground="#ddd"
+                                         VerticalAlignment="Bottom"
+                                         HorizontalAlignment="Center" />
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction Command="{Binding ViewModel.MinimizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Border>
+            <Border Background="{StaticResource DefaultBrush}"
+                    CornerRadius="4"
+                    Width="42"
+                    Margin="0,0,4,0"
+                    Cursor="Hand"
+                    ToolTip="{Loc MaximizeWindow}"
+                    Style="{StaticResource ToLightAnimatedBorder}"
+                    Visibility="{Binding ViewModel.ResizeMode, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource ResizeModeToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                <Grid>
+                    <materialDesign:PackIcon Kind="WindowMaximize"
                                              Foreground="#ddd"
                                              VerticalAlignment="Center"
                                              HorizontalAlignment="Center"
                                              Width="25"
                                              Height="25"
-                                             Margin="0,0,1,0" />
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseLeftButtonUp">
-                            <i:InvokeCommandAction Command="{Binding ViewModel.CloseShellCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Border>
-            </Grid>
+                                             Visibility="{Binding ViewModel.CurrentWindowState, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource WindowStateToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                    <materialDesign:PackIcon Kind="WindowRestore"
+                                             Foreground="#ddd"
+                                             VerticalAlignment="Center"
+                                             HorizontalAlignment="Center"
+                                             Width="25"
+                                             Height="25"
+                                             Visibility="{Binding ViewModel.CurrentWindowState, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource WindowStateToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                </Grid>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction Command="{Binding ViewModel.MaximizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Border>
+            <Border Background="{StaticResource DefaultBrush}"
+                    CornerRadius="4"
+                    Width="42"
+                    ToolTip="{Loc CloseWindow}"
+                    Cursor="Hand">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                <EasingColorKeyFrame KeyTime="0:0:0.2"
+                                                                     Value="{StaticResource MaroonColor}" />
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                <EasingColorKeyFrame KeyTime="0:0:0.2"
+                                                                     Value="{StaticResource DarkColor}" />
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <materialDesign:PackIcon Kind="WindowClose"
+                                         Foreground="#ddd"
+                                         VerticalAlignment="Center"
+                                         HorizontalAlignment="Center"
+                                         Width="25"
+                                         Height="25"
+                                         Margin="0,0,1,0" />
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction Command="{Binding ViewModel.CloseCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Border>
         </StackPanel>
 
     </Grid>

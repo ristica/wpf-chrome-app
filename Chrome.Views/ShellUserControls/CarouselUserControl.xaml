@@ -31,7 +31,7 @@
                                         BorderBrush="{StaticResource DefaultBrush}"
                                         Background="{StaticResource DarkHoverBrush}"
                                         CornerRadius="10"
-                                        Width="320"
+                                        Width="330"
                                         MinHeight="400"
                                         Padding="2">
                                     <StackPanel>
