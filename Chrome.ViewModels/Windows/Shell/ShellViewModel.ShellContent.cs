@@ -3,6 +3,7 @@ using System.Windows.Threading;
 using Chrome.Constants;
 using Chrome.Models;
 using Chrome.ViewModels.Commands;
+using Chrome.ViewModels.Design_Data;
 using MaterialDesignThemes.Wpf;
 
 namespace Chrome.ViewModels.Windows.Shell;
@@ -129,7 +130,7 @@ public partial class ShellViewModel
 
     private void SetCarouselItems()
     {
-        var menus = Helpers.CarouselMenuGenerator.Generate();
+        var menus = CarouselMenuGenerator.Generate();
 
         var dtos = (
                 from @group in menus.GroupBy(g => g.ParentId)

@@ -1,8 +1,8 @@
 ﻿using Chrome.Models;
 
-namespace Chrome.ViewModels.Helpers;
+namespace Chrome.ViewModels.Design_Data;
 
-public class CarouselMenuGenerator
+public static class CarouselMenuGenerator
 {
     public static List<MenuModel> Generate()
     {

@@ -25,9 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Starter", "Chrome.St
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Constants", "Chrome.Constants\Chrome.Constants.csproj", "{C1668BC3-38DB-4C6F-8798-DFBF73B9F9B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chrome.Models", "Chrome.Models\Chrome.Models.csproj", "{FE104E3F-4056-4824-9FCE-B4543C60777B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Models", "Chrome.Models\Chrome.Models.csproj", "{FE104E3F-4056-4824-9FCE-B4543C60777B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chrome.Common.Contracts", "Chrome.Common.Contracts\Chrome.Common.Contracts.csproj", "{BF132AC1-E7F1-4A81-9D32-1A489C390829}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chrome.Common.Contracts", "Chrome.Common.Contracts\Chrome.Common.Contracts.csproj", "{BF132AC1-E7F1-4A81-9D32-1A489C390829}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

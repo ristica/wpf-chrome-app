@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Chrome.Models;
 using Chrome.ViewModels.Commands;
+using Chrome.ViewModels.Design_Data;
 
 namespace Chrome.ViewModels.Windows.Shell;
 
@@ -64,7 +65,7 @@ public partial class ShellViewModel
 
     private void SetTestCustomers()
     {
-        Customers = new ObservableCollection<CustomerUiModel>(Helpers.CustomerGenerator.Generate());
+        Customers = new ObservableCollection<CustomerUiModel>(CustomerGenerator.Generate());
         IsLeftBarExpanded = Customers.Any();
     }
 

@@ -1,8 +1,8 @@
 ﻿using Chrome.Models;
 
-namespace Chrome.ViewModels.Helpers;
+namespace Chrome.ViewModels.Design_Data;
 
-public class CustomerGenerator
+public static class CustomerGenerator
 {
     public static List<CustomerUiModel> Generate()
     {
