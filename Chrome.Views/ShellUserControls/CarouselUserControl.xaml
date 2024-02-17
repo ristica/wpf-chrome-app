@@ -29,7 +29,7 @@
                             <ControlTemplate>
                                 <Border BorderThickness="1"
                                         BorderBrush="{StaticResource DefaultBrush}"
-                                        Background="{StaticResource HoverBrush}"
+                                        Background="{StaticResource DefaultHoverBrush}"
                                         CornerRadius="10"
                                         Width="330"
                                         MinHeight="400"

@@ -23,7 +23,7 @@
                 <DataTemplate>
                     <Border x:Name="LastCustomerBorder"
                             Background="{StaticResource DefaultBrush}"
-                            BorderBrush="{StaticResource HoverBrush}"
+                            BorderBrush="{StaticResource DefaultHoverBrush}"
                             BorderThickness="1"
                             CornerRadius="4"
                             Margin="20,2,0,2"

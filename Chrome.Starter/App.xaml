@@ -12,14 +12,14 @@
             <Color x:Key="MetroYellowColor">Yellow</Color>
 
             <Color x:Key="DarkColor">#212121</Color>
-            <Color x:Key="LightColor">#eeeeee</Color>
+            <Color x:Key="LightColor">#cccccc</Color>
             <Color x:Key="NoColor">#00000000</Color>
 
             <Color x:Key="PrimaryColor">#FF0091EA</Color>
             <Color x:Key="SecondaryColor">#FFEEEEEE</Color>
 
             <Color x:Key="MaroonColor">#800000</Color>
-            <Color x:Key="LightHoverColor">#aaaaaa</Color>
+            <Color x:Key="LightHoverColor">#a9a9a9</Color>
             <Color x:Key="DarkHoverColor">#333333</Color>
 
             <!-- BRUSHES -->
@@ -30,14 +30,10 @@
             <SolidColorBrush x:Key="TransparentBrush"
                              Color="{StaticResource NoColor}" />
 
-            <SolidColorBrush x:Key="PrimaryBrush"
-                             Color="{StaticResource PrimaryColor}" />
-            <SolidColorBrush x:Key="SecondaryBrush"
-                             Color="{StaticResource SecondaryColor}" />
-
+            <!-- THEME -->
             <SolidColorBrush x:Key="DefaultBrush"
                              Color="{StaticResource DarkColor}" />
-            <SolidColorBrush x:Key="HoverBrush"
+            <SolidColorBrush x:Key="DefaultHoverBrush"
                              Color="{StaticResource DarkHoverColor}" />
             <SolidColorBrush x:Key="ForegroundBrush"
                              Color="{StaticResource LightColor}" />
