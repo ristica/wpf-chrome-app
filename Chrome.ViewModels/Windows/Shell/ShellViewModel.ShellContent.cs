@@ -85,7 +85,7 @@ public partial class ShellViewModel
             return;
         }
 
-        var found = Favorites.SingleOrDefault(f => f.Header == item.Header);
+        var found = Favorites.SingleOrDefault(f => f.HeaderDe == item.HeaderDe);
         if (found != null) return;
 
         Favorites.Add(item);
@@ -105,7 +105,7 @@ public partial class ShellViewModel
         foreach (var ci in CarouselItems)
         {
             var children = ci.Children;
-            found = children.SingleOrDefault(c => c.Header == item.Header);
+            found = children.SingleOrDefault(c => c.HeaderDe == item.HeaderDe);
             if (found != null) break;
         }
 
@@ -128,18 +128,19 @@ public partial class ShellViewModel
         MenuSelectionChangedCommand = new MenuSelectionChangedCommand(this);
     }
 
+    // ToDo: get data from the database !!!
     private void SetCarouselItems()
     {
         var menus = CarouselMenuGenerator.Generate();
 
-        var dtos = (
-                from @group in menus.GroupBy(g => g.ParentId)
-                let parent = @group.SingleOrDefault(p => p.ParentId == p.Header)
-                let children = @group.Where(x => x.ParentId != x.Header).ToList()
+        var items = (
+                from @group in menus.GroupBy(g => g.ParentIdDe)
+                let parent = @group.SingleOrDefault(p => p.ParentIdDe == p.HeaderDe)
+                let children = @group.Where(x => x.ParentIdDe != x.HeaderDe).ToList()
                 select new MenuUiItem { Parent = parent, Children = children })
             .ToList();
 
-        CarouselItems = new ObservableCollection<MenuUiItem>(dtos);
+        CarouselItems = new ObservableCollection<MenuUiItem>(items);
     }
 
     private void UpdateCarouselItemsFavorite(MenuModel item, bool add)

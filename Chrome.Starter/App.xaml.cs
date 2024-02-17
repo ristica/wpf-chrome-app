@@ -10,6 +10,8 @@ namespace Chrome.Starter;
 
 public partial class App : Application
 {
+    private static bool _isLoaded = false;
+
     public App()
     {
         SetCulture();
@@ -19,6 +21,7 @@ public partial class App : Application
     {
         DependencyManager.Initialize(DependencyContainerFactory.Init());
         DependencyContainerFactory.Container.Resolve<IShellViewModel>().GetView().OpenMe();
+        _isLoaded = true;
     }
 
     private static void SetCulture()
@@ -35,6 +38,9 @@ public partial class App : Application
         {
             Settings.Default.Culture = e.NewCulture.Name;
             Settings.Default.Save();
+
+            if (!_isLoaded) return;
+            DependencyContainerFactory.Container?.Resolve<IShellViewModel>().CultureChanged(e.NewCulture.Name);
         };
 
         // lade Settings falls welche vorhanden ...

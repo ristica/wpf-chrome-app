@@ -6,6 +6,7 @@ namespace Chrome.ViewModels.Contracts;
 
 public interface IShellViewModel : IParentViewModel
 {
+    string CurrentCultureName { get; }
     bool CanSearch { get; set; }
     string SearchFilter { get; set; }
     ObservableCollection<string>? FilteredItems { get; set; }
@@ -17,4 +18,5 @@ public interface IShellViewModel : IParentViewModel
     void OpenTestWindow();
     void AddFavorite(MenuModel? item);
     void RemoveFavorite(MenuModel? item);
+    void CultureChanged(string cultureName);
 }

@@ -4,5 +4,5 @@ public class MenuUiItem
 {
     public Guid UiId { get; init; } = Guid.NewGuid();
     public IMenuModel? Parent { get; set; }
-    public List<MenuModel?> Children { get; set; } = new();
+    public List<MenuModel?> Children { get; init; } = new();
 }

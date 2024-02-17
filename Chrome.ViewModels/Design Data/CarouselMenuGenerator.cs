@@ -8,12 +8,47 @@ public static class CarouselMenuGenerator
     {
         return
         [
+            //new MenuModel
+            //{
+            //    Id = Guid.NewGuid(),
+            //    Order = 1,
+            //    HeaderDe = "Datei",
+            //    ParentIdDe = "Datei",
+            //    HasChildren = true,
+            //    IsChild = false,
+            //    NeedsOneOfRoles = GetDefaultRoles()
+            //},
+
+            //new MenuModel
+            //{
+            //    Id = Guid.NewGuid(),
+            //    Order = 1,
+            //    HeaderDe = "Beenden",
+            //    HasChildren = false,
+            //    IsChild = true,
+            //    ParentIdDe = "Datei",
+            //    NeedsOneOfRoles = GetDefaultRoles()
+            //},
+
+            //new MenuModel
+            //{
+            //    Id = Guid.NewGuid(),
+            //    Order = 2,
+            //    HeaderDe = "Letzten 15 Kunden welche bearbeitet wurden",
+            //    HasChildren = false,
+            //    IsChild = true,
+            //    ParentIdDe = "Datei",
+            //    NeedsOneOfRoles = GetDefaultRoles()
+            //},
+
             new MenuModel
             {
                 Id = Guid.NewGuid(),
-                Order = 1,
-                Header = "Datei",
-                ParentId = "Datei",
+                Order = 2,
+                HeaderDe = "Übersicht",
+                HeaderEn = "Overview",
+                ParentIdDe = "Übersicht",
+                ParentIdEn = "Overview",
                 HasChildren = true,
                 IsChild = false,
                 NeedsOneOfRoles = GetDefaultRoles()
@@ -23,10 +58,12 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
-                Header = "Beenden",
+                HeaderDe = "Übersicht Aktionen",
+                HeaderEn = "Available tasks",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Datei",
+                ParentIdDe = "Übersicht",
+                ParentIdEn = "Overview",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -34,19 +71,34 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
-                Header = "Letzten 15 Kunden welche bearbeitet wurden",
+                HeaderDe = "Web Eingänge",
+                HeaderEn = "Web applications",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Datei",
+                ParentIdDe = "Übersicht",
+                ParentIdEn = "Overview",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
             new MenuModel
             {
                 Id = Guid.NewGuid(),
-                Order = 2,
-                Header = "Übersicht",
-                ParentId = "Übersicht",
+                Order = 3,
+                HeaderDe = "Excel Gewinnspiel",
+                HeaderEn = "Excel lottery",
+                HasChildren = false,
+                IsChild = true,
+                ParentIdDe = "Übersicht",
+                ParentIdEn = "Overview",
+                NeedsOneOfRoles = GetDefaultRoles()
+            },
+
+            new MenuModel
+            {
+                Id = Guid.NewGuid(),
+                Order = 3,
+                HeaderDe = "Aktionen",
+                ParentIdDe = "Aktionen",
                 HasChildren = true,
                 IsChild = false,
                 NeedsOneOfRoles = GetDefaultRoles()
@@ -56,10 +108,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
-                Header = "Übersicht Aktionen",
+                HeaderDe = "Neue Aktion",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Übersicht",
+                ParentIdDe = "Aktionen",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -67,10 +119,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
-                Header = "Web Eingänge",
+                HeaderDe = "Aktionsdetails bearbeiten",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Übersicht",
+                ParentIdDe = "Aktionen",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -78,54 +130,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
-                Header = "Excel Gewinnspiel",
+                HeaderDe = "CRM-Light Kundensuche",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Übersicht",
-                NeedsOneOfRoles = GetDefaultRoles()
-            },
-
-            new MenuModel
-            {
-                Id = Guid.NewGuid(),
-                Order = 3,
-                Header = "Aktionen",
-                ParentId = "Aktionen",
-                HasChildren = true,
-                IsChild = false,
-                NeedsOneOfRoles = GetDefaultRoles()
-            },
-
-            new MenuModel
-            {
-                Id = Guid.NewGuid(),
-                Order = 1,
-                Header = "Neue Aktion",
-                HasChildren = false,
-                IsChild = true,
-                ParentId = "Aktionen",
-                NeedsOneOfRoles = GetDefaultRoles()
-            },
-
-            new MenuModel
-            {
-                Id = Guid.NewGuid(),
-                Order = 2,
-                Header = "Aktionsdetails bearbeiten",
-                HasChildren = false,
-                IsChild = true,
-                ParentId = "Aktionen",
-                NeedsOneOfRoles = GetDefaultRoles()
-            },
-
-            new MenuModel
-            {
-                Id = Guid.NewGuid(),
-                Order = 3,
-                Header = "CRM-Light Kundensuche",
-                HasChildren = false,
-                IsChild = true,
-                ParentId = "Aktionen",
+                ParentIdDe = "Aktionen",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -133,10 +141,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
-                Header = "OPTIVO Bounces",
+                HeaderDe = "OPTIVO Bounces",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Aktionen",
+                ParentIdDe = "Aktionen",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -144,8 +152,8 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
-                Header = "CFM",
-                ParentId = "CFM",
+                HeaderDe = "CFM",
+                ParentIdDe = "CFM",
                 HasChildren = true,
                 IsChild = false,
                 NeedsOneOfRoles = GetDefaultRoles()
@@ -155,10 +163,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
-                Header = "Kundensuche",
+                HeaderDe = "Kundensuche",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "CFM",
+                ParentIdDe = "CFM",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -166,10 +174,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
-                Header = "Kundenneuanlage",
+                HeaderDe = "Kundenneuanlage",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "CFM",
+                ParentIdDe = "CFM",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -177,10 +185,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
-                Header = "Neuanlage pro Store",
+                HeaderDe = "Neuanlage pro Store",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "CFM",
+                ParentIdDe = "CFM",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -188,10 +196,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
-                Header = "Neuanlage Einkaufsgesellschaften",
+                HeaderDe = "Neuanlage Einkaufsgesellschaften",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "CFM",
+                ParentIdDe = "CFM",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -199,10 +207,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 5,
-                Header = "Neuanlage pro Einkaufsgesellschaft (BORG ID)",
+                HeaderDe = "Neuanlage pro Einkaufsgesellschaft (BORG ID)",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "CFM",
+                ParentIdDe = "CFM",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -210,10 +218,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 6,
-                Header = "CFM Log",
+                HeaderDe = "CFM Log",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "CFM",
+                ParentIdDe = "CFM",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -221,10 +229,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 7,
-                Header = "Kundengruppierungen",
+                HeaderDe = "Kundengruppierungen",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "CFM",
+                ParentIdDe = "CFM",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -232,10 +240,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 8,
-                Header = "Kunden-Beziehungen",
+                HeaderDe = "Kunden-Beziehungen",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "CFM",
+                ParentIdDe = "CFM",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -243,10 +251,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 9,
-                Header = "Postretouren",
+                HeaderDe = "Postretouren",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "CFM",
+                ParentIdDe = "CFM",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -254,10 +262,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 10,
-                Header = "Historische Postretouren",
+                HeaderDe = "Historische Postretouren",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "CFM",
+                ParentIdDe = "CFM",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -265,10 +273,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 11,
-                Header = "Karten u. Tagesausweise",
+                HeaderDe = "Karten u. Tagesausweise",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "CFM",
+                ParentIdDe = "CFM",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -276,8 +284,8 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 5,
-                Header = "Kreditmanagement",
-                ParentId = "Kreditmanagement",
+                HeaderDe = "Kreditmanagement",
+                ParentIdDe = "Kreditmanagement",
                 HasChildren = true,
                 IsChild = false,
                 NeedsOneOfRoles = GetDefaultRoles()
@@ -287,10 +295,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
-                Header = "Bankstammdaten",
+                HeaderDe = "Bankstammdaten",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Kreditmanagement",
+                ParentIdDe = "Kreditmanagement",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -298,10 +306,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
-                Header = "Kundenbankdaten",
+                HeaderDe = "Kundenbankdaten",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Kreditmanagement",
+                ParentIdDe = "Kreditmanagement",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -309,10 +317,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
-                Header = "Zahlungsbedingungen",
+                HeaderDe = "Zahlungsbedingungen",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Kreditmanagement",
+                ParentIdDe = "Kreditmanagement",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -320,10 +328,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
-                Header = "Log Zahlungsbedingungen",
+                HeaderDe = "Log Zahlungsbedingungen",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Kreditmanagement",
+                ParentIdDe = "Kreditmanagement",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -331,10 +339,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 5,
-                Header = "Auswertung Kreditkunden / Rechnungsarten",
+                HeaderDe = "Auswertung Kreditkunden / Rechnungsarten",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Kreditmanagement",
+                ParentIdDe = "Kreditmanagement",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -342,10 +350,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 6,
-                Header = "Auswertung Monats- u. Einzelrechnungskunden",
+                HeaderDe = "Auswertung Monats- u. Einzelrechnungskunden",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Kreditmanagement",
+                ParentIdDe = "Kreditmanagement",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -353,10 +361,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 7,
-                Header = "Kassensperren",
+                HeaderDe = "Kassensperren",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Kreditmanagement",
+                ParentIdDe = "Kreditmanagement",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -364,8 +372,8 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 6,
-                Header = "Kreditantrag",
-                ParentId = "Kreditantrag",
+                HeaderDe = "Kreditantrag",
+                ParentIdDe = "Kreditantrag",
                 HasChildren = false,
                 IsChild = false,
                 NeedsOneOfRoles = GetDefaultRoles()
@@ -375,8 +383,8 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 7,
-                Header = "DSGVO",
-                ParentId = "DSGVO",
+                HeaderDe = "DSGVO",
+                ParentIdDe = "DSGVO",
                 HasChildren = true,
                 IsChild = false,
                 NeedsOneOfRoles = GetDefaultRoles()
@@ -386,10 +394,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
-                Header = "Anonym. Voraussetzungen",
+                HeaderDe = "Anonym. Voraussetzungen",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "DSGVO",
+                ParentIdDe = "DSGVO",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -397,10 +405,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
-                Header = "Anonym. Freigeben",
+                HeaderDe = "Anonym. Freigeben",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "DSGVO",
+                ParentIdDe = "DSGVO",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -408,10 +416,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
-                Header = "Anonym. Kunden",
+                HeaderDe = "Anonym. Kunden",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "DSGVO",
+                ParentIdDe = "DSGVO",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -419,10 +427,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
-                Header = "Anonym. Einkaufsberechtigte",
+                HeaderDe = "Anonym. Einkaufsberechtigte",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "DSGVO",
+                ParentIdDe = "DSGVO",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -430,8 +438,8 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 8,
-                Header = "Archiv",
-                ParentId = "Archiv",
+                HeaderDe = "Archiv",
+                ParentIdDe = "Archiv",
                 HasChildren = true,
                 IsChild = false,
                 NeedsOneOfRoles = GetDefaultRoles()
@@ -441,10 +449,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
-                Header = "Kundenarchiv",
+                HeaderDe = "Kundenarchiv",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Archiv",
+                ParentIdDe = "Archiv",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -452,8 +460,8 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 9,
-                Header = "Tabellen",
-                ParentId = "Tabellen",
+                HeaderDe = "Tabellen",
+                ParentIdDe = "Tabellen",
                 HasChildren = true,
                 IsChild = false,
                 NeedsOneOfRoles = GetDefaultRoles()
@@ -463,10 +471,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
-                Header = "Branchen",
+                HeaderDe = "Branchen",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Tabellen",
+                ParentIdDe = "Tabellen",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -474,10 +482,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
-                Header = "Branchen Stichwortverzeichnis",
+                HeaderDe = "Branchen Stichwortverzeichnis",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Tabellen",
+                ParentIdDe = "Tabellen",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -485,10 +493,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
-                Header = "Kundenberater",
+                HeaderDe = "Kundenberater",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Tabellen",
+                ParentIdDe = "Tabellen",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -496,10 +504,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
-                Header = "Einzugseinheiten",
+                HeaderDe = "Einzugseinheiten",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Tabellen",
+                ParentIdDe = "Tabellen",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -507,10 +515,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 5,
-                Header = "Distrikte-Einzugseinheiten",
+                HeaderDe = "Distrikte-Einzugseinheiten",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Tabellen",
+                ParentIdDe = "Tabellen",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -518,10 +526,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 6,
-                Header = "National Grid",
+                HeaderDe = "National Grid",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Tabellen",
+                ParentIdDe = "Tabellen",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -529,8 +537,8 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 10,
-                Header = "Administration",
-                ParentId = "Administration",
+                HeaderDe = "Administration",
+                ParentIdDe = "Administration",
                 HasChildren = true,
                 IsChild = false,
                 NeedsOneOfRoles = GetDefaultRoles()
@@ -540,10 +548,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
-                Header = "Aktions- Typ Verwaltung",
+                HeaderDe = "Aktions- Typ Verwaltung",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -551,10 +559,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
-                Header = "Benutzerrollen",
+                HeaderDe = "Benutzerrollen",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -562,10 +570,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
-                Header = "Berechtigungen",
+                HeaderDe = "Berechtigungen",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -573,10 +581,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
-                Header = "Definition Web Aktionen",
+                HeaderDe = "Definition Web Aktionen",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -584,10 +592,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 5,
-                Header = "Kundennummern reservieren",
+                HeaderDe = "Kundennummern reservieren",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -595,10 +603,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 6,
-                Header = "Strassenkatalog",
+                HeaderDe = "Strassenkatalog",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -606,10 +614,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 7,
-                Header = "Zielgruppen",
+                HeaderDe = "Zielgruppen",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -617,10 +625,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 8,
-                Header = "Locks",
+                HeaderDe = "Locks",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -628,10 +636,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 9,
-                Header = "Monatsrechnung",
+                HeaderDe = "Monatsrechnung",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -639,10 +647,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 10,
-                Header = "Privileges",
+                HeaderDe = "Privileges",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -650,10 +658,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 11,
-                Header = "Delegation",
+                HeaderDe = "Delegation",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -661,10 +669,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 12,
-                Header = "OPTIVIO Reset Counter",
+                HeaderDe = "OPTIVIO Reset Counter",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -672,10 +680,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 13,
-                Header = "Rollen Test",
+                HeaderDe = "Rollen Test",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -683,10 +691,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 14,
-                Header = "Kundenbildschirm",
+                HeaderDe = "Kundenbildschirm",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Administration",
+                ParentIdDe = "Administration",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -694,8 +702,8 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 11,
-                Header = "Fenster",
-                ParentId = "Fenster",
+                HeaderDe = "Fenster",
+                ParentIdDe = "Fenster",
                 HasChildren = true,
                 IsChild = false,
                 NeedsOneOfRoles = GetDefaultRoles()
@@ -705,10 +713,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
-                Header = "Screenshot",
+                HeaderDe = "Screenshot",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Fenster",
+                ParentIdDe = "Fenster",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -716,8 +724,8 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 12,
-                Header = "Optionen",
-                ParentId = "Optionen",
+                HeaderDe = "Optionen",
+                ParentIdDe = "Optionen",
                 HasChildren = true,
                 IsChild = false,
                 NeedsOneOfRoles = GetDefaultRoles()
@@ -727,10 +735,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
-                Header = "Scanner",
+                HeaderDe = "Scanner",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "Optionen",
+                ParentIdDe = "Optionen",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -738,8 +746,8 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 13,
-                Header = "?",
-                ParentId = "?",
+                HeaderDe = "?",
+                ParentIdDe = "?",
                 HasChildren = true,
                 IsChild = false,
                 NeedsOneOfRoles = GetDefaultRoles()
@@ -749,10 +757,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
-                Header = "About",
+                HeaderDe = "About",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "?",
+                ParentIdDe = "?",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -760,10 +768,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
-                Header = "Dokumente",
+                HeaderDe = "Dokumente",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "?",
+                ParentIdDe = "?",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -771,10 +779,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
-                Header = "Manuals",
+                HeaderDe = "Manuals",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "?",
+                ParentIdDe = "?",
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -782,10 +790,10 @@ public static class CarouselMenuGenerator
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
-                Header = "Releasenotes",
+                HeaderDe = "Releasenotes",
                 HasChildren = false,
                 IsChild = true,
-                ParentId = "?",
+                ParentIdDe = "?",
                 NeedsOneOfRoles = GetDefaultRoles()
             }
         ];

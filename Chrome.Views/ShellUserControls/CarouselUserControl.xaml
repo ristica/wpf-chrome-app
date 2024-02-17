@@ -10,10 +10,10 @@
     <UserControl.Resources>
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <converters:BoolToVisibilityReverseConverter x:Key="BoolToVisibilityReverseConverter" />
+        <converters:CultureToVisibilityConverter x:Key="CultureToVisibilityConverter" />
     </UserControl.Resources>
     <Grid>
-        <controls:CarouselControl x:Name="CarouselControl"
-                                  ItemsSource="{Binding ViewModel.CarouselItems, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+        <controls:CarouselControl ItemsSource="{Binding ViewModel.CarouselItems, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                   SelectedItem="{Binding ViewModel.SelectedCarouselItem, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                   ShowRotation="True"
                                   TiltInDegrees="0"
@@ -38,10 +38,22 @@
                                         <Border Padding="14"
                                                 Background="{StaticResource DefaultBrush}"
                                                 CornerRadius="7,7,0, 0">
-                                            <TextBlock Text="{Binding Parent.Header}"
-                                                       Foreground="{StaticResource ForegroundBrush}"
-                                                       FontWeight="Bold"
-                                                       FontSize="14" />
+                                            <Grid>
+                                                <TextBlock Text="{Binding Parent.HeaderDe}"
+                                                           FontWeight="Bold"
+                                                           FontSize="14"
+                                                           Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=de-DE, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                           VerticalAlignment="Center"
+                                                           Foreground="{StaticResource ForegroundBrush}">
+                                                </TextBlock>
+                                                <TextBlock Text="{Binding Parent.HeaderEn}"
+                                                           FontWeight="Bold"
+                                                           FontSize="14"
+                                                           Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=en-US, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                           VerticalAlignment="Center"
+                                                           Foreground="{StaticResource ForegroundBrush}">
+                                                </TextBlock>
+                                            </Grid>
                                         </Border>
                                         <Border Padding="0, 5">
                                             <ListView ItemsSource="{Binding Children, UpdateSourceTrigger=PropertyChanged}"
@@ -96,17 +108,24 @@
                                                             </Border>
 
                                                             <Border Grid.Column="1" />
-                                                            <Border Grid.Column="2">
+                                                            <Grid Grid.Column="2">
                                                                 <i:Interaction.Triggers>
                                                                     <i:EventTrigger EventName="MouseLeftButtonUp">
                                                                         <i:InvokeCommandAction Command="{Binding ViewModel.MenuSelectionChangedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                                                                                CommandParameter="{Binding }" />
                                                                     </i:EventTrigger>
                                                                 </i:Interaction.Triggers>
-                                                                <TextBlock Text="{Binding Header}"
+                                                                <TextBlock Text="{Binding HeaderDe}"
+                                                                           Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=de-DE, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                                                            VerticalAlignment="Center"
-                                                                           Foreground="{StaticResource ForegroundBrush}" />
-                                                            </Border>
+                                                                           Foreground="{StaticResource ForegroundBrush}">
+                                                                </TextBlock>
+                                                                <TextBlock Text="{Binding HeaderEn}"
+                                                                           Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=en-US, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                                           VerticalAlignment="Center"
+                                                                           Foreground="{StaticResource ForegroundBrush}">
+                                                                </TextBlock>
+                                                            </Grid>
 
                                                         </Grid>
                                                     </DataTemplate>

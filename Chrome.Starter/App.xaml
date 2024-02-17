@@ -44,6 +44,36 @@
             <SolidColorBrush x:Key="ForegroundHoverBrush"
                              Color="{StaticResource LightHoverColor}" />
 
+            <!-- MATERIAL PRIMARY HUES -->
+            <SolidColorBrush x:Key="PrimaryHueLightBrush"
+                             Color="#5495ff" />
+            <SolidColorBrush x:Key="PrimaryHueMidBrush"
+                             Color="#3B71CA" />
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush"
+                             Color="#234c8f" />
+
+            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush"
+                             Color="#000000" />
+            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush"
+                             Color="#FBFBFB" />
+            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush"
+                             Color="#FBFBFB" />
+
+            <!-- MATERIAL SECONDARY HUES -->
+            <SolidColorBrush x:Key="SecondaryHueLightBrush"
+                             Color="#D0D7E4" />
+            <SolidColorBrush x:Key="SecondaryHueMidBrush"
+                             Color="#9FA6B2" />
+            <SolidColorBrush x:Key="SecondaryHueDarkBrush"
+                             Color="#707783" />
+
+            <SolidColorBrush x:Key="SecondaryHueLightForegroundBrush"
+                             Color="#000000" />
+            <SolidColorBrush x:Key="SecondaryHueMidForegroundBrush"
+                             Color="#212121" />
+            <SolidColorBrush x:Key="SecondaryHueDarkForegroundBrush"
+                             Color="#FFFFFF" />
+
             <!-- BORDER ANIMATION BACKGROUND -->
             <Style TargetType="Border"
                    x:Key="ToDarkAnimatedBorder">
@@ -52,8 +82,7 @@
                         <EventTrigger.Actions>
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimationUsingKeyFrames
-                                        Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                         <EasingColorKeyFrame KeyTime="0:0:0.25"
                                                              Value="{StaticResource DarkColor}" />
                                     </ColorAnimationUsingKeyFrames>
@@ -65,8 +94,7 @@
                         <EventTrigger.Actions>
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimationUsingKeyFrames
-                                        Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                         <EasingColorKeyFrame KeyTime="0:0:0.25"
                                                              Value="{StaticResource DarkHoverColor}" />
                                     </ColorAnimationUsingKeyFrames>
@@ -83,8 +111,7 @@
                         <EventTrigger.Actions>
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimationUsingKeyFrames
-                                        Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                         <EasingColorKeyFrame KeyTime="0:0:0.25"
                                                              Value="{StaticResource DarkHoverColor}" />
                                     </ColorAnimationUsingKeyFrames>
@@ -96,8 +123,7 @@
                         <EventTrigger.Actions>
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimationUsingKeyFrames
-                                        Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                         <EasingColorKeyFrame KeyTime="0:0:0.25"
                                                              Value="{StaticResource DarkColor}" />
                                     </ColorAnimationUsingKeyFrames>
@@ -161,8 +187,7 @@
                                     Background="{StaticResource DefaultBrush}">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="MouseLeftButtonDown">
-                                        <i:InvokeCommandAction
-                                            Command="{Binding ViewModel.DragCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                                        <i:InvokeCommandAction Command="{Binding ViewModel.DragCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                                 <TextBlock HorizontalAlignment="Left"
@@ -177,7 +202,8 @@
                                     MinWidth="100"
                                     Padding="2"
                                     Background="{StaticResource DefaultBrush}">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Right">
                                     <Border Background="{StaticResource DefaultBrush}"
                                             CornerRadius="4"
                                             Width="32"
@@ -197,8 +223,7 @@
                                                                  Margin="0" />
                                         <i:Interaction.Triggers>
                                             <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                <i:InvokeCommandAction
-                                                    Command="{Binding ViewModel.MinimizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                                                <i:InvokeCommandAction Command="{Binding ViewModel.MinimizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                                             </i:EventTrigger>
                                         </i:Interaction.Triggers>
                                     </Border>
@@ -244,10 +269,9 @@
                                                         <EventTrigger.Actions>
                                                             <BeginStoryboard>
                                                                 <Storyboard>
-                                                                    <ColorAnimationUsingKeyFrames
-                                                                        Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                                                         <EasingColorKeyFrame KeyTime="0:0:0.2"
-                                                                            Value="{StaticResource MaroonColor}" />
+                                                                                             Value="{StaticResource MaroonColor}" />
                                                                     </ColorAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </BeginStoryboard>
@@ -257,10 +281,9 @@
                                                         <EventTrigger.Actions>
                                                             <BeginStoryboard>
                                                                 <Storyboard>
-                                                                    <ColorAnimationUsingKeyFrames
-                                                                        Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                                                         <EasingColorKeyFrame KeyTime="0:0:0.2"
-                                                                            Value="{StaticResource DarkColor}" />
+                                                                                             Value="{StaticResource DarkColor}" />
                                                                     </ColorAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </BeginStoryboard>
@@ -278,8 +301,7 @@
                                                                  Margin="0,0,1,0" />
                                         <i:Interaction.Triggers>
                                             <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                <i:InvokeCommandAction
-                                                    Command="{Binding ViewModel.CloseCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                                                <i:InvokeCommandAction Command="{Binding ViewModel.CloseCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                                             </i:EventTrigger>
                                         </i:Interaction.Triggers>
                                     </Border>
@@ -288,7 +310,8 @@
 
                         </Grid>
 
-                        <Border Grid.Row="1" Padding="0,1">
+                        <Border Grid.Row="1"
+                                Padding="0,1">
                             <ContentPresenter HorizontalAlignment="Stretch"
                                               VerticalAlignment="Stretch" />
                         </Border>
@@ -346,30 +369,12 @@
                 </Style.Triggers>
             </Style>
 
-            <!-- CONTROL TEMPLATES -->
-            <Style BasedOn="{StaticResource {x:Type Button}}"
-                   TargetType="{x:Type Button}">
-                <Setter Property="Focusable"
-                        Value="False" />
-                <Setter Property="HorizontalAlignment"
-                        Value="Stretch" />
-                <Setter Property="VerticalAlignment"
-                        Value="Stretch" />
-                <Setter Property="Margin"
-                        Value="1" />
-                <Setter Property="BorderThickness"
-                        Value="1" />
-                <Setter Property="Padding"
-                        Value="20,8" />
-            </Style>
-
             <!-- MATERIAL -->
             <ResourceDictionary.MergedDictionaries>
-                <materialDesign:BundledTheme BaseTheme="Light"
-                                             PrimaryColor="DeepPurple"
-                                             SecondaryColor="Lime" />
-                <ResourceDictionary
-                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <materialDesign:BundledTheme BaseTheme="Dark"
+                                             PrimaryColor="LightBlue"
+                                             SecondaryColor="LightGreen" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

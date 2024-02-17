@@ -2,8 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:converters="clr-namespace:Chrome.Views.Converters"
              DataContext="{Binding}">
     <UserControl.Resources>
+        <converters:CultureToVisibilityConverter x:Key="CultureToVisibilityConverter" />
     </UserControl.Resources>
 
     <Border Background="{StaticResource TransparentBrush}"
@@ -34,10 +36,10 @@
                             Style="{StaticResource ToLightAnimatedBorder}">
                         <Border.ToolTip>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding ParentId}" />
+                                <TextBlock Text="{Binding ParentIdDe}" />
                                 <TextBlock Text="/"
                                            Margin="3,0" />
-                                <TextBlock Text="{Binding Header}" />
+                                <TextBlock Text="{Binding HeaderDe}" />
                             </StackPanel>
                         </Border.ToolTip>
                         <Border.Triggers>
@@ -78,20 +80,42 @@
                                                      Margin="5,0,0,0" />
                             <StackPanel Orientation="Horizontal"
                                         Grid.Column="1">
-                                <TextBlock HorizontalAlignment="Left"
+                                <!-- PARENT -->
+                                <TextBlock Text="{Binding ParentIdDe}"
+                                           Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=de-DE, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                            VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
                                            Margin="5,0,0,0"
-                                           Text="{Binding ParentId}"
-                                           Foreground="{StaticResource ForegroundBrush}" />
+                                           Foreground="{StaticResource ForegroundBrush}">
+                                </TextBlock>
+                                <TextBlock Text="{Binding ParentIdEn}"
+                                           Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=en-US, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
+                                           Margin="5,0,0,0"
+                                           Foreground="{StaticResource ForegroundBrush}">
+                                </TextBlock>
+
+                                <!-- SEPARATOR -->
                                 <TextBlock HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Margin="3,0"
                                            Text="/"
                                            Foreground="{StaticResource ForegroundBrush}" />
-                                <TextBlock HorizontalAlignment="Left"
+
+                                <!-- CHILD MENU -->
+                                <TextBlock Text="{Binding HeaderDe}"
+                                           Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=de-DE, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                            VerticalAlignment="Center"
-                                           Text="{Binding Header}"
-                                           Foreground="{StaticResource ForegroundBrush}" />
+                                           HorizontalAlignment="Left"
+                                           Foreground="{StaticResource ForegroundBrush}">
+                                </TextBlock>
+                                <TextBlock Text="{Binding HeaderEn}"
+                                           Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=en-US, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
+                                           Foreground="{StaticResource ForegroundBrush}">
+                                </TextBlock>
                             </StackPanel>
                         </Grid>
                     </Border>

@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Windows;
+using Localization.WPF;
 
 namespace Chrome.ViewModels.Windows.Shell;
 
@@ -10,6 +12,7 @@ public partial class ShellViewModel
 
     #region PROPERTIES
 
+    public string CurrentCultureName => LocalizationManager.CurrentCulture.Name;
     public string WindowTitle => "CRM - Light";
     public bool CanClose => true;
     public ResizeMode ResizeMode => ResizeMode.CanMinimize;
@@ -18,6 +21,12 @@ public partial class ShellViewModel
     #endregion
 
     #region METHODS
+
+    public void CultureChanged(string cultureName)
+    {
+        OnPropertyChanged(nameof(CurrentCultureName));
+        this.SetCarouselItems();
+    }
 
     public void OpenView()
     {

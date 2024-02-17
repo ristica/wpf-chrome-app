@@ -11,10 +11,10 @@ public static class DependencyManager
 {
     public static void Initialize(IDependencyContainer container)
     {
-        container.RegisterType<IShellView, ShellView>();
+        container.RegisterTypeAsSingleton<IShellView, ShellView>();
         container.RegisterType<ITestView, TestView>();
 
-        container.RegisterType<IShellViewModel, ShellViewModel>();
+        container.RegisterTypeAsSingleton<IShellViewModel, ShellViewModel>();
         container.RegisterType<ITestViewModel, TestViewModel>();
     }
 }
