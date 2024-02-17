@@ -32,15 +32,15 @@ public partial class ShellViewModel
 
     private void SetCommonCultures()
     {
-        this.Cultures =
+        Cultures =
         [
-            new()
+            new LanguageInfo
             {
                 CultureId = Constants.CultureTypes.EnglishCultureId,
                 ShortName = Constants.CultureTypes.EnglishShortName
             },
 
-            new()
+            new LanguageInfo
             {
                 CultureId = Constants.CultureTypes.DeutschCultureId,
                 ShortName = Constants.CultureTypes.DeutschShortName

@@ -15,14 +15,16 @@ public partial class TestView : BaseView, ITestView
 
     #region PROPERTIES
 
-    public WindowState CurrentWindowState => this.WindowState;
+    public WindowState CurrentWindowState => WindowState;
 
     #endregion
 
     #region COMMANDS
+
     #endregion
 
     #region C-TOR
+
     public TestView()
     {
         InitializeComponent();
@@ -31,8 +33,6 @@ public partial class TestView : BaseView, ITestView
     #endregion
 
     #region METHODS
-
-    
 
     #endregion
 

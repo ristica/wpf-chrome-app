@@ -44,16 +44,17 @@
                                                        FontSize="14" />
                                         </Border>
                                         <Border Padding="0, 5">
-                                            <ListView ItemsSource="{Binding Children, UpdateSourceTrigger=PropertyChanged}"
-                                                      Margin="0"
-                                                      Padding="0"
-                                                      HorizontalAlignment="Stretch">
+                                            <ListView
+                                                ItemsSource="{Binding Children, UpdateSourceTrigger=PropertyChanged}"
+                                                Margin="0"
+                                                Padding="0"
+                                                HorizontalAlignment="Stretch">
                                                 <ListView.ItemTemplate>
                                                     <DataTemplate>
                                                         <Grid HorizontalAlignment="Stretch">
                                                             <Grid.ColumnDefinitions>
-                                                                <ColumnDefinition Width="Auto"/>
-                                                                <ColumnDefinition Width="10"/>
+                                                                <ColumnDefinition Width="Auto" />
+                                                                <ColumnDefinition Width="10" />
                                                                 <ColumnDefinition />
                                                             </Grid.ColumnDefinitions>
 
@@ -65,7 +66,8 @@
                                                                     Visibility="{Binding IsFavorite, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}}">
                                                                 <i:Interaction.Triggers>
                                                                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                                        <i:InvokeCommandAction Command="{Binding ViewModel.FavoriteAddCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                                        <i:InvokeCommandAction
+                                                                            Command="{Binding ViewModel.FavoriteAddCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                                                             CommandParameter="{Binding }" />
                                                                     </i:EventTrigger>
                                                                 </i:Interaction.Triggers>
@@ -84,7 +86,8 @@
                                                                     Visibility="{Binding IsFavorite, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}}">
                                                                 <i:Interaction.Triggers>
                                                                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                                        <i:InvokeCommandAction Command="{Binding ViewModel.FavoriteRemoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                                        <i:InvokeCommandAction
+                                                                            Command="{Binding ViewModel.FavoriteRemoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                                                             CommandParameter="{Binding }" />
                                                                     </i:EventTrigger>
                                                                 </i:Interaction.Triggers>
@@ -95,11 +98,12 @@
                                                                     HorizontalAlignment="Left" />
                                                             </Border>
 
-                                                            <Border Grid.Column="1"></Border>
+                                                            <Border Grid.Column="1" />
                                                             <Border Grid.Column="2">
                                                                 <i:Interaction.Triggers>
                                                                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                                        <i:InvokeCommandAction Command="{Binding ViewModel.MenuSelectionChangedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                                        <i:InvokeCommandAction
+                                                                            Command="{Binding ViewModel.MenuSelectionChangedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                                                             CommandParameter="{Binding }" />
                                                                     </i:EventTrigger>
                                                                 </i:Interaction.Triggers>

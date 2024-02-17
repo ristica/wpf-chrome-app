@@ -1,8 +1,6 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows;
 using Chrome.Common.Contracts;
 using Chrome.Models;
-using Chrome.Views.Contracts;
 
 namespace Chrome.ViewModels.Contracts;
 
@@ -14,7 +12,7 @@ public interface IShellViewModel : IParentViewModel
     ObservableCollection<MenuModel>? Favorites { get; }
     ObservableCollection<CustomerUiModel>? Customers { get; }
     bool IsBottomBarVisible { get; set; }
-   
+
     void OpenView();
     void OpenTestWindow();
     void AddFavorite(MenuModel? item);

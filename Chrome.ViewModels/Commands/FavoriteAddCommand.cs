@@ -6,7 +6,11 @@ namespace Chrome.ViewModels.Commands;
 
 public class FavoriteAddCommand(IShellViewModel viewModel) : ICommand
 {
-    public bool CanExecute(object? parameter) => true; //viewModel.Favorites == null || viewModel.Favorites.Count < 5;
+    public bool CanExecute(object? parameter)
+    {
+        return true;
+        //viewModel.Favorites == null || viewModel.Favorites.Count < 5;
+    }
 
     public void Execute(object? parameter)
     {

@@ -6,7 +6,10 @@ namespace Chrome.ViewModels.Commands;
 
 public class FavoriteRemoveCommand(IShellViewModel viewModel) : ICommand
 {
-    public bool CanExecute(object? parameter) => viewModel.Favorites?.Count > 0;
+    public bool CanExecute(object? parameter)
+    {
+        return viewModel.Favorites?.Count > 0;
+    }
 
     public void Execute(object? parameter)
     {

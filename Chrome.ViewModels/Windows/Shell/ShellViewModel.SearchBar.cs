@@ -38,10 +38,10 @@ public partial class ShellViewModel
 
     public ObservableCollection<string>? FilteredItems
     {
-        get => this._filteredItems;
+        get => _filteredItems;
         set
         {
-            this._filteredItems = value;
+            _filteredItems = value;
             OnPropertyChanged();
         }
     }

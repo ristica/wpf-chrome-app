@@ -22,42 +22,42 @@ public partial class ShellViewModel
 
     public bool SnackBarIsActive
     {
-        get => this._snackBarIsActive;
+        get => _snackBarIsActive;
         set
         {
-            this._snackBarIsActive = value;
+            _snackBarIsActive = value;
             OnPropertyChanged();
         }
     }
 
     public string? SnackBarText
     {
-        get => this._snackBarText;
+        get => _snackBarText;
         set
         {
-            this._snackBarText = value;
+            _snackBarText = value;
             OnPropertyChanged();
         }
     }
 
     public SnackBarType SnackBarType
     {
-        get => this._snackBarType;
+        get => _snackBarType;
         set
         {
-            this._snackBarType = value;
+            _snackBarType = value;
             OnPropertyChanged();
         }
     }
 
-    public SnackbarMessageQueue MessageQueue { get; private set; } 
+    public SnackbarMessageQueue MessageQueue { get; private set; }
 
     public ObservableCollection<MenuUiItem>? CarouselItems
     {
-        get => this._carouselItems;
+        get => _carouselItems;
         set
         {
-            this._carouselItems = value;
+            _carouselItems = value;
             OnPropertyChanged();
         }
     }
@@ -77,31 +77,31 @@ public partial class ShellViewModel
     public void AddFavorite(MenuModel? item)
     {
         if (item == null) return;
-        this.Favorites ??= new();
-        if (this.Favorites.Count > 4)
+        Favorites ??= new ObservableCollection<MenuModel>();
+        if (Favorites.Count > 4)
         {
-            this.ShowSnackBar(SnackBarType.Error, "Die Favoritenliste ist voll!");
+            ShowSnackBar(SnackBarType.Error, "Die Favoritenliste ist voll!");
             return;
         }
-        
-        var found = this.Favorites.SingleOrDefault(f => f.Header == item.Header);
+
+        var found = Favorites.SingleOrDefault(f => f.Header == item.Header);
         if (found != null) return;
 
-        this.Favorites.Add(item);
-        this.UpdateCarouselItemsFavorite(item, true);
+        Favorites.Add(item);
+        UpdateCarouselItemsFavorite(item, true);
 
-        this.ShowSnackBar(SnackBarType.Success, "Zur Favoritenliste erfolgreich hinzugefügt!");
+        ShowSnackBar(SnackBarType.Success, "Zur Favoritenliste erfolgreich hinzugefügt!");
     }
 
     public void RemoveFavorite(MenuModel? item)
     {
         if (item == null) return;
-        if (this.CarouselItems == null) return;
-        if (this.Favorites == null) return;
+        if (CarouselItems == null) return;
+        if (Favorites == null) return;
 
         MenuModel? found = null;
 
-        foreach (var ci in this.CarouselItems)
+        foreach (var ci in CarouselItems)
         {
             var children = ci.Children;
             found = children.SingleOrDefault(c => c.Header == item.Header);
@@ -110,10 +110,10 @@ public partial class ShellViewModel
 
         if (found == null) return;
 
-        this.Favorites.Remove(found);
-        this.UpdateCarouselItemsFavorite(item, false);
+        Favorites.Remove(found);
+        UpdateCarouselItemsFavorite(item, false);
 
-        this.ShowSnackBar(SnackBarType.Info, "Aus der Favoritenliste erfolgreich entfernt!");
+        ShowSnackBar(SnackBarType.Info, "Aus der Favoritenliste erfolgreich entfernt!");
     }
 
     #endregion
@@ -122,9 +122,9 @@ public partial class ShellViewModel
 
     private void RegisterShellContentCommands()
     {
-        this.FavoriteAddCommand = new FavoriteAddCommand(this);
-        this.FavoriteRemoveCommand = new FavoriteRemoveCommand(this);
-        this.MenuSelectionChangedCommand = new MenuSelectionChangedCommand(this);
+        FavoriteAddCommand = new FavoriteAddCommand(this);
+        FavoriteRemoveCommand = new FavoriteRemoveCommand(this);
+        MenuSelectionChangedCommand = new MenuSelectionChangedCommand(this);
     }
 
     private void SetCarouselItems()
@@ -138,44 +138,36 @@ public partial class ShellViewModel
                 select new MenuUiItem { Parent = parent, Children = children })
             .ToList();
 
-        this.CarouselItems = new ObservableCollection<MenuUiItem>(dtos);
+        CarouselItems = new ObservableCollection<MenuUiItem>(dtos);
     }
 
     private void UpdateCarouselItemsFavorite(MenuModel item, bool add)
     {
-        foreach (var ui in this.CarouselItems!)
+        foreach (var ui in CarouselItems!)
+        foreach (var child in ui.Children.Where(child => child!.Id == item.Id))
         {
-            foreach (var child in ui.Children.Where(child => child!.Id == item.Id))
-            {
-                child!.IsFavorite = add;
-                break;
-            }
+            child!.IsFavorite = add;
+            break;
         }
 
-        if (!this.Favorites!.Any()) this.Favorites = null;
-        this.IsRightBarExpanded = false;
+        if (!Favorites!.Any()) Favorites = null;
+        IsRightBarExpanded = false;
     }
 
     private void ShowSnackBar(SnackBarType sbt, string? message)
     {
-        if (this.SnackBarIsActive)
+        if (SnackBarIsActive)
         {
-            if (this.SnackBarType == sbt) return;
-            this.SnackBarIsActive = false;
+            if (SnackBarType == sbt) return;
+            SnackBarIsActive = false;
         }
 
-        this.SnackBarType = sbt;
-        this.SnackBarIsActive = true;
-        this.SnackBarText = message;
+        SnackBarType = sbt;
+        SnackBarIsActive = true;
+        SnackBarText = message;
 
         Task.Run(() => Thread.Sleep(5000))
-            .ContinueWith(t =>
-            {
-                Dispatcher.CurrentDispatcher.Invoke(() =>
-                {
-                    this.SnackBarIsActive = false;
-                });
-            });
+            .ContinueWith(t => { Dispatcher.CurrentDispatcher.Invoke(() => { SnackBarIsActive = false; }); });
     }
 
     #endregion

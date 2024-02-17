@@ -29,7 +29,8 @@
                 Margin="47,1,1,1">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonDown">
-                    <i:InvokeCommandAction Command="{Binding ViewModel.DragCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                    <i:InvokeCommandAction
+                        Command="{Binding ViewModel.DragCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
             <Grid HorizontalAlignment="Stretch">
@@ -60,7 +61,8 @@
                                          HorizontalAlignment="Center" />
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction Command="{Binding ViewModel.MinimizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                        <i:InvokeCommandAction
+                            Command="{Binding ViewModel.MinimizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Border>
@@ -90,7 +92,8 @@
                 </Grid>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction Command="{Binding ViewModel.MaximizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                        <i:InvokeCommandAction
+                            Command="{Binding ViewModel.MaximizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Border>
@@ -106,7 +109,8 @@
                                 <EventTrigger.Actions>
                                     <BeginStoryboard>
                                         <Storyboard>
-                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                            <ColorAnimationUsingKeyFrames
+                                                Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                                 <EasingColorKeyFrame KeyTime="0:0:0.2"
                                                                      Value="{StaticResource MaroonColor}" />
                                             </ColorAnimationUsingKeyFrames>
@@ -118,7 +122,8 @@
                                 <EventTrigger.Actions>
                                     <BeginStoryboard>
                                         <Storyboard>
-                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                            <ColorAnimationUsingKeyFrames
+                                                Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                                 <EasingColorKeyFrame KeyTime="0:0:0.2"
                                                                      Value="{StaticResource DarkColor}" />
                                             </ColorAnimationUsingKeyFrames>
@@ -138,7 +143,8 @@
                                          Margin="0,0,1,0" />
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction Command="{Binding ViewModel.CloseCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                        <i:InvokeCommandAction
+                            Command="{Binding ViewModel.CloseCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Border>

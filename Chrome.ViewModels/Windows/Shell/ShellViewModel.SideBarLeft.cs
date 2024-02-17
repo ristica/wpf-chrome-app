@@ -19,30 +19,30 @@ public partial class ShellViewModel
 
     public bool IsLeftBarExpanded
     {
-        get => this._isLeftBarExpanded;
+        get => _isLeftBarExpanded;
         set
         {
-            this._isLeftBarExpanded = value;
+            _isLeftBarExpanded = value;
             OnPropertyChanged();
         }
     }
 
     public bool IsBottomBarVisible
     {
-        get => this._isBottomBarVisible;
+        get => _isBottomBarVisible;
         set
         {
-            this._isBottomBarVisible = value;
+            _isBottomBarVisible = value;
             OnPropertyChanged();
         }
     }
 
     public ObservableCollection<CustomerUiModel>? Customers
     {
-        get => this._customers;
+        get => _customers;
         set
         {
-            this._customers = value;
+            _customers = value;
             OnPropertyChanged();
         }
     }
@@ -64,8 +64,8 @@ public partial class ShellViewModel
 
     private void SetTestCustomers()
     {
-        this.Customers = new ObservableCollection<CustomerUiModel>(Helpers.CustomerGenerator.Generate());
-        this.IsLeftBarExpanded = this.Customers.Any();
+        Customers = new ObservableCollection<CustomerUiModel>(Helpers.CustomerGenerator.Generate());
+        IsLeftBarExpanded = Customers.Any();
     }
 
     #endregion

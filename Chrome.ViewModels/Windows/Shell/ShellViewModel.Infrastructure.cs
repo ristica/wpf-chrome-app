@@ -13,7 +13,7 @@ public partial class ShellViewModel
     public string WindowTitle => "CRM - Light";
     public bool CanClose => true;
     public ResizeMode ResizeMode => ResizeMode.CanMinimize;
-    public WindowState CurrentWindowState => this._view.CurrentWindowState;
+    public WindowState CurrentWindowState => _view.CurrentWindowState;
 
     #endregion
 
@@ -21,31 +21,31 @@ public partial class ShellViewModel
 
     public void OpenView()
     {
-        this._view.OpenMe();
+        _view.OpenMe();
     }
 
     public void MaximizeView()
     {
-        this._view.MaximizeView();
+        _view.MaximizeView();
         OnPropertyChanged(nameof(CurrentWindowState));
     }
 
     public void MinimizeView()
     {
-        this._view.MinimizeView();
+        _view.MinimizeView();
     }
 
     public void CloseView()
     {
-        if (!this.CanClose) return;
+        if (!CanClose) return;
 
-        base.Dispose();
-        this._view.CloseMe();
+        Dispose();
+        _view.CloseMe();
     }
 
     public void DragWindow()
     {
-        this._view.DragMe();
+        _view.DragMe();
     }
 
     #endregion

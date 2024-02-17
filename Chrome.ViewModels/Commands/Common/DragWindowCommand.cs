@@ -5,7 +5,10 @@ namespace Chrome.ViewModels.Commands.Common;
 
 public class DragWindowCommand(IParentViewModel viewModel) : ICommand
 {
-    public bool CanExecute(object? parameter) => true;
+    public bool CanExecute(object? parameter)
+    {
+        return true;
+    }
 
     public void Execute(object? parameter)
     {

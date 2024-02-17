@@ -5,11 +5,13 @@ namespace Chrome.ViewModels.Commands;
 
 public class MenuSelectionChangedCommand(IShellViewModel viewModel) : ICommand
 {
-    public bool CanExecute(object? parameter) => true;
+    public bool CanExecute(object? parameter)
+    {
+        return true;
+    }
 
     public void Execute(object? parameter)
     {
-        
     }
 
     public event EventHandler? CanExecuteChanged;

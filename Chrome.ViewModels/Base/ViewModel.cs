@@ -9,14 +9,14 @@ public abstract class ViewModel : INotifyPropertyChanged, IDisposable
 
     public void Dispose()
     {
-        this.DisposeViewModel();
+        DisposeViewModel();
     }
 
     protected abstract void DisposeViewModel();
 
     #endregion
 
-    #region INotifyPropertyChanged 
+    #region INotifyPropertyChanged
 
     public event PropertyChangedEventHandler? PropertyChanged;
 

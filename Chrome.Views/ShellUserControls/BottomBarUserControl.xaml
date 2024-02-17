@@ -22,7 +22,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Content="Open Window"
-                    Command="{Binding ViewModel.OpenTestWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"></Button>
+                    Command="{Binding ViewModel.OpenTestWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
 
             <StackPanel Grid.Column="2"
                         Orientation="Horizontal"

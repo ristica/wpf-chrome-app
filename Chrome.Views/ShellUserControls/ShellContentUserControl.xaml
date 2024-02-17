@@ -54,7 +54,7 @@
                                      Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
                 <materialDesign:PackIcon.Foreground>
                     <SolidColorBrush x:Name="MyBrush1"
-                                     Color="DimGray"></SolidColorBrush>
+                                     Color="DimGray" />
                 </materialDesign:PackIcon.Foreground>
                 <materialDesign:PackIcon.Triggers>
                     <EventTrigger RoutedEvent="MouseEnter">
@@ -82,7 +82,8 @@
                 </materialDesign:PackIcon.Triggers>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction Command="{Binding ViewModel.ToggleBottomBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                        <i:InvokeCommandAction
+                            Command="{Binding ViewModel.ToggleBottomBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </materialDesign:PackIcon>
@@ -97,10 +98,10 @@
                                      Cursor="Hand"
                                      ToolTip="{Loc ShowStatusBar}"
                                      Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-               <materialDesign:PackIcon.Foreground>
+                <materialDesign:PackIcon.Foreground>
                     <SolidColorBrush x:Name="MyBrush2"
-                                     Color="DimGray"></SolidColorBrush>
-               </materialDesign:PackIcon.Foreground>
+                                     Color="DimGray" />
+                </materialDesign:PackIcon.Foreground>
                 <materialDesign:PackIcon.Triggers>
                     <EventTrigger RoutedEvent="MouseEnter">
                         <BeginStoryboard>
@@ -120,7 +121,7 @@
                                                 Storyboard.TargetProperty="Color"
                                                 From="#aaa"
                                                 To="DimGray"
-                                                Duration="0:0:.25"/>
+                                                Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
@@ -128,7 +129,8 @@
 
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction Command="{Binding ViewModel.ToggleBottomBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                        <i:InvokeCommandAction
+                            Command="{Binding ViewModel.ToggleBottomBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </materialDesign:PackIcon>

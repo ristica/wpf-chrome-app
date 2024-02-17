@@ -7,8 +7,6 @@ public abstract class BaseView : Window
 {
     #region FIELDS
 
-    
-
     #endregion
 
     #region PROPERTIES
@@ -30,7 +28,6 @@ public abstract class BaseView : Window
 
     protected virtual void BaseWindowLoaded(object sender, RoutedEventArgs e)
     {
-
     }
 
     public void OpenMe()

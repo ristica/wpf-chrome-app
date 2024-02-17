@@ -3,13 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:converters="clr-namespace:Chrome.Views.Converters"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              DataContext="{Binding}">
     <UserControl.Resources>
-        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-        <converters:BoolToVisibilityReverseConverter x:Key="BoolToVisibilityReverseConverter" />
-        <converters:ListToVisibilityConverter x:Key="ListToVisibilityConverter" />
-        <converters:BoolToSideBarWidthReverseConverter x:Key="BoolToSideBarWidthReverseConverter" />
     </UserControl.Resources>
 
     <Border Background="Transparent"
@@ -17,8 +12,9 @@
             BorderThickness="1"
             CornerRadius="4"
             Margin="1">
-        <ItemsControl ItemsSource="{Binding ViewModel.Customers, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                      VerticalAlignment="Center">
+        <ItemsControl
+            ItemsSource="{Binding ViewModel.Customers, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+            VerticalAlignment="Center">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical" />
@@ -39,12 +35,12 @@
                             Style="{StaticResource ToLightAnimatedBorder}">
                         <Border.ToolTip>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Kundennummer}"></TextBlock>
+                                <TextBlock Text="{Binding Kundennummer}" />
                                 <TextBlock Text="-"
-                                           Margin="3,0"></TextBlock>
+                                           Margin="3,0" />
                                 <TextBlock Text="{Binding FirstName}"
-                                           Margin="0,0,4,0"></TextBlock>
-                                <TextBlock Text="{Binding LastName}"></TextBlock>
+                                           Margin="0,0,4,0" />
+                                <TextBlock Text="{Binding LastName}" />
                             </StackPanel>
                         </Border.ToolTip>
                         <Border.Triggers>
@@ -95,8 +91,8 @@
                                            VerticalAlignment="Center"
                                            Margin="0,0,0,0"
                                            Foreground="{StaticResource ForegroundLightBrush}">
-                             <Run Text="{Binding FirstName}"></Run>
-                             <Run Text="{Binding LastName}"></Run>
+                                    <Run Text="{Binding FirstName}" />
+                                    <Run Text="{Binding LastName}" />
                                 </TextBlock>
                             </StackPanel>
                         </Grid>

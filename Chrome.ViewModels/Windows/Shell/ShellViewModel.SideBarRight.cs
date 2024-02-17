@@ -16,20 +16,20 @@ public partial class ShellViewModel
 
     public ObservableCollection<MenuModel>? Favorites
     {
-        get => this._favorites;
+        get => _favorites;
         private set
         {
-            this._favorites = value;
+            _favorites = value;
             OnPropertyChanged();
         }
     }
 
     public bool IsRightBarExpanded
     {
-        get => this._isRightBarExpanded;
+        get => _isRightBarExpanded;
         set
         {
-            this._isRightBarExpanded = value;
+            _isRightBarExpanded = value;
             OnPropertyChanged();
         }
     }
@@ -38,14 +38,12 @@ public partial class ShellViewModel
 
     #region COMMANDS
 
-
     #endregion
 
     #region HELPERS
 
     private void RegisterRightSideBarCommands()
     {
-
     }
 
     #endregion

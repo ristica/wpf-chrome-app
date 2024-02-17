@@ -6,7 +6,6 @@
              xmlns:converters="clr-namespace:Chrome.Views.Converters"
              xmlns:local="clr-namespace:Chrome.Models;assembly=Chrome.Models">
     <UserControl.Resources>
-        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
 
     <Grid x:Name="LanguageInfosGrid"
@@ -34,7 +33,7 @@
             </EventTrigger>
         </Grid.Triggers>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -91,13 +90,14 @@
                                 Style="{StaticResource ToDarkAnimatedBorder}">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonUp">
-                                    <i:InvokeCommandAction Command="{Binding ViewModel.SetLanguageCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                                                           CommandParameter="{Binding CultureId}" />
+                                    <i:InvokeCommandAction
+                                        Command="{Binding ViewModel.SetLanguageCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                        CommandParameter="{Binding CultureId}" />
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                             <TextBlock Text="{Binding ShortName}"
                                        Foreground="#eee"
-                                       HorizontalAlignment="Center"></TextBlock>
+                                       HorizontalAlignment="Center" />
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

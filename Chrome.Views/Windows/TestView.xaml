@@ -1,18 +1,18 @@
 ﻿<base:BaseView x:Class="Chrome.Views.Windows.TestView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:base="clr-namespace:Chrome.Views.Base"
-        Style="{DynamicResource SkinWindowStyle}"
-        Title="Test View"
-        Height="450"
-        Width="800"
-        ResizeMode="{Binding ResizeMode}"
-        Background="{StaticResource PrimaryBrush}">
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:base="clr-namespace:Chrome.Views.Base"
+               Style="{DynamicResource SkinWindowStyle}"
+               Title="Test View"
+               Height="450"
+               Width="800"
+               ResizeMode="{Binding ResizeMode}"
+               Background="{StaticResource PrimaryBrush}">
     <Border Padding="40"
             Background="{StaticResource DefaultBrush}">
         <TextBlock HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Text="Hello World"
-                   Foreground="White"></TextBlock>
+                   Foreground="White" />
     </Border>
 </base:BaseView>

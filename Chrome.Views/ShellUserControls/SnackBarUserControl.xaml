@@ -7,13 +7,14 @@
         <converters:SnackBarTypeToBackgroundBrush x:Key="SnackBarTypeToBackgroundBrush" />
     </UserControl.Resources>
 
-    <materialDesign:Snackbar IsActive="{Binding ViewModel.SnackBarIsActive, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                             Message="{Binding ViewModel.SnackBarText , UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                             MessageQueue="{Binding MessageQueue}"
-                             VerticalAlignment="Bottom"
-                             HorizontalAlignment="Right"
-                             HorizontalContentAlignment="Center"
-                             Margin="0,0,10,10"
-                             Background="{Binding ViewModel.SnackBarType, Converter={StaticResource SnackBarTypeToBackgroundBrush}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+    <materialDesign:Snackbar
+        IsActive="{Binding ViewModel.SnackBarIsActive, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+        Message="{Binding ViewModel.SnackBarText , UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+        MessageQueue="{Binding MessageQueue}"
+        VerticalAlignment="Bottom"
+        HorizontalAlignment="Right"
+        HorizontalContentAlignment="Center"
+        Margin="0,0,10,10"
+        Background="{Binding ViewModel.SnackBarType, Converter={StaticResource SnackBarTypeToBackgroundBrush}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
 
 </UserControl>

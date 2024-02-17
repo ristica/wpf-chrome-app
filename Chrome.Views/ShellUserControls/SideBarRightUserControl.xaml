@@ -2,13 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:converters="clr-namespace:Chrome.Views.Converters"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              DataContext="{Binding}">
     <UserControl.Resources>
-        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-        <converters:BoolToVisibilityReverseConverter x:Key="BoolToVisibilityReverseConverter" />
-        <converters:BoolToSideBarWidthConverter x:Key="BoolToSideBarWidthConverter" />
     </UserControl.Resources>
 
     <Border Background="Transparent"
@@ -16,8 +12,9 @@
             BorderThickness="1"
             CornerRadius="4"
             Margin="1">
-        <ItemsControl ItemsSource="{Binding ViewModel.Favorites, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                      VerticalAlignment="Center">
+        <ItemsControl
+            ItemsSource="{Binding ViewModel.Favorites, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+            VerticalAlignment="Center">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical" />
@@ -38,10 +35,10 @@
                             Style="{StaticResource ToLightAnimatedBorder}">
                         <Border.ToolTip>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding ParentId}"></TextBlock>
+                                <TextBlock Text="{Binding ParentId}" />
                                 <TextBlock Text="/"
-                                           Margin="3,0"></TextBlock>
-                                <TextBlock Text="{Binding Header}"></TextBlock>
+                                           Margin="3,0" />
+                                <TextBlock Text="{Binding Header}" />
                             </StackPanel>
                         </Border.ToolTip>
                         <Border.Triggers>
@@ -95,8 +92,7 @@
                                 <TextBlock HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Text="{Binding Header}"
-                                           Foreground="{StaticResource ForegroundLightBrush}">
-                                </TextBlock>
+                                           Foreground="{StaticResource ForegroundLightBrush}" />
                             </StackPanel>
                         </Grid>
                     </Border>

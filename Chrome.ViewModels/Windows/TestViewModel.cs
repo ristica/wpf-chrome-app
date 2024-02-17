@@ -25,12 +25,12 @@ public class TestViewModel : BaseViewModel, ITestViewModel
 
     #region C-TOR
 
-    public TestViewModel(IDependencyContainer container, ITestView view) 
+    public TestViewModel(IDependencyContainer container, ITestView view)
         : base(container, view)
     {
-        this.RegisterCommands();
+        RegisterCommands();
 
-        base.GetView().SetDataContext(this);
+        GetView().SetDataContext(this);
     }
 
     #endregion
@@ -39,7 +39,6 @@ public class TestViewModel : BaseViewModel, ITestViewModel
 
     protected override void DisposeViewModel()
     {
-        
     }
 
     #endregion
@@ -48,10 +47,10 @@ public class TestViewModel : BaseViewModel, ITestViewModel
 
     private void RegisterCommands()
     {
-        base.MinimizeCommand = new MinimizeWindowCommand(this);
-        base.MaximizeCommand = new MaximizeWindowCommand(this);
-        base.CloseCommand = new CloseWindowCommand(this);
-        base.DragCommand = new DragWindowCommand(this);
+        MinimizeCommand = new MinimizeWindowCommand(this);
+        MaximizeCommand = new MaximizeWindowCommand(this);
+        CloseCommand = new CloseWindowCommand(this);
+        DragCommand = new DragWindowCommand(this);
     }
 
     #endregion

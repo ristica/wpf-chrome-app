@@ -15,7 +15,10 @@ public abstract class BaseViewModel : ViewModel
 
     #region PROPERTIES
 
-    public IView GetView() => this._view;
+    public IView GetView()
+    {
+        return _view;
+    }
 
     #endregion
 
@@ -32,8 +35,8 @@ public abstract class BaseViewModel : ViewModel
 
     protected BaseViewModel(IDependencyContainer container, IView view)
     {
-        this.Container = container;
-        this._view = view;
+        Container = container;
+        _view = view;
     }
 
     #endregion
@@ -42,22 +45,22 @@ public abstract class BaseViewModel : ViewModel
 
     public void MaximizeView()
     {
-        this._view.MaximizeView();
+        _view.MaximizeView();
     }
 
     public void MinimizeView()
     {
-        this._view.MinimizeView();
+        _view.MinimizeView();
     }
 
     public void CloseView()
     {
-        this._view.CloseMe();
+        _view.CloseMe();
     }
 
     public void DragWindow()
     {
-        this._view.DragMe();
+        _view.DragMe();
     }
 
     #endregion

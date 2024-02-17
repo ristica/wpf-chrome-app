@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using Chrome.Common.Contracts;
 using Chrome.Views.Base;
 using Chrome.Views.Contracts;
 
@@ -10,7 +9,7 @@ public partial class ShellView : BaseView, IShellView
     public event EventHandler<WindowState>? WindowStateChanged;
     public event EventHandler? WindowLoaded;
 
-    public WindowState CurrentWindowState => this.WindowState;
+    public WindowState CurrentWindowState => WindowState;
 
     public ShellView()
     {
@@ -19,16 +18,13 @@ public partial class ShellView : BaseView, IShellView
 
     protected override void BaseWindowLoaded(object sender, RoutedEventArgs e)
     {
-
         if (TopBarUserControl.PART_ChromeTitleBar is { } titleBar)
-        {
             titleBar.MouseLeftButtonDown += (s, a) =>
             {
                 if (a.ClickCount != 2 || ResizeMode != ResizeMode.CanResize) return;
-                base.ToggleWindowState();
-                WindowStateChanged?.Invoke(this, this.WindowState);
+                ToggleWindowState();
+                WindowStateChanged?.Invoke(this, WindowState);
             };
-        }
 
         WindowLoaded?.Invoke(this, EventArgs.Empty);
 

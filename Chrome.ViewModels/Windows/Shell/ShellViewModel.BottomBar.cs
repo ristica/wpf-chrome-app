@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Chrome.ViewModels.Commands;
 using Chrome.ViewModels.Contracts;
 
@@ -8,9 +7,11 @@ namespace Chrome.ViewModels.Windows.Shell;
 public partial class ShellViewModel
 {
     #region FIELDS
+
     #endregion
 
     #region PROPERTIES
+
     #endregion
 
     #region COMMAND
@@ -23,7 +24,7 @@ public partial class ShellViewModel
 
     public void OpenTestWindow()
     {
-        this._container.Resolve<ITestViewModel>().GetView().OpenMe();
+        _container.Resolve<ITestViewModel>().GetView().OpenMe();
     }
 
     #endregion
@@ -32,7 +33,7 @@ public partial class ShellViewModel
 
     private void RegisterBottomBarCommands()
     {
-        this.OpenTestWindowCommand = new OpenTestWindowCommand(this);
+        OpenTestWindowCommand = new OpenTestWindowCommand(this);
     }
 
     #endregion

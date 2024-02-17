@@ -4,6 +4,7 @@ using Chrome.ViewModels.Base;
 using Chrome.ViewModels.Contracts;
 using Chrome.Views.Contracts;
 using MaterialDesignThemes.Wpf;
+
 // ReSharper disable EventUnsubscriptionViaAnonymousDelegate
 
 namespace Chrome.ViewModels.Windows.Shell;
@@ -19,7 +20,10 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     #region PROPERTIES
 
-    public IView GetView() => this._view;
+    public IView GetView()
+    {
+        return _view;
+    }
 
     #endregion
 
@@ -27,9 +31,9 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     public ShellViewModel(IDependencyContainer container)
     {
-        this._container = container;
-        this._view = container.Resolve<IShellView>();
-        this.IsBottomBarVisible = true;
+        _container = container;
+        _view = container.Resolve<IShellView>();
+        IsBottomBarVisible = true;
 
         RegisterCommands();
         SubscribeToShellEvents();
@@ -69,15 +73,9 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     private void SubscribeToShellEvents()
     {
-        _view.WindowLoaded += (s, a) =>
-        {
+        _view.WindowLoaded += (s, a) => { };
 
-        };
-
-        _view.WindowStateChanged += (s, a) =>
-        {
-            OnPropertyChanged(nameof(CurrentWindowState));
-        };
+        _view.WindowStateChanged += (s, a) => { OnPropertyChanged(nameof(CurrentWindowState)); };
     }
 
     #endregion

@@ -87,7 +87,7 @@
                           Background="Transparent"
                           BorderBrush="Transparent"
                           Foreground="#fff"
-                          ItemsSource="{Binding ViewModel.FilteredItems, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
+                          ItemsSource="{Binding ViewModel.FilteredItems, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
             </Border>
         </Grid>
     </Border>

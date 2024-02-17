@@ -8,7 +8,7 @@ public class CarouselMenuGenerator
     {
         return
         [
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
@@ -19,7 +19,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
@@ -30,7 +30,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
@@ -41,7 +41,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
@@ -52,7 +52,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
@@ -63,7 +63,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
@@ -74,7 +74,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
@@ -85,7 +85,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
@@ -96,7 +96,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
@@ -107,7 +107,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
@@ -118,7 +118,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
@@ -129,7 +129,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
@@ -140,7 +140,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
@@ -151,7 +151,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
@@ -162,7 +162,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
@@ -173,7 +173,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
@@ -184,7 +184,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
@@ -195,7 +195,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 5,
@@ -206,7 +206,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 6,
@@ -217,7 +217,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 7,
@@ -228,7 +228,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 8,
@@ -239,7 +239,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 9,
@@ -250,7 +250,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 10,
@@ -261,7 +261,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 11,
@@ -272,7 +272,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 5,
@@ -283,7 +283,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
@@ -294,7 +294,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
@@ -305,7 +305,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
@@ -316,7 +316,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
@@ -327,7 +327,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 5,
@@ -338,7 +338,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 6,
@@ -349,7 +349,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 7,
@@ -360,7 +360,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 6,
@@ -371,7 +371,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 7,
@@ -382,7 +382,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
@@ -393,7 +393,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
@@ -404,7 +404,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
@@ -415,7 +415,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
@@ -426,7 +426,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 8,
@@ -437,7 +437,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
@@ -448,7 +448,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 9,
@@ -459,7 +459,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
@@ -470,7 +470,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
@@ -481,7 +481,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
@@ -492,7 +492,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
@@ -503,7 +503,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 5,
@@ -514,7 +514,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 6,
@@ -525,7 +525,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 10,
@@ -536,7 +536,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
@@ -547,7 +547,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
@@ -558,7 +558,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
@@ -569,7 +569,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 4,
@@ -580,7 +580,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 5,
@@ -591,7 +591,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 6,
@@ -602,7 +602,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 7,
@@ -613,7 +613,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 8,
@@ -624,7 +624,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 9,
@@ -635,7 +635,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 10,
@@ -646,7 +646,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 11,
@@ -657,7 +657,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 12,
@@ -668,7 +668,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 13,
@@ -679,7 +679,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 14,
@@ -690,7 +690,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 11,
@@ -701,7 +701,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
@@ -712,7 +712,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 12,
@@ -723,7 +723,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
@@ -734,7 +734,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 13,
@@ -745,7 +745,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 1,
@@ -756,7 +756,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 2,
@@ -767,7 +767,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 3,
@@ -778,7 +778,7 @@ public class CarouselMenuGenerator
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
-            new()
+            new MenuModel
             {
                 Id = Guid.NewGuid(),
                 Order = 4,

@@ -7,7 +7,7 @@ public interface IMenuModel : INotifyPropertyChanged
 {
     Guid Id { get; }
     int Order { get; set; }
-    string Header { get; set; } 
+    string Header { get; set; }
     bool IsChild { get; set; }
     string? ParentId { get; set; }
     bool HasChildren { get; set; }
@@ -27,10 +27,10 @@ public class MenuModel : IMenuModel
 
     public bool IsFavorite
     {
-        get => this._isFavorite;
+        get => _isFavorite;
         set
         {
-            this._isFavorite = value;
+            _isFavorite = value;
             OnPropertyChanged();
         }
     }
