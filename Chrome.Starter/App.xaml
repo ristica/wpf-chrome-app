@@ -12,15 +12,13 @@
             <Color x:Key="MetroYellowColor">Yellow</Color>
 
             <Color x:Key="DarkColor">#212121</Color>
-            <Color x:Key="LightColor">#cccccc</Color>
-            <Color x:Key="NoColor">#00000000</Color>
-
-            <Color x:Key="PrimaryColor">#FF0091EA</Color>
-            <Color x:Key="SecondaryColor">#FFEEEEEE</Color>
-
-            <Color x:Key="MaroonColor">#800000</Color>
-            <Color x:Key="LightHoverColor">#a9a9a9</Color>
             <Color x:Key="DarkHoverColor">#333333</Color>
+
+            <Color x:Key="LightColor">#cccccc</Color>
+            <Color x:Key="LightHoverColor">#a9a9a9</Color>
+
+            <Color x:Key="NoColor">#00000000</Color>
+            <Color x:Key="MaroonColor">#800000</Color>
 
             <!-- BRUSHES -->
             <SolidColorBrush x:Key="MetroBlueBrush"
