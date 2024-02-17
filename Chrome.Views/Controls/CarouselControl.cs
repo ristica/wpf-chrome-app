@@ -8,7 +8,7 @@ using System.Windows.Threading;
 
 namespace Chrome.Views.Controls;
 
-public class CarouselControl : Canvas
+public sealed class CarouselControl : Canvas
 {
     public CarouselControl()
     {
@@ -17,9 +17,11 @@ public class CarouselControl : Canvas
 
         LayoutUpdated += CarouselControl_LayoutUpdated;
 
-        _canvas = new Canvas();
-        _canvas.HorizontalAlignment = HorizontalAlignment.Stretch;
-        _canvas.VerticalAlignment = VerticalAlignment.Stretch;
+        _canvas = new Canvas
+        {
+            HorizontalAlignment = HorizontalAlignment.Stretch,
+            VerticalAlignment = VerticalAlignment.Stretch
+        };
 
         Children.Add(_canvas);
     }
@@ -54,21 +56,19 @@ public class CarouselControl : Canvas
     /*
      * Find the index of the specified item
      */
-    private int GetItemIndex(FrameworkElement targetElement)
+    private int GetItemIndex(FrameworkElement? targetElement)
     {
         if (_canvas.Children.Count == 0 || targetElement == null) return 0;
 
         var targetIndex = 0;
-        if (targetElement != null)
-            for (var index = 0; index < _canvas.Children.Count; index++)
-            {
-                var element = _canvas.Children[index] as FrameworkElement;
-                if (element.DataContext == targetElement)
-                {
-                    targetIndex = index;
-                    break;
-                }
-            }
+
+        for (var index = 0; index < _canvas.Children.Count; index++)
+        {
+            var element = _canvas.Children[index] as FrameworkElement;
+            if (!Equals(element?.DataContext, targetElement)) continue;
+            targetIndex = index;
+            break;
+        }
 
         return targetIndex;
     }
@@ -93,7 +93,7 @@ public class CarouselControl : Canvas
         ((CarouselControl)d).OnCarouselItemTemplateChanged(e);
     }
 
-    protected virtual void OnCarouselItemTemplateChanged(DependencyPropertyChangedEventArgs e)
+    private void OnCarouselItemTemplateChanged(DependencyPropertyChangedEventArgs e)
     {
         if (e.NewValue != null) CarouselItemTemplate = (ControlTemplate)e.NewValue;
     }
@@ -125,7 +125,7 @@ public class CarouselControl : Canvas
         ((CarouselControl)d).OnSelectedItemChanged(e);
     }
 
-    protected virtual void OnSelectedItemChanged(DependencyPropertyChangedEventArgs e)
+    private void OnSelectedItemChanged(DependencyPropertyChangedEventArgs e)
     {
         if (e.NewValue != null)
             for (var index = 0; index < _canvas.Children.Count; index++)
@@ -179,7 +179,7 @@ public class CarouselControl : Canvas
         ShowRotation = showRotation;
     }
 
-    protected virtual void OnItemsSourceChanged(DependencyPropertyChangedEventArgs e)
+    private void OnItemsSourceChanged(DependencyPropertyChangedEventArgs e)
     {
         if (e.NewValue != null)
         {
@@ -217,7 +217,7 @@ public class CarouselControl : Canvas
         ((CarouselControl)d).OnAutoSizeToParentChanged(e);
     }
 
-    protected virtual void OnAutoSizeToParentChanged(DependencyPropertyChangedEventArgs e)
+    private void OnAutoSizeToParentChanged(DependencyPropertyChangedEventArgs e)
     {
         if (e.NewValue != null) AutoSizeToParent = (bool)e.NewValue;
     }
@@ -246,7 +246,7 @@ public class CarouselControl : Canvas
         ((CarouselControl)d).OnTiltInDegreesChanged(e);
     }
 
-    protected virtual void OnTiltInDegreesChanged(DependencyPropertyChangedEventArgs e)
+    private void OnTiltInDegreesChanged(DependencyPropertyChangedEventArgs e)
     {
         if (e.NewValue != null) TiltInDegrees = (double)e.NewValue;
     }
@@ -276,7 +276,7 @@ public class CarouselControl : Canvas
         ((CarouselControl)d).OnRotationSpeedChanged(e);
     }
 
-    protected virtual void OnRotationSpeedChanged(DependencyPropertyChangedEventArgs e)
+    private void OnRotationSpeedChanged(DependencyPropertyChangedEventArgs e)
     {
         if (e.NewValue != null) RotationSpeed = (double)e.NewValue;
     }
@@ -303,7 +303,7 @@ public class CarouselControl : Canvas
         ((CarouselControl)d).OnFadeChanged(e);
     }
 
-    protected virtual void OnFadeChanged(DependencyPropertyChangedEventArgs e)
+    private void OnFadeChanged(DependencyPropertyChangedEventArgs e)
     {
         if (e.NewValue != null) Fade = (double)e.NewValue;
     }
@@ -331,7 +331,7 @@ public class CarouselControl : Canvas
         ((CarouselControl)d).OnScaleChanged(e);
     }
 
-    protected virtual void OnScaleChanged(DependencyPropertyChangedEventArgs e)
+    private void OnScaleChanged(DependencyPropertyChangedEventArgs e)
     {
         if (e.NewValue != null) Scale = (double)e.NewValue;
     }
@@ -356,7 +356,7 @@ public class CarouselControl : Canvas
         ((CarouselControl)d).OnVerticalOrientationChanged(e);
     }
 
-    protected virtual void OnVerticalOrientationChanged(DependencyPropertyChangedEventArgs e)
+    private void OnVerticalOrientationChanged(DependencyPropertyChangedEventArgs e)
     {
         if (e.NewValue != null)
         {
