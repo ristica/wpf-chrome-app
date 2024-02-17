@@ -22,11 +22,12 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
                 Background="{StaticResource DefaultBrush}"
                 BorderBrush="{StaticResource TransparentBrush}"
-                BorderThickness="1"
+                BorderThickness="0"
                 CornerRadius="4"
-                Margin="47,1,1,1">
+                Margin="48,2,1,0">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonDown">
                     <i:InvokeCommandAction
@@ -46,11 +47,11 @@
         <StackPanel Grid.Row="0"
                     Grid.Column="1"
                     Orientation="Horizontal"
-                    Margin="2">
+                    Margin="1,2,2,0">
             <Border Background="{StaticResource DefaultBrush}"
                     CornerRadius="4"
                     Width="42"
-                    Margin="0,0,4,0"
+                    Margin="0,0,2,0"
                     Padding="0,0,0,5"
                     ToolTip="{Loc MinimizeWindow}"
                     Cursor="Hand"
@@ -69,7 +70,7 @@
             <Border Background="{StaticResource DefaultBrush}"
                     CornerRadius="4"
                     Width="42"
-                    Margin="0,0,4,0"
+                    Margin="0,0,2,0"
                     Cursor="Hand"
                     ToolTip="{Loc MaximizeWindow}"
                     Style="{StaticResource ToLightAnimatedBorder}"
