@@ -6,7 +6,7 @@
 
     <Border HorizontalAlignment="Stretch"
             Background="{StaticResource DefaultBrush}"
-            BorderBrush="Transparent"
+            BorderBrush="{StaticResource TransparentBrush}"
             BorderThickness="1"
             CornerRadius="4"
             Margin="1">
@@ -27,7 +27,7 @@
             <StackPanel Grid.Column="2"
                         Orientation="Horizontal"
                         HorizontalAlignment="Right">
-                <TextBlock Foreground="White"
+                <TextBlock Foreground="{StaticResource ForegroundBrush}"
                            Text="{Loc HelloWorld}"
                            VerticalAlignment="Center"
                            Margin="0,0,20,00" />

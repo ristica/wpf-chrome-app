@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             xmlns:converters="clr-namespace:Chrome.Views.Converters"
              xmlns:local="clr-namespace:Chrome.Models;assembly=Chrome.Models">
     <UserControl.Resources>
     </UserControl.Resources>
@@ -57,18 +56,42 @@
             <materialDesign:PackIcon Kind="Translate"
                                      VerticalAlignment="Center"
                                      HorizontalAlignment="Center"
-                                     Height="22"
-                                     Width="22"
-                                     Foreground="#ccc" />
-            <!--<i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseLeftButtonUp">
-                    <i:InvokeCommandAction Command="{Binding ViewModel.ToggleLanguagePopupCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>-->
+                                     Height="20"
+                                     Width="20"
+                                     Background="#03000000">
+                <materialDesign:PackIcon.Foreground>
+                    <SolidColorBrush x:Name="MyBrush1"
+                                     Color="{StaticResource LightHoverColor}" />
+                </materialDesign:PackIcon.Foreground>
+                <materialDesign:PackIcon.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="MyBrush1"
+                                                Storyboard.TargetProperty="Color"
+                                                From="{StaticResource LightHoverColor}"
+                                                To="{StaticResource LightColor}"
+                                                Duration="0:0:.25" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="MyBrush1"
+                                                Storyboard.TargetProperty="Color"
+                                                From="{StaticResource LightColor}"
+                                                To="{StaticResource LightHoverColor}"
+                                                Duration="0:0:.25" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </materialDesign:PackIcon.Triggers>
+            </materialDesign:PackIcon>
         </Border>
         <Border Grid.Column="1"
                 Grid.Row="0"
-                Background="#333333"
+                Background="{StaticResource HoverBrush}"
                 CornerRadius="6"
                 Padding="4"
                 Margin="5,0,0,0">
@@ -84,7 +107,7 @@
                         <Border Grid.Row="0"
                                 Padding="10"
                                 Margin="0,1,0,0"
-                                Background="{StaticResource DefaultBrush}"
+                                Background="{StaticResource HoverBrush}"
                                 CornerRadius="4"
                                 Cursor="Hand"
                                 Style="{StaticResource ToDarkAnimatedBorder}">
@@ -96,7 +119,7 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                             <TextBlock Text="{Binding ShortName}"
-                                       Foreground="#eee"
+                                       Foreground="{StaticResource ForegroundBrush}"
                                        HorizontalAlignment="Center" />
                         </Border>
                     </DataTemplate>

@@ -23,7 +23,7 @@
                 Grid.Column="0"
                 HorizontalAlignment="Stretch"
                 Background="{StaticResource DefaultBrush}"
-                BorderBrush="Transparent"
+                BorderBrush="{StaticResource TransparentBrush}"
                 BorderThickness="1"
                 CornerRadius="4"
                 Margin="47,1,1,1">
@@ -37,7 +37,7 @@
                 <TextBlock VerticalAlignment="Center"
                            HorizontalAlignment="Left"
                            Margin="15,0,0,0"
-                           Foreground="#fff">
+                           Foreground="{StaticResource ForegroundBrush}">
                     CRM Light
                 </TextBlock>
             </Grid>
@@ -56,7 +56,7 @@
                     Cursor="Hand"
                     Style="{StaticResource ToLightAnimatedBorder}">
                 <materialDesign:PackIcon Kind="WindowMinimize"
-                                         Foreground="#ddd"
+                                         Foreground="{StaticResource ForegroundHoverBrush}"
                                          VerticalAlignment="Bottom"
                                          HorizontalAlignment="Center" />
                 <i:Interaction.Triggers>
@@ -76,14 +76,14 @@
                     Visibility="{Binding ViewModel.ResizeMode, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource ResizeModeToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
                 <Grid>
                     <materialDesign:PackIcon Kind="WindowMaximize"
-                                             Foreground="#ddd"
+                                             Foreground="{StaticResource ForegroundHoverBrush}"
                                              VerticalAlignment="Center"
                                              HorizontalAlignment="Center"
                                              Width="25"
                                              Height="25"
                                              Visibility="{Binding ViewModel.CurrentWindowState, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource WindowStateToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                     <materialDesign:PackIcon Kind="WindowRestore"
-                                             Foreground="#ddd"
+                                             Foreground="{StaticResource ForegroundHoverBrush}"
                                              VerticalAlignment="Center"
                                              HorizontalAlignment="Center"
                                              Width="25"
@@ -135,7 +135,7 @@
                     </Style>
                 </Border.Style>
                 <materialDesign:PackIcon Kind="WindowClose"
-                                         Foreground="#ddd"
+                                         Foreground="{StaticResource ForegroundHoverBrush}"
                                          VerticalAlignment="Center"
                                          HorizontalAlignment="Center"
                                          Width="25"

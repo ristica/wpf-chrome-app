@@ -15,6 +15,9 @@
             <Color x:Key="LightColor">#eeeeee</Color>
             <Color x:Key="NoColor">#00000000</Color>
 
+            <Color x:Key="PrimaryColor">#FF0091EA</Color>
+            <Color x:Key="SecondaryColor">#FFEEEEEE</Color>
+
             <Color x:Key="MaroonColor">#800000</Color>
             <Color x:Key="LightHoverColor">#aaaaaa</Color>
             <Color x:Key="DarkHoverColor">#333333</Color>
@@ -26,6 +29,11 @@
                              Color="{StaticResource MetroYellowColor}" />
             <SolidColorBrush x:Key="TransparentBrush"
                              Color="{StaticResource NoColor}" />
+
+            <SolidColorBrush x:Key="PrimaryBrush"
+                             Color="{StaticResource PrimaryColor}" />
+            <SolidColorBrush x:Key="SecondaryBrush"
+                             Color="{StaticResource SecondaryColor}" />
 
             <SolidColorBrush x:Key="DefaultBrush"
                              Color="{StaticResource DarkColor}" />

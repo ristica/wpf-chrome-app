@@ -13,7 +13,7 @@
     </UserControl.Resources>
 
     <Border Background="{StaticResource DefaultBrush}"
-            BorderBrush="Transparent"
+            BorderBrush="{StaticResource TransparentBrush}"
             BorderThickness="1"
             CornerRadius="4"
             Margin="1">
@@ -54,7 +54,7 @@
                                      Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
                 <materialDesign:PackIcon.Foreground>
                     <SolidColorBrush x:Name="MyBrush1"
-                                     Color="DimGray" />
+                                     Color="{StaticResource LightHoverColor}" />
                 </materialDesign:PackIcon.Foreground>
                 <materialDesign:PackIcon.Triggers>
                     <EventTrigger RoutedEvent="MouseEnter">
@@ -62,8 +62,8 @@
                             <Storyboard>
                                 <ColorAnimation Storyboard.TargetName="MyBrush1"
                                                 Storyboard.TargetProperty="Color"
-                                                From="DimGray"
-                                                To="#aaa"
+                                                From="{StaticResource LightHoverColor}"
+                                                To="{StaticResource LightColor}"
                                                 Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
@@ -73,8 +73,8 @@
                             <Storyboard>
                                 <ColorAnimation Storyboard.TargetName="MyBrush1"
                                                 Storyboard.TargetProperty="Color"
-                                                From="#aaa"
-                                                To="DimGray"
+                                                From="{StaticResource LightColor}"
+                                                To="{StaticResource LightHoverColor}"
                                                 Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
@@ -100,7 +100,7 @@
                                      Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
                 <materialDesign:PackIcon.Foreground>
                     <SolidColorBrush x:Name="MyBrush2"
-                                     Color="DimGray" />
+                                     Color="{StaticResource LightHoverColor}" />
                 </materialDesign:PackIcon.Foreground>
                 <materialDesign:PackIcon.Triggers>
                     <EventTrigger RoutedEvent="MouseEnter">
@@ -108,8 +108,8 @@
                             <Storyboard>
                                 <ColorAnimation Storyboard.TargetName="MyBrush2"
                                                 Storyboard.TargetProperty="Color"
-                                                From="DimGray"
-                                                To="#aaa"
+                                                From="{StaticResource LightHoverColor}"
+                                                To="{StaticResource LightColor}"
                                                 Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
@@ -119,14 +119,13 @@
                             <Storyboard>
                                 <ColorAnimation Storyboard.TargetName="MyBrush2"
                                                 Storyboard.TargetProperty="Color"
-                                                From="#aaa"
-                                                To="DimGray"
+                                                From="{StaticResource LightColor}"
+                                                To="{StaticResource LightHoverColor}"
                                                 Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
                 </materialDesign:PackIcon.Triggers>
-
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
                         <i:InvokeCommandAction

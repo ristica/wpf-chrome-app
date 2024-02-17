@@ -30,8 +30,8 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Column="0"
-                        Background="#333333"
-                        BorderBrush="Transparent"
+                        Background="{StaticResource HoverBrush}"
+                        BorderBrush="{StaticResource TransparentBrush}"
                         BorderThickness="1"
                         CornerRadius="4"
                         Padding="10,6"
@@ -40,9 +40,9 @@
                         VerticalAlignment="Top"
                         Width="250"
                         Visibility="{Binding ViewModel.CanSearch, Converter={StaticResource BoolToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                    <TextBox Background="Transparent"
-                             BorderBrush="Transparent"
-                             Foreground="#fff"
+                    <TextBox Background="{StaticResource TransparentBrush}"
+                             BorderBrush="{StaticResource TransparentBrush}"
+                             Foreground="{StaticResource ForegroundBrush}"
                              VerticalContentAlignment="Center"
                              Text="{Binding ViewModel.SearchFilter, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                 </Border>
@@ -66,27 +66,56 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                     <materialDesign:PackIcon Kind="Magnify"
-                                             Foreground="White"
                                              VerticalAlignment="Center"
                                              HorizontalAlignment="Center"
                                              Height="20"
-                                             Width="20" />
+                                             Width="20"
+                                             Background="#03000000">
+                        <materialDesign:PackIcon.Foreground>
+                            <SolidColorBrush x:Name="MyBrush1"
+                                             Color="{StaticResource LightHoverColor}" />
+                        </materialDesign:PackIcon.Foreground>
+                        <materialDesign:PackIcon.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="MyBrush1"
+                                                        Storyboard.TargetProperty="Color"
+                                                        From="{StaticResource LightHoverColor}"
+                                                        To="{StaticResource LightColor}"
+                                                        Duration="0:0:.25" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="MyBrush1"
+                                                        Storyboard.TargetProperty="Color"
+                                                        From="{StaticResource LightColor}"
+                                                        To="{StaticResource LightHoverColor}"
+                                                        Duration="0:0:.25" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </materialDesign:PackIcon.Triggers>
+                    </materialDesign:PackIcon>
                 </Border>
             </Grid>
 
             <Border Grid.Row="1"
                     Grid.Column="0"
-                    Background="#333333"
-                    BorderBrush="Transparent"
+                    Background="{StaticResource HoverBrush}"
+                    BorderBrush="{StaticResource TransparentBrush}"
                     BorderThickness="1"
                     CornerRadius="4"
                     Margin="0,10,0,0"
                     MaxHeight="300"
                     Visibility="{Binding ViewModel.SearchFilter, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
                 <ListView Margin="10"
-                          Background="Transparent"
-                          BorderBrush="Transparent"
-                          Foreground="#fff"
+                          Background="{StaticResource TransparentBrush}"
+                          BorderBrush="{StaticResource TransparentBrush}"
+                          Foreground="{StaticResource ForegroundBrush}"
                           ItemsSource="{Binding ViewModel.FilteredItems, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
             </Border>
         </Grid>
