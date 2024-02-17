@@ -8,8 +8,8 @@
         <ResourceDictionary>
 
             <!-- COLORS -->
-            <Color x:Key="PrimaryColor">DarkBlue</Color>
-            <Color x:Key="SecondaryColor">Yellow</Color>
+            <Color x:Key="MetroBlueColor">DarkBlue</Color>
+            <Color x:Key="MetroYellowColor">Yellow</Color>
 
             <Color x:Key="DarkColor">#212121</Color>
             <Color x:Key="LightColor">#eeeeee</Color>
@@ -20,10 +20,10 @@
             <Color x:Key="DarkHoverColor">#333333</Color>
 
             <!-- BRUSHES -->
-            <SolidColorBrush x:Key="PrimaryBrush"
-                             Color="{StaticResource PrimaryColor}" />
-            <SolidColorBrush x:Key="SecondaryBrush"
-                             Color="{StaticResource SecondaryColor}" />
+            <SolidColorBrush x:Key="MetroBlueBrush"
+                             Color="{StaticResource MetroBlueColor}" />
+            <SolidColorBrush x:Key="MetroYellowBrush"
+                             Color="{StaticResource MetroYellowColor}" />
             <SolidColorBrush x:Key="TransparentBrush"
                              Color="{StaticResource NoColor}" />
 
@@ -108,7 +108,7 @@
                         BorderThickness="1"
                         BorderBrush="{StaticResource DefaultBrush}"
                         Background="#4D000000">
-                    <Grid Margin="2,1"
+                    <Grid Margin="2"
                           VerticalAlignment="Stretch"
                           HorizontalAlignment="Stretch">
 
@@ -140,7 +140,7 @@
                                     <TextBlock HorizontalAlignment="Center"
                                                VerticalAlignment="Top"
                                                Text="M"
-                                               Foreground="Yellow"
+                                               Foreground="{StaticResource MetroYellowBrush}"
                                                FontSize="20"
                                                FontWeight="Bold"
                                                Margin="0,0,0,0" />
@@ -317,7 +317,6 @@
                     </Grid>
                 </Border>
             </ControlTemplate>
-
             <Style x:Key="SkinWindowStyle"
                    TargetType="Window">
                 <Setter Property="WindowStyle"

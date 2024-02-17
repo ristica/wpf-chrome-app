@@ -6,13 +6,12 @@
                Title="Test View"
                Height="450"
                Width="800"
-               ResizeMode="{Binding ResizeMode}"
-               Background="{StaticResource PrimaryBrush}">
+               ResizeMode="{Binding ResizeMode}">
     <Border Padding="40"
             Background="{StaticResource DefaultBrush}">
         <TextBlock HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Text="Hello World"
-                   Foreground="White" />
+                   Foreground="{StaticResource ForegroundBrush}" />
     </Border>
 </base:BaseView>
