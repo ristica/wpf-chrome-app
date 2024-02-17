@@ -24,7 +24,7 @@
                 <DataTemplate>
                     <Border x:Name="FavoriteBorder"
                             Background="{StaticResource DefaultBrush}"
-                            BorderBrush="{StaticResource DarkHoverBrush}"
+                            BorderBrush="{StaticResource HoverBrush}"
                             BorderThickness="1"
                             CornerRadius="4"
                             Margin="0, 2,20,2"
@@ -70,7 +70,7 @@
                             </Grid.ColumnDefinitions>
                             <materialDesign:PackIcon Grid.Column="0"
                                                      Kind="Star"
-                                                     Foreground="{StaticResource ForegroundLightBrush}"
+                                                     Foreground="{StaticResource ForegroundBrush}"
                                                      HorizontalAlignment="Left"
                                                      VerticalAlignment="Center"
                                                      Height="20"
@@ -83,16 +83,16 @@
                                            VerticalAlignment="Center"
                                            Margin="5,0,0,0"
                                            Text="{Binding ParentId}"
-                                           Foreground="{StaticResource ForegroundLightBrush}" />
+                                           Foreground="{StaticResource ForegroundBrush}" />
                                 <TextBlock HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Margin="3,0"
                                            Text="/"
-                                           Foreground="{StaticResource ForegroundLightBrush}" />
+                                           Foreground="{StaticResource ForegroundBrush}" />
                                 <TextBlock HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Text="{Binding Header}"
-                                           Foreground="{StaticResource ForegroundLightBrush}" />
+                                           Foreground="{StaticResource ForegroundBrush}" />
                             </StackPanel>
                         </Grid>
                     </Border>

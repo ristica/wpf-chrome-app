@@ -44,7 +44,7 @@
                 Grid.Row="0"
                 Grid.RowSpan="2"
                 Background="{StaticResource DefaultBrush}"
-                BorderBrush="{StaticResource DarkHoverBrush}"
+                BorderBrush="{StaticResource HoverBrush}"
                 BorderThickness="1"
                 CornerRadius="4"
                 Margin="1"

@@ -24,7 +24,7 @@
                 <DataTemplate>
                     <Border x:Name="LastCustomerBorder"
                             Background="{StaticResource DefaultBrush}"
-                            BorderBrush="{StaticResource DarkHoverBrush}"
+                            BorderBrush="{StaticResource HoverBrush}"
                             BorderThickness="1"
                             CornerRadius="4"
                             Margin="20,2,0,2"
@@ -73,7 +73,7 @@
 
                             <materialDesign:PackIcon Grid.Column="0"
                                                      Kind="AccountClockOutline"
-                                                     Foreground="{StaticResource ForegroundLightBrush}"
+                                                     Foreground="{StaticResource ForegroundBrush}"
                                                      HorizontalAlignment="Left"
                                                      VerticalAlignment="Center"
                                                      Opacity=".3"
@@ -86,11 +86,11 @@
                                            VerticalAlignment="Center"
                                            Margin="8,0,7,0"
                                            Text="{Binding Kundennummer}"
-                                           Foreground="{StaticResource ForegroundLightBrush}" />
+                                           Foreground="{StaticResource ForegroundBrush}" />
                                 <TextBlock HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Margin="0,0,0,0"
-                                           Foreground="{StaticResource ForegroundLightBrush}">
+                                           Foreground="{StaticResource ForegroundBrush}">
                                     <Run Text="{Binding FirstName}" />
                                     <Run Text="{Binding LastName}" />
                                 </TextBlock>

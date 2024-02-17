@@ -53,7 +53,7 @@
                         Width="40"
                         Height="38"
                         BorderThickness="1"
-                        BorderBrush="{StaticResource DarkHoverBrush}"
+                        BorderBrush="{StaticResource HoverBrush}"
                         CornerRadius="4"
                         Background="{StaticResource DefaultBrush}"
                         ToolTip="{Loc ShowSearchArea}"
