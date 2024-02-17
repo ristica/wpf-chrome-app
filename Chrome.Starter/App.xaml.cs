@@ -10,7 +10,7 @@ namespace Chrome.Starter;
 
 public partial class App : Application
 {
-    private static bool _isLoaded = false;
+    private static bool _isLoaded;
 
     public App()
     {
@@ -40,7 +40,7 @@ public partial class App : Application
             Settings.Default.Save();
 
             if (!_isLoaded) return;
-            DependencyContainerFactory.Container?.Resolve<IShellViewModel>().CultureChanged(e.NewCulture.Name);
+            DependencyContainerFactory.Container.Resolve<IShellViewModel>().CultureChanged(e.NewCulture.Name);
         };
 
         // lade Settings falls welche vorhanden ...
