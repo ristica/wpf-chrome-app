@@ -28,12 +28,18 @@
                         <Setter.Value>
                             <ControlTemplate>
                                 <Border BorderThickness="1"
-                                        BorderBrush="{StaticResource DefaultBrush}"
+                                        BorderBrush="{StaticResource DefaultHoverBrush}"
                                         Background="{StaticResource DefaultHoverBrush}"
                                         CornerRadius="10"
                                         Width="330"
                                         MinHeight="400"
                                         Padding="2">
+                                    <Border.Effect>
+                                        <DropShadowEffect Color="#aaaaaa"
+                                                          ShadowDepth="0"
+                                                          Direction="0"
+                                                          BlurRadius="20" />
+                                    </Border.Effect>
                                     <StackPanel>
                                         <Border Padding="14"
                                                 Background="{StaticResource DefaultBrush}"
