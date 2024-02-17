@@ -27,6 +27,11 @@
                 BorderThickness="1"
                 CornerRadius="4"
                 Margin="47,1,1,1">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <i:InvokeCommandAction Command="{Binding ViewModel.DragCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
             <Grid HorizontalAlignment="Stretch">
                 <TextBlock VerticalAlignment="Center"
                            HorizontalAlignment="Left"
@@ -34,7 +39,6 @@
                            Foreground="#fff">
                     CRM Light
                 </TextBlock>
-
             </Grid>
         </Border>
 

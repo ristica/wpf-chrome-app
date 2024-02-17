@@ -1,9 +1,9 @@
-﻿using Chrome.Dependencies.Contracts;
+﻿using Chrome.Common.Contracts;
+using Chrome.Dependencies.Contracts;
 using Chrome.ViewModels.Base;
 using Chrome.ViewModels.Contracts;
 using Chrome.Views.Contracts;
 using MaterialDesignThemes.Wpf;
-
 // ReSharper disable EventUnsubscriptionViaAnonymousDelegate
 
 namespace Chrome.ViewModels.Windows.Shell;
@@ -19,7 +19,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     #region PROPERTIES
 
-    public IShellView GetView() => _view;
+    public IView GetView() => this._view;
 
     #endregion
 

@@ -1,4 +1,4 @@
-﻿using Chrome.Views.Contracts.Base;
+﻿using Chrome.Common.Contracts;
 
 namespace Chrome.Views.Contracts;
 

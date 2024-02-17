@@ -99,7 +99,7 @@
                         CornerRadius="4"
                         BorderThickness="1"
                         BorderBrush="{StaticResource DefaultBrush}"
-                        Background="Black">
+                        Background="#4D000000">
                     <Grid Margin="2,1"
                           VerticalAlignment="Stretch"
                           HorizontalAlignment="Stretch">
@@ -122,21 +122,20 @@
                                     Background="{StaticResource DefaultBrush}"
                                     Padding="1"
                                     CornerRadius="4,0,0,0">
-                                <Border Background="{StaticResource PrimaryBrush}"
-                                        BorderBrush="Transparent"
+                                <Border BorderBrush="{StaticResource TransparentBrush}"
                                         BorderThickness="1"
                                         CornerRadius="4"
                                         Margin="1"
                                         HorizontalAlignment="Stretch"
-                                        Width="44"
-                                        Height="40">
+                                        Width="30"
+                                        Height="30">
                                     <TextBlock HorizontalAlignment="Center"
                                                VerticalAlignment="Top"
                                                Text="M"
                                                Foreground="Yellow"
                                                FontSize="20"
                                                FontWeight="Bold"
-                                               Margin="0,3,0,0" />
+                                               Margin="0,0,0,0" />
                                 </Border>
                             </Border>
                             <Border x:Name="PART_ChromeTitleBar"
@@ -144,11 +143,15 @@
                                     Grid.Row="0"
                                     HorizontalAlignment="Stretch"
                                     Background="{StaticResource DefaultBrush}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <i:InvokeCommandAction Command="{Binding ViewModel.DragCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                                 <TextBlock HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Text="{Binding  ViewModel.WindowTitle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                            Foreground="{StaticResource ForegroundLighterBrush}"
-                                           FontSize="16"
                                            Margin="15,0,0,0" />
                             </Border>
                             <Border Grid.Column="2"
@@ -160,16 +163,21 @@
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                     <Border Background="{StaticResource DefaultBrush}"
                                             CornerRadius="4"
-                                            Width="44"
+                                            Width="32"
                                             Margin="0,0,4,0"
-                                            Padding="0,0,0,8"
+                                            Padding="0,10,0,9"
                                             ToolTip="{Loc MinimizeWindow}"
                                             Cursor="Hand"
                                             Style="{StaticResource ToLightAnimatedBorder}">
                                         <materialDesign:PackIcon Kind="WindowMinimize"
                                                                  Foreground="#ddd"
                                                                  VerticalAlignment="Bottom"
-                                                                 HorizontalAlignment="Center" />
+                                                                 Width="12"
+                                                                 Height="2"
+                                                                 HorizontalAlignment="Center"
+                                                                 Background="#bbb"
+                                                                 Padding="0"
+                                                                 Margin="0"/>
                                         <i:Interaction.Triggers>
                                             <i:EventTrigger EventName="MouseLeftButtonUp">
                                                 <i:InvokeCommandAction Command="{Binding ViewModel.MinimizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
@@ -208,7 +216,7 @@
                                     </Border>-->
                                     <Border Background="{StaticResource DefaultBrush}"
                                             CornerRadius="4"
-                                            Width="42"
+                                            Width="30"
                                             ToolTip="{Loc CloseWindow}"
                                             Cursor="Hand">
                                         <Border.Style>
@@ -245,8 +253,8 @@
                                                                  Foreground="#ddd"
                                                                  VerticalAlignment="Center"
                                                                  HorizontalAlignment="Center"
-                                                                 Width="25"
-                                                                 Height="25"
+                                                                 Width="20"
+                                                                 Height="20"
                                                                  Margin="0,0,1,0" />
                                         <i:Interaction.Triggers>
                                             <i:EventTrigger EventName="MouseLeftButtonUp">
@@ -259,14 +267,15 @@
 
                         </Grid>
 
-                        <ContentPresenter Grid.Row="1"
-                                          HorizontalAlignment="Stretch"
-                                          VerticalAlignment="Stretch" />
+                        <Border Grid.Row="1" Padding="0,1">
+                            <ContentPresenter HorizontalAlignment="Stretch"
+                                              VerticalAlignment="Stretch" />
+                        </Border>
 
                         <Border Grid.Row="2"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
-                                Padding="20,15"
+                                Padding="20,10"
                                 Background="{StaticResource DefaultBrush}"
                                 CornerRadius="0,0,4,4">
                             <Grid>
@@ -302,10 +311,6 @@
                         Value="None" />
                 <Setter Property="AllowsTransparency"
                         Value="True" />
-                <Setter Property="Background"
-                        Value="Red" />
-                <!--<Setter Property="Opacity"
-                        Value="100" />-->
                 <Setter Property="ResizeMode"
                         Value="CanResize" />
                 <Setter Property="MinWidth"

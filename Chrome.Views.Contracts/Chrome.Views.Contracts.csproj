@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Chrome.Common.Contracts\Chrome.Common.Contracts.csproj" />
-    <ProjectReference Include="..\Chrome.Common\Chrome.Common.csproj" />
   </ItemGroup>
 
 </Project>

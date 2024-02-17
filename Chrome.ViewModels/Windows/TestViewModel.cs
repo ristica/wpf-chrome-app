@@ -2,23 +2,45 @@
 using Chrome.ViewModels.Base;
 using Chrome.ViewModels.Commands.Common;
 using Chrome.ViewModels.Contracts;
-using System.Windows.Input;
 using Chrome.Dependencies.Contracts;
 using Chrome.Views.Contracts;
 
 namespace Chrome.ViewModels.Windows;
 
-public class TestViewModel : ViewModel, ITestViewModel
+// ReSharper disable once ClassNeverInstantiated.Global
+public class TestViewModel : BaseViewModel, ITestViewModel
 {
-    private readonly ITestView _view;
+    #region FIELDS
 
-    public ITestView GetView() => _view;
+    #endregion
 
-    #region COMMANDS
+    #region PROPERTIES
 
-    public ICommand? MinimizeCommand { get; private set; }
-    public ICommand? MaximizeCommand { get; private set; }
-    public ICommand? CloseCommand { get; private set; }
+    public string WindowTitle => "I'm a test window ...";
+    public bool CanClose => true;
+    public ResizeMode ResizeMode => ResizeMode.CanMinimize;
+    public WindowState CurrentWindowState => WindowState.Normal;
+
+    #endregion
+
+    #region C-TOR
+
+    public TestViewModel(IDependencyContainer container, ITestView view) 
+        : base(container, view)
+    {
+        this.RegisterCommands();
+
+        base.GetView().SetDataContext(this);
+    }
+
+    #endregion
+
+    #region METHODS
+
+    protected override void DisposeViewModel()
+    {
+        
+    }
 
     #endregion
 
@@ -26,43 +48,11 @@ public class TestViewModel : ViewModel, ITestViewModel
 
     private void RegisterCommands()
     {
-        MinimizeCommand = new MinimizeWindowCommand(this);
-        MaximizeCommand = new MaximizeWindowCommand(this);
-        CloseCommand = new CloseWindowCommand(this);
+        base.MinimizeCommand = new MinimizeWindowCommand(this);
+        base.MaximizeCommand = new MaximizeWindowCommand(this);
+        base.CloseCommand = new CloseWindowCommand(this);
+        base.DragCommand = new DragWindowCommand(this);
     }
 
     #endregion
-
-    public TestViewModel(IDependencyContainer container)
-    {
-        this._view = container.Resolve<ITestView>();
-
-        this.RegisterCommands();
-
-        this._view.SetDataContext(this);
-    }
-
-    protected override void DisposeViewModel()
-    {
-    }
-
-    public string WindowTitle => "I'm a test window ...";
-
-    public bool CanClose => true;
-    public ResizeMode ResizeMode => ResizeMode.CanMinimize;
-    public WindowState CurrentWindowState => WindowState.Normal;
-    public void MaximizeView()
-    {
-        this._view.MaximizeView();
-    }
-
-    public void MinimizeView()
-    {
-       this._view.MinimizeView();
-    }
-
-    public void CloseView()
-    {
-        this._view.CloseMe();
-    }
 }

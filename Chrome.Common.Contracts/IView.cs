@@ -1,11 +1,11 @@
-﻿using Chrome.Common.Contracts;
-using System.Windows;
+﻿using System.Windows;
 
-namespace Chrome.Views.Contracts.Base;
+namespace Chrome.Common.Contracts;
 
 public interface IView
 {
     IParentViewModel ViewModel { get; }
+    void DragMe();
     void OpenMe();
     void CloseMe();
     void MaximizeView();

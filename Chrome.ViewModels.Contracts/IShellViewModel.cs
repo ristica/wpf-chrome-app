@@ -14,8 +14,7 @@ public interface IShellViewModel : IParentViewModel
     ObservableCollection<MenuModel>? Favorites { get; }
     ObservableCollection<CustomerUiModel>? Customers { get; }
     bool IsBottomBarVisible { get; set; }
-
-    IShellView GetView();
+   
     void OpenView();
     void OpenTestWindow();
     void AddFavorite(MenuModel? item);

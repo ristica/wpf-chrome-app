@@ -43,5 +43,10 @@ public partial class ShellViewModel
         this._view.CloseMe();
     }
 
+    public void DragWindow()
+    {
+        this._view.DragMe();
+    }
+
     #endregion
 }

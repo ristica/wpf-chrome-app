@@ -9,7 +9,10 @@ public interface IParentViewModel
     ResizeMode ResizeMode { get; }
     WindowState CurrentWindowState { get; }
 
+    IView GetView();
+
     void MaximizeView();
     void MinimizeView();
     void CloseView();
+    void DragWindow();
 }

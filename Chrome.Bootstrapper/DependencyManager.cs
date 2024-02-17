@@ -1,9 +1,9 @@
 ﻿using Chrome.Dependencies.Contracts;
 using Chrome.ViewModels.Contracts;
 using Chrome.ViewModels.Windows;
+using Chrome.ViewModels.Windows.Shell;
 using Chrome.Views.Contracts;
 using Chrome.Views.Windows;
-using ShellViewModel = Chrome.ViewModels.Windows.Shell.ShellViewModel;
 
 namespace Chrome.Bootstrapper;
 

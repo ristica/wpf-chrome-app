@@ -10,6 +10,7 @@ public partial class ShellViewModel
     public ICommand? MinimizeCommand { get; private set; }
     public ICommand? MaximizeCommand { get; private set; }
     public ICommand? CloseCommand { get; private set; }
+    public ICommand? DragCommand { get; private set; }
 
     #endregion
 
@@ -20,7 +21,12 @@ public partial class ShellViewModel
         MinimizeCommand = new MinimizeWindowCommand(this);
         MaximizeCommand = new MaximizeWindowCommand(this);
         CloseCommand = new CloseWindowCommand(this);
+        DragCommand = new DragWindowCommand(this);
     }
+
+    #endregion
+
+    #region METHODS
 
     #endregion
 }
