@@ -212,7 +212,7 @@
                                                                  Width="12"
                                                                  Height="2"
                                                                  HorizontalAlignment="Center"
-                                                                 Background="#bbb"
+                                                                 Background="{StaticResource ForegroundBrush}"
                                                                  Padding="0"
                                                                  Margin="0" />
                                         <i:Interaction.Triggers>
@@ -287,7 +287,7 @@
                                             </Style>
                                         </Border.Style>
                                         <materialDesign:PackIcon Kind="WindowClose"
-                                                                 Foreground="#ddd"
+                                                                 Foreground="{StaticResource ForegroundBrush}"
                                                                  VerticalAlignment="Center"
                                                                  HorizontalAlignment="Center"
                                                                  Width="20"
