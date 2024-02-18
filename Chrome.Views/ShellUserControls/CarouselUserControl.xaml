@@ -35,7 +35,7 @@
                                         MinHeight="400"
                                         Padding="2">
                                     <Border.Effect>
-                                        <DropShadowEffect Color="{StaticResource LightHoverColor}"
+                                        <DropShadowEffect Color="{StaticResource SecondaryHoverColor}"
                                                           ShadowDepth="0"
                                                           Direction="0"
                                                           BlurRadius="25" />

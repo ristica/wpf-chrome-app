@@ -61,7 +61,7 @@
                                      Background="#03000000">
                 <materialDesign:PackIcon.Foreground>
                     <SolidColorBrush x:Name="MyBrush1"
-                                     Color="{StaticResource LightHoverColor}" />
+                                     Color="{StaticResource SecondaryHoverColor}" />
                 </materialDesign:PackIcon.Foreground>
                 <materialDesign:PackIcon.Triggers>
                     <EventTrigger RoutedEvent="MouseEnter">
@@ -69,8 +69,8 @@
                             <Storyboard>
                                 <ColorAnimation Storyboard.TargetName="MyBrush1"
                                                 Storyboard.TargetProperty="Color"
-                                                From="{StaticResource LightHoverColor}"
-                                                To="{StaticResource LightColor}"
+                                                From="{StaticResource SecondaryHoverColor}"
+                                                To="{StaticResource SecondaryColor}"
                                                 Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
@@ -80,8 +80,8 @@
                             <Storyboard>
                                 <ColorAnimation Storyboard.TargetName="MyBrush1"
                                                 Storyboard.TargetProperty="Color"
-                                                From="{StaticResource LightColor}"
-                                                To="{StaticResource LightHoverColor}"
+                                                From="{StaticResource SecondaryColor}"
+                                                To="{StaticResource SecondaryHoverColor}"
                                                 Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>

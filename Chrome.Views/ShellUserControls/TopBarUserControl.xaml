@@ -126,7 +126,7 @@
                                             <ColorAnimationUsingKeyFrames
                                                 Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                                 <EasingColorKeyFrame KeyTime="0:0:0.2"
-                                                                     Value="{StaticResource DarkColor}" />
+                                                                     Value="{StaticResource DefaultColor}" />
                                             </ColorAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </BeginStoryboard>
