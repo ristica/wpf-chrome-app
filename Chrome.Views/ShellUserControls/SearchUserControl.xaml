@@ -41,6 +41,7 @@
                              Foreground="{StaticResource ForegroundBrush}"
                              VerticalContentAlignment="Center"
                              materialDesign:TextFieldAssist.HasClearButton="True"
+                             materialDesign:HintAssist.Hint="{Loc SearchPlaceholder}"
                              Text="{Binding ViewModel.SearchFilter, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                 </Border>
                 <Border Grid.Row="0"

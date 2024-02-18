@@ -144,6 +144,9 @@
   <data name="RestoreWindow" xml:space="preserve">
     <value>Wiederherstellen</value>
   </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Menüs und Untermenüs durchsuchen</value>
+  </data>
   <data name="ShowSearchArea" xml:space="preserve">
     <value>Menü suchen</value>
   </data>

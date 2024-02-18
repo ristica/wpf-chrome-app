@@ -142,6 +142,15 @@ namespace Chrome.Starter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Menüs und Untermenüs durchsuchen.
+        /// </summary>
+        internal static string SearchPlaceholder {
+            get {
+                return ResourceManager.GetString("SearchPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Menü suchen.
         /// </summary>
         internal static string ShowSearchArea {
