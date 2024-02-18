@@ -13,4 +13,5 @@ public interface IMenuModel : INotifyPropertyChanged
     string? ParentIdEn { get; set; }
     bool HasChildren { get; set; }
     string NeedsOneOfRoles { get; set; }
+    string UiMenuIdentifier { get; set; }
 }

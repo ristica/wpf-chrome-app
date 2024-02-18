@@ -5,10 +5,6 @@ namespace Chrome.Views.Base;
 
 public abstract class BaseView : Window
 {
-    #region FIELDS
-
-    #endregion
-
     #region PROPERTIES
 
     public IParentViewModel ViewModel { get; protected set; } = null!;
@@ -58,6 +54,15 @@ public abstract class BaseView : Window
     public void SetDataContext<T>(T viewModel) where T : IParentViewModel
     {
         ViewModel = viewModel;
+    }
+
+    public void ActivateMe()
+    {
+        this.WindowState = WindowState.Normal;
+        this.Activate();
+        this.Topmost = true;
+        this.Topmost = false;
+        this.Focus();
     }
 
     protected void ToggleWindowState()

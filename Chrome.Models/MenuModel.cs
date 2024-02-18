@@ -6,7 +6,9 @@ namespace Chrome.Models;
 public sealed class MenuModel : IMenuModel
 {
     private bool _isFavorite;
+
     public Guid Id { get; init; }
+    public string UiMenuIdentifier { get; set; } = string.Empty;
     public int Order { get; set; }
     public required string HeaderDe { get; set; }
     public string? HeaderEn { get; set; }

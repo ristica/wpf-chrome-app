@@ -8,7 +8,7 @@ using Chrome.Views.Contracts;
 namespace Chrome.ViewModels.Windows;
 
 // ReSharper disable once ClassNeverInstantiated.Global
-public class TestViewModel : BaseViewModel, ITestViewModel
+public class UebersichtAktionenViewModel : BaseViewModel, IUebersichtAktionenViewModel
 {
     #region FIELDS
 
@@ -16,7 +16,7 @@ public class TestViewModel : BaseViewModel, ITestViewModel
 
     #region PROPERTIES
 
-    public string WindowTitle => "I'm a test window ...";
+    public string WindowTitle => "Übersicht Aktionen";
     public bool CanClose => true;
     public ResizeMode ResizeMode => ResizeMode.CanMinimize;
     public WindowState CurrentWindowState => WindowState.Normal;
@@ -25,7 +25,7 @@ public class TestViewModel : BaseViewModel, ITestViewModel
 
     #region C-TOR
 
-    public TestViewModel(IDependencyContainer container, ITestView view)
+    public UebersichtAktionenViewModel(IDependencyContainer container, IUebersichtAktionenView view)
         : base(container, view)
     {
         RegisterCommands();

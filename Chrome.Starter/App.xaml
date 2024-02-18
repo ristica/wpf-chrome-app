@@ -623,8 +623,7 @@
                                                Text="M"
                                                Foreground="{StaticResource MetroYellowBrush}"
                                                FontSize="20"
-                                               FontWeight="Bold"
-                                               Margin="0,0,0,0" />
+                                               FontWeight="Bold" />
                                 </Border>
                             </Border>
                             <Border x:Name="PART_ChromeTitleBar"
@@ -641,7 +640,7 @@
                                            VerticalAlignment="Center"
                                            Text="{Binding  ViewModel.WindowTitle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                            Foreground="{StaticResource ForegroundBrush}"
-                                           Margin="15,0,0,0" />
+                                           Margin="10,0,0,0" />
                             </Border>
                             <Border Grid.Column="2"
                                     Grid.Row="0"

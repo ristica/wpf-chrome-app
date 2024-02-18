@@ -1,4 +1,5 @@
-﻿using Chrome.Models;
+﻿using Chrome.Constants;
+using Chrome.Models;
 
 namespace Chrome.ViewModels.Design_Data;
 
@@ -64,6 +65,7 @@ public static class CarouselMenuGenerator
                 IsChild = true,
                 ParentIdDe = "Übersicht",
                 ParentIdEn = "Overview",
+                UiMenuIdentifier = MenuIdentifiers.Uebersicht.UbersichtAktionen,
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -77,6 +79,7 @@ public static class CarouselMenuGenerator
                 IsChild = true,
                 ParentIdDe = "Übersicht",
                 ParentIdEn = "Overview",
+                UiMenuIdentifier = MenuIdentifiers.Uebersicht.WebEingaenge,
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -90,6 +93,7 @@ public static class CarouselMenuGenerator
                 IsChild = true,
                 ParentIdDe = "Übersicht",
                 ParentIdEn = "Overview",
+                UiMenuIdentifier = MenuIdentifiers.Uebersicht.ExcelGewinnspiel,
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 

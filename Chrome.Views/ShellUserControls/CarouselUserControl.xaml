@@ -117,8 +117,8 @@
                                                             <Grid Grid.Column="2">
                                                                 <i:Interaction.Triggers>
                                                                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                                        <i:InvokeCommandAction Command="{Binding ViewModel.MenuSelectionChangedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                                                                                               CommandParameter="{Binding }" />
+                                                                        <i:InvokeCommandAction Command="{Binding ViewModel.MenuSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                                                               CommandParameter="{Binding UiMenuIdentifier}" />
                                                                     </i:EventTrigger>
                                                                 </i:Interaction.Triggers>
                                                                 <TextBlock Text="{Binding HeaderDe}"

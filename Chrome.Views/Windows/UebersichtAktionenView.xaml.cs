@@ -1,42 +1,21 @@
 ﻿using System.Windows;
+using Chrome.Constants;
 using Chrome.Views.Base;
 using Chrome.Views.Contracts;
 
 namespace Chrome.Views.Windows;
 
-public partial class TestView : BaseView, ITestView
+public partial class UebersichtAktionenView : BaseView, IUebersichtAktionenView
 {
-    #region FIELDS
-
     public event EventHandler<WindowState>? WindowStateChanged;
     public event EventHandler? WindowLoaded;
 
-    #endregion
-
-    #region PROPERTIES
-
     public WindowState CurrentWindowState => WindowState;
 
-    #endregion
-
-    #region COMMANDS
-
-    #endregion
-
-    #region C-TOR
-
-    public TestView()
+    public UebersichtAktionenView()
     {
         InitializeComponent();
+
+        this.Name = MenuIdentifiers.Uebersicht.UbersichtAktionen;
     }
-
-    #endregion
-
-    #region METHODS
-
-    #endregion
-
-    #region HELPERS
-
-    #endregion
 }

@@ -8,6 +8,7 @@ public interface IView
     void DragMe();
     void OpenMe();
     void CloseMe();
+    void ActivateMe();
     void MaximizeView();
     void MinimizeView();
     void SetDataContext<T>(T viewModel) where T : IParentViewModel;

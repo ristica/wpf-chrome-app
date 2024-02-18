@@ -13,105 +13,105 @@ public static class CustomerGenerator
                 FirstName = "Aleksandar",
                 LastName = "Ristic",
                 Id = Guid.NewGuid(),
-                Kundennummer = "123456"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
                 FirstName = "Pingo",
                 LastName = "Profi",
                 Id = Guid.NewGuid(),
-                Kundennummer = "222222"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
-                FirstName = "Aleksandar",
-                LastName = "Ristic",
+                FirstName = "John",
+                LastName = "Doe",
                 Id = Guid.NewGuid(),
-                Kundennummer = "123456"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
-                FirstName = "Pingo",
-                LastName = "Profi",
+                FirstName = "Donald",
+                LastName = "Duck",
                 Id = Guid.NewGuid(),
-                Kundennummer = "222222"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
-                FirstName = "Aleksandar",
-                LastName = "Ristic",
+                FirstName = "Bugs",
+                LastName = "Bunny",
                 Id = Guid.NewGuid(),
-                Kundennummer = "123456"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
-                FirstName = "Pingo",
-                LastName = "Profi",
+                FirstName = "Henry",
+                LastName = "Ford",
                 Id = Guid.NewGuid(),
-                Kundennummer = "222222"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
-                FirstName = "Aleksandar",
-                LastName = "Ristic",
+                FirstName = "Malcolm",
+                LastName = "McLaren",
                 Id = Guid.NewGuid(),
-                Kundennummer = "123456"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
-                FirstName = "Pingo",
-                LastName = "Profi",
+                FirstName = "Johnny",
+                LastName = "Cash",
                 Id = Guid.NewGuid(),
-                Kundennummer = "222222"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
-                FirstName = "Aleksandar",
-                LastName = "Ristic",
+                FirstName = "Elvis",
+                LastName = "Presley",
                 Id = Guid.NewGuid(),
-                Kundennummer = "123456"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
-                FirstName = "Pingo",
-                LastName = "Profi",
+                FirstName = "Mark",
+                LastName = "Spitz",
                 Id = Guid.NewGuid(),
-                Kundennummer = "222222"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
-                FirstName = "Aleksandar",
-                LastName = "Ristic",
+                FirstName = "Franz",
+                LastName = "Mustermann",
                 Id = Guid.NewGuid(),
-                Kundennummer = "123456"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
-                FirstName = "Pingo",
-                LastName = "Profi",
+                FirstName = "Hans",
+                LastName = "Krankl",
                 Id = Guid.NewGuid(),
-                Kundennummer = "222222"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
-                FirstName = "Aleksandar",
-                LastName = "Ristic",
+                FirstName = "Herbert",
+                LastName = "Prohaska",
                 Id = Guid.NewGuid(),
-                Kundennummer = "123456"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
-                FirstName = "Pingo",
-                LastName = "Profi",
+                FirstName = "Brad",
+                LastName = "Pitt",
                 Id = Guid.NewGuid(),
-                Kundennummer = "222222"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             },
             new CustomerUiModel
             {
-                FirstName = "Aleksandar",
-                LastName = "Ristic",
+                FirstName = "Henry",
+                LastName = "Mancini",
                 Id = Guid.NewGuid(),
-                Kundennummer = "123456"
+                Kundennummer = new Random().Next(100000, 999999).ToString()
             }
         ];
     }

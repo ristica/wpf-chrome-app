@@ -2,6 +2,6 @@
 
 namespace Chrome.Views.Contracts;
 
-public interface ITestView : IView
+public interface IUebersichtAktionenView : IView
 {
 }

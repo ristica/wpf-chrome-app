@@ -1,8 +1,11 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Threading;
+using Chrome.Common.Contracts;
 using Chrome.Constants;
 using Chrome.Models;
 using Chrome.ViewModels.Commands;
+using Chrome.ViewModels.Contracts;
 using Chrome.ViewModels.Design_Data;
 using MaterialDesignThemes.Wpf;
 
@@ -69,7 +72,7 @@ public partial class ShellViewModel
 
     public FavoriteAddCommand? FavoriteAddCommand { get; private set; }
     public FavoriteRemoveCommand? FavoriteRemoveCommand { get; private set; }
-    public MenuSelectionChangedCommand? MenuSelectionChangedCommand { get; private set; }
+    public MenuSelectedCommand? MenuSelectedCommand { get; private set; }
 
     #endregion
 
@@ -117,6 +120,18 @@ public partial class ShellViewModel
         ShowSnackBar(SnackBarType.Info, "Aus der Favoritenliste erfolgreich entfernt!");
     }
 
+    public void OpenTestWindow(string? windowName)
+    {
+        var found = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.Name.Equals(windowName));
+        if (found is IView view)
+        {
+            view.ActivateMe();
+            return;
+        }
+
+        this._container.Resolve<IParentViewModel>(nameof(IUebersichtAktionenViewModel)).GetView().OpenMe();
+    }
+
     #endregion
 
     #region HELPERS
@@ -125,7 +140,7 @@ public partial class ShellViewModel
     {
         FavoriteAddCommand = new FavoriteAddCommand(this);
         FavoriteRemoveCommand = new FavoriteRemoveCommand(this);
-        MenuSelectionChangedCommand = new MenuSelectionChangedCommand(this);
+        MenuSelectedCommand = new MenuSelectedCommand(this);
     }
 
     // ToDo: get data from the database !!!

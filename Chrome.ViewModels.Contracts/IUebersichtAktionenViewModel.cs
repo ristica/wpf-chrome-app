@@ -2,6 +2,6 @@
 
 namespace Chrome.ViewModels.Contracts;
 
-public interface ITestViewModel : IParentViewModel
+public interface IUebersichtAktionenViewModel : IParentViewModel
 {
 }

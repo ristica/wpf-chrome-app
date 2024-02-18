@@ -15,7 +15,7 @@ public interface IShellViewModel : IParentViewModel
     bool IsBottomBarVisible { get; set; }
 
     void OpenView();
-    void OpenTestWindow();
+    void OpenTestWindow(string? s);
     void AddFavorite(MenuModel? item);
     void RemoveFavorite(MenuModel? item);
     void CultureChanged(string cultureName);
