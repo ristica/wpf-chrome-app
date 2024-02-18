@@ -15,8 +15,8 @@
             </ResourceDictionary.MergedDictionaries>
 
             <!-- METRO COLORS -->
-            <Color x:Key="MetroBlueColor">DarkBlue</Color>
-            <Color x:Key="MetroYellowColor">Yellow</Color>
+            <Color x:Key="MetroBlueColor">#002D72</Color>
+            <Color x:Key="MetroYellowColor">#FFE500</Color>
             <Color x:Key="NoColor">#00000000</Color>
             <Color x:Key="MaroonColor">#800000</Color>
             <SolidColorBrush x:Key="MetroBlueBrush"
@@ -674,7 +674,7 @@
                                             </i:EventTrigger>
                                         </i:Interaction.Triggers>
                                     </Border>
-                                    <Border Background="{StaticResource DefaultBrush}"
+                                    <!--<Border Background="{StaticResource DefaultBrush}"
                                             CornerRadius="4"
                                             Width="46"
                                             Margin="0,0,4,0"
@@ -703,7 +703,7 @@
                                                 <i:InvokeCommandAction Command="{Binding ViewModel.MaximizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                                             </i:EventTrigger>
                                         </i:Interaction.Triggers>
-                                    </Border>
+                                    </Border>-->
                                     <Border Background="{StaticResource DefaultBrush}"
                                             CornerRadius="4"
                                             Width="30"

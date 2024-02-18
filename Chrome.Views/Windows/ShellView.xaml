@@ -10,7 +10,7 @@
                Title="METRO CRM - Light"
                WindowStyle="None"
                BorderThickness="1"
-               
+               Background="#4D212121"
                MinHeight="800"
                MinWidth="1700"
                Icon="../Resources/icon.png"
@@ -20,7 +20,7 @@
     <Window.Resources>
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </Window.Resources>
-    <Window.Background>  
+    <!--<Window.Background>  
         <LinearGradientBrush StartPoint="0,0"
                              EndPoint="0,1">
             <GradientStop Color="#4D0000ff"
@@ -28,7 +28,7 @@
             <GradientStop Color="#4Dffd700"
                           Offset=".9" />
         </LinearGradientBrush>
-    </Window.Background>
+    </Window.Background>-->
     <!--<Window.BorderBrush>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
             <GradientStop Color="Blue"

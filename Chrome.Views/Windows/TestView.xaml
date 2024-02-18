@@ -2,6 +2,8 @@
                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                xmlns:base="clr-namespace:Chrome.Views.Base"
+               xmlns:windows="clr-namespace:Chrome.Views.Windows"
+               xmlns:converters="clr-namespace:Chrome.Views.Converters"
                Style="{DynamicResource SkinWindowStyle}"
                Title="Test View"
                Height="450"

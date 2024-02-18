@@ -9,7 +9,7 @@
             Background="{StaticResource DefaultBrush}"
             BorderBrush="{StaticResource TransparentBrush}"
             BorderThickness="0"
-            CornerRadius="0,0,6,6"
+            CornerRadius="0,0,0,0"
             Margin="2,0,2,2">
 
         <Grid Margin="20,0">
@@ -19,14 +19,14 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <!--<Button Grid.Column="0"
+            <Button Grid.Column="0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Content="Open Window"
                     materialDesign:RippleAssist.Feedback="#DD000000"
                     materialDesign:ButtonAssist.CornerRadius="3"
                     Style="{StaticResource MaterialDesignRaisedButton}"
-                    Command="{Binding ViewModel.OpenTestWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />-->
+                    Command="{Binding ViewModel.OpenTestWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
 
             <StackPanel Grid.Column="2"
                         Orientation="Horizontal"
