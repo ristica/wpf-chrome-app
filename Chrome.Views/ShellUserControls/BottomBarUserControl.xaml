@@ -19,14 +19,11 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <!--<Button Grid.Column="0"
+            <TextBlock Grid.Column="0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    Content="Open Window"
-                    materialDesign:RippleAssist.Feedback="#DD000000"
-                    materialDesign:ButtonAssist.CornerRadius="3"
-                    Style="{StaticResource MaterialDesignRaisedButton}"
-                    Command="{Binding ViewModel.OpenTestWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />-->
+                    Foreground="{StaticResource ForegroundBrush}"
+                    Text="{Binding ViewModel.CurrentUser, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
 
             <StackPanel Grid.Column="2"
                         Orientation="Horizontal"

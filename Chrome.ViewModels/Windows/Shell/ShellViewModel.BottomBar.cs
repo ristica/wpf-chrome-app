@@ -4,19 +4,21 @@ public partial class ShellViewModel
 {
     #region FIELDS
 
+    private string _currentUser;
+
     #endregion
 
     #region PROPERTIES
 
-    #endregion
-
-    #region COMMAND
-
-    #endregion
-
-    #region METHODS
-
-    
+    public string CurrentUser
+    {
+        get => this._currentUser;
+        set
+        {
+            this._currentUser = value;
+            OnPropertyChanged();
+        }
+}
 
     #endregion
 

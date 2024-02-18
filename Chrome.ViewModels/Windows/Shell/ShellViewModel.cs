@@ -39,6 +39,8 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
         SetTestCustomers();
         MessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(5));
 
+        this.CurrentUser = "Aleksandar Ristic";
+
         this._view.SetDataContext(this);
     }
 
