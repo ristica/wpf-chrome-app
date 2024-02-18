@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Chrome.Bootstrapper;
 using Chrome.Common;
+using Chrome.Constants;
 using Chrome.Dependencies.Builder;
 using Chrome.Starter.Properties;
 using Chrome.ViewModels.Contracts;
@@ -50,8 +51,8 @@ public partial class App : Application
 
         // ... oder von den mitgesendeten Args ...
         var args = Environment.GetCommandLineArgs();
-        if (args.Contains("-en")) newCulture = "en-US";
-        else if (args.Contains("-de")) newCulture = "de-DE";
+        if (args.Contains("-en")) newCulture = CultureTypes.EnglishCultureId;
+        else if (args.Contains("-de")) newCulture = CultureTypes.DeutschCultureId;
 
         LocalizationManager.ChangeCulture(newCulture);
     }

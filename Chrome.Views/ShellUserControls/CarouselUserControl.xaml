@@ -61,7 +61,7 @@
                                                 </TextBlock>
                                             </Grid>
                                         </Border>
-                                        <Border Padding="0, 5">
+                                        <Border Padding="0,6">
                                             <ListView ItemsSource="{Binding Children, UpdateSourceTrigger=PropertyChanged}"
                                                       Margin="0"
                                                       Padding="0"

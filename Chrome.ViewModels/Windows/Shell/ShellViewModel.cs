@@ -65,6 +65,8 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
     {
         _view.WindowLoaded -= (s, a) => { };
         _view.WindowStateChanged -= (s, a) => { };
+
+        _menuListItemsChangedSubscription.Dispose();
     }
 
     #endregion

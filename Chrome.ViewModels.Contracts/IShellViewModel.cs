@@ -9,9 +9,9 @@ public interface IShellViewModel : IParentViewModel
     string CurrentCultureName { get; }
     bool CanSearch { get; set; }
     string SearchFilter { get; set; }
-    ObservableCollection<string>? FilteredItems { get; set; }
     ObservableCollection<MenuModel>? Favorites { get; }
     ObservableCollection<CustomerUiModel>? Customers { get; }
+    IEnumerable<string>? SearchByFilteredItems { get; }
     bool IsBottomBarVisible { get; set; }
 
     void OpenView();

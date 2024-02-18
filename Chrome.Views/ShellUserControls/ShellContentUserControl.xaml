@@ -37,10 +37,6 @@
             <shellUserControls:SideBarLeftUserControl HorizontalAlignment="Left"
                                                       VerticalAlignment="Center" />
 
-            <shellUserControls:SearchUserControl HorizontalAlignment="Right"
-                                                 VerticalAlignment="Top"
-                                                 Margin="0,20,20,0" />
-
             <shellUserControls:LanguageUserControl HorizontalAlignment="Left"
                                                    VerticalAlignment="Top"
                                                    Margin="20,20,0,15" />
@@ -48,10 +44,13 @@
             <shellUserControls:CarouselUserControl HorizontalAlignment="Center"
                                                    VerticalAlignment="Center" />
 
-
             <shellUserControls:SideBarRightUserControl HorizontalAlignment="Right"
                                                        VerticalAlignment="Center"
                                                        Visibility="{Binding ViewModel.Favorites, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ListToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+
+            <shellUserControls:SearchUserControl HorizontalAlignment="Right"
+                                                 VerticalAlignment="Top"
+                                                 Margin="0,20,20,0" />
 
             <shellUserControls:SnackBarUserControl HorizontalAlignment="Right"
                                                    VerticalAlignment="Bottom" />
@@ -69,7 +68,7 @@
                                      Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
                 <materialDesign:PackIcon.Foreground>
                     <SolidColorBrush x:Name="MyBrush1"
-                                     Color="{StaticResource LightHoverColor}" />
+                                     Color="{StaticResource DarkHoverColor}" />
                 </materialDesign:PackIcon.Foreground>
                 <materialDesign:PackIcon.Triggers>
                     <EventTrigger RoutedEvent="MouseEnter">
@@ -77,8 +76,8 @@
                             <Storyboard>
                                 <ColorAnimation Storyboard.TargetName="MyBrush1"
                                                 Storyboard.TargetProperty="Color"
-                                                From="{StaticResource LightHoverColor}"
-                                                To="{StaticResource LightColor}"
+                                                From="{StaticResource DarkHoverColor}"
+                                                To="{StaticResource LightHoverColor}"
                                                 Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
@@ -88,8 +87,8 @@
                             <Storyboard>
                                 <ColorAnimation Storyboard.TargetName="MyBrush1"
                                                 Storyboard.TargetProperty="Color"
-                                                From="{StaticResource LightColor}"
-                                                To="{StaticResource LightHoverColor}"
+                                                From="{StaticResource LightHoverColor}"
+                                                To="{StaticResource DarkHoverColor}"
                                                 Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
@@ -115,7 +114,7 @@
                                      Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
                 <materialDesign:PackIcon.Foreground>
                     <SolidColorBrush x:Name="MyBrush2"
-                                     Color="{StaticResource LightHoverColor}" />
+                                     Color="{StaticResource DarkHoverColor}" />
                 </materialDesign:PackIcon.Foreground>
                 <materialDesign:PackIcon.Triggers>
                     <EventTrigger RoutedEvent="MouseEnter">
@@ -123,8 +122,8 @@
                             <Storyboard>
                                 <ColorAnimation Storyboard.TargetName="MyBrush2"
                                                 Storyboard.TargetProperty="Color"
-                                                From="{StaticResource LightHoverColor}"
-                                                To="{StaticResource LightColor}"
+                                                From="{StaticResource DarkHoverColor}"
+                                                To="{StaticResource LightHoverColor}"
                                                 Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>
@@ -134,8 +133,8 @@
                             <Storyboard>
                                 <ColorAnimation Storyboard.TargetName="MyBrush2"
                                                 Storyboard.TargetProperty="Color"
-                                                From="{StaticResource LightColor}"
-                                                To="{StaticResource LightHoverColor}"
+                                                From="{StaticResource LightHoverColor}"
+                                                To="{StaticResource DarkHoverColor}"
                                                 Duration="0:0:.25" />
                             </Storyboard>
                         </BeginStoryboard>

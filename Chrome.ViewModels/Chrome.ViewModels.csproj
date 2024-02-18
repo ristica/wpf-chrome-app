@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Localization.WPF" Version="1.0.0" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="System.Reactive.Linq" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>

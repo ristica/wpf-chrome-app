@@ -26,7 +26,7 @@
                 Background="{StaticResource DefaultBrush}"
                 BorderBrush="{StaticResource TransparentBrush}"
                 BorderThickness="0"
-                CornerRadius="4"
+                CornerRadius="0"
                 Margin="48,2,1,0">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -49,7 +49,7 @@
                     Orientation="Horizontal"
                     Margin="1,2,2,0">
             <Border Background="{StaticResource DefaultBrush}"
-                    CornerRadius="4"
+                    CornerRadius="0"
                     Width="42"
                     Margin="0,0,2,0"
                     Padding="0,0,0,5"
@@ -68,7 +68,7 @@
                 </i:Interaction.Triggers>
             </Border>
             <Border Background="{StaticResource DefaultBrush}"
-                    CornerRadius="4"
+                    CornerRadius="0"
                     Width="42"
                     Margin="0,0,2,0"
                     Cursor="Hand"
@@ -99,7 +99,7 @@
                 </i:Interaction.Triggers>
             </Border>
             <Border Background="{StaticResource DefaultBrush}"
-                    CornerRadius="4"
+                    CornerRadius="0,6,0,0"
                     Width="42"
                     ToolTip="{Loc CloseWindow}"
                     Cursor="Hand">

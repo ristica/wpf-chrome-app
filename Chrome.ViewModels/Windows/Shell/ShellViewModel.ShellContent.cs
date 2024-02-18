@@ -141,6 +141,7 @@ public partial class ShellViewModel
             .ToList();
 
         CarouselItems = new ObservableCollection<MenuUiItem>(items);
+        this.SetSearchFunctionality(); 
     }
 
     private void UpdateCarouselItemsFavorite(MenuModel item, bool add)

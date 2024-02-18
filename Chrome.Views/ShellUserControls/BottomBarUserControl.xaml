@@ -9,7 +9,7 @@
             Background="{StaticResource DefaultBrush}"
             BorderBrush="{StaticResource TransparentBrush}"
             BorderThickness="0"
-            CornerRadius="4"
+            CornerRadius="0,0,6,6"
             Margin="2,0,2,2">
 
         <Grid Margin="20,0">

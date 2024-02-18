@@ -40,7 +40,7 @@
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0"
                       CaptionHeight="0"
-                      CornerRadius="0" />
+                      CornerRadius="25" />
     </WindowChrome.WindowChrome>
 
     <Grid Background="{StaticResource TransparentBrush}">
