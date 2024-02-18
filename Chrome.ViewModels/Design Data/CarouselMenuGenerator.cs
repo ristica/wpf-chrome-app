@@ -65,7 +65,7 @@ public static class CarouselMenuGenerator
                 IsChild = true,
                 ParentIdDe = "Übersicht",
                 ParentIdEn = "Overview",
-                UiMenuIdentifier = MenuIdentifiers.Uebersicht.UbersichtAktionen,
+                UiMenuIdentifier = WindowIdentifiers.Uebersicht.Aktionen,
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -79,7 +79,7 @@ public static class CarouselMenuGenerator
                 IsChild = true,
                 ParentIdDe = "Übersicht",
                 ParentIdEn = "Overview",
-                UiMenuIdentifier = MenuIdentifiers.Uebersicht.WebEingaenge,
+                UiMenuIdentifier = WindowIdentifiers.Uebersicht.WebEingaenge,
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 
@@ -93,7 +93,7 @@ public static class CarouselMenuGenerator
                 IsChild = true,
                 ParentIdDe = "Übersicht",
                 ParentIdEn = "Overview",
-                UiMenuIdentifier = MenuIdentifiers.Uebersicht.ExcelGewinnspiel,
+                UiMenuIdentifier = WindowIdentifiers.Uebersicht.ExcelGewinnspiel,
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 

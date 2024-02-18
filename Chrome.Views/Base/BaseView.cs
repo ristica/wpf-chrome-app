@@ -7,7 +7,7 @@ public abstract class BaseView : Window
 {
     #region PROPERTIES
 
-    public IParentViewModel ViewModel { get; protected set; } = null!;
+    public IParentViewModel ViewModel { get; private set; } = null!;
 
     #endregion
 
@@ -21,6 +21,8 @@ public abstract class BaseView : Window
     #endregion
 
     #region METHODS
+
+    protected abstract void SetWindowName();
 
     protected virtual void BaseWindowLoaded(object sender, RoutedEventArgs e)
     {

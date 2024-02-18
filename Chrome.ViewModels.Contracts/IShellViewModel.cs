@@ -14,8 +14,7 @@ public interface IShellViewModel : IParentViewModel
     IEnumerable<string>? SearchByFilteredItems { get; }
     bool IsBottomBarVisible { get; set; }
 
-    void OpenView();
-    void OpenTestWindow(string? s);
+    void OpenView(string name);
     void AddFavorite(MenuModel? item);
     void RemoveFavorite(MenuModel? item);
     void CultureChanged(string cultureName);

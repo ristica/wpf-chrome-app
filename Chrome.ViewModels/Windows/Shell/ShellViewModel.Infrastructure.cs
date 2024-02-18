@@ -1,15 +1,13 @@
 ﻿using System.Globalization;
 using System.Windows;
+using Chrome.Common.Contracts;
+using Chrome.ViewModels.Contracts;
 using Localization.WPF;
 
 namespace Chrome.ViewModels.Windows.Shell;
 
 public partial class ShellViewModel
 {
-    #region FIELDS
-
-    #endregion
-
     #region PROPERTIES
 
     public string CurrentCultureName => LocalizationManager.CurrentCulture.Name;
@@ -28,9 +26,20 @@ public partial class ShellViewModel
         this.SetCarouselItems();
     }
 
-    public void OpenView()
+    public void OpenView(string name)
     {
-        _view.OpenMe();
+        // allow only one instance of each window to be created !!!
+        var found = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.Name.Equals(name));
+        if (found is IView view)
+        {
+            view.ActivateMe();
+            return;
+        }
+
+        // ToDo: make some algorithm to find a corresponding IXxxxViewModel from the "name" param
+        // ...
+
+        this._container.Resolve<IParentViewModel>("IUebersichtAktionenViewModel").GetView().OpenMe();
     }
 
     public void MaximizeView()

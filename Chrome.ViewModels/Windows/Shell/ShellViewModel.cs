@@ -20,10 +20,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     #region PROPERTIES
 
-    public IView GetView()
-    {
-        return _view;
-    }
+    public IView GetView() => _view;
 
     #endregion
 
@@ -31,9 +28,8 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     public ShellViewModel(IDependencyContainer container)
     {
-        _container = container;
-        _view = container.Resolve<IShellView>();
-        IsBottomBarVisible = true;
+        this._container = container;
+        this._view = container.Resolve<IShellView>();
 
         RegisterCommands();
         SubscribeToShellEvents();
@@ -43,7 +39,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
         SetTestCustomers();
         MessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(5));
 
-        _view.SetDataContext(this);
+        this._view.SetDataContext(this);
     }
 
     private void RegisterCommands()
@@ -63,10 +59,10 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     protected override void DisposeViewModel()
     {
-        _view.WindowLoaded -= (s, a) => { };
-        _view.WindowStateChanged -= (s, a) => { };
+        this._view.WindowLoaded -= (s, a) => { };
+        this._view.WindowStateChanged -= (s, a) => { };
 
-        _menuListItemsChangedSubscription.Dispose();
+        this._menuListItemsChangedSubscription?.Dispose();
     }
 
     #endregion
@@ -75,9 +71,9 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     private void SubscribeToShellEvents()
     {
-        _view.WindowLoaded += (s, a) => { };
+        this._view.WindowLoaded += (s, a) => { };
 
-        _view.WindowStateChanged += (s, a) => { OnPropertyChanged(nameof(CurrentWindowState)); };
+        this._view.WindowStateChanged += (s, a) => { OnPropertyChanged(nameof(CurrentWindowState)); };
     }
 
     #endregion

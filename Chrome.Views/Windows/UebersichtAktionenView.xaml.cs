@@ -15,7 +15,11 @@ public partial class UebersichtAktionenView : BaseView, IUebersichtAktionenView
     public UebersichtAktionenView()
     {
         InitializeComponent();
+        this.SetWindowName();
+    }
 
-        this.Name = MenuIdentifiers.Uebersicht.UbersichtAktionen;
+    protected sealed override void SetWindowName()
+    {
+        this.Name = WindowIdentifiers.Uebersicht.Aktionen;
     }
 }

@@ -114,7 +114,7 @@
                                                             </Border>
 
                                                             <Border Grid.Column="1" />
-                                                            <Grid Grid.Column="2">
+                                                            <Grid Grid.Column="2" MinWidth="280">
                                                                 <i:Interaction.Triggers>
                                                                     <i:EventTrigger EventName="MouseLeftButtonUp">
                                                                         <i:InvokeCommandAction Command="{Binding ViewModel.MenuSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"

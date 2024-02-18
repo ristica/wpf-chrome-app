@@ -10,10 +10,6 @@ namespace Chrome.ViewModels.Windows;
 // ReSharper disable once ClassNeverInstantiated.Global
 public class UebersichtAktionenViewModel : BaseViewModel, IUebersichtAktionenViewModel
 {
-    #region FIELDS
-
-    #endregion
-
     #region PROPERTIES
 
     public string WindowTitle => "Übersicht Aktionen";

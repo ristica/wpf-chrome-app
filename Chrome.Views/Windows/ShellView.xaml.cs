@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Chrome.Constants;
 using Chrome.Views.Base;
 using Chrome.Views.Contracts;
 
@@ -14,6 +15,12 @@ public partial class ShellView : BaseView, IShellView
     public ShellView()
     {
         InitializeComponent();
+        this.SetWindowName();
+    }
+
+    protected sealed override void SetWindowName()
+    {
+        this.Name = WindowIdentifiers.ShellWindow;
     }
 
     protected override void BaseWindowLoaded(object sender, RoutedEventArgs e)
@@ -30,4 +37,6 @@ public partial class ShellView : BaseView, IShellView
 
         base.BaseWindowLoaded(sender, e);
     }
+
+    
 }

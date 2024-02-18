@@ -14,7 +14,7 @@ public partial class ShellViewModel
 
     private bool _canSearch;
     private string _searchFilter = null!;
-    private IDisposable _menuListItemsChangedSubscription;
+    private IDisposable? _menuListItemsChangedSubscription;
     private ObservableCollection<string>? _filteredItems = new ();
 
     #endregion
@@ -36,6 +36,7 @@ public partial class ShellViewModel
         get => _searchFilter;
         set
         {
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
             _searchFilter = value == null ? string.Empty : value; // clear button in input control sets it to NULL !!!
             OnPropertyChanged();
         }
@@ -83,18 +84,18 @@ public partial class ShellViewModel
                                 : !string.IsNullOrEmpty(m?.HeaderEn) && m.HeaderEn.Contains(this.SearchFilter, StringComparison.InvariantCultureIgnoreCase)))
                 .Subscribe(menus =>
                 {
-                    this._filteredItems.Clear();
+                    this._filteredItems?.Clear();
 
                     foreach (var m in menus)
                     {
                         switch (this.CurrentCultureName)
                         {
                             case CultureTypes.DeutschCultureId:
-                                this._filteredItems.Add($"{m!.ParentIdDe} - {m!.HeaderDe}");
+                                this._filteredItems?.Add($"{m!.ParentIdDe} - {m.HeaderDe}");
                                 break;
                             case CultureTypes.EnglishCultureId:
                                 if (m?.HeaderEn != null) 
-                                    this._filteredItems.Add($"{m.ParentIdEn} - {m.HeaderEn}");
+                                    this._filteredItems?.Add($"{m.ParentIdEn} - {m.HeaderEn}");
                                 break;
                         }
                     }

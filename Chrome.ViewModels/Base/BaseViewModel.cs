@@ -4,21 +4,17 @@ using Chrome.Dependencies.Contracts;
 
 namespace Chrome.ViewModels.Base;
 
-public abstract class BaseViewModel : ViewModel
+public abstract class BaseViewModel(IDependencyContainer container, IView view) : ViewModel
 {
     #region FIELDS
 
-    protected readonly IDependencyContainer Container;
-    private readonly IView _view;
+    protected readonly IDependencyContainer Container = container;
 
     #endregion
 
     #region PROPERTIES
 
-    public IView GetView()
-    {
-        return _view;
-    }
+    public IView GetView() => view;
 
     #endregion
 
@@ -31,36 +27,26 @@ public abstract class BaseViewModel : ViewModel
 
     #endregion
 
-    #region C-TOR
-
-    protected BaseViewModel(IDependencyContainer container, IView view)
-    {
-        Container = container;
-        _view = view;
-    }
-
-    #endregion
-
     #region METHODS
 
     public void MaximizeView()
     {
-        _view.MaximizeView();
+        view.MaximizeView();
     }
 
     public void MinimizeView()
     {
-        _view.MinimizeView();
+        view.MinimizeView();
     }
 
     public void CloseView()
     {
-        _view.CloseMe();
+        view.CloseMe();
     }
 
     public void DragWindow()
     {
-        _view.DragMe();
+        view.DragMe();
     }
 
     #endregion

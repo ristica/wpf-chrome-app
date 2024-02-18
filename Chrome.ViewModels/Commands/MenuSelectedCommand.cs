@@ -14,9 +14,11 @@ public class MenuSelectedCommand(IShellViewModel viewModel) : ICommand
     public void Execute(object? parameter)
     {
         if (parameter == null) return;
-        if (parameter.ToString().Equals(MenuIdentifiers.Uebersicht.UbersichtAktionen))
+
+        // ToDo: at the time only one implementation !!!
+        if (parameter.ToString()!.Equals(WindowIdentifiers.Uebersicht.Aktionen))
         {
-            viewModel.OpenTestWindow(parameter.ToString());
+            viewModel.OpenView(parameter.ToString()!);
         }
     }
 
