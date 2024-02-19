@@ -32,16 +32,6 @@
                             Width="200"
                             Cursor="Hand"
                             Style="{StaticResource ToLightAnimatedBorder}">
-                        <Border.ToolTip>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Kundennummer}" />
-                                <TextBlock Text="-"
-                                           Margin="3,0" />
-                                <TextBlock Text="{Binding FirstName}"
-                                           Margin="0,0,4,0" />
-                                <TextBlock Text="{Binding LastName}" />
-                            </StackPanel>
-                        </Border.ToolTip>
                         <Border.Triggers>
                             <EventTrigger RoutedEvent="MouseEnter">
                                 <BeginStoryboard>

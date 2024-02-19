@@ -10,7 +10,7 @@
                Title="METRO CRM - Light"
                WindowStyle="None"
                BorderThickness="1"
-               Background="#4D212121"
+               Background="{StaticResource DefaultBackgroundTransparentBrush}"
                MinHeight="800"
                MinWidth="1700"
                Icon="../Resources/icon.png"

@@ -28,8 +28,8 @@
                         <Setter.Value>
                             <ControlTemplate>
                                 <Border BorderThickness="1"
-                                        BorderBrush="{StaticResource DefaultHoverBrush}"
-                                        Background="{StaticResource DefaultHoverBrush}"
+                                        BorderBrush="{StaticResource DefaultBrush}"
+                                        Background="{StaticResource DefaultBrush}"
                                         CornerRadius="10"
                                         Width="330"
                                         MinHeight="400"
@@ -42,7 +42,7 @@
                                     </Border.Effect>
                                     <StackPanel>
                                         <Border Padding="14"
-                                                Background="{StaticResource DefaultBrush}"
+                                                Background="{StaticResource DefaultHoverBrush}"
                                                 CornerRadius="7,7,0, 0">
                                             <Grid>
                                                 <TextBlock Text="{Binding Parent.HeaderDe}"

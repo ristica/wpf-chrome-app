@@ -34,14 +34,6 @@
                             Height="30"
                             Cursor="Hand"
                             Style="{StaticResource ToLightAnimatedBorder}">
-                        <Border.ToolTip>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding ParentIdDe}" />
-                                <TextBlock Text="/"
-                                           Margin="3,0" />
-                                <TextBlock Text="{Binding HeaderDe}" />
-                            </StackPanel>
-                        </Border.ToolTip>
                         <Border.Triggers>
                             <EventTrigger RoutedEvent="MouseEnter">
                                 <BeginStoryboard>
