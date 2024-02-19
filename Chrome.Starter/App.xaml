@@ -195,15 +195,15 @@
 
             <!-- ******************   LIGHT THEME   *************************** -->
 
-            <!--<Color x:Key="DefaultColor">#212121</Color>
-            <Color x:Key="DefaultHoverColor">#333333</Color>
+            <!--<Color x:Key="PrimaryColor">#212121</Color>
+            <Color x:Key="PrimaryHoverColor">#333333</Color>
             <Color x:Key="SecondaryColor">#cccccc</Color>
             <Color x:Key="SecondaryHoverColor">#a9a9a9</Color>-->
 
             <!--<SolidColorBrush x:Key="DefaultBrush"
-                             Color="{StaticResource DefaultColor}" />
+                             Color="{StaticResource PrimaryColor}" />
             <SolidColorBrush x:Key="DefaultHoverBrush"
-                             Color="{StaticResource DefaultHoverColor}" />
+                             Color="{StaticResource PrimaryHoverColor}" />
             <SolidColorBrush x:Key="ForegroundBrush"
                              Color="{StaticResource SecondaryColor}" />
             <SolidColorBrush x:Key="ForegroundHoverBrush"
@@ -218,7 +218,7 @@
                                 <Storyboard>
                                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                         <EasingColorKeyFrame KeyTime="0:0:0.25"
-                                                             Value="{StaticResource DefaultColor}" />
+                                                             Value="{StaticResource PrimaryColor}" />
                                     </ColorAnimationUsingKeyFrames>
                                 </Storyboard>
                             </BeginStoryboard>
@@ -230,7 +230,7 @@
                                 <Storyboard>
                                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                         <EasingColorKeyFrame KeyTime="0:0:0.25"
-                                                             Value="{StaticResource DefaultHoverColor}" />
+                                                             Value="{StaticResource PrimaryHoverColor}" />
                                     </ColorAnimationUsingKeyFrames>
                                 </Storyboard>
                             </BeginStoryboard>
@@ -247,7 +247,7 @@
                                 <Storyboard>
                                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                         <EasingColorKeyFrame KeyTime="0:0:0.25"
-                                                             Value="{StaticResource DefaultHoverColor}" />
+                                                             Value="{StaticResource PrimaryHoverColor}" />
                                     </ColorAnimationUsingKeyFrames>
                                 </Storyboard>
                             </BeginStoryboard>
@@ -259,7 +259,7 @@
                                 <Storyboard>
                                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                         <EasingColorKeyFrame KeyTime="0:0:0.25"
-                                                             Value="{StaticResource DefaultColor}" />
+                                                             Value="{StaticResource PrimaryColor}" />
                                     </ColorAnimationUsingKeyFrames>
                                 </Storyboard>
                             </BeginStoryboard>
@@ -416,7 +416,7 @@
                                                                 <Storyboard>
                                                                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                                                         <EasingColorKeyFrame KeyTime="0:0:0.2"
-                                                                                             Value="{StaticResource DefaultColor}" />
+                                                                                             Value="{StaticResource PrimaryColor}" />
                                                                     </ColorAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </BeginStoryboard>
@@ -509,15 +509,15 @@
 
             <!-- ******************   DARK THEME   *************************** -->
 
-            <Color x:Key="DefaultColor">#212121</Color>
-            <Color x:Key="DefaultHoverColor">#333333</Color>
+            <Color x:Key="PrimaryColor">#212121</Color>
+            <Color x:Key="PrimaryHoverColor">#333333</Color>
             <Color x:Key="SecondaryColor">#cccccc</Color>
             <Color x:Key="SecondaryHoverColor">#a9a9a9</Color>
 
             <SolidColorBrush x:Key="DefaultBrush"
-                             Color="{StaticResource DefaultColor}" />
+                             Color="{StaticResource PrimaryColor}" />
             <SolidColorBrush x:Key="DefaultHoverBrush"
-                             Color="{StaticResource DefaultHoverColor}" />
+                             Color="{StaticResource PrimaryHoverColor}" />
             <SolidColorBrush x:Key="ForegroundBrush"
                              Color="{StaticResource SecondaryColor}" />
             <SolidColorBrush x:Key="ForegroundHoverBrush"
@@ -532,7 +532,7 @@
                                 <Storyboard>
                                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                         <EasingColorKeyFrame KeyTime="0:0:0.25"
-                                                             Value="{StaticResource DefaultColor}" />
+                                                             Value="{StaticResource PrimaryColor}" />
                                     </ColorAnimationUsingKeyFrames>
                                 </Storyboard>
                             </BeginStoryboard>
@@ -544,7 +544,7 @@
                                 <Storyboard>
                                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                         <EasingColorKeyFrame KeyTime="0:0:0.25"
-                                                             Value="{StaticResource DefaultHoverColor}" />
+                                                             Value="{StaticResource PrimaryHoverColor}" />
                                     </ColorAnimationUsingKeyFrames>
                                 </Storyboard>
                             </BeginStoryboard>
@@ -561,7 +561,7 @@
                                 <Storyboard>
                                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                         <EasingColorKeyFrame KeyTime="0:0:0.25"
-                                                             Value="{StaticResource DefaultHoverColor}" />
+                                                             Value="{StaticResource PrimaryHoverColor}" />
                                     </ColorAnimationUsingKeyFrames>
                                 </Storyboard>
                             </BeginStoryboard>
@@ -573,7 +573,7 @@
                                 <Storyboard>
                                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                         <EasingColorKeyFrame KeyTime="0:0:0.25"
-                                                             Value="{StaticResource DefaultColor}" />
+                                                             Value="{StaticResource PrimaryColor}" />
                                     </ColorAnimationUsingKeyFrames>
                                 </Storyboard>
                             </BeginStoryboard>
@@ -729,7 +729,7 @@
                                                                 <Storyboard>
                                                                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                                                         <EasingColorKeyFrame KeyTime="0:0:0.2"
-                                                                                             Value="{StaticResource DefaultColor}" />
+                                                                                             Value="{StaticResource PrimaryColor}" />
                                                                     </ColorAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </BeginStoryboard>
