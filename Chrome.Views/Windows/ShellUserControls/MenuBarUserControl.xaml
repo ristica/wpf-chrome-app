@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Chrome.Views.ShellUserControls.MenuBarUserControl"
+﻿<UserControl x:Class="Chrome.Views.Windows.ShellUserControls.MenuBarUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:converters="clr-namespace:Chrome.Views.Converters"
@@ -51,10 +51,23 @@
                                         HorizontalAlignment="Left"
                                         BorderThickness="1,1,1,0"
                                         BorderBrush="#aaa"
-                                        Background="{StaticResource DefaultBrush}"
                                         CornerRadius="3,3,0,0"
-                                        Style="{StaticResource ToLightAnimatedBorder}"
                                         Cursor="Hand">
+                                    <Border.Effect>
+                                        <DropShadowEffect Color="#ddd"
+                                                          ShadowDepth="1"
+                                                          Direction="90"
+                                                          BlurRadius="5" />
+                                    </Border.Effect>
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1.5"
+                                                             StartPoint="0.5,0">
+                                            <GradientStop Color="#ccc"
+                                                          Offset="0" />
+                                            <GradientStop Color="#FFFFFFFF"
+                                                          Offset="0.7" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="MouseEnter">
                                             <i:InvokeCommandAction Command="{Binding ViewModel.OpenMenu, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
@@ -139,15 +152,28 @@
                 <Border Grid.Column="3"
                         HorizontalAlignment="Right"
                         Margin="0,0,0,0"
-                        Background="{StaticResource DefaultBrush}"
                         BorderBrush="#aaa"
                         BorderThickness="1,1,1,0"
                         CornerRadius="3,3,0,0"
                         ToolTip="{Loc ChooseLanguage}"
                         Cursor="Hand"
                         VerticalAlignment="Stretch"
-                        Padding="10,7,10,8"
-                        Style="{StaticResource ToLightAnimatedBorder}">
+                        Padding="10,7,10,8">
+                    <Border.Effect>
+                        <DropShadowEffect Color="#ddd"
+                                          ShadowDepth="1"
+                                          Direction="90"
+                                          BlurRadius="5" />
+                    </Border.Effect>
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1.5"
+                                             StartPoint="0.5,0">
+                            <GradientStop Color="#d5d5d5"
+                                          Offset="0" />
+                            <GradientStop Color="#FFFFFFFF"
+                                          Offset="0.7" />
+                        </LinearGradientBrush>
+                    </Border.Background>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseLeftButtonUp">
                             <i:InvokeCommandAction Command="{Binding ViewModel.ToggleLanguagePopupCommand, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
@@ -161,6 +187,7 @@
                                              Background="#03000000">
                     </materialDesign:PackIcon>
                 </Border>
+
             </Grid>
         </Border>
 

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Chrome.Views.ShellUserControls.TopBarUserControl"
+﻿<UserControl x:Class="Chrome.Views.Windows.ShellUserControls.TopBarUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"

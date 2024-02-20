@@ -1,4 +1,4 @@
-﻿namespace Chrome.Views.ShellUserControls;
+﻿namespace Chrome.Views.Windows.ShellUserControls;
 
 public partial class TopBarUserControl
 {

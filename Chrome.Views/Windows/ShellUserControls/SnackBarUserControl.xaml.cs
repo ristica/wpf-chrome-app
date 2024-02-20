@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Chrome.Views.ShellUserControls;
+namespace Chrome.Views.Windows.ShellUserControls;
 
 /// <summary>
 /// Interaction logic for SnackBarUserControl.xaml

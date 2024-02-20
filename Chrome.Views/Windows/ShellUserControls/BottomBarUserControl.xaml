@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Chrome.Views.ShellUserControls.BottomBarUserControl"
+﻿<UserControl x:Class="Chrome.Views.Windows.ShellUserControls.BottomBarUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"

@@ -1,9 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Threading;
+using Chrome.Common.Contracts;
 using Chrome.Constants;
 using Chrome.Models;
 using Chrome.ViewModels.Commands;
 using Chrome.ViewModels.Design_Data;
+using Chrome.Views.Contracts;
 using MaterialDesignThemes.Wpf;
 
 namespace Chrome.ViewModels.Windows.Shell;
@@ -17,6 +19,7 @@ public partial class ShellViewModel
     private string? _snackBarText;
     private SnackBarType _snackBarType;
     private MenuUiItem _selectedMenu;
+    private IUserControl? _currentUserControl;
 
     #endregion
 
@@ -70,6 +73,16 @@ public partial class ShellViewModel
         set
         {
             this._selectedMenu = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public IUserControl? CurrentUserControl
+    {
+        get => this._currentUserControl;
+        set
+        {
+            this._currentUserControl = value;
             OnPropertyChanged();
         }
     }
