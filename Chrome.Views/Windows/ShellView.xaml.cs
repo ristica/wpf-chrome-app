@@ -16,6 +16,7 @@ public partial class ShellView : BaseView, IShellView
     {
         InitializeComponent();
         this.SetWindowName();
+        //this.WindowState = WindowState.Maximized;
     }
 
     protected sealed override void SetWindowName()

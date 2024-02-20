@@ -10,9 +10,9 @@
                Title="METRO CRM - Light"
                WindowStyle="None"
                BorderThickness="1"
-               Background="{StaticResource DefaultBackgroundTransparentBrush}"
+               Background="{StaticResource DefaultBrush}"
                MinHeight="800"
-               MinWidth="1700"
+               MinWidth="1298"
                Icon="../Resources/icon.png"
                WindowStartupLocation="CenterScreen"
                AllowsTransparency="True"
@@ -47,6 +47,7 @@
         <Grid Margin="8">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
@@ -59,21 +60,21 @@
             <!-- row 1 -->
             <shellUserControls:TopLeftBrandUserControl Grid.Row="0"
                                                        Grid.Column="0" />
+
             <shellUserControls:TopBarUserControl x:Name="TopBarUserControl"
                                                  Grid.Row="0"
                                                  Grid.Column="0"
                                                  Grid.ColumnSpan="3" />
 
             <!-- row 1 -->
-            <shellUserControls:ShellContentUserControl Grid.Row="1"
+            <shellUserControls:ShellContentUserControl Grid.Row="2"
                                                        Grid.Column="0"
                                                        Grid.ColumnSpan="3" />
 
             <!-- row 2 -->
-            <shellUserControls:BottomBarUserControl Grid.Row="2"
+            <shellUserControls:BottomBarUserControl Grid.Row="3"
                                                     Grid.Column="0"
-                                                    Grid.ColumnSpan="3"
-                                                    Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                                                    Grid.ColumnSpan="3" />
         </Grid>
     </Grid>
 </base:BaseView>

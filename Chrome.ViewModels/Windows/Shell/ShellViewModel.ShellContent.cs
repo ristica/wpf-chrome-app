@@ -16,6 +16,7 @@ public partial class ShellViewModel
     private bool _snackBarIsActive;
     private string? _snackBarText;
     private SnackBarType _snackBarType;
+    private MenuUiItem _selectedMenu;
 
     #endregion
 
@@ -63,6 +64,16 @@ public partial class ShellViewModel
         }
     }
 
+    public MenuUiItem SelectedMenu
+    {
+        get => this._selectedMenu;
+        set
+        {
+            this._selectedMenu = value;
+            OnPropertyChanged();
+        }
+    }
+
     #endregion
 
     #region COMMANDS
@@ -70,6 +81,9 @@ public partial class ShellViewModel
     public FavoriteAddCommand? FavoriteAddCommand { get; private set; }
     public FavoriteRemoveCommand? FavoriteRemoveCommand { get; private set; }
     public MenuSelectedCommand? MenuSelectedCommand { get; private set; }
+    public ToggleLeftSideBarCommand ToggleLeftSideBarCommand { get; private set; }
+    public ToggleRightSideBarCommand ToggleRightSideBarCommand { get; private set; }
+    public OpenMenu OpenMenu { get; private set; }
 
     #endregion
 
@@ -126,6 +140,9 @@ public partial class ShellViewModel
         FavoriteAddCommand = new FavoriteAddCommand(this);
         FavoriteRemoveCommand = new FavoriteRemoveCommand(this);
         MenuSelectedCommand = new MenuSelectedCommand(this);
+        ToggleLeftSideBarCommand = new ToggleLeftSideBarCommand(this);
+        ToggleRightSideBarCommand = new ToggleRightSideBarCommand(this);
+        OpenMenu = new OpenMenu(this);
     }
 
     // ToDo: get data from the database !!!
@@ -154,7 +171,6 @@ public partial class ShellViewModel
         }
 
         if (!Favorites!.Any()) Favorites = null;
-        IsRightBarExpanded = false;
     }
 
     private void ShowSnackBar(SnackBarType sbt, string? message)

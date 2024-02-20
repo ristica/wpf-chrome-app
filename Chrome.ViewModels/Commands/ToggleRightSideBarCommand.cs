@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace Chrome.ViewModels.Commands;
 
-public class ToggleBottomBarCommand(IShellViewModel viewModel) : ICommand
+public class ToggleRightSideBarCommand(IShellViewModel viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
@@ -12,7 +12,7 @@ public class ToggleBottomBarCommand(IShellViewModel viewModel) : ICommand
 
     public void Execute(object? parameter)
     {
-        viewModel.IsBottomBarVisible = !viewModel.IsBottomBarVisible;
+        viewModel.IsRightBarExpanded = !viewModel.IsRightBarExpanded;
     }
 
     public event EventHandler? CanExecuteChanged;

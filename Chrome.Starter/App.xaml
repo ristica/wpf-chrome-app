@@ -195,8 +195,8 @@
 
             <!-- ******************   LIGHT THEME   *************************** -->
 
-            <!--<Color x:Key="PrimaryColor">#fbfbfb</Color>
-            <Color x:Key="PrimaryHoverColor">#dddddd</Color>
+            <Color x:Key="PrimaryColor">#fbfbfb</Color>
+            <Color x:Key="PrimaryHoverColor">#eeeeee</Color>
             <Color x:Key="SecondaryColor">#212121</Color>
             <Color x:Key="SecondaryHoverColor">#444444</Color>
             <Color x:Key="DefaultBackgroundTransparentColor">#4Dfbfbfb</Color>
@@ -489,7 +489,7 @@
                     <GradientStop Color="#fbfbfb"
                                   Offset="1" />
                 </RadialGradientBrush.GradientStops>
-            </RadialGradientBrush>-->
+            </RadialGradientBrush>
 
 
 
@@ -498,7 +498,7 @@
 
             <!-- ******************   DARK THEME   *************************** -->
 
-            <Color x:Key="PrimaryColor">#212121</Color>
+            <!--<Color x:Key="PrimaryColor">#212121</Color>
             <Color x:Key="PrimaryHoverColor">#333333</Color>
             <Color x:Key="SecondaryColor">#cccccc</Color>
             <Color x:Key="SecondaryHoverColor">#a9a9a9</Color>
@@ -777,24 +777,7 @@
                     <DataTrigger Binding="{Binding WindowState}"
                                  Value="Maximized" />
                 </Style.Triggers>
-            </Style>
-
-            <RadialGradientBrush x:Key="ContentRadialBackgroundBrush"
-                                 GradientOrigin="0.5,0.5"
-                                 Center="0.5,0.5"
-                                 RadiusX="0.5"
-                                 RadiusY="0.5">
-                <RadialGradientBrush.GradientStops>
-                    <GradientStop Color="#ffffff"
-                                  Offset="0.0" />
-                    <GradientStop Color="#444444"
-                                  Offset="0.2" />
-                    <GradientStop Color="#212121"
-                                  Offset="1" />
-                </RadialGradientBrush.GradientStops>
-            </RadialGradientBrush>
-
-
+            </Style>-->
 
 
         </ResourceDictionary>

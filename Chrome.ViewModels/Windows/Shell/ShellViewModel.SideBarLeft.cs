@@ -1,7 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
 using Chrome.Models;
-using Chrome.ViewModels.Commands;
 using Chrome.ViewModels.Design_Data;
 
 namespace Chrome.ViewModels.Windows.Shell;
@@ -10,7 +8,6 @@ public partial class ShellViewModel
 {
     #region FIELDS
 
-    private bool _isBottomBarVisible;
     private ObservableCollection<CustomerUiModel>? _customers;
     private bool _isLeftBarExpanded;
 
@@ -24,16 +21,6 @@ public partial class ShellViewModel
         set
         {
             _isLeftBarExpanded = value;
-            OnPropertyChanged();
-        }
-    }
-
-    public bool IsBottomBarVisible
-    {
-        get => _isBottomBarVisible;
-        set
-        {
-            _isBottomBarVisible = value;
             OnPropertyChanged();
         }
     }
@@ -52,21 +39,18 @@ public partial class ShellViewModel
 
     #region COMMANDS
 
-    public ICommand? ToggleBottomBarCommand { get; private set; }
-
     #endregion
 
     #region HELPERS
 
     private void RegisterLeftSideBarCommands()
     {
-        ToggleBottomBarCommand = new ToggleBottomBarCommand(this);
+
     }
 
     private void SetTestCustomers()
     {
         Customers = new ObservableCollection<CustomerUiModel>(CustomerGenerator.Generate());
-        IsLeftBarExpanded = Customers.Any();
     }
 
     #endregion

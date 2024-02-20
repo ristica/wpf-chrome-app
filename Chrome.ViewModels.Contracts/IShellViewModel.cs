@@ -9,10 +9,12 @@ public interface IShellViewModel : IParentViewModel
     string CurrentCultureName { get; }
     bool CanSearch { get; set; }
     string SearchFilter { get; set; }
+    bool IsLeftBarExpanded { get; set; }
+    bool IsRightBarExpanded { get; set; }
     ObservableCollection<MenuModel>? Favorites { get; }
     ObservableCollection<CustomerUiModel>? Customers { get; }
     IEnumerable<string>? SearchByFilteredItems { get; }
-    bool IsBottomBarVisible { get; set; }
+    MenuUiItem SelectedMenu { get; set; }
 
     void OpenView(string name);
     void AddFavorite(MenuModel? item);

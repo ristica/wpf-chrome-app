@@ -7,9 +7,9 @@
 
     <Border HorizontalAlignment="Stretch"
             Background="{StaticResource DefaultBrush}"
-            BorderBrush="{StaticResource TransparentBrush}"
-            BorderThickness="0"
-            CornerRadius="0,0,0,0"
+            BorderBrush="{StaticResource ForegroundHoverBrush}"
+            BorderThickness="1"
+            CornerRadius="3"
             Margin="2,0,2,2">
 
         <Grid Margin="20,0">

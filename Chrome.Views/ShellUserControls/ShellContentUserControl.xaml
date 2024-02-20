@@ -17,120 +17,86 @@
             BorderThickness="1"
             CornerRadius="4"
             Margin="1">
-        <Grid Background="{StaticResource ContentRadialBackgroundBrush}">
+        <Grid>
             <shellUserControls:SideBarLeftUserControl HorizontalAlignment="Left"
                                                       VerticalAlignment="Center" />
 
-            <shellUserControls:LanguageUserControl HorizontalAlignment="Left"
-                                                   VerticalAlignment="Top"
-                                                   Margin="20,20,0,15" />
+            <shellUserControls:MainContentUserControl HorizontalAlignment="Stretch"
+                                                      VerticalAlignment="Stretch"
+                                                      Margin="0,35,0,0" />
 
-            <shellUserControls:CarouselUserControl HorizontalAlignment="Center"
-                                                   VerticalAlignment="Top" />
+
+            <!--<shellUserControls:CarouselUserControl HorizontalAlignment="Center"
+                                                   VerticalAlignment="Top" />-->
 
             <shellUserControls:SideBarRightUserControl HorizontalAlignment="Right"
                                                        VerticalAlignment="Center"
-                                                       Visibility="{Binding ViewModel.Favorites, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ListToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                                                       Visibility="{Binding ViewModel.IsRightBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
 
-            <shellUserControls:SearchUserControl HorizontalAlignment="Right"
-                                                 VerticalAlignment="Top"
-                                                 Margin="0,20,20,0" />
+
+            <shellUserControls:MenuBarUserControl HorizontalAlignment="Stretch"
+                                                  VerticalAlignment="Top" />
 
             <shellUserControls:SnackBarUserControl HorizontalAlignment="Right"
                                                    VerticalAlignment="Bottom" />
 
-            <materialDesign:PackIcon Kind="ToggleSwitchOutline"
-                                     Background="#03000000"
-                                     HorizontalAlignment="Left"
-                                     VerticalAlignment="Bottom"
-                                     Height="24"
-                                     Width="24"
-                                     Margin="20,0,0,10"
-                                     Padding="0"
-                                     Cursor="Hand"
-                                     ToolTip="{Loc HideStatusBar}"
-                                     Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                <materialDesign:PackIcon.Foreground>
-                    <SolidColorBrush x:Name="MyBrush1"
-                                     Color="{StaticResource PrimaryHoverColor}" />
-                </materialDesign:PackIcon.Foreground>
-                <materialDesign:PackIcon.Triggers>
-                    <EventTrigger RoutedEvent="MouseEnter">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation Storyboard.TargetName="MyBrush1"
-                                                Storyboard.TargetProperty="Color"
-                                                From="{StaticResource PrimaryHoverColor}"
-                                                To="{StaticResource SecondaryHoverColor}"
-                                                Duration="0:0:.25" />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                    <EventTrigger RoutedEvent="MouseLeave">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation Storyboard.TargetName="MyBrush1"
-                                                Storyboard.TargetProperty="Color"
-                                                From="{StaticResource SecondaryHoverColor}"
-                                                To="{StaticResource PrimaryHoverColor}"
-                                                Duration="0:0:.25" />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </materialDesign:PackIcon.Triggers>
+            <Border Width="8"
+                    Height="100"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    BorderBrush="{StaticResource ForegroundHoverBrush}"
+                    BorderThickness="1"
+                    Background="{StaticResource DefaultBrush}"
+                    CornerRadius="0,3,3,0"
+                    Style="{StaticResource ToLightAnimatedBorder}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction
-                            Command="{Binding ViewModel.ToggleBottomBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                        <i:InvokeCommandAction Command="{Binding ViewModel.ToggleLeftSideBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                               CommandParameter="{Binding }" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-            </materialDesign:PackIcon>
-            <materialDesign:PackIcon Kind="ToggleSwitchOffOutline"
-                                     Background="#03000000"
-                                     HorizontalAlignment="Left"
-                                     VerticalAlignment="Bottom"
-                                     Height="24"
-                                     Width="24"
-                                     Margin="20,0,0,10"
-                                     Padding="0"
-                                     Cursor="Hand"
-                                     ToolTip="{Loc ShowStatusBar}"
-                                     Visibility="{Binding ViewModel.IsBottomBarVisible, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
-                <materialDesign:PackIcon.Foreground>
-                    <SolidColorBrush x:Name="MyBrush2"
-                                     Color="{StaticResource PrimaryHoverColor}" />
-                </materialDesign:PackIcon.Foreground>
-                <materialDesign:PackIcon.Triggers>
-                    <EventTrigger RoutedEvent="MouseEnter">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation Storyboard.TargetName="MyBrush2"
-                                                Storyboard.TargetProperty="Color"
-                                                From="{StaticResource PrimaryHoverColor}"
-                                                To="{StaticResource SecondaryHoverColor}"
-                                                Duration="0:0:.25" />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                    <EventTrigger RoutedEvent="MouseLeave">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation Storyboard.TargetName="MyBrush2"
-                                                Storyboard.TargetProperty="Color"
-                                                From="{StaticResource SecondaryHoverColor}"
-                                                To="{StaticResource PrimaryHoverColor}"
-                                                Duration="0:0:.25" />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </materialDesign:PackIcon.Triggers>
+                <TextBlock Text="...."
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold">
+                    <TextBlock.LayoutTransform>
+                        <RotateTransform Angle="90" />
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+            </Border>
+
+            <Border Width="8"
+                    Height="100"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    BorderBrush="{StaticResource ForegroundHoverBrush}"
+                    BorderThickness="1"
+                    Background="{StaticResource DefaultBrush}"
+                    CornerRadius="3,0,0,3"
+                    Style="{StaticResource ToLightAnimatedBorder}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction
-                            Command="{Binding ViewModel.ToggleBottomBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                        <i:InvokeCommandAction Command="{Binding ViewModel.ToggleRightSideBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                               CommandParameter="{Binding }" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-            </materialDesign:PackIcon>
+                <TextBlock Text="...."
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold">
+                    <TextBlock.LayoutTransform>
+                        <RotateTransform Angle="90" />
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+            </Border>
+
+            <!--<Border VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="200"
+                    Height="300"
+                    BorderBrush="Red"
+                    BorderThickness="1"
+                    Margin="0,32,0,0"></Border>-->
 
         </Grid>
 
