@@ -11,6 +11,7 @@ public interface IShellViewModel : IParentViewModel
     string SearchFilter { get; set; }
     bool IsLeftBarExpanded { get; set; }
     bool IsRightBarExpanded { get; set; }
+    bool IsLanguageInfoVisible { get; set; }
     ObservableCollection<MenuModel>? Favorites { get; }
     ObservableCollection<CustomerUiModel>? Customers { get; }
     IEnumerable<string>? SearchByFilteredItems { get; }

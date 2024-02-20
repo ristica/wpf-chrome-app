@@ -10,9 +10,9 @@
                Title="METRO CRM - Light"
                WindowStyle="None"
                BorderThickness="1"
-               Background="{StaticResource DefaultBrush}"
+               Background="#cccccc"
                MinHeight="800"
-               MinWidth="1298"
+               MinWidth="1405"
                Icon="../Resources/icon.png"
                WindowStartupLocation="CenterScreen"
                AllowsTransparency="True"
@@ -49,7 +49,6 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
-                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -70,11 +69,6 @@
             <shellUserControls:ShellContentUserControl Grid.Row="2"
                                                        Grid.Column="0"
                                                        Grid.ColumnSpan="3" />
-
-            <!-- row 2 -->
-            <shellUserControls:BottomBarUserControl Grid.Row="3"
-                                                    Grid.Column="0"
-                                                    Grid.ColumnSpan="3" />
         </Grid>
     </Grid>
 </base:BaseView>

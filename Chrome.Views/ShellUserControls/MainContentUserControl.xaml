@@ -5,7 +5,7 @@
     <Border HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             BorderThickness="1"
-            BorderBrush="{StaticResource ForegroundHoverBrush}"
+            BorderBrush="{StaticResource TransparentBrush}"
             CornerRadius="3">
             
     </Border>

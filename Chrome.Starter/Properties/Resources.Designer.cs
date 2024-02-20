@@ -167,5 +167,23 @@ namespace Chrome.Starter.Properties {
                 return ResourceManager.GetString("ShowStatusBar", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ein- und ausschalten der Kundenliste.
+        /// </summary>
+        internal static string ToggleCustomers {
+            get {
+                return ResourceManager.GetString("ToggleCustomers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ein- und ausschalten der Favoritenliste.
+        /// </summary>
+        internal static string ToggleFavorites {
+            get {
+                return ResourceManager.GetString("ToggleFavorites", resourceCulture);
+            }
+        }
     }
 }

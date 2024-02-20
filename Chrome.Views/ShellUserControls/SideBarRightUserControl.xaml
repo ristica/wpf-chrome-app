@@ -25,15 +25,21 @@
                 <DataTemplate>
                     <Border x:Name="FavoriteBorder"
                             Background="{StaticResource DefaultBrush}"
-                            BorderBrush="{StaticResource ForegroundHoverBrush}"
+                            BorderBrush="#aaa"
                             BorderThickness="1"
                             CornerRadius="4"
-                            Margin="0, 2,20,2"
+                            Margin="0, 3,20,3"
                             HorizontalAlignment="Right"
                             Width="200"
                             Height="30"
                             Cursor="Hand"
                             Style="{StaticResource ToLightAnimatedBorder}">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#ccc"
+                                              ShadowDepth="4"
+                                              Direction="270"
+                                              BlurRadius="8" />
+                        </Border.Effect>
                         <Border.Triggers>
                             <EventTrigger RoutedEvent="MouseEnter">
                                 <BeginStoryboard>

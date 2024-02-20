@@ -4,7 +4,7 @@
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:converters="clr-namespace:Chrome.Views.Converters"
-             Height="43"
+             Height="30"
              DataContext="{Binding}">
     <UserControl.Resources>
         <converters:WindowStateToVisibilityConverter x:Key="WindowStateToVisibilityConverter" />
@@ -27,31 +27,30 @@
                 BorderBrush="{StaticResource TransparentBrush}"
                 BorderThickness="0"
                 CornerRadius="0"
-                Margin="48,2,1,0">
+                Margin="38,2,0,0">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonDown">
                     <i:InvokeCommandAction
                         Command="{Binding ViewModel.DragCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
-            <Grid HorizontalAlignment="Stretch">
-                <TextBlock VerticalAlignment="Center"
-                           HorizontalAlignment="Left"
-                           Margin="15,0,0,0"
-                           Foreground="{StaticResource ForegroundBrush}">
-                    CRM Light
-                </TextBlock>
-            </Grid>
+            <TextBlock VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="15,0,0,0"
+                       Foreground="{StaticResource ForegroundBrush}"
+                       FontWeight="Bold">
+                CRM Light
+            </TextBlock>
         </Border>
 
         <StackPanel Grid.Row="0"
                     Grid.Column="1"
                     Orientation="Horizontal"
-                    Margin="1,2,2,0">
+                    Margin="0,2,2,0">
             <Border Background="{StaticResource DefaultBrush}"
                     CornerRadius="0"
                     Width="42"
-                    Margin="0,0,2,0"
+                    Margin="0,0,0,0"
                     Padding="0,0,0,5"
                     ToolTip="{Loc MinimizeWindow}"
                     Cursor="Hand"
@@ -59,7 +58,8 @@
                 <materialDesign:PackIcon Kind="WindowMinimize"
                                          Foreground="{StaticResource ForegroundHoverBrush}"
                                          VerticalAlignment="Bottom"
-                                         HorizontalAlignment="Center" />
+                                         HorizontalAlignment="Center"
+                                         Width="15"/>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
                         <i:InvokeCommandAction
@@ -70,7 +70,7 @@
             <Border Background="{StaticResource DefaultBrush}"
                     CornerRadius="0"
                     Width="42"
-                    Margin="0,0,2,0"
+                    Margin="0,0,0,0"
                     Cursor="Hand"
                     ToolTip="{Loc MaximizeWindow}"
                     Style="{StaticResource ToLightAnimatedBorder}"
@@ -80,15 +80,15 @@
                                              Foreground="{StaticResource ForegroundHoverBrush}"
                                              VerticalAlignment="Center"
                                              HorizontalAlignment="Center"
-                                             Width="25"
-                                             Height="25"
+                                             Width="16"
+                                             Height="16"
                                              Visibility="{Binding ViewModel.CurrentWindowState, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource WindowStateToVisibilityReverseConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                     <materialDesign:PackIcon Kind="WindowRestore"
                                              Foreground="{StaticResource ForegroundHoverBrush}"
                                              VerticalAlignment="Center"
                                              HorizontalAlignment="Center"
-                                             Width="25"
-                                             Height="25"
+                                             Width="18"
+                                             Height="18"
                                              Visibility="{Binding ViewModel.CurrentWindowState, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource WindowStateToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                 </Grid>
                 <i:Interaction.Triggers>
@@ -99,7 +99,7 @@
                 </i:Interaction.Triggers>
             </Border>
             <Border Background="{StaticResource DefaultBrush}"
-                    CornerRadius="0,0,0,0"
+                    CornerRadius="0,4,0,0"
                     Width="42"
                     ToolTip="{Loc CloseWindow}"
                     Cursor="Hand">
@@ -136,12 +136,41 @@
                     </Style>
                 </Border.Style>
                 <materialDesign:PackIcon Kind="WindowClose"
-                                         Foreground="{StaticResource ForegroundHoverBrush}"
                                          VerticalAlignment="Center"
                                          HorizontalAlignment="Center"
-                                         Width="25"
-                                         Height="25"
-                                         Margin="0,0,1,0" />
+                                         Width="18"
+                                         Height="18"
+                                         Margin="0,0,1,0"
+                                         Background="#03000000">
+                    <materialDesign:PackIcon.Foreground>
+                        <SolidColorBrush x:Name="MyBrush1"
+                                         Color="{StaticResource SecondaryHoverColor}" />
+                    </materialDesign:PackIcon.Foreground>
+                    <materialDesign:PackIcon.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="MyBrush1"
+                                                    Storyboard.TargetProperty="Color"
+                                                    From="{StaticResource SecondaryHoverColor}"
+                                                    To="{StaticResource PrimaryHoverColor}"
+                                                    Duration="0:0:.25" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="MyBrush1"
+                                                    Storyboard.TargetProperty="Color"
+                                                    From="{StaticResource PrimaryHoverColor}"
+                                                    To="{StaticResource SecondaryHoverColor}"
+                                                    Duration="0:0:.25" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </materialDesign:PackIcon.Triggers>
+                </materialDesign:PackIcon>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
                         <i:InvokeCommandAction

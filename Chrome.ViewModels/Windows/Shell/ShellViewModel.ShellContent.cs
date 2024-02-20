@@ -185,7 +185,7 @@ public partial class ShellViewModel
         SnackBarIsActive = true;
         SnackBarText = message;
 
-        Task.Run(() => Thread.Sleep(5000))
+        Task.Run(() => Thread.Sleep(2000))
             .ContinueWith(t => { Dispatcher.CurrentDispatcher.Invoke(() => { SnackBarIsActive = false; }); });
     }
 

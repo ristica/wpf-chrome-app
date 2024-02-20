@@ -153,4 +153,10 @@
   <data name="ShowStatusBar" xml:space="preserve">
     <value>Show StatusBar</value>
   </data>
+  <data name="ToggleCustomers" xml:space="preserve">
+    <value>Toggle customer's list</value>
+  </data>
+  <data name="ToggleFavorites" xml:space="preserve">
+    <value>Toggle user favorites</value>
+  </data>
 </root>

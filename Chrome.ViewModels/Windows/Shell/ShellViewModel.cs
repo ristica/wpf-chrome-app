@@ -37,7 +37,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
         SetCommonCultures();
         SetCarouselItems();
         SetTestCustomers();
-        MessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(5));
+        MessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(2));
 
         this.CurrentUser = "Aleksandar Ristic";
 

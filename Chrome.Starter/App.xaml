@@ -251,7 +251,7 @@
                                 <Storyboard>
                                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                         <EasingColorKeyFrame KeyTime="0:0:0.25"
-                                                             Value="{StaticResource PrimaryHoverColor}" />
+                                                             Value="#cccccc" />
                                     </ColorAnimationUsingKeyFrames>
                                 </Storyboard>
                             </BeginStoryboard>

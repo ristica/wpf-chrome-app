@@ -8,11 +8,23 @@ public partial class ShellViewModel
 {
     #region FIELDS
 
+    private bool _isLanguageInfoVisible;
+
     #endregion
 
     #region PROPERTIES
 
     public List<LanguageInfo>? Cultures { get; set; }
+
+    public bool IsLanguageInfoVisible
+    {
+        get => this._isLanguageInfoVisible;
+        set
+        {
+            this._isLanguageInfoVisible = value;
+            OnPropertyChanged();
+        }
+    }
 
     #endregion
 
@@ -28,6 +40,7 @@ public partial class ShellViewModel
     private void RegisterBottomLanguageBarCommands()
     {
         SetLanguageCommand = new SetLanguageCommand(this);
+        ToggleLanguagePopupCommand = new ToggleLanguagePopupCommand(this);
     }
 
     private void SetCommonCultures()

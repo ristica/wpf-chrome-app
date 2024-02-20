@@ -153,4 +153,10 @@
   <data name="ShowStatusBar" xml:space="preserve">
     <value>Status Bar einblenden</value>
   </data>
+  <data name="ToggleCustomers" xml:space="preserve">
+    <value>Ein- und ausschalten der Kundenliste</value>
+  </data>
+  <data name="ToggleFavorites" xml:space="preserve">
+    <value>Ein- und ausschalten der Favoritenliste</value>
+  </data>
 </root>
