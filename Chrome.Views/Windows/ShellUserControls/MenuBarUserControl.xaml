@@ -12,6 +12,7 @@
         <converters:BoolToVisibilityReverseConverter x:Key="BoolToVisibilityReverseConverter" />
         <converters:CultureToVisibilityConverter x:Key="CultureToVisibilityConverter" />
         <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
+        <converters:MenuModelToMenuMarginConverter x:Key="MenuModelToMenuMarginConverter" />
     </UserControl.Resources>
 
     <Grid HorizontalAlignment="Stretch"
@@ -71,11 +72,10 @@
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="MouseEnter">
                                             <i:InvokeCommandAction Command="{Binding ViewModel.OpenMenu, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                                                                   CommandParameter="{Binding }" />
+                                                                   CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}}" />
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
-                                    <Grid Grid.Row="0"
-                                          VerticalAlignment="Center"
+                                    <Grid VerticalAlignment="Center"
                                           Margin="14,7">
                                         <TextBlock Text="{Binding Parent.HeaderDe}"
                                                    Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=de-DE, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
@@ -192,20 +192,25 @@
         </Border>
 
         <!-- SUB MENU -->
-        <Border Margin="1,32,0,0"
+        <Border Margin="{Binding ViewModel.SelectedMenu.Position, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource MenuModelToMenuMarginConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                 BorderThickness="0,1,0,0"
                 CornerRadius="0,0,3,3"
                 BorderBrush="{StaticResource DefaultBrush}"
                 Background="{StaticResource DefaultHoverBrush}"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeave">
+                    <i:InvokeCommandAction Command="{Binding ViewModel.CloseMenu, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
             <Border.Effect>
                 <DropShadowEffect Color="#aaa"
                                   ShadowDepth="5"
                                   Direction="270"
                                   BlurRadius="10" />
             </Border.Effect>
-            <ListView ItemsSource="{Binding ViewModel.SelectedMenu.Children, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+            <ListView ItemsSource="{Binding ViewModel.SelectedMenu.MenuUiItem.Children, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                       Margin="0"
                       Padding="0"
                       HorizontalAlignment="Left">

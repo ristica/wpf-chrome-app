@@ -17,7 +17,7 @@ public interface IShellViewModel : IParentViewModel
     ObservableCollection<MenuModel>? Favorites { get; }
     ObservableCollection<CustomerUiModel>? Customers { get; }
     IEnumerable<string>? SearchByFilteredItems { get; }
-    MenuUiItem SelectedMenu { get; set; }
+    SelectedMenuItem? SelectedMenu { get; set; }
 
     void OpenView(string windowIdentifier);
     void AddFavorite(MenuModel? item);

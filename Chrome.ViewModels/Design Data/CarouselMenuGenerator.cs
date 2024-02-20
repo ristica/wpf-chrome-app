@@ -52,6 +52,7 @@ public static class CarouselMenuGenerator
                 ParentIdEn = "Overview",
                 HasChildren = true,
                 IsChild = false,
+                UiMenuIdentifier = Constants.WindowIdentifiers.UebersichtMenu,
                 NeedsOneOfRoles = GetDefaultRoles()
             },
 

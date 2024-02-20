@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Input;
 using System.Windows.Threading;
 using Chrome.Common.Contracts;
 using Chrome.Constants;
@@ -18,7 +20,7 @@ public partial class ShellViewModel
     private bool _snackBarIsActive;
     private string? _snackBarText;
     private SnackBarType _snackBarType;
-    private MenuUiItem _selectedMenu;
+    private SelectedMenuItem? _selectedMenu;
     private IUserControl? _currentUserControl;
 
     #endregion
@@ -67,13 +69,14 @@ public partial class ShellViewModel
         }
     }
 
-    public MenuUiItem SelectedMenu
+    public SelectedMenuItem? SelectedMenu
     {
         get => this._selectedMenu;
         set
         {
             this._selectedMenu = value;
             OnPropertyChanged();
+
         }
     }
 
@@ -97,6 +100,7 @@ public partial class ShellViewModel
     public ToggleLeftSideBarCommand ToggleLeftSideBarCommand { get; private set; }
     public ToggleRightSideBarCommand ToggleRightSideBarCommand { get; private set; }
     public OpenMenu OpenMenu { get; private set; }
+    public ICommand CloseMenu { get; private set; }
 
     #endregion
 
@@ -156,6 +160,7 @@ public partial class ShellViewModel
         ToggleLeftSideBarCommand = new ToggleLeftSideBarCommand(this);
         ToggleRightSideBarCommand = new ToggleRightSideBarCommand(this);
         OpenMenu = new OpenMenu(this);
+        CloseMenu = new CloseMenu(this);
     }
 
     // ToDo: get data from the database !!!

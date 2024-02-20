@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Windows;
+using System.Windows.Controls;
 using Chrome.ViewModels.Contracts;
 using System.Windows.Input;
 using Chrome.Models;
@@ -14,13 +16,18 @@ public class OpenMenu(IShellViewModel viewModel) : ICommand
 
     public void Execute(object? parameter)
     {
-        var menuUiItem = parameter as MenuUiItem;
-        if (menuUiItem == null) return;
-        if (menuUiItem == viewModel.SelectedMenu) return;
+        var grid = parameter as Grid;
 
-        viewModel.SelectedMenu = menuUiItem;
+        if (grid?.DataContext is not MenuUiItem dc) return;
+        if (viewModel.SearchByFilteredItems != null && dc == viewModel.SelectedMenu?.MenuUiItem) return;
 
-        Debug.Print($"\t*** {menuUiItem.Parent?.ParentIdDe}");
+        viewModel.SelectedMenu = new SelectedMenuItem
+        {
+            MenuUiItem = dc,
+            Position = grid.TransformToAncestor(Application.Current.MainWindow).Transform(new Point(0,0))
+        };
+
+        Debug.Print($"\t*** header: {dc.Parent?.HeaderDe} - margin: {grid.Margin.Left}");
     }
 
     public event EventHandler? CanExecuteChanged;
