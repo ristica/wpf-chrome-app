@@ -13,6 +13,7 @@
         <converters:CultureToVisibilityConverter x:Key="CultureToVisibilityConverter" />
         <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
         <converters:MenuModelToMenuMarginConverter x:Key="MenuModelToMenuMarginConverter" />
+        <converters:MenuModelToBorderWidthConverter x:Key="MenuModelToBorderWidthConverter" />
     </UserControl.Resources>
 
     <Grid HorizontalAlignment="Stretch"
@@ -67,6 +68,8 @@
                                                           Offset="0" />
                                             <GradientStop Color="#FFFFFFFF"
                                                           Offset="0.7" />
+                                            <GradientStop Color="#FFFFFFFF"
+                                                          Offset="1" />
                                         </LinearGradientBrush>
                                     </Border.Background>
                                     <i:Interaction.Triggers>
@@ -176,7 +179,7 @@
                     </Border.Background>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseLeftButtonUp">
-                            <i:InvokeCommandAction Command="{Binding ViewModel.ToggleLanguagePopupCommand, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
+                            <i:InvokeCommandAction Command="{Binding ViewModel.ToggleLanguagePopupCommand, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                     <materialDesign:PackIcon Kind="Translate"
@@ -193,10 +196,10 @@
 
         <!-- SUB MENU -->
         <Border Margin="{Binding ViewModel.SelectedMenu.Position, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource MenuModelToMenuMarginConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                BorderThickness="0,1,0,0"
+                BorderThickness="0,0,0,0"
                 CornerRadius="0,0,3,3"
-                BorderBrush="{StaticResource DefaultBrush}"
-                Background="{StaticResource DefaultHoverBrush}"
+                BorderBrush="{StaticResource TransparentBrush}"
+                Background="#F1f1f15"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top">
             <i:Interaction.Triggers>
@@ -206,87 +209,95 @@
             </i:Interaction.Triggers>
             <Border.Effect>
                 <DropShadowEffect Color="#aaa"
-                                  ShadowDepth="5"
+                                  ShadowDepth="2"
                                   Direction="270"
-                                  BlurRadius="10" />
+                                  BlurRadius="5" />
             </Border.Effect>
-            <ListView ItemsSource="{Binding ViewModel.SelectedMenu.MenuUiItem.Children, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                      Margin="0"
-                      Padding="0"
-                      HorizontalAlignment="Left">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid HorizontalAlignment="Stretch"
-                              Margin="10,4,16,4"
-                              Cursor="Hand">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="10" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
+            <Grid>
+                <Border Height="1"
+                        BorderThickness="0"
+                        Background="#aaa"
+                        Margin="{Binding ViewModel.SelectedMenu.MenuWidth, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource MenuModelToBorderWidthConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                        HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Top"/>
+                <ListView ItemsSource="{Binding ViewModel.SelectedMenu.MenuUiItem.Children, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                          Margin="0"
+                          Padding="0"
+                          HorizontalAlignment="Left">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalAlignment="Stretch"
+                                  Margin="10,4,16,4"
+                                  Cursor="Hand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
 
-                            <!-- ADD -->
-                            <Border Grid.Column="0"
-                                    Cursor="Hand"
-                                    ToolTip="{Loc FavoriteAdd}"
-                                    Background="#03000000"
-                                    Visibility="{Binding IsFavorite, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}}">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="MouseLeftButtonUp">
-                                        <i:InvokeCommandAction Command="{Binding ViewModel.FavoriteAddCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                                                               CommandParameter="{Binding }" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                                <materialDesign:PackIcon Kind="StarOutline"
-                                                         Foreground="{StaticResource ForegroundHoverBrush}"
-                                                         Margin="0,1,0,0"
-                                                         VerticalAlignment="Center"
-                                                         HorizontalAlignment="Left" />
-                            </Border>
+                                <!-- ADD -->
+                                <Border Grid.Column="0"
+                                        Cursor="Hand"
+                                        ToolTip="{Loc FavoriteAdd}"
+                                        Background="#03000000"
+                                        Visibility="{Binding IsFavorite, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityReverseConverter}}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                                            <i:InvokeCommandAction Command="{Binding ViewModel.FavoriteAddCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                                   CommandParameter="{Binding }" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    <materialDesign:PackIcon Kind="StarOutline"
+                                                             Foreground="{StaticResource ForegroundHoverBrush}"
+                                                             Margin="0,1,0,0"
+                                                             VerticalAlignment="Center"
+                                                             HorizontalAlignment="Left" />
+                                </Border>
 
-                            <!-- REMOVE -->
-                            <Border Grid.Column="0"
-                                    Cursor="Hand"
-                                    ToolTip="{Loc FavoriteRemove}"
-                                    Background="#03000000"
-                                    Visibility="{Binding IsFavorite, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}}">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="MouseLeftButtonUp">
-                                        <i:InvokeCommandAction Command="{Binding ViewModel.FavoriteRemoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                                                               CommandParameter="{Binding }" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                                <materialDesign:PackIcon Kind="Star"
-                                                         Foreground="{StaticResource ForegroundHoverBrush}"
-                                                         Margin="0,1,0,0"
-                                                         VerticalAlignment="Center"
-                                                         HorizontalAlignment="Left" />
-                            </Border>
+                                <!-- REMOVE -->
+                                <Border Grid.Column="0"
+                                        Cursor="Hand"
+                                        ToolTip="{Loc FavoriteRemove}"
+                                        Background="#03000000"
+                                        Visibility="{Binding IsFavorite, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                                            <i:InvokeCommandAction Command="{Binding ViewModel.FavoriteRemoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                                   CommandParameter="{Binding }" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    <materialDesign:PackIcon Kind="Star"
+                                                             Foreground="{StaticResource ForegroundHoverBrush}"
+                                                             Margin="0,1,0,0"
+                                                             VerticalAlignment="Center"
+                                                             HorizontalAlignment="Left" />
+                                </Border>
 
-                            <Border Grid.Column="1" />
-                            <Grid Grid.Column="2">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="MouseLeftButtonUp">
-                                        <i:InvokeCommandAction Command="{Binding ViewModel.MenuSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                                                               CommandParameter="{Binding UiMenuIdentifier}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                                <TextBlock Text="{Binding HeaderDe}"
-                                           Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=de-DE, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                                           VerticalAlignment="Center"
-                                           Foreground="{StaticResource ForegroundBrush}">
-                                </TextBlock>
-                                <TextBlock Text="{Binding HeaderEn}"
-                                           Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=en-US, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                                           VerticalAlignment="Center"
-                                           Foreground="{StaticResource ForegroundBrush}">
-                                </TextBlock>
+                                <Border Grid.Column="1" />
+                                <Grid Grid.Column="2">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                                            <i:InvokeCommandAction Command="{Binding ViewModel.MenuSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                                   CommandParameter="{Binding UiMenuIdentifier}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    <TextBlock Text="{Binding HeaderDe}"
+                                               Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=de-DE, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                               VerticalAlignment="Center"
+                                               Foreground="{StaticResource ForegroundBrush}">
+                                    </TextBlock>
+                                    <TextBlock Text="{Binding HeaderEn}"
+                                               Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=en-US, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                               VerticalAlignment="Center"
+                                               Foreground="{StaticResource ForegroundBrush}">
+                                    </TextBlock>
+                                </Grid>
+
                             </Grid>
-
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
         </Border>
 
         <!-- SEARCH LIST -->

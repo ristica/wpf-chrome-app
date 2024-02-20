@@ -4,7 +4,7 @@
              DataContext="{Binding}">
     <Border HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
-            BorderThickness="1"
+            BorderThickness="0"
             BorderBrush="DodgerBlue"
             Margin="5,20,5,35">
         <ContentPresenter Content="{Binding ViewModel.CurrentUserControl, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"

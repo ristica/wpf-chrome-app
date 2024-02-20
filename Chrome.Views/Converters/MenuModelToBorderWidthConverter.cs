@@ -4,15 +4,13 @@ using System.Windows.Data;
 
 namespace Chrome.Views.Converters;
 
-public class MenuModelToMenuMarginConverter : IValueConverter
+public class MenuModelToBorderWidthConverter : IValueConverter
 {
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value == null) return new Thickness(1, 32, 0, 0);
 
-        var position = value is Point point ? point : default;
-
-        return new Thickness(position.X - 15.00, 31, 0, 0);
+        return new Thickness((double)value - 1.00, 0, 0, 0);
         
     }
 
