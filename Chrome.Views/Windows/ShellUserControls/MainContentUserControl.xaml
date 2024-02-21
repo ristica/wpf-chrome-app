@@ -6,30 +6,20 @@
             VerticalAlignment="Stretch"
             BorderThickness="1"
             BorderBrush="DodgerBlue"
-            Margin="0,18,0,35">
+            Margin="2,18,5,35">
 
         <Canvas x:Name="canvas1"
-                MouseDown="canvas1_MouseDown"
-                MouseMove="canvas1_MouseMove"
-                MouseUp="canvas1_MouseUp">
-            <Rectangle Name="rectangle1"
-                       Stroke="Black"
+                MouseDown="UserControlMouseDown"
+                MouseMove="UserControlMouseMove"
+                MouseUp="UserControlMouseUp">
+            <Border Name="rectangle1"
+                       Background="DodgerBlue"
                        Canvas.Left="20"
                        Canvas.Top="40"
-                       Width="200"
-                       Height="100">
-                <Rectangle.Fill>
-                    <LinearGradientBrush StartPoint="0,0"
-                                         EndPoint="0,1">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStop Color="White"
-                                          Offset="0" />
-                            <GradientStop Color="Blue"
-                                          Offset="1" />
-                        </LinearGradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
+                       Width="400"
+                       Height="300"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch"/>
 
             <!--<ContentPresenter Content="{Binding ViewModel.CurrentUserControl, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                    HorizontalAlignment="Stretch"
