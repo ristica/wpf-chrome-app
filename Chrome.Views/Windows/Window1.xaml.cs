@@ -1,23 +1,31 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Chrome.Views.Windows.ShellUserControls
+// Notes:
+//  - The Canvas must have a non-null background to make it generate mouse events.
+
+namespace howto_wpf_resize_rectangle
 {
     /// <summary>
-    /// Interaction logic for MainContentUserControl.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class MainContentUserControl : UserControl
+    public partial class Window1 : Window
     {
-        public MainContentUserControl()
+        public Window1()
         {
             InitializeComponent();
         }
-
-        #region RESIZING
 
         // The part of the rectangle the mouse is over.
         private enum HitType
@@ -123,38 +131,8 @@ namespace Chrome.Views.Windows.ShellUserControls
             }
             else
             {
-                var width = MainBorder.ActualWidth;
-                var height = MainBorder.ActualHeight;
-
-                UIElement container = VisualTreeHelper.GetParent(canvas1) as UIElement;
-                Point relativeLocation = rectangle1.TranslatePoint(new Point(0, 0), container);
-
-                //Debug.Print($"{relativeLocation.X} - {relativeLocation.Y}");
-
-                Point point = Mouse.GetPosition(canvas1);
-
-                //if (relativeLocation.X < 1)
-                //{
-                //    return;
-                //}
-
-                //if (relativeLocation.X + rectangle1.Width > width)
-                //{
-                //    return;
-                //}
-
-                //if (relativeLocation.Y < 1)
-                //{
-                //    return;
-                //}
-
-                //if (relativeLocation.Y + rectangle1.Height > height)
-                //{
-                //    return;
-                //}
-
                 // See how much the mouse has moved.
-                
+                Point point = Mouse.GetPosition(canvas1);
                 double offset_x = point.X - LastPoint.X;
                 double offset_y = point.Y - LastPoint.Y;
 
@@ -163,17 +141,6 @@ namespace Chrome.Views.Windows.ShellUserControls
                 double new_y = Canvas.GetTop(rectangle1);
                 double new_width = rectangle1.Width;
                 double new_height = rectangle1.Height;
-
-                if (new_x <= 2) new_x = 2;
-                if (new_y <= 1) new_y = 1;
-
-                var right = new_x + new_width;
-                var bottom = new_y + new_height;
-
-                if (right >= canvas1.ActualWidth) new_x -= 1;
-                if (bottom >= canvas1.ActualHeight) new_y -= 1;
-
-                Debug.Print($"L: {new_x} - T: {new_y} - R: {right} - B: {bottom}");
 
                 // Update the rectangle.
                 switch (MouseHitType)
@@ -219,7 +186,7 @@ namespace Chrome.Views.Windows.ShellUserControls
                 }
 
                 // Don't use negative width or height.
-                if (new_width > 0 && new_height > 0)
+                if ((new_width > 0) && (new_height > 0))
                 {
                     // Update the rectangle.
                     Canvas.SetLeft(rectangle1, new_x);
@@ -238,7 +205,5 @@ namespace Chrome.Views.Windows.ShellUserControls
         {
             DragInProgress = false;
         }
-
-        #endregion
     }
 }

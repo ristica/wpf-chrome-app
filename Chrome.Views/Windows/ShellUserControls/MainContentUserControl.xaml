@@ -6,11 +6,40 @@
             VerticalAlignment="Stretch"
             BorderThickness="1"
             BorderBrush="DodgerBlue"
-            Margin="0,18,0,35">
-        <ContentPresenter Content="{Binding ViewModel.CurrentUserControl, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+            Margin="0,18,0,35"
+            x:Name="MainBorder">
+        <!--<ContentPresenter Content="{Binding ViewModel.CurrentUserControl, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                           HorizontalAlignment="Stretch"
                           VerticalAlignment="Stretch">
 
-        </ContentPresenter>
+            
+
+        </ContentPresenter>-->
+
+        <Canvas x:Name="canvas1"
+                Background="Red"
+                MouseDown="canvas1_MouseDown"
+                MouseMove="canvas1_MouseMove"
+                MouseUp="canvas1_MouseUp">
+            <Rectangle Name="rectangle1"
+                       Stroke="Black"
+                       Canvas.Left="20"
+                       Canvas.Top="40"
+                       Width="200"
+                       Height="100">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0"
+                                         EndPoint="0,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Color="White"
+                                          Offset="0" />
+                            <GradientStop Color="Blue"
+                                          Offset="1" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Canvas>
+
     </Border>
 </UserControl>
