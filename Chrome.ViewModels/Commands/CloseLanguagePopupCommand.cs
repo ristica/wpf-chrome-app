@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace Chrome.ViewModels.Commands;
 
-public class ToggleLanguagePopupCommand(IShellViewModel viewModel) : ICommand
+public class CloseLanguagePopupCommand(IShellViewModel viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
@@ -13,7 +13,7 @@ public class ToggleLanguagePopupCommand(IShellViewModel viewModel) : ICommand
 
     public void Execute(object? parameter)
     {
-        viewModel.IsLanguageInfoVisible = !viewModel.IsLanguageInfoVisible;
+        viewModel.IsLanguageInfoVisible = false;
     }
 
     public event EventHandler? CanExecuteChanged;

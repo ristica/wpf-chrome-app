@@ -30,7 +30,8 @@ public partial class ShellViewModel
 
     #region COMMANDS
 
-    public ICommand? ToggleLanguagePopupCommand { get; private set; }
+    public ICommand? OpenLanguagePopupCommand { get; private set; }
+    public ICommand? CloseLanguagePopupCommand { get; private set; }
     public ICommand? SetLanguageCommand { get; private set; }
 
     #endregion
@@ -40,7 +41,8 @@ public partial class ShellViewModel
     private void RegisterBottomLanguageBarCommands()
     {
         SetLanguageCommand = new SetLanguageCommand(this);
-        ToggleLanguagePopupCommand = new ToggleLanguagePopupCommand(this);
+        OpenLanguagePopupCommand = new OpenLanguagePopupCommand(this);
+        CloseLanguagePopupCommand = new CloseLanguagePopupCommand(this);
     }
 
     private void SetCommonCultures()
