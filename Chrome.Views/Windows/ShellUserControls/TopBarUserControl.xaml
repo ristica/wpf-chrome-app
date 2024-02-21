@@ -99,7 +99,7 @@
                 </i:Interaction.Triggers>
             </Border>
             <Border Background="{StaticResource DefaultBrush}"
-                    CornerRadius="0,4,0,0"
+                    CornerRadius="0,0,0,0"
                     Width="42"
                     ToolTip="{Loc CloseWindow}"
                     Cursor="Hand">
