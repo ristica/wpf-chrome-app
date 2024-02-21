@@ -83,8 +83,36 @@
                                 <TextBlock HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Margin="8,0,7,0"
-                                           Text="{Binding Kundennummer}"
-                                           Foreground="{StaticResource ForegroundBrush}" />
+                                           Text="{Binding Kundennummer}">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush x:Name="MyBrush1"
+                                                         Color="{StaticResource SecondaryHoverColor}" />
+                                    </TextBlock.Foreground>
+                                    <TextBlock.Triggers>
+                                        <EventTrigger RoutedEvent="MouseEnter">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="MyBrush1"
+                                                                    Storyboard.TargetProperty="Color"
+                                                                    From="{StaticResource SecondaryHoverColor}"
+                                                                    To="#999999"
+                                                                    Duration="0:0:.25" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="MouseLeave">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="MyBrush1"
+                                                                    Storyboard.TargetProperty="Color"
+                                                                    From="#999999"
+                                                                    To="{StaticResource SecondaryHoverColor}"
+                                                                    Duration="0:0:.25" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </TextBlock.Triggers>
+                                </TextBlock>
                                 <TextBlock HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Margin="0,0,0,0"
