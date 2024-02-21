@@ -123,38 +123,9 @@ namespace Chrome.Views.Windows.ShellUserControls
             }
             else
             {
-                var width = MainBorder.ActualWidth;
-                var height = MainBorder.ActualHeight;
-
-                UIElement container = VisualTreeHelper.GetParent(canvas1) as UIElement;
-                Point relativeLocation = rectangle1.TranslatePoint(new Point(0, 0), container);
-
-                //Debug.Print($"{relativeLocation.X} - {relativeLocation.Y}");
-
                 Point point = Mouse.GetPosition(canvas1);
 
-                //if (relativeLocation.X < 1)
-                //{
-                //    return;
-                //}
-
-                //if (relativeLocation.X + rectangle1.Width > width)
-                //{
-                //    return;
-                //}
-
-                //if (relativeLocation.Y < 1)
-                //{
-                //    return;
-                //}
-
-                //if (relativeLocation.Y + rectangle1.Height > height)
-                //{
-                //    return;
-                //}
-
                 // See how much the mouse has moved.
-                
                 double offset_x = point.X - LastPoint.X;
                 double offset_y = point.Y - LastPoint.Y;
 
