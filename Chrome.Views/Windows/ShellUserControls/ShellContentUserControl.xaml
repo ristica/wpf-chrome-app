@@ -102,16 +102,32 @@
             <shellUserControls:MenuBarUserControl HorizontalAlignment="Stretch"
                                                   VerticalAlignment="Top" />
 
-            <TextBlock HorizontalAlignment="Left"
-                       VerticalAlignment="Bottom"
-                       Margin="20,0, 0,10"
-                       Foreground="#aaa"
-                       Text="{Loc HelloWorld}" />
-            <TextBlock Foreground="#aaa"
-                       Text="{Binding ViewModel.CurrentUser, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                       Margin="0,0, 20,10"
-                       VerticalAlignment="Bottom"
-                       HorizontalAlignment="Right" />
+
+            <Border HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="35">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1.5"
+                                         StartPoint="0.5,0">
+                        <GradientStop Color="{StaticResource PrimaryColor}"
+                                      Offset="0" />
+                        <GradientStop Color="#f5f5f5"
+                                      Offset="0.2" />
+                        <GradientStop Color="#bbb"
+                                      Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid>
+                    <TextBlock HorizontalAlignment="Left"
+                               VerticalAlignment="Bottom"
+                               Margin="20,0, 0,10"
+                               Foreground="#999"
+                               Text="{Loc HelloWorld}" />
+                    <TextBlock Foreground="#999"
+                               Text="{Binding ViewModel.CurrentUser, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                               Margin="0,0, 20,10"
+                               VerticalAlignment="Bottom"
+                               HorizontalAlignment="Right" />
+                </Grid>
+            </Border>
 
             <shellUserControls:SnackBarUserControl HorizontalAlignment="Right"
                                                    VerticalAlignment="Bottom" />
