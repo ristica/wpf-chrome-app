@@ -14,10 +14,10 @@ public partial class ShellViewModel
 
     public ObservableCollection<IUserControl>? Views
     {
-        get => this._views;
+        get => _views;
         private set
         {
-            this._views = value;
+            _views = value;
             OnPropertyChanged();
         }
     }
@@ -34,10 +34,10 @@ public partial class ShellViewModel
 
     public void OpenView(string windowIdentifier)
     {
-        if (this.Views == null) this.Views = new();
+        if (Views == null) Views = new ObservableCollection<IUserControl>();
 
-        this.CurrentUserControl = _container.Resolve<IUserControlParentViewModel>(windowIdentifier).GetUserControl();
-        this.Views.Add(this.CurrentUserControl!);
+        CurrentUserControl = _container.Resolve<IUserControlParentViewModel>(windowIdentifier).GetUserControl();
+        Views.Add(CurrentUserControl!);
     }
 
     #endregion

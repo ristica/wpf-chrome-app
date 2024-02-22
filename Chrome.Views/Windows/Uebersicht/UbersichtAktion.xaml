@@ -1,13 +1,15 @@
 ﻿<base:BaseUserControl x:Class="Chrome.Views.Windows.Uebersicht.UbersichtAktion"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:base="clr-namespace:Chrome.Views.Base"
-             IsHitTestVisible="True">
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:base="clr-namespace:Chrome.Views.Base"
+                      IsHitTestVisible="True">
 
     <Border BorderThickness="1"
             BorderBrush="Black"
             CornerRadius="4"
-            Background="DodgerBlue">
+            Background="DodgerBlue"
+            MouseDown="OnUserControlActivated">
+
         <Grid HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch">
 
@@ -38,7 +40,7 @@
                     Opacity=".01"
                     Cursor="SizeNWSE"
                     MouseDown="MarkerOnMouseDown"
-                    MouseLeave="MarkerOnMouseLeave"></Border>
+                    MouseLeave="MarkerOnMouseLeave" />
             <Border x:Name="MarkerRightTop"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
@@ -48,7 +50,7 @@
                     Opacity=".01"
                     Cursor="SizeNESW"
                     MouseDown="MarkerOnMouseDown"
-                    MouseLeave="MarkerOnMouseLeave"></Border>
+                    MouseLeave="MarkerOnMouseLeave" />
             <Border x:Name="MarkerRightBottom"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
@@ -58,7 +60,7 @@
                     Opacity=".01"
                     Cursor="SizeNWSE"
                     MouseDown="MarkerOnMouseDown"
-                    MouseLeave="MarkerOnMouseLeave"></Border>
+                    MouseLeave="MarkerOnMouseLeave" />
             <Border x:Name="MarkerLeftBottom"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
@@ -68,14 +70,16 @@
                     Opacity=".01"
                     Cursor="SizeNESW"
                     MouseDown="MarkerOnMouseDown"
-                    MouseLeave="MarkerOnMouseLeave"></Border>
+                    MouseLeave="MarkerOnMouseLeave" />
 
             <TextBlock HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="30"
-                       Text="Hello World"
+                       Text="{Loc HelloWorld}"
                        Foreground="{StaticResource DefaultBrush}" />
 
         </Grid>
+
     </Border>
+
 </base:BaseUserControl>

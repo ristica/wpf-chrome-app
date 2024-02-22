@@ -22,4 +22,5 @@
         <shellUserControls:MenuBarUserControl HorizontalAlignment="Stretch"
                                               VerticalAlignment="Top" />
     </Grid>
+
 </base:BaseView>

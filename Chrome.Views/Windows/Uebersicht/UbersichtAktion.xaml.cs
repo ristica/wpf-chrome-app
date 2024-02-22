@@ -9,7 +9,7 @@ public partial class UbersichtAktion : BaseUserControl, IUebersichtAktionUserCon
     public UbersichtAktion()
     {
         InitializeComponent();
-        this.SetTopBar();
+        SetTopBar();
     }
 
     public IUserControlParentViewModel? ViewModel { get; private set; }
@@ -21,6 +21,6 @@ public partial class UbersichtAktion : BaseUserControl, IUebersichtAktionUserCon
 
     protected sealed override void SetTopBar()
     {
-        base.TopBar = this.BorderTopBar;
+        TopBar = BorderTopBar;
     }
 }

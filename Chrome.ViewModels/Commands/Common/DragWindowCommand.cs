@@ -12,7 +12,6 @@ public class DragWindowCommand(IParentViewModel viewModel) : ICommand
 
     public void Execute(object? parameter)
     {
- 
     }
 
     public event EventHandler? CanExecuteChanged;

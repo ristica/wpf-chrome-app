@@ -6,7 +6,7 @@
     <ItemsControl ItemsSource="{Binding ViewModel.Views, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <Canvas Background="Gray"
+                <Canvas Background="{StaticResource DefaultBrush}"
                         MouseMove="CanvasMainOnMouseMove"
                         MouseUp="CanvasMainOnMouseUp" />
             </ItemsPanelTemplate>
@@ -17,7 +17,7 @@
                         Value="50" />
                 <Setter Property="Canvas.Left"
                         Value="50" />
-                <Setter Property="Width" Value="600" />
+                <Setter Property="Width" Value="800" />
                 <Setter Property="Height"
                         Value="400" />
             </Style>
