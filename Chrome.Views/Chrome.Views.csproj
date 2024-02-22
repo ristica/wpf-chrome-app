@@ -8,10 +8,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\background.png" />
 	  <None Remove="Resources\icon.png" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Resources\background.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
 	  <EmbeddedResource Include="Resources\icon.png">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </EmbeddedResource>
@@ -37,6 +41,7 @@
 
 	<ItemGroup>
 		<Resource Include="Resources\icon.png" />
+		<Resource Include="Resources\background.png" />
 	</ItemGroup>
 
 </Project>

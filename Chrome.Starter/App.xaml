@@ -196,7 +196,7 @@
             <Color x:Key="PrimaryHoverColor">#eeeeee</Color>
             <Color x:Key="SecondaryColor">#212121</Color>
             <Color x:Key="SecondaryHoverColor">#444444</Color>
-            <Color x:Key="DefaultBackgroundTransparentColor">#4Dfbfbfb</Color>
+            <Color x:Key="DefaultBackgroundTransparentColor">#03000000</Color>
             <Color x:Key="CloseColor">red</Color>
 
             <SolidColorBrush x:Key="DefaultBrush"

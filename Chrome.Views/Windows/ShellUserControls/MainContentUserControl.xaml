@@ -6,7 +6,7 @@
     <ItemsControl ItemsSource="{Binding ViewModel.Views, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <Canvas Background="{StaticResource DefaultBrush}"
+                <Canvas Background="{StaticResource DefaultBackgroundTransparentBrush}"
                         MouseMove="CanvasMainOnMouseMove"
                         MouseUp="CanvasMainOnMouseUp" />
             </ItemsPanelTemplate>

@@ -4,18 +4,22 @@
              xmlns:converters="clr-namespace:Chrome.Views.Converters"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:shellUserControls="clr-namespace:Chrome.Views.Windows.ShellUserControls"
-             DataContext="{Binding}"
-             Background="{StaticResource DefaultBrush}">
+             DataContext="{Binding}">
 
     <UserControl.Resources>
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../../Resources/background.png"
+                        Stretch="None"
+                        Opacity=".25"/>
+        </Grid.Background>
 
         <shellUserControls:MainContentUserControl HorizontalAlignment="Stretch"
                                                   VerticalAlignment="Stretch"
-                                                  Margin="0,42,0,0" />
+                                                  Margin="0,42,0,40" />
 
         <shellUserControls:SideBarLeftUserControl HorizontalAlignment="Left"
                                                   VerticalAlignment="Center" />
@@ -96,25 +100,28 @@
 
         <Border HorizontalAlignment="Stretch"
                 VerticalAlignment="Bottom"
-                Height="35">
-            <!--<Border.Background>
+                Height="40">
+            <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1.5"
                                      StartPoint="0.5,0">
                     <GradientStop Color="{StaticResource PrimaryColor}"
                                   Offset="0" />
                     <GradientStop Color="#f5f5f5"
-                                  Offset="0.2" />
-                    <GradientStop Color="#aaa"
+                                  Offset=".1"></GradientStop>
+                    <GradientStop Color="#aaa" Offset=".5"></GradientStop>
+                    <GradientStop Color="#999999"
+                                  Offset="0.8" />
+                    <GradientStop Color="#666666"
                                   Offset="1" />
                 </LinearGradientBrush>
-            </Border.Background>-->
+            </Border.Background>
             <Grid>
                 <TextBlock HorizontalAlignment="Left"
                            VerticalAlignment="Bottom"
                            Margin="20,0, 0,10"
-                           Foreground="#ddd"
+                           Foreground="#212121"
                            Text="{Loc HelloWorld}" />
-                <TextBlock Foreground="#ddd"
+                <TextBlock Foreground="#212121"
                            Text="{Binding ViewModel.CurrentUser, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                            Margin="0,0, 20,10"
                            VerticalAlignment="Bottom"
