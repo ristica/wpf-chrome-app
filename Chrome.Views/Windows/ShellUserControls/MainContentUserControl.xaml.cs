@@ -1,7 +1,9 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Chrome.Views.Helpers;
+using MaterialDesignThemes.Wpf;
 
 namespace Chrome.Views.Windows.ShellUserControls;
 
@@ -20,7 +22,7 @@ public partial class MainContentUserControl : UserControl
     public double SizingOffsetY;
     public UserControl? SizingPanel;
 
-    private void CanvasMain_OnMouseUp(object sender, MouseButtonEventArgs e)
+    private void CanvasMainOnMouseUp(object sender, MouseButtonEventArgs e)
     {
         if (!IsSizing) return;
 
@@ -32,7 +34,7 @@ public partial class MainContentUserControl : UserControl
         SizingPanel = null;
     }
 
-    private void CanvasMain_OnMouseMove(object sender, MouseEventArgs e)
+    private void CanvasMainOnMouseMove(object sender, MouseEventArgs e)
     {
         if (IsSizing) SetSizing(sender, e);
     }
@@ -66,12 +68,39 @@ public partial class MainContentUserControl : UserControl
                 var newLeft = mouseX - SizingOffsetX;
                 var newTop = mouseY - SizingOffsetY;
 
-                // top / left
-                if (newLeft > 0) Canvas.SetLeft(SizingPanel, newLeft);
-                if (newTop > 0) Canvas.SetTop(SizingPanel, newTop);
+                var newRight = newLeft + SizingPanel.ActualWidth;
+                var newBottom = newTop + SizingPanel.ActualHeight;
 
                 // right / bottom
-                // ...
+                var maxWidth = this.ActualWidth - 1;
+                var maxHeight = this.ActualHeight - 1;
+
+                if (newRight <= maxWidth)
+                {
+                    // left
+                    if (newLeft > 0) Canvas.SetLeft(SizingPanel, newLeft);
+
+                    if (newBottom <= maxHeight)
+                    {
+                        // top
+                        if (newTop > 0) Canvas.SetTop(SizingPanel, newTop);
+                    }
+                }
+                else if (newBottom <= maxHeight)
+                {
+                    // top
+                    if (newTop > 0) Canvas.SetTop(SizingPanel, newTop);
+
+                    if (newRight <= maxWidth)
+                    {
+                        // left
+                        if (newLeft > 0) Canvas.SetLeft(SizingPanel, newLeft);
+                    }
+                }
+                else
+                {
+                    Debug.Print($"T: {newTop} - L: {newLeft} - R: {newRight} - B: {newBottom}\t *** W: {maxWidth} - H: {maxHeight}");   
+                }
             }
             else
             {
@@ -112,6 +141,22 @@ public partial class MainContentUserControl : UserControl
                 }
             }
         }
+    }
+
+    public void SetViewsArrangements(UserControl uc)
+    {
+        if (Panel.GetZIndex(uc!) == 1000) return;
+
+        var canvas = VisualTreeHelperExtension.FindVisualParent<Canvas>(uc);
+        if (canvas == null) return;
+
+        for (var i = 0; i < canvas.Children.Count; i++)
+        {
+            if (canvas.Children[i] == uc) continue;
+            Panel.SetZIndex(canvas.Children[i], i+100);
+        }
+
+        Panel.SetZIndex(uc, 1000);
     }
 
     #endregion

@@ -1,27 +1,27 @@
 ﻿<UserControl x:Class="Chrome.Views.Windows.ShellUserControls.MainContentUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             DataContext="{Binding}"
-             xmlns:uebersicht="clr-namespace:Chrome.Views.Windows.Uebersicht">
-    <!--<ContentPresenter
-        Content="{Binding ViewModel.CurrentUserControl, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch" />-->
+             DataContext="{Binding}">
 
-    <ContentControl HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch">
-
-        <Canvas MouseMove="CanvasMain_OnMouseMove"
-                MouseUp="CanvasMain_OnMouseUp"
-                Background="DimGray">
-
-            <uebersicht:UbersichtAktion Canvas.Top="50"
-                                        Canvas.Left="50"
-                                        Width="600"
-                                        Height="400" />
-
-        </Canvas>
-
-    </ContentControl>
+    <ItemsControl ItemsSource="{Binding ViewModel.Views, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <Canvas Background="Gray"
+                        MouseMove="CanvasMainOnMouseMove"
+                        MouseUp="CanvasMainOnMouseUp" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemContainerStyle>
+            <Style TargetType="UserControl">
+                <Setter Property="Canvas.Top"
+                        Value="50" />
+                <Setter Property="Canvas.Left"
+                        Value="50" />
+                <Setter Property="Width" Value="600" />
+                <Setter Property="Height"
+                        Value="400" />
+            </Style>
+        </ItemsControl.ItemContainerStyle>
+    </ItemsControl>
 
 </UserControl>

@@ -111,9 +111,9 @@
                 <TextBlock HorizontalAlignment="Left"
                            VerticalAlignment="Bottom"
                            Margin="20,0, 0,10"
-                           Foreground="#999"
+                           Foreground="#ddd"
                            Text="{Loc HelloWorld}" />
-                <TextBlock Foreground="#999"
+                <TextBlock Foreground="#ddd"
                            Text="{Binding ViewModel.CurrentUser, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                            Margin="0,0, 20,10"
                            VerticalAlignment="Bottom"

@@ -21,12 +21,12 @@
                     MouseDown="TopBarOnMouseDown"
                     Cursor="Hand"
                     MouseLeave="MarkerOnMouseLeave">
-                <TextBlock Foreground="{StaticResource DefaultBrush}"
+                <!--<TextBlock Foreground="{StaticResource DefaultBrush}"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Text="Übersicht Aktionen"
                            Margin="20,0,0,0"
-                           FontSize="14"></TextBlock>
+                           FontSize="14"></TextBlock>-->
             </Border>
 
             <Border x:Name="MarkerLeftTop"

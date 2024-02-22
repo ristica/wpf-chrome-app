@@ -22,6 +22,8 @@ namespace Chrome.Views.Base
 
             var main = this.GetMainUserControlParent() as MainContentUserControl;
 
+            main.SetViewsArrangements(this);
+
             main!.IsSizing = true;
             main.SizingEdgeType = 0;
             main.SizingPanel = this;
@@ -50,11 +52,11 @@ namespace Chrome.Views.Base
             Cursor = Cursors.Arrow;
         }
 
-        private UIElement GetMainUserControlParent()
+        private UIElement? GetMainUserControlParent()
         {
-            var canvasMain = Parent as Canvas;
-            var cc = canvasMain!.Parent as ContentControl;
-            return (cc!.Parent as MainContentUserControl)!;
+            var canvasMain = VisualTreeHelperExtension.FindVisualParent<Canvas>(this);
+            var mainContentUSerControl = VisualTreeHelperExtension.FindVisualParent<MainContentUserControl>(canvasMain);
+            return mainContentUSerControl;
         }
 
         private void SetSizing(object sender, MouseButtonEventArgs e)
