@@ -12,6 +12,7 @@ public interface IShellViewModel : IParentViewModel
     bool IsLeftBarExpanded { get; set; }
     bool IsRightBarExpanded { get; set; }
     bool IsLanguageInfoVisible { get; set; }
+    bool IsBottomBarExpanded { get; set; }
     IUserControl? CurrentUserControl { get; set; }
     ObservableCollection<MenuModel>? Favorites { get; }
     ObservableCollection<CustomerUiModel>? Customers { get; }

@@ -14,7 +14,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="../../Resources/background.png"
                         Stretch="None"
-                        Opacity=".25"/>
+                        Opacity="1"/>
         </Grid.Background>
 
         <shellUserControls:MainContentUserControl HorizontalAlignment="Stretch"
@@ -28,7 +28,7 @@
                                                    VerticalAlignment="Center"
                                                    Visibility="{Binding ViewModel.IsRightBarExpanded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
 
-        <Border Width="8"
+        <Border Width="10"
                 Height="100"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
@@ -56,6 +56,7 @@
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        Foreground="#aaa"
+                       Background="Transparent"
                        FontWeight="Bold">
                 <TextBlock.LayoutTransform>
                     <RotateTransform Angle="90" />
@@ -63,7 +64,7 @@
             </TextBlock>
         </Border>
 
-        <Border Width="8"
+        <Border Width="10"
                 Height="100"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
@@ -83,12 +84,13 @@
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonUp">
                     <i:InvokeCommandAction
-                        Command="{Binding ViewModel.ToggleRightSideBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                        Command="{Binding ViewModel.ToggleBottomBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding }" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
             <TextBlock Text="...."
                        Foreground="#aaa"
+                       Background="Transparent"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontWeight="Bold">
@@ -105,13 +107,13 @@
                 <LinearGradientBrush EndPoint="0.5,1.5"
                                      StartPoint="0.5,0">
                     <GradientStop Color="{StaticResource PrimaryColor}"
-                                  Offset="0" />
-                    <GradientStop Color="#f5f5f5"
+                                  Offset="0.0" />
+                    <GradientStop Color="#eeeeee"
                                   Offset=".1"></GradientStop>
                     <GradientStop Color="#aaa" Offset=".5"></GradientStop>
-                    <GradientStop Color="#999999"
+                    <GradientStop Color="#555555"
                                   Offset="0.8" />
-                    <GradientStop Color="#666666"
+                    <GradientStop Color="#000000"
                                   Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
@@ -127,6 +129,40 @@
                            VerticalAlignment="Bottom"
                            HorizontalAlignment="Right" />
             </Grid>
+        </Border>
+
+        <Border Width="120"
+                Height="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                BorderBrush="#aaa"
+                BorderThickness="1,1,1,0"
+                Background="{StaticResource DefaultBrush}"
+                CornerRadius="6,6,0,0"
+                Style="{StaticResource ToLightAnimatedBorder}"
+                ToolTip="{Loc ToggleFavorites}"
+                Cursor="Hand">
+            <Border.Effect>
+                <DropShadowEffect Color="#aaa"
+                                  ShadowDepth="1"
+                                  Direction="90"
+                                  BlurRadius="8" />
+            </Border.Effect>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonUp">
+                    <i:InvokeCommandAction Command="{Binding ViewModel.ToggleBottomBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                           CommandParameter="{Binding }" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <TextBlock Text="...."
+                       Foreground="#aaa"
+                       Background="Transparent"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Bottom"
+                       FontWeight="Bold">
+            </TextBlock>
+
         </Border>
 
         <shellUserControls:SnackBarUserControl HorizontalAlignment="Right"

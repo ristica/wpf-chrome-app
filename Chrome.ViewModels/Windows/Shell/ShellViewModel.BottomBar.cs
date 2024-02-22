@@ -1,10 +1,14 @@
-﻿namespace Chrome.ViewModels.Windows.Shell;
+﻿using Chrome.ViewModels.Commands;
+using System.Windows.Input;
+
+namespace Chrome.ViewModels.Windows.Shell;
 
 public partial class ShellViewModel
 {
     #region FIELDS
 
     private string _currentUser;
+    private bool _isBottomBarExpanded;
 
     #endregion
 
@@ -20,12 +24,29 @@ public partial class ShellViewModel
         }
     }
 
+    public bool IsBottomBarExpanded
+    {
+        get => this._isBottomBarExpanded;
+        set
+        {
+            this._isBottomBarExpanded = value;
+            OnPropertyChanged();
+        }
+    }
+
+    #endregion
+
+    #region COMMANDS
+
+    public ICommand? ToggleBottomBarCommand { get; private set; }
+
     #endregion
 
     #region HELPERS
 
     private void RegisterBottomBarCommands()
     {
+        ToggleBottomBarCommand = new ToggleBottomBarCommand(this);
     }
 
     #endregion
