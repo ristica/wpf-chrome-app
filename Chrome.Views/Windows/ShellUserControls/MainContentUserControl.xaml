@@ -14,10 +14,12 @@
         <Canvas MouseMove="CanvasMain_OnMouseMove"
                 MouseUp="CanvasMain_OnMouseUp"
                 Background="DimGray">
+
             <uebersicht:UbersichtAktion Canvas.Top="50"
-                                   Canvas.Left="50"
-                                   Width="600"
-                                   Height="400" />
+                                        Canvas.Left="50"
+                                        Width="600"
+                                        Height="400" />
+
         </Canvas>
 
     </ContentControl>

@@ -1,6 +1,7 @@
-﻿<UserControl x:Class="Chrome.Views.Windows.Uebersicht.UbersichtAktion"
+﻿<base:BaseUserControl x:Class="Chrome.Views.Windows.Uebersicht.UbersichtAktion"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:base="clr-namespace:Chrome.Views.Base"
              IsHitTestVisible="True">
 
     <Border BorderThickness="1"
@@ -17,7 +18,7 @@
                     Background="#212121"
                     CornerRadius="3,3,0,0"
                     Margin="3"
-                    MouseDown="RecTop_OnMouseDown"
+                    MouseDown="TopBarOnMouseDown"
                     Cursor="Hand"
                     MouseLeave="MarkerOnMouseLeave">
                 <TextBlock Foreground="{StaticResource DefaultBrush}"
@@ -77,4 +78,4 @@
 
         </Grid>
     </Border>
-</UserControl>
+</base:BaseUserControl>

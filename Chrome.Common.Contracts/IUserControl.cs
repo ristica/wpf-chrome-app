@@ -2,6 +2,6 @@
 
 public interface IUserControl
 {
-    IUserControlParentViewModel ViewModel { get; }
-    void SetDataContext<T>(T viewModel) where T : IUserControlParentViewModel;
+    IUserControlParentViewModel? ViewModel { get; }
+    void SetDataContext<T>(T? viewModel) where T : IUserControlParentViewModel;
 }

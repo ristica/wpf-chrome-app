@@ -12,7 +12,7 @@ public class CloseWindowCommand(IParentViewModel viewModel) : ICommand
 
     public void Execute(object? parameter)
     {
-        viewModel.CloseView();
+
     }
 
     public event EventHandler? CanExecuteChanged;

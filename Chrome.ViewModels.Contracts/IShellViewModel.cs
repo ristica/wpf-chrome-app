@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using Chrome.Common.Contracts;
 using Chrome.Models;
-using Chrome.Views.Contracts;
 
 namespace Chrome.ViewModels.Contracts;
 

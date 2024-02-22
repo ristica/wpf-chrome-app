@@ -37,7 +37,7 @@
             </i:Interaction.Triggers>
 
             <ItemsControl
-                ItemsSource="{Binding ViewModel.CarouselItems, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                ItemsSource="{Binding ViewModel.MenuItems, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top">
                 <ItemsControl.ItemsPanel>

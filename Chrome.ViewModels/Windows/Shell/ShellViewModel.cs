@@ -38,7 +38,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
         SubscribeToShellEvents();
 
         SetCommonCultures();
-        SetCarouselItems();
+        LoadMenuItems();
         SetTestCustomers();
         MessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(2));
 
@@ -49,7 +49,6 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
 
     private void RegisterCommands()
     {
-        RegisterTopBarCommands();
         RegisterBottomLanguageBarCommands();
         RegisterSearchBarCommands();
         RegisterLeftSideBarCommands();
@@ -78,7 +77,7 @@ public partial class ShellViewModel : ViewModel, IShellViewModel
     {
         _view.WindowLoaded += (s, a) => { };
 
-        _view.WindowStateChanged += (s, a) => { OnPropertyChanged(nameof(CurrentWindowState)); };
+        _view.WindowStateChanged += (s, a) => { };
     }
 
     #endregion

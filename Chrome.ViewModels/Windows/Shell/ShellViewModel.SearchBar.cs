@@ -65,7 +65,7 @@ public partial class ShellViewModel
         OnPropertyChanged(nameof(SearchFilter));
 
         var menuModelList = new List<MenuModel?>();
-        foreach (var ci in CarouselItems!) menuModelList.AddRange(ci.Children);
+        foreach (var ci in MenuItems!) menuModelList.AddRange(ci.Children);
 
         _menuListItemsChangedSubscription =
             Observable

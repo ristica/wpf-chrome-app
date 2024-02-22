@@ -8,15 +8,13 @@ public class MinimizeWindowCommand(IParentViewModel viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
-        if (viewModel.ResizeMode == ResizeMode.NoResize) return viewModel.ResizeMode == ResizeMode.CanMinimize;
-
         return true;
     }
 
 
     public void Execute(object? parameter)
     {
-        viewModel.MinimizeView();
+   
     }
 
     public event EventHandler? CanExecuteChanged;

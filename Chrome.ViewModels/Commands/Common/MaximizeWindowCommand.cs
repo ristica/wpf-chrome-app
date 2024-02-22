@@ -8,12 +8,12 @@ public class MaximizeWindowCommand(IParentViewModel viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
-        return viewModel.ResizeMode != ResizeMode.NoResize;
+        return true;
     }
 
     public void Execute(object? parameter)
     {
-        viewModel.MaximizeView();
+ 
     }
 
     public event EventHandler? CanExecuteChanged;

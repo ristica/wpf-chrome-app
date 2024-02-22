@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using Chrome.Common.Contracts;
@@ -7,7 +6,6 @@ using Chrome.Constants;
 using Chrome.Models;
 using Chrome.ViewModels.Commands;
 using Chrome.ViewModels.Design_Data;
-using Chrome.Views.Contracts;
 using MaterialDesignThemes.Wpf;
 
 namespace Chrome.ViewModels.Windows.Shell;
@@ -16,7 +14,7 @@ public partial class ShellViewModel
 {
     #region FIELDS
 
-    private ObservableCollection<MenuUiItem>? _carouselItems;
+    private ObservableCollection<MenuUiItem>? _menuItems;
     private bool _snackBarIsActive;
     private string? _snackBarText;
     private SnackBarType _snackBarType;
@@ -59,12 +57,12 @@ public partial class ShellViewModel
 
     public SnackbarMessageQueue MessageQueue { get; private set; }
 
-    public ObservableCollection<MenuUiItem>? CarouselItems
+    public ObservableCollection<MenuUiItem>? MenuItems
     {
-        get => _carouselItems;
+        get => _menuItems;
         set
         {
-            _carouselItems = value;
+            _menuItems = value;
             OnPropertyChanged();
         }
     }
@@ -119,7 +117,7 @@ public partial class ShellViewModel
         if (found != null) return;
 
         Favorites.Add(item);
-        UpdateCarouselItemsFavorite(item, true);
+        UpdateMenuItemsFavorite(item, true);
 
         ShowSnackBar(SnackBarType.Success, "Zur Favoritenliste erfolgreich hinzugefügt!");
     }
@@ -127,12 +125,12 @@ public partial class ShellViewModel
     public void RemoveFavorite(MenuModel? item)
     {
         if (item == null) return;
-        if (CarouselItems == null) return;
+        if (MenuItems == null) return;
         if (Favorites == null) return;
 
         MenuModel? found = null;
 
-        foreach (var ci in CarouselItems)
+        foreach (var ci in MenuItems)
         {
             var children = ci.Children;
             found = children.SingleOrDefault(c => c.HeaderDe == item.HeaderDe);
@@ -142,7 +140,7 @@ public partial class ShellViewModel
         if (found == null) return;
 
         Favorites.Remove(found);
-        UpdateCarouselItemsFavorite(item, false);
+        UpdateMenuItemsFavorite(item, false);
 
         ShowSnackBar(SnackBarType.Info, "Aus der Favoritenliste erfolgreich entfernt!");
     }
@@ -163,7 +161,7 @@ public partial class ShellViewModel
     }
 
     // ToDo: get data from the database !!!
-    private void SetCarouselItems()
+    private void LoadMenuItems()
     {
         var menus = CarouselMenuGenerator.Generate();
 
@@ -174,13 +172,13 @@ public partial class ShellViewModel
                 select new MenuUiItem { Parent = parent, Children = children })
             .ToList();
 
-        CarouselItems = new ObservableCollection<MenuUiItem>(items);
+        MenuItems = new ObservableCollection<MenuUiItem>(items);
         SetSearchFunctionality();
     }
 
-    private void UpdateCarouselItemsFavorite(MenuModel item, bool add)
+    private void UpdateMenuItemsFavorite(MenuModel item, bool add)
     {
-        foreach (var ui in CarouselItems!)
+        foreach (var ui in MenuItems!)
         foreach (var child in ui.Children.Where(child => child!.Id == item.Id))
         {
             child!.IsFavorite = add;
