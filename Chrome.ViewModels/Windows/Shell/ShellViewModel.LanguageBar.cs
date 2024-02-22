@@ -18,10 +18,10 @@ public partial class ShellViewModel
 
     public bool IsLanguageInfoVisible
     {
-        get => this._isLanguageInfoVisible;
+        get => _isLanguageInfoVisible;
         set
         {
-            this._isLanguageInfoVisible = value;
+            _isLanguageInfoVisible = value;
             OnPropertyChanged();
         }
     }

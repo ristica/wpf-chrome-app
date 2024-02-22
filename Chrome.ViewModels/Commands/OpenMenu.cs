@@ -24,7 +24,7 @@ public class OpenMenu(IShellViewModel viewModel) : ICommand
         viewModel.SelectedMenu = new SelectedMenuItem
         {
             MenuUiItem = dc,
-            Position = grid.TransformToAncestor(Application.Current.MainWindow).Transform(new Point(0,0)),
+            Position = grid.TransformToAncestor(Application.Current.MainWindow).Transform(new Point(0, 0)),
             MenuWidth = grid.ActualWidth
         };
 

@@ -23,12 +23,12 @@ public partial class ShellViewModel
     public void CultureChanged(string cultureName)
     {
         OnPropertyChanged(nameof(CurrentCultureName));
-        this.SetCarouselItems();
+        SetCarouselItems();
     }
 
     public void OpenView(string windowIdentifier)
     {
-        this.CurrentUserControl = this._container.Resolve<IUserControlParentViewModel>(windowIdentifier).GetUserControl();
+        CurrentUserControl = _container.Resolve<IUserControlParentViewModel>(windowIdentifier).GetUserControl();
     }
 
     public void MaximizeView()

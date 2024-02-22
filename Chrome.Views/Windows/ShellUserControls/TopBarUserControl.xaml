@@ -5,7 +5,8 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:converters="clr-namespace:Chrome.Views.Converters"
              Height="30"
-             DataContext="{Binding}">
+             DataContext="{Binding}"
+             Background="{StaticResource DefaultBrush}">
     <UserControl.Resources>
         <converters:WindowStateToVisibilityConverter x:Key="WindowStateToVisibilityConverter" />
         <converters:WindowStateToVisibilityReverseConverter x:Key="WindowStateToVisibilityReverseConverter" />
@@ -14,20 +15,29 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
+        <Border Grid.Column="0"
+                Background="{StaticResource MetroBlueBrush}"
+                Margin="8,0,2,0"
+                HorizontalAlignment="Left"
+                Width="35">
+            <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Text="M"
+                       Foreground="{StaticResource MetroYellowBrush}"
+                       FontSize="19"
+                       FontWeight="Bold" />
+        </Border>
+
         <Border x:Name="PART_ChromeTitleBar"
-                Grid.Row="0"
-                Grid.Column="0"
+                Grid.Column="1"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                Background="{StaticResource DefaultBrush}"
-                BorderBrush="{StaticResource TransparentBrush}"
-                BorderThickness="0"
-                CornerRadius="0"
-                Margin="38,2,0,0">
+                Background="{StaticResource DefaultBrush}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonDown">
                     <i:InvokeCommandAction
@@ -43,14 +53,11 @@
             </TextBlock>
         </Border>
 
-        <StackPanel Grid.Row="0"
-                    Grid.Column="1"
+        <StackPanel Grid.Column="2"
                     Orientation="Horizontal"
-                    Margin="0,2,2,0">
+                    Margin="0,0,8,0">
             <Border Background="{StaticResource DefaultBrush}"
-                    CornerRadius="0"
                     Width="42"
-                    Margin="0,0,0,0"
                     Padding="0,0,0,5"
                     ToolTip="{Loc MinimizeWindow}"
                     Cursor="Hand"
@@ -59,7 +66,7 @@
                                          Foreground="{StaticResource ForegroundHoverBrush}"
                                          VerticalAlignment="Bottom"
                                          HorizontalAlignment="Center"
-                                         Width="15"/>
+                                         Width="15" />
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
                         <i:InvokeCommandAction
@@ -68,9 +75,7 @@
                 </i:Interaction.Triggers>
             </Border>
             <Border Background="{StaticResource DefaultBrush}"
-                    CornerRadius="0"
                     Width="42"
-                    Margin="0,0,0,0"
                     Cursor="Hand"
                     ToolTip="{Loc MaximizeWindow}"
                     Style="{StaticResource ToLightAnimatedBorder}"
@@ -99,7 +104,6 @@
                 </i:Interaction.Triggers>
             </Border>
             <Border Background="{StaticResource DefaultBrush}"
-                    CornerRadius="0,0,0,0"
                     Width="42"
                     ToolTip="{Loc CloseWindow}"
                     Cursor="Hand">

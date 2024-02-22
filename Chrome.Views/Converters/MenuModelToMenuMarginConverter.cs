@@ -12,8 +12,7 @@ public class MenuModelToMenuMarginConverter : IValueConverter
 
         var position = value is Point point ? point : default;
 
-        return new Thickness(position.X - 15.00, 31, 0, 0);
-        
+        return new Thickness(position.X - 2.00, 31, 0, 0);
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

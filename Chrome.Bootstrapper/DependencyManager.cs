@@ -1,7 +1,6 @@
 ﻿using Chrome.Common.Contracts;
 using Chrome.Dependencies.Contracts;
 using Chrome.ViewModels.Contracts;
-using Chrome.ViewModels.Contracts.Uebersicht;
 using Chrome.ViewModels.Windows.Shell;
 using Chrome.ViewModels.Windows.Uebersicht;
 using Chrome.Views.Contracts;
@@ -19,6 +18,7 @@ public static class DependencyManager
         container.RegisterType<IUebersichtAktionUserControl, UbersichtAktion>();
 
         container.RegisterTypeAsSingleton<IShellViewModel, ShellViewModel>();
-        container.RegisterMultipleOfType<IUserControlParentViewModel, UebersichtAktionViewModel>(Constants.WindowIdentifiers.Uebersicht.Aktionen);
+        container.RegisterMultipleOfType<IUserControlParentViewModel, UebersichtAktionViewModel>(Constants
+            .WindowIdentifiers.Uebersicht.Aktionen);
     }
 }

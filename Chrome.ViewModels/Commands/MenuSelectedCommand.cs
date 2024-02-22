@@ -17,9 +17,7 @@ public class MenuSelectedCommand(IShellViewModel viewModel) : ICommand
 
         // ToDo: at the time only one implementation !!!
         if (parameter.ToString()!.Equals(WindowIdentifiers.Uebersicht.Aktionen))
-        {
             viewModel.OpenView(parameter.ToString()!);
-        }
     }
 
     public event EventHandler? CanExecuteChanged;

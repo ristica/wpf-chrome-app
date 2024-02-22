@@ -47,7 +47,7 @@ public partial class App : Application
         // lade Settings falls welche vorhanden ...
         var settings = Settings.Default;
         var lastCulture = settings.Culture;
-        var newCulture = string.IsNullOrEmpty(lastCulture) ? Constants.CultureTypes.DeutschCultureId : lastCulture;
+        var newCulture = string.IsNullOrEmpty(lastCulture) ? CultureTypes.DeutschCultureId : lastCulture;
 
         // ... oder von den mitgesendeten Args ...
         var args = Environment.GetCommandLineArgs();

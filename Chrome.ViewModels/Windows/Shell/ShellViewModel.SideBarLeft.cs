@@ -45,7 +45,6 @@ public partial class ShellViewModel
 
     private void RegisterLeftSideBarCommands()
     {
-
     }
 
     private void SetTestCustomers()

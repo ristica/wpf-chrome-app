@@ -22,11 +22,13 @@ public class UebersichtAktionViewModel : ViewModel, IUebersichtAktionViewModel
         UserControl.SetDataContext<IUebersichtAktionViewModel>(this);
     }
 
-    public IUserControl? GetUserControl() => UserControl;
+    public IUserControl? GetUserControl()
+    {
+        return UserControl;
+    }
 
     protected override void DisposeViewModel()
     {
-
     }
 
     public void SetDataContext(IUserControlParentViewModel viewModel)

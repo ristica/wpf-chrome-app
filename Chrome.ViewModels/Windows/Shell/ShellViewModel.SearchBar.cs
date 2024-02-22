@@ -15,7 +15,7 @@ public partial class ShellViewModel
     private bool _canSearch;
     private string _searchFilter = null!;
     private IDisposable? _menuListItemsChangedSubscription;
-    private ObservableCollection<string>? _filteredItems = new ();
+    private ObservableCollection<string>? _filteredItems = new();
 
     #endregion
 
@@ -30,7 +30,7 @@ public partial class ShellViewModel
             OnPropertyChanged();
         }
     }
-    
+
     public string SearchFilter
     {
         get => _searchFilter;
@@ -42,7 +42,7 @@ public partial class ShellViewModel
         }
     }
 
-    public IEnumerable<string>? SearchByFilteredItems => this._filteredItems;
+    public IEnumerable<string>? SearchByFilteredItems => _filteredItems;
 
     #endregion
 
@@ -61,44 +61,40 @@ public partial class ShellViewModel
 
     private void SetSearchFunctionality()
     {
-        this.SearchFilter = string.Empty;
+        SearchFilter = string.Empty;
         OnPropertyChanged(nameof(SearchFilter));
 
         var menuModelList = new List<MenuModel?>();
-        foreach (var ci in this.CarouselItems!)
-        {
-            menuModelList.AddRange(ci.Children);
-        }
+        foreach (var ci in CarouselItems!) menuModelList.AddRange(ci.Children);
 
-        this._menuListItemsChangedSubscription =
+        _menuListItemsChangedSubscription =
             Observable
                 .FromEventPattern<PropertyChangedEventHandler, PropertyChangedEventArgs>(
                     h => PropertyChanged += h,
                     h => PropertyChanged -= h)
                 .Where(e => e.EventArgs.PropertyName == nameof(SearchFilter))
                 .Select(_ => menuModelList)
-                .Select(menus => 
+                .Select(menus =>
                     menus.Where(m =>
-                            this.CurrentCultureName.Equals(CultureTypes.DeutschCultureId)
-                                ? m!.HeaderDe.Contains(this.SearchFilter, StringComparison.InvariantCultureIgnoreCase)
-                                : !string.IsNullOrEmpty(m?.HeaderEn) && m.HeaderEn.Contains(this.SearchFilter, StringComparison.InvariantCultureIgnoreCase)))
+                        CurrentCultureName.Equals(CultureTypes.DeutschCultureId)
+                            ? m!.HeaderDe.Contains(SearchFilter, StringComparison.InvariantCultureIgnoreCase)
+                            : !string.IsNullOrEmpty(m?.HeaderEn) && m.HeaderEn.Contains(SearchFilter,
+                                StringComparison.InvariantCultureIgnoreCase)))
                 .Subscribe(menus =>
                 {
-                    this._filteredItems?.Clear();
+                    _filteredItems?.Clear();
 
                     foreach (var m in menus)
-                    {
-                        switch (this.CurrentCultureName)
+                        switch (CurrentCultureName)
                         {
                             case CultureTypes.DeutschCultureId:
-                                this._filteredItems?.Add($"{m!.ParentIdDe} - {m.HeaderDe}");
+                                _filteredItems?.Add($"{m!.ParentIdDe} - {m.HeaderDe}");
                                 break;
                             case CultureTypes.EnglishCultureId:
-                                if (m?.HeaderEn != null) 
-                                    this._filteredItems?.Add($"{m.ParentIdEn} - {m.HeaderEn}");
+                                if (m?.HeaderEn != null)
+                                    _filteredItems?.Add($"{m.ParentIdEn} - {m.HeaderEn}");
                                 break;
                         }
-                    }
                 });
     }
 

@@ -84,15 +84,13 @@
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Left"
                                            Margin="5,0,0,0"
-                                           Foreground="{StaticResource ForegroundBrush}">
-                                </TextBlock>
+                                           Foreground="{StaticResource ForegroundBrush}" />
                                 <TextBlock Text="{Binding ParentIdEn}"
                                            Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=en-US, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Left"
                                            Margin="5,0,0,0"
-                                           Foreground="{StaticResource ForegroundBrush}">
-                                </TextBlock>
+                                           Foreground="{StaticResource ForegroundBrush}" />
 
                                 <!-- SEPARATOR -->
                                 <TextBlock HorizontalAlignment="Left"
@@ -106,14 +104,12 @@
                                            Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=de-DE, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Left"
-                                           Foreground="{StaticResource ForegroundBrush}">
-                                </TextBlock>
+                                           Foreground="{StaticResource ForegroundBrush}" />
                                 <TextBlock Text="{Binding HeaderEn}"
                                            Visibility="{Binding ViewModel.CurrentCultureName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CultureToVisibilityConverter}, ConverterParameter=en-US, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Left"
-                                           Foreground="{StaticResource ForegroundBrush}">
-                                </TextBlock>
+                                           Foreground="{StaticResource ForegroundBrush}" />
                             </StackPanel>
                         </Grid>
                     </Border>

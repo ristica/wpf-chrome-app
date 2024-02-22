@@ -71,21 +71,20 @@ public partial class ShellViewModel
 
     public SelectedMenuItem? SelectedMenu
     {
-        get => this._selectedMenu;
+        get => _selectedMenu;
         set
         {
-            this._selectedMenu = value;
+            _selectedMenu = value;
             OnPropertyChanged();
-
         }
     }
 
     public IUserControl? CurrentUserControl
     {
-        get => this._currentUserControl;
+        get => _currentUserControl;
         set
         {
-            this._currentUserControl = value;
+            _currentUserControl = value;
             OnPropertyChanged();
         }
     }
@@ -176,7 +175,7 @@ public partial class ShellViewModel
             .ToList();
 
         CarouselItems = new ObservableCollection<MenuUiItem>(items);
-        this.SetSearchFunctionality(); 
+        SetSearchFunctionality();
     }
 
     private void UpdateCarouselItemsFavorite(MenuModel item, bool add)

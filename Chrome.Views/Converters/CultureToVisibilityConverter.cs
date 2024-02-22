@@ -14,7 +14,9 @@ public class CultureToVisibilityConverter : IValueConverter
         var currentCulture = value as string;
         var cultureInfo = parameter as string;
 
-        return string.Equals(currentCulture, cultureInfo, StringComparison.Ordinal) ? Visibility.Visible : Visibility.Collapsed;
+        return string.Equals(currentCulture, cultureInfo, StringComparison.Ordinal)
+            ? Visibility.Visible
+            : Visibility.Collapsed;
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -5,5 +5,4 @@ namespace Chrome.ViewModels.Contracts.Uebersicht;
 
 public interface IUebersichtAktionViewModel : IUserControlParentViewModel
 {
-    
 }

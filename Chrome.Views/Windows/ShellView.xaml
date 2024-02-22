@@ -4,71 +4,22 @@
                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                xmlns:base="clr-namespace:Chrome.Views.Base"
-               xmlns:converters="clr-namespace:Chrome.Views.Converters"
                xmlns:shellUserControls="clr-namespace:Chrome.Views.Windows.ShellUserControls"
                mc:Ignorable="d"
-               Title="METRO CRM - Light"
-               WindowStyle="None"
-               BorderThickness="1"
-               Background="#cccccc"
+               Title="CRM - Light"
+               WindowStyle="SingleBorderWindow"
+               Background="{StaticResource DefaultBrush}"
                MinHeight="800"
                MinWidth="1405"
                Icon="../Resources/icon.png"
                WindowStartupLocation="CenterScreen"
-               AllowsTransparency="True"
+               AllowsTransparency="False"
                ResizeMode="{Binding ResizeMode}">
-    <Window.Resources>
-        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-    </Window.Resources>
-    <!--<Window.Background>  
-        <LinearGradientBrush StartPoint="0,0"
-                             EndPoint="0,1">
-            <GradientStop Color="#4D0000ff"
-                          Offset="0.0" />
-            <GradientStop Color="#4Dffd700"
-                          Offset=".9" />
-        </LinearGradientBrush>
-    </Window.Background>-->
-    <!--<Window.BorderBrush>
-        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-            <GradientStop Color="Blue"
-                          Offset="0.0" />
-            <GradientStop Color="Gold"
-                          Offset="1.0" />
-        </LinearGradientBrush>
-    </Window.BorderBrush>-->
-    <WindowChrome.WindowChrome>
-        <WindowChrome GlassFrameThickness="0"
-                      CaptionHeight="0"
-                      CornerRadius="25" />
-    </WindowChrome.WindowChrome>
+    <Grid>
 
-    <Grid Background="{StaticResource TransparentBrush}">
-        <Grid Margin="8">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
+        <shellUserControls:ShellContentUserControl />
 
-            <!-- row 1 -->
-            <shellUserControls:TopLeftBrandUserControl Grid.Row="0"
-                                                       Grid.Column="0" />
-
-            <shellUserControls:TopBarUserControl x:Name="TopBarUserControl"
-                                                 Grid.Row="0"
-                                                 Grid.Column="0"
-                                                 Grid.ColumnSpan="3" />
-
-            <!-- row 1 -->
-            <shellUserControls:ShellContentUserControl Grid.Row="2"
-                                                       Grid.Column="0"
-                                                       Grid.ColumnSpan="3" />
-        </Grid>
+        <shellUserControls:MenuBarUserControl HorizontalAlignment="Stretch"
+                                              VerticalAlignment="Top" />
     </Grid>
 </base:BaseView>

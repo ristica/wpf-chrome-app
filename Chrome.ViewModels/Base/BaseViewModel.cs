@@ -14,7 +14,10 @@ public abstract class BaseViewModel(IDependencyContainer container, IView view) 
 
     #region PROPERTIES
 
-    public IView GetView() => view;
+    public IView GetView()
+    {
+        return view;
+    }
 
     #endregion
 

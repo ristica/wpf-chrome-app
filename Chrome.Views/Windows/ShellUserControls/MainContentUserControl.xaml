@@ -1,31 +1,25 @@
 ﻿<UserControl x:Class="Chrome.Views.Windows.ShellUserControls.MainContentUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             DataContext="{Binding}">
-    <Border HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            BorderThickness="1"
-            BorderBrush="DodgerBlue"
-            Margin="2,18,5,35">
+             DataContext="{Binding}"
+             xmlns:uebersicht="clr-namespace:Chrome.Views.Windows.Uebersicht">
+    <!--<ContentPresenter
+        Content="{Binding ViewModel.CurrentUserControl, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch" />-->
 
-        <Canvas x:Name="canvas1"
-                MouseDown="UserControlMouseDown"
-                MouseMove="UserControlMouseMove"
-                MouseUp="UserControlMouseUp">
-            <Border Name="rectangle1"
-                       Background="DodgerBlue"
-                       Canvas.Left="20"
-                       Canvas.Top="40"
-                       Width="400"
-                       Height="300"
-                       HorizontalAlignment="Stretch"
-                       VerticalAlignment="Stretch"/>
+    <ContentControl HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch">
 
-            <!--<ContentPresenter Content="{Binding ViewModel.CurrentUserControl, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-                   HorizontalAlignment="Stretch"
-                   VerticalAlignment="Stretch" />-->
-
+        <Canvas MouseMove="CanvasMain_OnMouseMove"
+                MouseUp="CanvasMain_OnMouseUp"
+                Background="DimGray">
+            <uebersicht:UbersichtAktion Canvas.Top="50"
+                                   Canvas.Left="50"
+                                   Width="600"
+                                   Height="400" />
         </Canvas>
 
-    </Border>
+    </ContentControl>
+
 </UserControl>

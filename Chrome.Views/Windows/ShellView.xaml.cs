@@ -15,29 +15,27 @@ public partial class ShellView : BaseView, IShellView
     public ShellView()
     {
         InitializeComponent();
-        this.SetWindowName();
+        SetWindowName();
         //this.WindowState = WindowState.Maximized;
     }
 
     protected sealed override void SetWindowName()
     {
-        this.Name = WindowIdentifiers.ShellWindow;
+        Name = WindowIdentifiers.ShellWindow;
     }
 
     protected override void BaseWindowLoaded(object sender, RoutedEventArgs e)
     {
-        if (TopBarUserControl.PART_ChromeTitleBar is { } titleBar)
-            titleBar.MouseLeftButtonDown += (s, a) =>
-            {
-                if (a.ClickCount != 2 || ResizeMode != ResizeMode.CanResize) return;
-                ToggleWindowState();
-                WindowStateChanged?.Invoke(this, WindowState);
-            };
+        //if (TopBarUserControl.PART_ChromeTitleBar is { } titleBar)
+        //    titleBar.MouseLeftButtonDown += (s, a) =>
+        //    {
+        //        if (a.ClickCount != 2 || ResizeMode != ResizeMode.CanResize) return;
+        //        ToggleWindowState();
+        //        WindowStateChanged?.Invoke(this, WindowState);
+        //    };
 
         WindowLoaded?.Invoke(this, EventArgs.Empty);
 
         base.BaseWindowLoaded(sender, e);
     }
-
-    
 }

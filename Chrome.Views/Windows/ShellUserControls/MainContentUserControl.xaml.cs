@@ -1,213 +1,118 @@
-﻿using System.Diagnostics;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Shapes;
+using Chrome.Views.Helpers;
 
-namespace Chrome.Views.Windows.ShellUserControls
+namespace Chrome.Views.Windows.ShellUserControls;
+
+public partial class MainContentUserControl : UserControl
 {
-    public partial class MainContentUserControl : UserControl
+    public MainContentUserControl()
     {
-        public MainContentUserControl()
+        InitializeComponent();
+    }
+
+    #region WINDOW RESIZING, MOVING ARROUND
+
+    public bool IsSizing;
+    public int SizingEdgeType;
+    public double SizingOffsetX;
+    public double SizingOffsetY;
+    public UserControl? SizingPanel;
+
+    private void CanvasMain_OnMouseUp(object sender, MouseButtonEventArgs e)
+    {
+        if (!IsSizing) return;
+
+        IsSizing = false;
+
+        SizingEdgeType = -1;
+        SizingOffsetX = 0;
+        SizingOffsetY = 0;
+        SizingPanel = null;
+    }
+
+    private void CanvasMain_OnMouseMove(object sender, MouseEventArgs e)
+    {
+        if (IsSizing) SetSizing(sender, e);
+    }
+
+    private void SetSizing(object sender, MouseEventArgs e)
+    {
+        if (!IsSizing) return;
+
+        if (SizingEdgeType < 0) return;
+        if (SizingPanel == null) return;
+
+        if (e.LeftButton != MouseButtonState.Pressed)
         {
-            InitializeComponent();
+            IsSizing = false;
         }
-
-        #region RESIZING
-
-        // The part of the rectangle the mouse is over.
-        private enum HitType
+        else
         {
-            None, Body, UL, UR, LR, LL, L, R, T, B
-        };
+            var mousePoint = e.GetPosition(this);
+            var mouseX = mousePoint.X;
+            var mouseY = mousePoint.Y;
 
-        // True if a drag is in progress.
-        private bool _dragInProgress;
+            var position = TranslatePoint(new Point(0, 0), SizingPanel);
+            var posX = -position.X;
+            var posY = -position.Y;
 
-        // The drag's last point.
-        private Point _lastPoint;
+            var diffX = posX - mouseX;
+            var diffY = posY - mouseY;
 
-        // The part of the rectangle under the mouse.
-        HitType _mouseHitType = HitType.None;
-
-        // Return a HitType value to indicate what is at the point.
-        private HitType SetHitType(Border rect, Point point)
-        {
-            var left = Canvas.GetLeft(rectangle1);
-            var top = Canvas.GetTop(rectangle1);
-            var right = left + rectangle1.Width;
-            var bottom = top + rectangle1.Height;
-
-            if (point.X < left) return HitType.None;
-            if (point.X > right) return HitType.None;
-            if (point.Y < top) return HitType.None;
-            if (point.Y > bottom) return HitType.None;
-
-            const double gap = 10;
-            if (point.X - left < gap)
+            if (SizingEdgeType == (int)EdgeTypes.TopMove)
             {
-                // Left edge.
-                if (point.Y - top < gap) return HitType.UL;
-                if (bottom - point.Y < gap) return HitType.LL;
-                return HitType.L;
-            }
-            if (right - point.X < gap)
-            {
-                // Right edge.
-                if (point.Y - top < gap) return HitType.UR;
-                if (bottom - point.Y < gap) return HitType.LR;
-                return HitType.R;
-            }
-            if (point.Y - top < gap) return HitType.T;
-            if (bottom - point.Y < gap) return HitType.B;
-            return HitType.Body;
-        }
+                var newLeft = mouseX - SizingOffsetX;
+                var newTop = mouseY - SizingOffsetY;
 
-        // Set a mouse cursor appropriate for the current hit type.
-        private void SetMouseCursor()
-        {
-            // See what cursor we should display.
-            var desiredCursor = Cursors.Arrow;
-            switch (_mouseHitType)
-            {
-                case HitType.None:
-                    desiredCursor = Cursors.Arrow;
-                    break;
-                case HitType.Body:
-                    desiredCursor = Cursors.ScrollAll;
-                    break;
-                case HitType.UL:
-                case HitType.LR:
-                    desiredCursor = Cursors.SizeNWSE;
-                    break;
-                case HitType.LL:
-                case HitType.UR:
-                    desiredCursor = Cursors.SizeNESW;
-                    break;
-                case HitType.T:
-                case HitType.B:
-                    desiredCursor = Cursors.SizeNS;
-                    break;
-                case HitType.L:
-                case HitType.R:
-                    desiredCursor = Cursors.SizeWE;
-                    break;
-            }
+                // top / left
+                if (newLeft > 0) Canvas.SetLeft(SizingPanel, newLeft);
+                if (newTop > 0) Canvas.SetTop(SizingPanel, newTop);
 
-            // Display the desired cursor.
-            if (Cursor != desiredCursor) Cursor = desiredCursor;
-        }
-
-        // Start dragging.
-        private void UserControlMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            _mouseHitType = SetHitType(rectangle1, Mouse.GetPosition(canvas1));
-            SetMouseCursor();
-            if (_mouseHitType == HitType.None) return;
-
-            _lastPoint = Mouse.GetPosition(canvas1);
-            _dragInProgress = true;
-        }
-
-        // If a drag is in progress, continue the drag.
-        // Otherwise display the correct cursor.
-        private void UserControlMouseMove(object sender, MouseEventArgs e)
-        {
-            
-            if (!_dragInProgress)
-            {
-                _mouseHitType = SetHitType(rectangle1, Mouse.GetPosition(canvas1));
-                SetMouseCursor();
+                // right / bottom
+                // ...
             }
             else
             {
-                var point = Mouse.GetPosition(canvas1);
-
-                // See how much the mouse has moved.
-                var offsetX = point.X - _lastPoint.X;
-                var offsetY = point.Y - _lastPoint.Y;
-
-                // Get the rectangle's current position.
-                var newX = Canvas.GetLeft(rectangle1);
-                var newWidth = rectangle1.Width;
-                var newY = Canvas.GetTop(rectangle1);
-                var newHeight = rectangle1.Height;
-
-                if (newX <= 2) newX = 2;
-                if (newY <= 1) newY = 1;
-
-                var right = newX + newWidth;
-                var bottom = newY + newHeight;
-
-                if (right >= canvas1.ActualWidth) newX -= 1;
-                if (bottom >= canvas1.ActualHeight) newY -= 1;
-
-                Debug.Print($"L: {newX} - T: {newY} - R: {right} - B: {bottom}");
-
-                // Update the rectangle.
-                switch (_mouseHitType)
+                if (SizingEdgeType == (int)EdgeTypes.TopLeft ||
+                    SizingEdgeType == (int)EdgeTypes.BottomLeft)
                 {
-                    case HitType.Body:
-                        newX += offsetX;
-                        newY += offsetY;
-                        break;
-                    case HitType.UL:
-                        newX += offsetX;
-                        newY += offsetY;
-                        newWidth -= offsetX;
-                        newHeight -= offsetY;
-                        break;
-                    case HitType.UR:
-                        newY += offsetY;
-                        newWidth += offsetX;
-                        newHeight -= offsetY;
-                        break;
-                    case HitType.LR:
-                        newWidth += offsetX;
-                        newHeight += offsetY;
-                        break;
-                    case HitType.LL:
-                        newX += offsetX;
-                        newWidth -= offsetX;
-                        newHeight += offsetY;
-                        break;
-                    case HitType.L:
-                        newX += offsetX;
-                        newWidth -= offsetX;
-                        break;
-                    case HitType.R:
-                        newWidth += offsetX;
-                        break;
-                    case HitType.B:
-                        newHeight += offsetY;
-                        break;
-                    case HitType.T:
-                        newY += offsetY;
-                        newHeight -= offsetY;
-                        break;
+                    var newLeft = mouseX;
+                    var newWidth = SizingPanel.ActualWidth + diffX;
+
+                    if (newLeft > 0) Canvas.SetLeft(SizingPanel, newLeft);
+                    if (newWidth > 0) SizingPanel.Width = newWidth;
                 }
 
-                // Don't use negative width or height.
-                if (!(newWidth > 0) || !(newHeight > 0)) return;
+                if (SizingEdgeType == (int)EdgeTypes.TopLeft ||
+                    SizingEdgeType == (int)EdgeTypes.TopRight)
+                {
+                    var newTop = mouseY;
+                    var newHeight = SizingPanel.ActualHeight + diffY;
 
-                // Update the rectangle.
-                Canvas.SetLeft(rectangle1, newX);
-                Canvas.SetTop(rectangle1, newY);
-                rectangle1.Width = newWidth;
-                rectangle1.Height = newHeight;
+                    if (newTop > 0) Canvas.SetTop(SizingPanel, newTop);
+                    if (newHeight > 0) SizingPanel.Height = newHeight;
+                }
 
-                // Save the mouse's new location.
-                _lastPoint = point;
+                if (SizingEdgeType == (int)EdgeTypes.TopRight ||
+                    SizingEdgeType == (int)EdgeTypes.BottomRight)
+                {
+                    var newWidth = mouseX - posX;
+
+                    if (newWidth > 0) SizingPanel.Width = newWidth;
+                }
+
+                if (SizingEdgeType == (int)EdgeTypes.BottomLeft ||
+                    SizingEdgeType == (int)EdgeTypes.BottomRight)
+                {
+                    var newHeight = mouseY - posY;
+
+                    if (newHeight > 0) SizingPanel.Height = newHeight;
+                }
             }
         }
-
-        // Stop dragging.
-        private void UserControlMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            _dragInProgress = false;
-        }
-
-        #endregion
     }
+
+    #endregion
 }

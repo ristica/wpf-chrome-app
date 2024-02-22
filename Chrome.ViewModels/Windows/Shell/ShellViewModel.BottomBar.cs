@@ -12,13 +12,13 @@ public partial class ShellViewModel
 
     public string CurrentUser
     {
-        get => this._currentUser;
+        get => _currentUser;
         set
         {
-            this._currentUser = value;
+            _currentUser = value;
             OnPropertyChanged();
         }
-}
+    }
 
     #endregion
 
@@ -26,7 +26,6 @@ public partial class ShellViewModel
 
     private void RegisterBottomBarCommands()
     {
-
     }
 
     #endregion

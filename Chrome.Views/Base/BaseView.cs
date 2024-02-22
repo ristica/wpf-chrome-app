@@ -60,11 +60,11 @@ public abstract class BaseView : Window
 
     public void ActivateMe()
     {
-        this.WindowState = WindowState.Normal;
-        this.Activate();
-        this.Topmost = true;
-        this.Topmost = false;
-        this.Focus();
+        WindowState = WindowState.Normal;
+        Activate();
+        Topmost = true;
+        Topmost = false;
+        Focus();
     }
 
     protected void ToggleWindowState()
