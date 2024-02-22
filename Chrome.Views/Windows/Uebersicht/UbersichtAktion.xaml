@@ -2,18 +2,13 @@
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:base="clr-namespace:Chrome.Views.Base"
-                      IsHitTestVisible="True">
+                      IsHitTestVisible="True"
+                      Style="{StaticResource SkinUserControlStyle}">
 
-    <Border BorderThickness="1"
-            BorderBrush="Black"
-            CornerRadius="4"
-            Background="DodgerBlue"
-            MouseDown="OnUserControlActivated">
+    <Grid Background="#03000000"
+          MouseDown="OnUserControlActivated">
 
-        <Grid HorizontalAlignment="Stretch"
-              VerticalAlignment="Stretch">
-
-            <Border x:Name="BorderTopBar"
+        <!--<Border x:Name="BorderTopBar"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Top"
                     Height="40"
@@ -22,14 +17,7 @@
                     Margin="3"
                     MouseDown="TopBarOnMouseDown"
                     Cursor="Hand"
-                    MouseLeave="MarkerOnMouseLeave">
-                <!--<TextBlock Foreground="{StaticResource DefaultBrush}"
-                           HorizontalAlignment="Left"
-                           VerticalAlignment="Center"
-                           Text="Übersicht Aktionen"
-                           Margin="20,0,0,0"
-                           FontSize="14"></TextBlock>-->
-            </Border>
+                    MouseLeave="MarkerOnMouseLeave" />-->
 
             <Border x:Name="MarkerLeftTop"
                     HorizontalAlignment="Left"
@@ -72,14 +60,12 @@
                     MouseDown="MarkerOnMouseDown"
                     MouseLeave="MarkerOnMouseLeave" />
 
-            <TextBlock HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontSize="30"
-                       Text="{Loc HelloWorld}"
-                       Foreground="{StaticResource DefaultBrush}" />
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="30"
+                   Text="{Loc HelloWorld}"
+                   Foreground="{StaticResource ForegroundBrush}" />
 
-        </Grid>
-
-    </Border>
+    </Grid>
 
 </base:BaseUserControl>

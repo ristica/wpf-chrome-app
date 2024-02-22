@@ -21,6 +21,6 @@ public partial class UbersichtAktion : BaseUserControl, IUebersichtAktionUserCon
 
     protected sealed override void SetTopBar()
     {
-        TopBar = BorderTopBar;
+        //TopBar = PART_TitleBar;
     }
 }
