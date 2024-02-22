@@ -3,81 +3,78 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              IsHitTestVisible="True">
 
-    <Grid HorizontalAlignment="Stretch"
-          VerticalAlignment="Stretch">
+    <Border BorderThickness="1"
+            BorderBrush="Black"
+            CornerRadius="4"
+            Background="DodgerBlue">
+        <Grid HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch">
 
-        <Border BorderThickness="1"
-                BorderBrush="Black"
-                CornerRadius="4"
-                Background="DodgerBlue"></Border>
+            <Border x:Name="BorderTopBar"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Height="40"
+                    Background="#212121"
+                    CornerRadius="3,3,0,0"
+                    Margin="3"
+                    MouseDown="RecTop_OnMouseDown"
+                    Cursor="Hand"
+                    MouseLeave="MarkerOnMouseLeave">
+                <TextBlock Foreground="{StaticResource DefaultBrush}"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Text="Übersicht Aktionen"
+                           Margin="20,0,0,0"
+                           FontSize="14"></TextBlock>
+            </Border>
 
-        <Border x:Name="BorderTopBar"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Top"
-                Height="40"
-                Background="#212121"
-                CornerRadius="3,3,0,0"
-                Margin="3"
-                MouseDown="RecTop_OnMouseDown"
-                Cursor="Hand"
-                MouseLeave="MarkerOnMouseLeave">
-            <TextBlock Foreground="{StaticResource DefaultBrush}"
-                       HorizontalAlignment="Left"
+            <Border x:Name="MarkerLeftTop"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Width="10"
+                    Height="10"
+                    Background="Gray"
+                    Opacity=".01"
+                    Cursor="SizeNWSE"
+                    MouseDown="MarkerOnMouseDown"
+                    MouseLeave="MarkerOnMouseLeave"></Border>
+            <Border x:Name="MarkerRightTop"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Width="10"
+                    Height="10"
+                    Background="Gray"
+                    Opacity=".01"
+                    Cursor="SizeNESW"
+                    MouseDown="MarkerOnMouseDown"
+                    MouseLeave="MarkerOnMouseLeave"></Border>
+            <Border x:Name="MarkerRightBottom"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Width="10"
+                    Height="10"
+                    Background="Gray"
+                    Opacity=".01"
+                    Cursor="SizeNWSE"
+                    MouseDown="MarkerOnMouseDown"
+                    MouseLeave="MarkerOnMouseLeave"></Border>
+            <Border x:Name="MarkerLeftBottom"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Width="10"
+                    Height="10"
+                    Background="Gray"
+                    Opacity=".01"
+                    Cursor="SizeNESW"
+                    MouseDown="MarkerOnMouseDown"
+                    MouseLeave="MarkerOnMouseLeave"></Border>
+
+            <TextBlock HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       Text="Übersicht Aktionen"
-                       Margin="20,0,0,0"
-                       FontSize="14"></TextBlock>
-        </Border>
+                       FontSize="30"
+                       Text="Hello World"
+                       Foreground="{StaticResource DefaultBrush}" />
 
-        <Border x:Name="MarkerLeftTop"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Width="10"
-                Height="10"
-                Background="Gray"
-                Opacity=".01"
-                Cursor="SizeNWSE"
-                MouseDown="MarkerOnMouseDown"
-                MouseLeave="MarkerOnMouseLeave"></Border>
-
-        <Border x:Name="MarkerRightTop"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Width="10"
-                Height="10"
-                Background="Gray"
-                Opacity=".01"
-                Cursor="SizeNESW"
-                MouseDown="MarkerOnMouseDown"
-                MouseLeave="MarkerOnMouseLeave"></Border>
-
-        <Border x:Name="MarkerRightBottom"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                Width="10"
-                Height="10"
-                Background="Gray"
-                Opacity=".01"
-                Cursor="SizeNWSE"
-                MouseDown="MarkerOnMouseDown"
-                MouseLeave="MarkerOnMouseLeave"></Border>
-
-        <Border x:Name="MarkerLeftBottom"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"
-                Width="10"
-                Height="10"
-                Background="Gray"
-                Opacity=".01"
-                Cursor="SizeNESW"
-                MouseDown="MarkerOnMouseDown"
-                MouseLeave="MarkerOnMouseLeave"></Border>
-
-        <TextBlock HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="30"
-                   Text="Hello World" 
-                   Foreground="{StaticResource DefaultBrush}"/>
-
-    </Grid>
+        </Grid>
+    </Border>
 </UserControl>
