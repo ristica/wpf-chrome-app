@@ -728,6 +728,39 @@ public static class CarouselMenuGenerator
             new MenuModel
             {
                 Id = Guid.NewGuid(),
+                Order = 2,
+                HeaderDe = "Überlappend",
+                HasChildren = false,
+                IsChild = true,
+                ParentIdDe = "Fenster",
+                NeedsOneOfRoles = GetDefaultRoles()
+            },
+
+            new MenuModel
+            {
+                Id = Guid.NewGuid(),
+                Order = 3,
+                HeaderDe = "Untereinander",
+                HasChildren = false,
+                IsChild = true,
+                ParentIdDe = "Fenster",
+                NeedsOneOfRoles = GetDefaultRoles()
+            },
+
+            new MenuModel
+            {
+                Id = Guid.NewGuid(),
+                Order = 4,
+                HeaderDe = "Nebeneinander",
+                HasChildren = false,
+                IsChild = true,
+                ParentIdDe = "Fenster",
+                NeedsOneOfRoles = GetDefaultRoles()
+            },
+
+            new MenuModel
+            {
+                Id = Guid.NewGuid(),
                 Order = 12,
                 HeaderDe = "Optionen",
                 ParentIdDe = "Optionen",
