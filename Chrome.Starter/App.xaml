@@ -272,13 +272,42 @@
                     </EventTrigger>
                 </Style.Triggers>
             </Style>
+            <Style TargetType="Border"
+                   x:Key="ToDarkerAnimatedBorder">
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                        <EasingColorKeyFrame KeyTime="0:0:0.25"
+                                                             Value="#cccccc" />
+                                    </ColorAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                        <EasingColorKeyFrame KeyTime="0:0:0.25"
+                                                             Value="#eee" />
+                                    </ColorAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
 
             <ControlTemplate x:Key="UserControlTemplate"
                              TargetType="{x:Type UserControl}">
                 <Border x:Name="WindowRoot"
                         BorderThickness=".8"
                         BorderBrush="#212121"
-                        Background="{StaticResource DefaultBrush}">
+                        Background="#eee">
                     <b:Interaction.Triggers>
                         <b:EventTrigger EventName="MouseDown">
                             <b:InvokeCommandAction Command="{Binding ViewModel.ActivateWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
@@ -329,7 +358,7 @@
                                     VerticalAlignment="Stretch"
                                     Margin="0"
                                     Cursor="Hand"
-                                    Background="{StaticResource DefaultBrush}">
+                                    Background="#03000000">
                                 <b:Interaction.Triggers>
                                     <b:EventTrigger EventName="MouseDown">
                                         <b:InvokeCommandAction Command="{Binding ViewModel.DragStartWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" 
@@ -351,18 +380,18 @@
                                     CornerRadius="0,4,0,0"
                                     MinWidth="100"
                                     Padding="2"
-                                    Background="{StaticResource DefaultBrush}">
+                                    Background="#eee">
                                 <StackPanel Orientation="Horizontal"
                                             HorizontalAlignment="Right">
 
                                     <!-- MINIMIZE -->
-                                    <Border Background="{StaticResource DefaultBrush}"
+                                    <Border Background="#eee"
                                             Width="36"
                                             Margin="0,0,1,0"
                                             Padding="0,10,0,9"
                                             ToolTip="{Loc MinimizeWindow}"
                                             Cursor="Hand"
-                                            Style="{StaticResource ToLightAnimatedBorder}">
+                                            Style="{StaticResource ToDarkerAnimatedBorder}">
                                         <materialDesign:PackIcon Kind="WindowMinimize"
                                                                  Foreground="#ddd"
                                                                  VerticalAlignment="Bottom"
@@ -380,13 +409,13 @@
                                     </Border>
 
                                     <!-- MAXIMIZE -->
-                                    <Border Background="{StaticResource DefaultBrush}"
+                                    <Border Background="#eee"
                                             Width="36"
                                             Margin="0,0,1,0"
                                             Padding="0,5"
                                             Cursor="Hand"
                                             ToolTip="{Loc MaximizeWindow}"
-                                            Style="{StaticResource ToLightAnimatedBorder}">
+                                            Style="{StaticResource ToDarkerAnimatedBorder}">
                                         <Grid>
                                             <materialDesign:PackIcon Kind="WindowMaximize"
                                                                      Foreground="{StaticResource ForegroundHoverBrush}"
@@ -410,7 +439,7 @@
                                     </Border>
 
                                     <!-- CLOSE -->
-                                    <Border Background="{StaticResource DefaultBrush}"
+                                    <Border Background="#eee"
                                             Width="36"
                                             Padding="0,5"
                                             ToolTip="{Loc CloseWindow}"
@@ -438,7 +467,7 @@
                                                                     <ColorAnimationUsingKeyFrames
                                                                         Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                                                         <EasingColorKeyFrame KeyTime="0:0:0.2"
-                                                                            Value="{StaticResource PrimaryColor}" />
+                                                                            Value="#eee" />
                                                                     </ColorAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </BeginStoryboard>
@@ -504,7 +533,6 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Padding="0"
-                                Background="{StaticResource DefaultBrush}"
                                 CornerRadius="0,0,4,4">
                             <Grid Height="25">
                                 <Grid.ColumnDefinitions>

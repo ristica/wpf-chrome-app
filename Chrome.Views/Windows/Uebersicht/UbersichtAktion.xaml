@@ -6,7 +6,7 @@
                       IsHitTestVisible="True"
                       Style="{StaticResource SkinUserControlStyle}">
 
-    <Grid Background="DodgerBlue">
+    <Grid Background="#eee">
         <!--MouseDown="OnUserControlActivated">-->
 
         <!--<Border x:Name="BorderTopBar"
