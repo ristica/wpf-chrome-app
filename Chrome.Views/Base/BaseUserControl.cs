@@ -11,11 +11,16 @@ public abstract class BaseUserControl : UserControl
 {
     private int _edgeType;
 
-    public IUserControlParentViewModel? ViewModel { get; protected set; }
+    public IUserControlParentViewModel? ViewModel { get; private set; }
 
     protected BaseUserControl()
     {
         Loaded += (s, e) => { VisualTreeHelperExtension.SetViewsArrangement(this); };
+    }
+
+    public void SetDataContext<T>(T? viewModel) where T : IUserControlParentViewModel
+    {
+        ViewModel = viewModel;
     }
 
     public void OnUserControlActivate()
