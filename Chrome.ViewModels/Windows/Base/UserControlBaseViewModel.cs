@@ -5,13 +5,24 @@ using Chrome.ViewModels.Commands.Common;
 
 namespace Chrome.ViewModels.Windows.Base;
 
-public abstract class UserControlBaseViewModel(IDependencyContainer container, string window) : ViewModel
+public abstract class UserControlBaseViewModel(IDependencyContainer container, string window) 
+    : ViewModel
 {
+    #region FIELDS
+
     protected readonly IDependencyContainer Container = container;
     private readonly IUserControl? _userControl = container.Resolve<IUserControl>(window);
 
+    #endregion
+
+    #region PROPERTIES
+
     private IUserControlParentViewModel? CurrentWindowViewModel { get; set; }
     public required string WindowTitle { get; set; }
+
+    #endregion
+
+    #region COMMANDS
 
     public CloseWindowCommand? CloseWindowCommand { get; private set; }
     public MinimizeWindowCommand? MinimizeWindowCommand { get; private set; }
@@ -23,15 +34,23 @@ public abstract class UserControlBaseViewModel(IDependencyContainer container, s
     public MarkerActivateCommand? MarkerActivateCommand { get; private set; }
     public MarkerDeactivateCommand? MarkerDeactivateCommand { get; private set; }
 
+    #endregion
+
+    #region METHODS
+
     public IUserControl? GetUserControl() => this._userControl;
 
     protected void SetWindowInstanceViewModel(IUserControlParentViewModel? vm)
     {
         this.CurrentWindowViewModel = vm;
-        this._userControl?.SetDataContext<IUserControlParentViewModel>(this.CurrentWindowViewModel);
+        this._userControl?.SetDataContext(this.CurrentWindowViewModel);
 
         this.RegisterCommands();
     }
+
+    #endregion
+
+    #region HELPERS
 
     private void RegisterCommands()
     {
@@ -48,4 +67,6 @@ public abstract class UserControlBaseViewModel(IDependencyContainer container, s
         MarkerActivateCommand = new MarkerActivateCommand(CurrentWindowViewModel);
         MarkerDeactivateCommand = new MarkerDeactivateCommand(CurrentWindowViewModel);
     }
+
+    #endregion
 }

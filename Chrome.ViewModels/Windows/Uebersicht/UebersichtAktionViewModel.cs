@@ -5,7 +5,8 @@ using Chrome.ViewModels.Windows.Base;
 
 namespace Chrome.ViewModels.Windows.Uebersicht;
 
-public class UebersichtAktionViewModel : UserControlBaseViewModel, IUebersichtAktionViewModel
+public class UebersichtAktionViewModel 
+    : UserControlBaseViewModel, IUebersichtAktionViewModel
 {
     public UebersichtAktionViewModel(IDependencyContainer container) 
         : base(container, Constants.WindowIdentifiers.Uebersicht.Aktionen)
