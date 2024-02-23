@@ -26,14 +26,6 @@ public partial class ShellView : BaseView, IShellView
 
     protected override void BaseWindowLoaded(object sender, RoutedEventArgs e)
     {
-        //if (TopBarUserControl.PART_ChromeTitleBar is { } titleBar)
-        //    titleBar.MouseLeftButtonDown += (s, a) =>
-        //    {
-        //        if (a.ClickCount != 2 || ResizeMode != ResizeMode.CanResize) return;
-        //        ToggleWindowState();
-        //        WindowStateChanged?.Invoke(this, WindowState);
-        //    };
-
         WindowLoaded?.Invoke(this, EventArgs.Empty);
 
         base.BaseWindowLoaded(sender, e);
