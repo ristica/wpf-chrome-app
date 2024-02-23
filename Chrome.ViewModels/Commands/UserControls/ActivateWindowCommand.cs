@@ -1,9 +1,9 @@
 ﻿using System.Windows.Input;
 using Chrome.Common.Contracts;
 
-namespace Chrome.ViewModels.Commands.Common;
+namespace Chrome.ViewModels.Commands.UserControls;
 
-public class MarkerDeactivateCommand(IUserControlParentViewModel? viewModel) : ICommand
+public class ActivateWindowCommand(IUserControlParentViewModel? viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
@@ -12,7 +12,7 @@ public class MarkerDeactivateCommand(IUserControlParentViewModel? viewModel) : I
 
     public void Execute(object? parameter)
     {
-        viewModel.GetUserControl()?.OnUserControlMouseLeave();
+        viewModel.GetUserControl()?.OnUserControlActivate();
     }
 
     public event EventHandler? CanExecuteChanged;

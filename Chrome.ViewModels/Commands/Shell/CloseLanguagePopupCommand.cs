@@ -1,20 +1,18 @@
 ﻿using Chrome.ViewModels.Contracts;
 using System.Windows.Input;
-using Chrome.Models;
 
-namespace Chrome.ViewModels.Commands;
+namespace Chrome.ViewModels.Commands.Shell;
 
-public class FavoriteAddCommand(IShellViewModel viewModel) : ICommand
+public class CloseLanguagePopupCommand(IShellViewModel viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
         return true;
-        //viewModel.Favorites == null || viewModel.Favorites.Count < 5;
     }
 
     public void Execute(object? parameter)
     {
-        viewModel.AddFavorite(parameter as MenuModel);
+        viewModel.IsLanguageInfoVisible = false;
     }
 
     public event EventHandler? CanExecuteChanged;

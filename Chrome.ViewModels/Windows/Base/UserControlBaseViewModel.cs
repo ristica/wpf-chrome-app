@@ -1,7 +1,7 @@
 ﻿using Chrome.Common.Contracts;
 using Chrome.Dependencies.Contracts;
 using Chrome.ViewModels.Base;
-using Chrome.ViewModels.Commands.Common;
+using Chrome.ViewModels.Commands.UserControls;
 
 namespace Chrome.ViewModels.Windows.Base;
 

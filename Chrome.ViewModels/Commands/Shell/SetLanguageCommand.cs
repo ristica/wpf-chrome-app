@@ -2,7 +2,7 @@
 using Chrome.ViewModels.Contracts;
 using System.Windows.Input;
 
-namespace Chrome.ViewModels.Commands;
+namespace Chrome.ViewModels.Commands.Shell;
 
 public class SetLanguageCommand(IShellViewModel viewModel) : ICommand
 {

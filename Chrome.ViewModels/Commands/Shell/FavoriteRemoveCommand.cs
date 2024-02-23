@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using Chrome.Models;
 
-namespace Chrome.ViewModels.Commands;
+namespace Chrome.ViewModels.Commands.Shell;
 
 public class FavoriteRemoveCommand(IShellViewModel viewModel) : ICommand
 {

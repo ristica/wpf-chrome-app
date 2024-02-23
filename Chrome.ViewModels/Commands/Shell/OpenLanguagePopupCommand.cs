@@ -1,9 +1,9 @@
 ﻿using Chrome.ViewModels.Contracts;
 using System.Windows.Input;
 
-namespace Chrome.ViewModels.Commands;
+namespace Chrome.ViewModels.Commands.Shell;
 
-public class ToggleRightSideBarCommand(IShellViewModel viewModel) : ICommand
+public class OpenLanguagePopupCommand(IShellViewModel viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
@@ -12,7 +12,7 @@ public class ToggleRightSideBarCommand(IShellViewModel viewModel) : ICommand
 
     public void Execute(object? parameter)
     {
-        viewModel.IsRightBarExpanded = !viewModel.IsRightBarExpanded;
+        viewModel.IsLanguageInfoVisible = true;
     }
 
     public event EventHandler? CanExecuteChanged;

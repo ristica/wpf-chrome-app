@@ -1,5 +1,5 @@
-﻿using Chrome.ViewModels.Commands;
-using System.Windows.Input;
+﻿using System.Windows.Input;
+using Chrome.ViewModels.Commands.Shell;
 
 namespace Chrome.ViewModels.Windows.Shell;
 

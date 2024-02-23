@@ -1,9 +1,9 @@
 ﻿using Chrome.ViewModels.Contracts;
 using System.Windows.Input;
 
-namespace Chrome.ViewModels.Commands;
+namespace Chrome.ViewModels.Commands.Shell;
 
-public class CloseMenu(IShellViewModel viewModel) : ICommand
+public class ToggleSearchCommand(IShellViewModel viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
@@ -12,7 +12,8 @@ public class CloseMenu(IShellViewModel viewModel) : ICommand
 
     public void Execute(object? parameter)
     {
-        viewModel.SelectedMenu = null;
+        viewModel.CanSearch = !viewModel.CanSearch;
+        if (!viewModel.CanSearch) viewModel.SearchFilter = string.Empty;
     }
 
     public event EventHandler? CanExecuteChanged;

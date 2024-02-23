@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 using Chrome.Models;
-using Chrome.ViewModels.Commands;
+using Chrome.ViewModels.Commands.Shell;
 
 namespace Chrome.ViewModels.Windows.Shell;
 

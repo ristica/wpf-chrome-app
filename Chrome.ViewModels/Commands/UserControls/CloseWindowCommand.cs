@@ -1,19 +1,18 @@
-﻿using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Chrome.Common.Contracts;
 
-namespace Chrome.ViewModels.Commands.Common;
+namespace Chrome.ViewModels.Commands.UserControls;
 
-public class MinimizeWindowCommand(IUserControlParentViewModel? viewModel) : ICommand
+public class CloseWindowCommand(IUserControlParentViewModel? viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
         return true;
     }
 
-
     public void Execute(object? parameter)
     {
+        viewModel.DisposeMe();
     }
 
     public event EventHandler? CanExecuteChanged;

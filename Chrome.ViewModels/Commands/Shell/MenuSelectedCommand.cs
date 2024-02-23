@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using Chrome.Constants;
 
-namespace Chrome.ViewModels.Commands;
+namespace Chrome.ViewModels.Commands.Shell;
 
 public class MenuSelectedCommand(IShellViewModel viewModel) : ICommand
 {

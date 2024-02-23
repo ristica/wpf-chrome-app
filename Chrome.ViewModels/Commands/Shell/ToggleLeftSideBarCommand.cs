@@ -1,8 +1,7 @@
-﻿using Chrome.Models;
-using Chrome.ViewModels.Contracts;
+﻿using Chrome.ViewModels.Contracts;
 using System.Windows.Input;
 
-namespace Chrome.ViewModels.Commands;
+namespace Chrome.ViewModels.Commands.Shell;
 
 public class ToggleLeftSideBarCommand(IShellViewModel viewModel) : ICommand
 {

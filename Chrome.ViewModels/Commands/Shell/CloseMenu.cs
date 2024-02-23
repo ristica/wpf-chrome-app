@@ -1,9 +1,9 @@
 ﻿using Chrome.ViewModels.Contracts;
 using System.Windows.Input;
 
-namespace Chrome.ViewModels.Commands;
+namespace Chrome.ViewModels.Commands.Shell;
 
-public class ToggleBottomBarCommand(IShellViewModel viewModel) : ICommand
+public class CloseMenu(IShellViewModel viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
@@ -12,7 +12,7 @@ public class ToggleBottomBarCommand(IShellViewModel viewModel) : ICommand
 
     public void Execute(object? parameter)
     {
-        viewModel.IsBottomBarExpanded = !viewModel.IsBottomBarExpanded;
+        viewModel.SelectedMenu = null;
     }
 
     public event EventHandler? CanExecuteChanged;

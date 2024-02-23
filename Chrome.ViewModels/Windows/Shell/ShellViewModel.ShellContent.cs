@@ -4,7 +4,7 @@ using System.Windows.Threading;
 using Chrome.Common.Contracts;
 using Chrome.Constants;
 using Chrome.Models;
-using Chrome.ViewModels.Commands;
+using Chrome.ViewModels.Commands.Shell;
 using Chrome.ViewModels.Design_Data;
 using MaterialDesignThemes.Wpf;
 

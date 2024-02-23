@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using Chrome.Common.Contracts;
 
-namespace Chrome.ViewModels.Commands.Common;
+namespace Chrome.ViewModels.Commands.UserControls;
 
 public class DragStopWindowCommand(IUserControlParentViewModel? viewModel) : ICommand
 {

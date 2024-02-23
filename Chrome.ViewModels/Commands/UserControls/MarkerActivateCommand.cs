@@ -1,7 +1,7 @@
-﻿using Chrome.Common.Contracts;
-using System.Windows.Input;
+﻿using System.Windows.Input;
+using Chrome.Common.Contracts;
 
-namespace Chrome.ViewModels.Commands.Common;
+namespace Chrome.ViewModels.Commands.UserControls;
 
 public class MarkerActivateCommand(IUserControlParentViewModel? viewModel) : ICommand
 {
