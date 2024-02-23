@@ -11,7 +11,7 @@
                Background="{StaticResource DefaultBrush}"
                MinHeight="800"
                MinWidth="1405"
-               Icon="../Resources/icon.png"
+               Icon="../Resources/favmetro.ico"
                WindowStartupLocation="CenterScreen"
                AllowsTransparency="False"
                ResizeMode="{Binding ResizeMode}">
@@ -21,6 +21,7 @@
 
         <shellUserControls:MenuBarUserControl HorizontalAlignment="Stretch"
                                               VerticalAlignment="Top" />
+
     </Grid>
 
 </base:BaseView>

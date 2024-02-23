@@ -9,14 +9,14 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\background.png" />
-	  <None Remove="Resources\icon.png" />
+	  <None Remove="Resources\favmetro.ico" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="Resources\background.png">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </EmbeddedResource>
-	  <EmbeddedResource Include="Resources\icon.png">
+	  <EmbeddedResource Include="Resources\favmetro.ico">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </EmbeddedResource>
 	</ItemGroup>
@@ -35,12 +35,12 @@
 
 	<ItemGroup>
 	  <Reference Include="MaterialDesignThemes.Wpf">
-	    <HintPath>..\..\..\..\.nuget\packages\materialdesignthemes\4.9.0\lib\net7.0\MaterialDesignThemes.Wpf.dll</HintPath>
+	    <HintPath>..\Chrome.Views\libs\MaterialDesignThemes.Wpf.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 
 	<ItemGroup>
-		<Resource Include="Resources\icon.png" />
+		<Resource Include="Resources\favmetro.ico" />
 		<Resource Include="Resources\background.png" />
 	</ItemGroup>
 

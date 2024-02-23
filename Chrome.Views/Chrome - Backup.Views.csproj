@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\background.png" />
+	  <None Remove="Resources\favmetro.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\background.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="Resources\favmetro.ico">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Localization.WPF" Version="1.0.0" />
+		<PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Chrome.Common\Chrome.Common.csproj" />
+		<ProjectReference Include="..\Chrome.Constants\Chrome.Constants.csproj" />
+		<ProjectReference Include="..\Chrome.Models\Chrome.Models.csproj" />
+		<ProjectReference Include="..\Chrome.Views.Contracts\Chrome.Views.Contracts.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="MaterialDesignThemes.Wpf">
+	    <HintPath>..\..\..\..\Users\aleksandar.ristic\.nuget\packages\materialdesignthemes\4.9.0\lib\net7.0\MaterialDesignThemes.Wpf.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Resources\favmetro.ico" />
+		<Resource Include="Resources\background.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Libs\" />
+	</ItemGroup>
+
+</Project>

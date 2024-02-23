@@ -318,12 +318,12 @@
                                     Grid.Column="1"
                                     Grid.Row="0"
                                     HorizontalAlignment="Stretch"
-                                    VerticalAlignment="Top"
-                                    Margin="3"
+                                    VerticalAlignment="Stretch"
+                                    Margin="0"
                                     Cursor="Hand"
                                     Background="{StaticResource DefaultBrush}">
                                 <TextBlock HorizontalAlignment="Left"
-                                           VerticalAlignment="Center"
+                                           VerticalAlignment="Stretch"
                                            Text="{Binding  ViewModel.WindowTitle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                            Foreground="{StaticResource ForegroundBrush}"
                                            Margin="15,0,0,0" />
@@ -510,9 +510,9 @@
             </ControlTemplate>
             <Style x:Key="SkinUserControlStyle"
                    TargetType="UserControl">
-                <Setter Property="MinWidth"
+                <Setter Property="Width"
                         Value="600" />
-                <Setter Property="MinHeight"
+                <Setter Property="Height"
                         Value="300" />
                 <Setter Property="Template"
                         Value="{StaticResource UserControlTemplate}" />

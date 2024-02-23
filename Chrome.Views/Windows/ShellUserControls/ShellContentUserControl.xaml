@@ -14,7 +14,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="../../Resources/background.png"
                         Stretch="None"
-                        Opacity="1"/>
+                        Opacity=".25"/>
         </Grid.Background>
 
         <shellUserControls:MainContentUserControl HorizontalAlignment="Stretch"
@@ -84,7 +84,7 @@
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonUp">
                     <i:InvokeCommandAction
-                        Command="{Binding ViewModel.ToggleBottomBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                        Command="{Binding ViewModel.ToggleRightSideBarCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding }" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
@@ -140,7 +140,7 @@
                 Background="{StaticResource DefaultBrush}"
                 CornerRadius="6,6,0,0"
                 Style="{StaticResource ToLightAnimatedBorder}"
-                ToolTip="{Loc ToggleFavorites}"
+                ToolTip="{Loc ToggleWindows}"
                 Cursor="Hand">
             <Border.Effect>
                 <DropShadowEffect Color="#aaa"
