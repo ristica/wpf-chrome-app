@@ -296,7 +296,7 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- LOGO -->
-                            <Border Grid.Column="0"
+                            <!--<Border Grid.Column="0"
                                     Grid.Row="0"
                                     Margin="1,1,0,0"
                                     Background="{StaticResource MetroBlueBrush}">
@@ -311,7 +311,7 @@
                                                FontSize="12"
                                                FontWeight="Bold" />
                                 </Border>
-                            </Border>
+                            </Border>-->
 
                             <!-- TITLE BAR -->
                             <Border x:Name="PART_TitleBar"

@@ -108,11 +108,12 @@
                                      StartPoint="0.5,0">
                     <GradientStop Color="{StaticResource PrimaryColor}"
                                   Offset="0.0" />
-                    <GradientStop Color="#eeeeee"
+                    <GradientStop Color="#f5f5f5"
                                   Offset=".1"></GradientStop>
-                    <GradientStop Color="#aaa" Offset=".5"></GradientStop>
-                    <GradientStop Color="#555555"
-                                  Offset="0.8" />
+                    <GradientStop Color="#bbb" 
+                                  Offset=".5"></GradientStop>
+                    <GradientStop Color="#888888"
+                                  Offset=".8" />
                     <GradientStop Color="#000000"
                                   Offset="1" />
                 </LinearGradientBrush>
