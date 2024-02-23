@@ -1,9 +1,9 @@
-﻿using System.Windows.Input;
-using Chrome.Common.Contracts;
+﻿using Chrome.Common.Contracts;
+using System.Windows.Input;
 
 namespace Chrome.ViewModels.Commands.Common;
 
-public class CloseWindowCommand(IUserControlParentViewModel? viewModel) : ICommand
+public class ActivateWindowCommand(IUserControlParentViewModel? viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
@@ -12,7 +12,7 @@ public class CloseWindowCommand(IUserControlParentViewModel? viewModel) : IComma
 
     public void Execute(object? parameter)
     {
-        viewModel.DisposeMe();
+        viewModel.GetUserControl()?.OnUserControlActivate();
     }
 
     public event EventHandler? CanExecuteChanged;

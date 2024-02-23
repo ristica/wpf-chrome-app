@@ -1,4 +1,5 @@
-﻿using Chrome.Views.Helpers;
+﻿using Chrome.Common.Contracts;
+using Chrome.Views.Helpers;
 using Chrome.Views.Windows.ShellUserControls;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,30 +11,21 @@ public abstract class BaseUserControl : UserControl
 {
     private int _edgeType;
 
-    protected IInputElement? TopBar { get; set; }
+    public IUserControlParentViewModel? ViewModel { get; protected set; }
 
     protected BaseUserControl()
     {
-        this.Loaded += (s, e) =>
-        {
-            VisualTreeHelperExtension.SetViewsArrangement(this);
-        };
+        Loaded += (s, e) => { VisualTreeHelperExtension.SetViewsArrangement(this); };
     }
 
-    protected abstract void SetTopBar();
-
-    protected void OnUserControlActivated(
-        object sender, 
-        MouseButtonEventArgs e)
+    public void OnUserControlActivate()
     {
         VisualTreeHelperExtension.SetViewsArrangement(this);
     }
 
-    protected void TopBarOnMouseDown(
-        object sender,
-        MouseButtonEventArgs e)
+    public void OnTopBarMouseDown(MouseButtonEventArgs e)
     {
-        var offset = e.GetPosition(TopBar);
+        var offset = e.GetPosition(this);
         var offsetX = offset.X;
         var offsetY = offset.Y;
 
@@ -48,27 +40,21 @@ public abstract class BaseUserControl : UserControl
         main.SizingOffsetY = offsetY;
     }
 
-    protected void MarkerOnMouseDown(
-        object sender,
-        MouseButtonEventArgs e)
+    public void OnMarkerMouseDown(string marker)
     {
-        if (sender is not Border marker) return;
-
-        _edgeType = marker.Name switch
+        _edgeType = marker switch
         {
-            "MarkerLeftTop" => (int)EdgeTypes.TopLeft,
-            "MarkerRightTop" => (int)EdgeTypes.TopRight,
-            "MarkerRightBottom" => (int)EdgeTypes.BottomRight,
-            "MarkerLeftBottom" => (int)EdgeTypes.BottomLeft,
+            "TL" => (int)EdgeTypes.TopLeft,
+            "TR" => (int)EdgeTypes.TopRight,
+            "BR" => (int)EdgeTypes.BottomRight,
+            "BL" => (int)EdgeTypes.BottomLeft,
             _ => (int)EdgeTypes.TopMove
         };
 
-        SetSizing(sender, e);
+        SetSizing();
     }
 
-    protected void MarkerOnMouseLeave(
-        object sender,
-        MouseEventArgs e)
+    public void OnUserControlMouseLeave()
     {
         Cursor = Cursors.Arrow;
     }
@@ -80,9 +66,7 @@ public abstract class BaseUserControl : UserControl
         return mainContentUSerControl;
     }
 
-    private void SetSizing(
-        object sender,
-        MouseButtonEventArgs e)
+    private void SetSizing()
     {
         var main = GetMainUserControlParent() as MainContentUserControl;
 

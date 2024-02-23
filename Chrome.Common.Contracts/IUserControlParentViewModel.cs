@@ -2,6 +2,7 @@
 
 public interface IUserControlParentViewModel
 {
-    void SetDataContext(IUserControlParentViewModel viewModel);
     IUserControl? GetUserControl();
+    void DisposeMe();
+    string WindowTitle { get; set; }
 }

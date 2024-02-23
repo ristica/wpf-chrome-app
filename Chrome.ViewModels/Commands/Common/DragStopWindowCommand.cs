@@ -3,7 +3,7 @@ using Chrome.Common.Contracts;
 
 namespace Chrome.ViewModels.Commands.Common;
 
-public class DragWindowCommand(IParentViewModel viewModel) : ICommand
+public class DragStopWindowCommand(IUserControlParentViewModel? viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
@@ -12,6 +12,7 @@ public class DragWindowCommand(IParentViewModel viewModel) : ICommand
 
     public void Execute(object? parameter)
     {
+        viewModel.GetUserControl()?.OnUserControlMouseLeave();
     }
 
     public event EventHandler? CanExecuteChanged;

@@ -3,7 +3,7 @@ using Chrome.Common.Contracts;
 
 namespace Chrome.ViewModels.Commands.Common;
 
-public class CloseWindowCommand(IUserControlParentViewModel? viewModel) : ICommand
+public class MarkerDeactivateCommand(IUserControlParentViewModel? viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {
@@ -12,7 +12,7 @@ public class CloseWindowCommand(IUserControlParentViewModel? viewModel) : IComma
 
     public void Execute(object? parameter)
     {
-        viewModel.DisposeMe();
+        viewModel.GetUserControl()?.OnUserControlMouseLeave();
     }
 
     public event EventHandler? CanExecuteChanged;

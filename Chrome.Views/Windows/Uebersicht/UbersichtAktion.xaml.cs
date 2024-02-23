@@ -9,18 +9,10 @@ public partial class UbersichtAktion : BaseUserControl, IUebersichtAktionUserCon
     public UbersichtAktion()
     {
         InitializeComponent();
-        SetTopBar();
     }
-
-    public IUserControlParentViewModel? ViewModel { get; private set; }
 
     public void SetDataContext<T>(T? viewModel) where T : IUserControlParentViewModel
     {
         ViewModel = viewModel;
-    }
-
-    protected sealed override void SetTopBar()
-    {
-        //TopBar = PART_TitleBar;
     }
 }

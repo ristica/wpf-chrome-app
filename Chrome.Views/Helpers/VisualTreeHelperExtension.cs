@@ -37,7 +37,7 @@ public static class VisualTreeHelperExtension
 
             var currentIndex = Panel.GetZIndex(child);
             if (currentIndex == 101) continue;
-            
+
             Panel.SetZIndex(child, currentIndex - 1);
         }
 

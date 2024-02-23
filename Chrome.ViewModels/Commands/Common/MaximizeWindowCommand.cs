@@ -4,7 +4,7 @@ using Chrome.Common.Contracts;
 
 namespace Chrome.ViewModels.Commands.Common;
 
-public class MaximizeWindowCommand(IParentViewModel viewModel) : ICommand
+public class MaximizeWindowCommand(IUserControlParentViewModel? viewModel) : ICommand
 {
     public bool CanExecute(object? parameter)
     {

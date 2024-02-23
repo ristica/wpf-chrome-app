@@ -1,38 +1,29 @@
-﻿using Chrome.Common.Contracts;
-using Chrome.ViewModels.Base;
+﻿using Chrome.Dependencies.Contracts;
 using Chrome.ViewModels.Contracts.Uebersicht;
-using Chrome.Views.Contracts;
-using Chrome.Views.Contracts.Uebersicht;
+using Chrome.ViewModels.Contracts;
+using Chrome.ViewModels.Windows.Base;
 
 namespace Chrome.ViewModels.Windows.Uebersicht;
 
-public class UebersichtAktionViewModel : ViewModel, IUebersichtAktionViewModel
+public class UebersichtAktionViewModel : UserControlBaseViewModel, IUebersichtAktionViewModel
 {
-    public IUserControl? UserControl { get; set; }
-
-    public IUserControlParentViewModel? ParentViewModel { get; set; }
-
-    public UebersichtAktionViewModel(IUebersichtAktionUserControl userControl)
+    public UebersichtAktionViewModel(IDependencyContainer container) 
+        : base(container, Constants.WindowIdentifiers.Uebersicht.Aktionen)
     {
-        UserControl = userControl;
+        WindowTitle = "Test Window";
 
-        // further initializations
-        // ...
-
-        UserControl.SetDataContext<IUebersichtAktionViewModel>(this);
+        base.SetWindowInstanceViewModel(this);
     }
 
-    public IUserControl? GetUserControl()
+    public void DisposeMe()
     {
-        return UserControl;
+        this.DisposeViewModel();
     }
 
     protected override void DisposeViewModel()
     {
-    }
-
-    public void SetDataContext(IUserControlParentViewModel viewModel)
-    {
-        ParentViewModel = viewModel;
+        var vm = base.Container.Resolve<IShellViewModel>();
+        vm.Views.Remove(this.GetUserControl());
+        vm.CurrentUserControl = null;
     }
 }

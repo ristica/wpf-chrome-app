@@ -2,7 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors">
     <Application.Resources>
 
         <ResourceDictionary>
@@ -192,7 +192,7 @@
 
             <!-- ******************   LIGHT THEME   *************************** -->
 
-            <Color x:Key="PrimaryColor">#fbfbfb</Color>
+            <Color x:Key="PrimaryColor">#fff</Color>
             <Color x:Key="PrimaryHoverColor">#eeeeee</Color>
             <Color x:Key="SecondaryColor">#212121</Color>
             <Color x:Key="SecondaryHoverColor">#444444</Color>
@@ -279,6 +279,14 @@
                         BorderThickness=".8"
                         BorderBrush="#212121"
                         Background="{StaticResource DefaultBrush}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseDown">
+                            <b:InvokeCommandAction Command="{Binding ViewModel.ActivateWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseLeave">
+                            <b:InvokeCommandAction Command="{Binding ViewModel.LeaveWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
                     <Grid VerticalAlignment="Stretch"
                           HorizontalAlignment="Stretch">
 
@@ -288,7 +296,7 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
-                        <Grid Grid.Row="0" >
+                        <Grid Grid.Row="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition />
@@ -322,11 +330,21 @@
                                     Margin="0"
                                     Cursor="Hand"
                                     Background="{StaticResource DefaultBrush}">
+                                <b:Interaction.Triggers>
+                                    <b:EventTrigger EventName="MouseDown">
+                                        <b:InvokeCommandAction Command="{Binding ViewModel.DragStartWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" 
+                                                               PassEventArgsToCommand="True"/>
+                                    </b:EventTrigger>
+                                    <b:EventTrigger EventName="MouseDown">
+                                        <b:InvokeCommandAction Command="{Binding ViewModel.DragStopWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                               PassEventArgsToCommand="True"/>
+                                    </b:EventTrigger>
+                                </b:Interaction.Triggers>
                                 <TextBlock HorizontalAlignment="Left"
-                                           VerticalAlignment="Stretch"
-                                           Text="{Binding  ViewModel.WindowTitle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                           VerticalAlignment="Center"
+                                           Text="{Binding ViewModel.WindowTitle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
                                            Foreground="{StaticResource ForegroundBrush}"
-                                           Margin="15,0,0,0" />
+                                           Margin="10,0,0,0" />
                             </Border>
                             <Border Grid.Column="2"
                                     Grid.Row="0"
@@ -354,12 +372,11 @@
                                                                  Background="{StaticResource ForegroundHoverBrush}"
                                                                  Padding="0"
                                                                  Margin="0" />
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                <i:InvokeCommandAction
-                                                    Command="{Binding ViewModel.MinimizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="MouseLeftButtonUp">
+                                                <b:InvokeCommandAction Command="{Binding ViewModel.MinimizeWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
                                     </Border>
 
                                     <!-- MAXIMIZE -->
@@ -385,11 +402,11 @@
                                                                      Height="25"
                                                                      Visibility="{Binding ViewModel.CurrentWindowState, UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource WindowStateToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />-->
                                         </Grid>
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                <i:InvokeCommandAction Command="{Binding ViewModel.MaximizeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="MouseLeftButtonUp">
+                                                <b:InvokeCommandAction Command="{Binding ViewModel.MaximizeWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
                                     </Border>
 
                                     <!-- CLOSE -->
@@ -465,12 +482,11 @@
                                                 </EventTrigger>
                                             </materialDesign:PackIcon.Triggers>
                                         </materialDesign:PackIcon>
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                <i:InvokeCommandAction
-                                                    Command="{Binding ViewModel.CloseCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="MouseLeftButtonUp">
+                                                <b:InvokeCommandAction Command="{Binding ViewModel.CloseWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
                                     </Border>
 
                                 </StackPanel>
@@ -487,10 +503,10 @@
                         <Border Grid.Row="2"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
-                                Padding="20,5"
+                                Padding="0"
                                 Background="{StaticResource DefaultBrush}"
                                 CornerRadius="0,0,4,4">
-                            <Grid>
+                            <Grid Height="25">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition Width="Auto" />
@@ -502,9 +518,85 @@
                                            VerticalAlignment="Center"
                                            Foreground="{StaticResource ForegroundBrush}" />
 
+                                <!-- RESIZING HANDLERS -->
+                                <Border x:Name="MarkerRightBottom"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Bottom"
+                                        Width="10"
+                                        Height="10"
+                                        Background="#03000000"
+                                        Cursor="SizeNWSE">
+                                    <b:Interaction.Triggers>
+                                        <b:EventTrigger EventName="MouseDown">
+                                            <b:InvokeCommandAction Command="{Binding ViewModel.MarkerActivateCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                                   CommandParameter="BR" />
+                                        </b:EventTrigger>
+                                        <b:EventTrigger EventName="MouseLeave">
+                                            <b:InvokeCommandAction Command="{Binding ViewModel.MarkerDeactivateCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                                   CommandParameter="BR" />
+                                        </b:EventTrigger>
+                                    </b:Interaction.Triggers>
+                                </Border>
+                                <Border x:Name="MarkerLeftBottom"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Bottom"
+                                        Width="10"
+                                        Height="10"
+                                        Background="#03000000"
+                                        Cursor="SizeNESW">
+                                    <b:Interaction.Triggers>
+                                        <b:EventTrigger EventName="MouseDown">
+                                            <b:InvokeCommandAction Command="{Binding ViewModel.MarkerActivateCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                                   CommandParameter="BL" />
+                                        </b:EventTrigger>
+                                        <b:EventTrigger EventName="MouseLeave">
+                                            <b:InvokeCommandAction Command="{Binding ViewModel.MarkerDeactivateCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                                   CommandParameter="BL" />
+                                        </b:EventTrigger>
+                                    </b:Interaction.Triggers>
+                                </Border>
+
                             </Grid>
                         </Border>
 
+                        <!-- RESIZING HANDLERS -->
+                        <Border x:Name="MarkerLeftTop"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Width="10"
+                                Height="10"
+                                Background="#03000000"
+                                Cursor="SizeNWSE">
+                            <b:Interaction.Triggers>
+                                <b:EventTrigger EventName="MouseDown">
+                                    <b:InvokeCommandAction Command="{Binding ViewModel.MarkerActivateCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" 
+                                                           CommandParameter="TL"/>
+                                </b:EventTrigger>
+                                <b:EventTrigger EventName="MouseLeave">
+                                    <b:InvokeCommandAction Command="{Binding ViewModel.MarkerDeactivateCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" 
+                                                           CommandParameter="TL"/>
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </Border>
+                        <Border x:Name="MarkerRightTop"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Width="10"
+                                Height="10"
+                                Background="#03000000"
+                                Cursor="SizeNESW">
+                            <b:Interaction.Triggers>
+                                <b:EventTrigger EventName="MouseDown">
+                                    <b:InvokeCommandAction Command="{Binding ViewModel.MarkerActivateCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                           CommandParameter="TR" />
+                                </b:EventTrigger>
+                                <b:EventTrigger EventName="MouseLeave">
+                                    <b:InvokeCommandAction Command="{Binding ViewModel.MarkerDeactivateCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                           CommandParameter="TR" />
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </Border>
+                        
                     </Grid>
                 </Border>
             </ControlTemplate>

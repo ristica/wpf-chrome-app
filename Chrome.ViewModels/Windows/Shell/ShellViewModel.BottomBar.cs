@@ -26,10 +26,10 @@ public partial class ShellViewModel
 
     public bool IsBottomBarExpanded
     {
-        get => this._isBottomBarExpanded;
+        get => _isBottomBarExpanded;
         set
         {
-            this._isBottomBarExpanded = value;
+            _isBottomBarExpanded = value;
             OnPropertyChanged();
         }
     }
