@@ -5,7 +5,7 @@ public interface IDependencyContainer : IDisposable
     TRequested Resolve<TRequested>()
         where TRequested : class;
 
-    TRequested Resolve<TRequested>(string identifier)
+    TRequested? Resolve<TRequested>(string identifier)
         where TRequested : class;
 
     IDependencyContainer RegisterType<TInterface, TImplementation>()

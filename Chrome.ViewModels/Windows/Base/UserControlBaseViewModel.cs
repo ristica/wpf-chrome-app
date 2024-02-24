@@ -19,6 +19,7 @@ public abstract class UserControlBaseViewModel(IDependencyContainer container, s
 
     private IUserControlParentViewModel? CurrentWindowViewModel { get; set; }
     public required string WindowTitle { get; set; }
+    public required string WindowIdentifier { get; set; }
 
     #endregion
 

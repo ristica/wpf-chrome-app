@@ -12,7 +12,7 @@ public class CloseWindowCommand(IUserControlParentViewModel? viewModel) : IComma
 
     public void Execute(object? parameter)
     {
-        viewModel.DisposeMe();
+        viewModel?.DisposeMe();
     }
 
     public event EventHandler? CanExecuteChanged;

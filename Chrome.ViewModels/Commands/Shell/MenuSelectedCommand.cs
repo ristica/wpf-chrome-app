@@ -1,6 +1,5 @@
 ﻿using Chrome.ViewModels.Contracts;
 using System.Windows.Input;
-using Chrome.Constants;
 
 namespace Chrome.ViewModels.Commands.Shell;
 
@@ -14,10 +13,7 @@ public class MenuSelectedCommand(IShellViewModel viewModel) : ICommand
     public void Execute(object? parameter)
     {
         if (parameter == null) return;
-
-        // ToDo: at the time only one implementation !!!
-        if (parameter.ToString()!.Equals(WindowIdentifiers.Uebersicht.Aktionen))
-            viewModel.OpenView(parameter.ToString()!);
+        viewModel.AddView(parameter.ToString()!);
     }
 
     public event EventHandler? CanExecuteChanged;

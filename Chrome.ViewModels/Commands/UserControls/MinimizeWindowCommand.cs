@@ -10,7 +10,6 @@ public class MinimizeWindowCommand(IUserControlParentViewModel? viewModel) : ICo
         return true;
     }
 
-
     public void Execute(object? parameter)
     {
     }

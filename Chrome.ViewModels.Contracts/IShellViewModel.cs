@@ -16,11 +16,12 @@ public interface IShellViewModel : IParentViewModel
     IUserControl? CurrentUserControl { get; set; }
     ObservableCollection<MenuModel>? Favorites { get; }
     ObservableCollection<CustomerUiModel>? Customers { get; }
-    ObservableCollection<IUserControl?> Views { get; }
+    ObservableCollection<IUserControl?>? Views { get; }
     IEnumerable<string>? SearchByFilteredItems { get; }
     SelectedMenuItem? SelectedMenu { get; set; }
 
-    void OpenView(string windowIdentifier);
+    void AddView(string windowIdentifier);
+    void RemoveView(string windowIdentifier);
     void AddFavorite(MenuModel? item);
     void RemoveFavorite(MenuModel? item);
     void CultureChanged(string cultureName);

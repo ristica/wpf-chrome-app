@@ -6,6 +6,7 @@ using Chrome.Constants;
 using Chrome.Models;
 using Chrome.ViewModels.Commands.Shell;
 using Chrome.ViewModels.Design_Data;
+using Localization.WPF;
 using MaterialDesignThemes.Wpf;
 
 namespace Chrome.ViewModels.Windows.Shell;
@@ -24,6 +25,8 @@ public partial class ShellViewModel
     #endregion
 
     #region PROPERTIES
+
+    public string CurrentCultureName => LocalizationManager.CurrentCulture.Name;
 
     public bool SnackBarIsActive
     {
@@ -102,6 +105,12 @@ public partial class ShellViewModel
     #endregion
 
     #region METHODS
+
+    public void CultureChanged(string cultureName)
+    {
+        OnPropertyChanged(nameof(CurrentCultureName));
+        LoadMenuItems();
+    }
 
     public void AddFavorite(MenuModel? item)
     {
